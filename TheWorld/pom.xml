@@ -19,4 +19,9 @@
       </plugin>
     </plugins>
   </build>
+  <url>http://gold-experience.herokuapp.com/</url>
+  <organization>
+  	<name>RoadRoller</name>
+  	<url>http://gold-experience.herokuapp.com/</url>
+  </organization>
 </project>
