@@ -1,2 +1,13 @@
-/build
-/target
+*.jar
+*.war
+*.ear
+*.class
+
+build/
+
+target/
+
+.classpath
+.settings/
+.project
+.metadata
