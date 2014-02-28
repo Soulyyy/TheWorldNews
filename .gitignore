@@ -2,6 +2,7 @@
 *.war
 *.ear
 *.class
+*.iml
 
 build/
 
@@ -13,3 +14,5 @@ target/
 .project
 .metadata
 /bin
+.idea/
+.git/

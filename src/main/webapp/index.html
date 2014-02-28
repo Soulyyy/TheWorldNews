@@ -1,8 +1,9 @@
 <html>
 <head>
 <title>THE WORLD</title>
-<link rel="stylesheet" type="text/css" href="/styles/cssData/layout.css">
-
+<link rel="stylesheet" type="text/css" href="./styles/cssData/layout.css">
+<script src="./js/mainPage.js" type="text/javascript"></script>
+<script src="lib/jquery-1.10.0.min.js"></script>
 </head>
 
 <body>
@@ -26,32 +27,35 @@
 <div class="navigation">
     <nav>
 	  <ul>
-		  <li><a href="/styles/htmlData/News.html">News</a></li>
-		  <li><a href="/styles/htmlData/Business.html">Business</a></li>
-		  <li><a href="styles/htmlData/Sports.html">Sports</a></li>
-		  <li><a href="styles/htmlData/Science.html">Science</a></li>
-          <li><a href="styles/htmlData/Arts.html">Arts</a></li>
-          <li><a href="styles/htmlData/FashionStyle.html">Fashion &amp; Style</a></li>
+          <li><a href="" onclick="swapPage('#subCategory','testArts.html #Arts')">News</a> </li>
+		  <!--<li><a href="./styles/htmlData/News.html">News</a></li>-->
+		  <li><a href="./styles/htmlData/Business.html">Business</a></li>
+		  <li><a href="./styles/htmlData/Sports.html">Sports</a></li>
+		  <li><a href="./styles/htmlData/Science.html">Science</a></li>
+          <li><a href="./styles/htmlData/Arts.html">Arts</a></li>
+          <li><a href="./styles/htmlData/FashionStyle.html">Fashion &amp; Style</a></li>
 	</ul>
       </nav>
       </div>
-    <div id="article">
-    <article> <h2>A man was crushed by a road roller - witnesses say it was thrown on him!</h2>
-    <p>In Egypt, Cairo, several witnesses report a road roller flying through the air and crushing a man. Local authorities have no comments on the situation.</p>
-    <by>By Jotaro Kujo</by>
-    </article>
-    
-        <article id="main"> <h2>Mysterious stone masks discovered in ancient Mayan ruins.</h2> 
-    <p>Dire Straits, an archaeologist and a martial artist, found stone masks in long lost Mayan ruins. The masks were immediately taken by The Speedwagon Foundation to an undisclosed location to be examined.</p>
-    <by>By Robert Edward O. Speedwagon</by>
-    </article>
-    
-    <article id="sidebar"> <h2>Exclusive interview with a pimp.</h2> 
-    <p>Successful entrepreneur "Pimp named Slickback" talks about his daily hustlin and the pros and cons that follow his lifestyle. �It ain�t easy�, says Slickback. </p>
-    <by>By Da Police</by>
-    </article>
-    </div>
+<div id=" subCategory"></div>
+    <div id="articleGroup">
+        <div id="article">
+        <article> <h2>A man was crushed by a road roller - witnesses say it was thrown on him!</h2>
+        <p>In Egypt, Cairo, several witnesses report a road roller flying through the air and crushing a man. Local authorities have no comments on the situation.</p>
+        <by>By Jotaro Kujo</by>
+        </article>
 
+            <article id="main"> <h2>Mysterious stone masks discovered in ancient Mayan ruins.</h2>
+        <p>Dire Straits, an archaeologist and a martial artist, found stone masks in long lost Mayan ruins. The masks were immediately taken by The Speedwagon Foundation to an undisclosed location to be examined.</p>
+        <by>By Robert Edward O. Speedwagon</by>
+        </article>
+
+        <article id="sidebar"> <h2>Exclusive interview with a pimp.</h2>
+        <p>Successful entrepreneur "Pimp named Slickback" talks about his daily hustlin and the pros and cons that follow his lifestyle. �It ain�t easy�, says Slickback. </p>
+        <by>By Da Police</by>
+        </article>
+        </div>
+    </div>
     <footer> <p>&nbsp;</p> </footer>
 
 
