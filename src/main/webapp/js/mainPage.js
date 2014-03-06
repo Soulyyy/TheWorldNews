@@ -7,69 +7,48 @@ $("a").click(function swapPage(target, source) {
     $(target).load(myUrl);
 })
  
+  function handleClientLoad() {
+	gapi.client.setApiKey(apiKey);
+	window.setTimeout(checkAuth,1);
+  }
 
-function login() {
-	var win         =   window.open(_url, "windowname1", 'width=800, height=600'); 
+  function checkAuth() {
+	gapi.auth.authorize({client_id: clientId, scope: scopes, immediate: true}, handleAuthResult);
+  }
 
-	var pollTimer   =   window.setInterval(function() { 
-		try {
-			console.log(win.document.URL);
-			if (win.document.URL.indexOf(REDIRECT) != -1) {
-				window.clearInterval(pollTimer);
-				var url =   win.document.URL;
-				acToken =   gup(url, 'access_token');
-				tokenType = gup(url, 'token_type');
-				expiresIn = gup(url, 'expires_in');
-				win.close();
+  function handleAuthResult(authResult) {
+	var authorizeButton = document.getElementById('authorize-button');
+	if (authResult && !authResult.error) {
+	  authorizeButton.style.visibility = 'hidden';
+	  makeApiCall();
+	} else {
+	  authorizeButton.style.visibility = '';
+	  authorizeButton.onclick = handleAuthClick;
+	}
+  }
 
-				validateToken(acToken);
-			}
-		} catch(e) {
-		}
-	}, 500);
-}
+  function handleAuthClick(event) {
+	gapi.auth.authorize({client_id: clientId, scope: scopes, immediate: false}, handleAuthResult);
+	return false;
+  }
 
-function validateToken(token) {
-	$.ajax({
-		url: VALIDURL + token,
-		data: null,
-		success: function(responseText){  
-			getUserInfo();
-			loggedIn = true;
-			$('#loginText').hide();
-			$('#logoutText').show();
-		},  
-		dataType: "jsonp"  
+  function makeApiCall() {
+	gapi.client.load('plus', 'v1', function() {
+	  var request = gapi.client.plus.people.get({
+		'userId': 'me'
+	  });
+	  request.execute(function(resp) {
+		user = resp;
+		console.log(user);
+		$('#logoutText').show();
+		$('#uName').text('Logged in as ' + user.displayName);
+	  });
 	});
-}
-
-function getUserInfo() {
-	$.ajax({
-		url: 'https://www.googleapis.com/oauth2/v1/userinfo?access_token=' + acToken,
-		data: null,
-		success: function(resp) {
-			user    =   resp;
-			console.log(user);
-			$('#uName').text('Logged in as ' + user.name);
-		},
-		dataType: "jsonp"
-	});
-}
-
-function gup(url, name) {
-	name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
-	var regexS = "[\\#&]"+name+"=([^&#]*)";
-	var regex = new RegExp( regexS );
-	var results = regex.exec( url );
-	if( results == null )
-		return "";
-	else
-		return results[1];
-}
-
-function startLogoutPolling() {
-	$('#loginText').show();
+  }
+  function startLogoutPolling() {
+	var authorizeButton = document.getElementById('authorize-button');
+	authorizeButton.style.visibility = '';
 	$('#logoutText').hide();
-	loggedIn = false;
+ 
 	$('#uName').text('Not logged in.');
-}
+  }

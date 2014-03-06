@@ -1,37 +1,31 @@
 <!DOCTYPE html> 
+<html>
 <head>
-<title>THE WORLD</title>
-<link rel="stylesheet" type="text/css" href="./styles/cssData/layout.css">
-<script src="./js/mainPage.js" type="text/javascript"></script>
-<script src="lib/jquery-1.10.0.min.js"></script>
-<script src="jquery.js"></script>
-<script>
-	var OAUTHURL    =   'https://accounts.google.com/o/oauth2/auth?';
-	var VALIDURL    =   'https://www.googleapis.com/oauth2/v1/tokeninfo?access_token=';
-	var SCOPE       =   'https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email';
-	var CLIENTID    =   '510213468349-6npga48p58v7rr3s50p0smnp7e6dho5m.apps.googleusercontent.com';
-	var REDIRECT    =   'http://gold-experience.herokuapp.com/'
-	var LOGOUT      =   'http://accounts.google.com/Logout';
-	var TYPE        =   'token';
-	var _url        =   OAUTHURL + 'scope=' + SCOPE + '&client_id=' + CLIENTID + '&redirect_uri=' + REDIRECT + '&response_type=' + TYPE;
-	var acToken;
-	var tokenType;
-	var expiresIn;
-	var user;
-	var loggedIn    =   false;
-</script>
+	<title>The World</title>
+	<meta charset='utf-8' />
+	<link rel="stylesheet" type="text/css" href="./styles/cssData/layout.css">
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	<script src="./js/mainPage.js" type="text/javascript"></script>
 </head>
 
 <body>
 
+<script type="text/javascript">
+  var clientId = '510213468349-6npga48p58v7rr3s50p0smnp7e6dho5m.apps.googleusercontent.com';
+  var apiKey = 'AIzaSyD7HJs0zDCJKqLcLIK5ok5uAAm33cubOGs';
+  var scopes = 'https://www.googleapis.com/auth/plus.me';
+</script>
+
+<script src="https://apis.google.com/js/client.js?onload=handleClientLoad"></script>
+
 <div class="header">
 		<header><a href="index.html">THE WORLD</a></header>
         
-        <button id="LogIn" type="button" onClick="login()">Log In</button>
+        <button id="authorize-button" style="visibility: hidden">Log In</button>
         <!--Yo, listen up, this is the button that functions as the Log In button-->
                 
                 
-        <button  id="settings" type="submit"></button>
+        <button  id="settings" type="submit">Settings</button>
         <!--Yo, listen up, this is the button that functions as the Settings button-->
  
 </div>
@@ -98,13 +92,12 @@
         
 	</div>
 </div>
-    <footer> <p>&nbsp;</p> </footer>
+<footer> <p>&nbsp;</p> </footer>
 
-	<p  id="uName" style="display:none">	test </p>
-    <a href='#' onClick='login();'> Click here to login with Google </a>
-	<a href="#" style="display:none" id="logoutText" target='myIFrame' onClick="myIFrame.location='https://www.google.com/accounts/Logout'; startLogoutPolling();return false;"> Click here to logout </a>
-    <iframe name='myIFrame' id="myIFrame" style='display:none'></iframe>
+<p  id="uName"> Not logged in. </p>
+
+<a href="#" style="display:none" id="logoutText" target='myIFrame' onClick="myIFrame.location='https://www.google.com/accounts/Logout'; startLogoutPolling();return false;"> Click here to logout </a>
+<iframe name='myIFrame' id="myIFrame" style='display:none'></iframe>
  
-
 </body>
 </html>
