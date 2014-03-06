@@ -2,7 +2,7 @@
 <html>
 <head>
 	<title>The World</title>
-	<meta charset="utf-8">
+	<meta charset='utf-8' />
 	<link rel="stylesheet" type="text/css" href="./styles/cssData/layout.css">
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 	<script src="./js/mainPage.js" type="text/javascript"></script>
@@ -19,7 +19,7 @@
 <script src="https://apis.google.com/js/client.js?onload=handleClientLoad"></script>
 
 <div class="header">
-		<header id="Head"><a href="index.html">THE WORLD</a></header>
+		<header><a href="index.html">THE WORLD</a></header>
         
         <button id="authorize-button" style="visibility: hidden">Log In</button>
         <!--Yo, listen up, this is the button that functions as the Log In button-->
@@ -32,12 +32,11 @@
 
 
 <div class="search">
- <!--form needs to have an action defined-->
-	<p><form action="search" class="form-wrapper">
-    <input type="text" id="search" placeholder="Search ">
-<!--this error man, this error-->
+  
+	<form class="form-wrapper">
+    <input type="text" id="search" placeholder="Search " required>
     <input type="submit" value="Go" id="submit">
-		</form></p>
+		</form>
 
 </div>
 
@@ -46,7 +45,7 @@
 </div>
 
 <div class="navigation">
-	<nav class="navigation">
+	<nav>
 		<ul>
 			<li><a href="" onClick="swapPage('#subCategory','testArts.html #Arts')">News</a> </li>
 			<!--<li><a href="./styles/htmlData/News.html">News</a></li>-->
@@ -61,7 +60,7 @@
 
 <div id="articleGroup">
 	<div id="article">
-		<article class="article">
+		<article>
         
         	<h2>A man was crushed by a road roller - witnesses say it was thrown on him!</h2>
         
@@ -71,7 +70,7 @@
             
 		</article>
 
-		<article class="article">
+		<article id="main">
         
         	<h2>Mysterious stone masks discovered in ancient Mayan ruins.</h2>
             
@@ -81,7 +80,7 @@
             
         </article>
 
-        <article class="article">
+        <article id="sidebar">
         
         	<h2>Exclusive interview with a pimp.</h2>
             
@@ -93,9 +92,9 @@
         
 	</div>
 </div>
-<footer class="footer"> <p>&nbsp;</p> </footer>
+<footer> <p>&nbsp;</p> </footer>
 
-<p>  id="uName"> Not logged in. </p>
+<p  id="uName"> Not logged in. </p>
 
 <a href="#" style="display:none" id="logoutText" target='myIFrame' onClick="myIFrame.location='https://www.google.com/accounts/Logout'; startLogoutPolling();return false;"> Click here to logout </a>
 <iframe name='myIFrame' id="myIFrame" style='display:none'></iframe>
