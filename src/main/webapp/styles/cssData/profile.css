@@ -6,9 +6,6 @@ html,body
 	width:75%;
 	overflow-x:hidden;
 	}
-	
-	
-
 
 header {
 	float:left;
@@ -108,7 +105,7 @@ by{
 
 
 div.profile {
-	width: 95%;
+	width: 100%;
 	}
 	
 div.profile div {
@@ -117,15 +114,17 @@ div.profile div {
 	
 div.profileSettings {
 	width:25%;
-	height:400px;;
+	height:800px;;
 	background-color:#CCC;
 	}
 	
 div.profileOptions {
-	width:75%;
-	height:400px;;
+	height:800px;;
 	background-color:#FFF;
+	width: 75%;
 	}
+	
+
 	
 div.clear {
 	clear: both;
@@ -148,7 +147,7 @@ li.profileList {
 
 li.profileList a {
 	text-decoration: none;
-	color:#999;
+	color: #666;
 	font: 20px/1 Helvetica, Verdana, sans-serif;
 	text-transform: uppercase;
 	-webkit-transition: all 0.5s ease;
@@ -159,10 +158,20 @@ li.profileList a {
 	}
  
 li.profileList a:hover {
-	color: #666;
+	color: #333;
 	}
 
 li.profileList.active a {
 	font-weight: bold;
 	color: #333;
 	}
+	
+form.options {
+	display: block;
+	margin: 0 auto;
+	padding:20px;
+	width:400px;
+	
+	}
+	
+
