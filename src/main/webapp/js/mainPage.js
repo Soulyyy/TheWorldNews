@@ -2,12 +2,25 @@
  * Created by kasutaja on 28.02.14.
  */
 
-$("a").click(function swapPage(target, source) {
-    var myUrl = $(this).attr("href") + "source"
-    $(target).load(myUrl);
-})
- 
-  function handleClientLoad() {
+function swapPage(id, file) {
+    console.log("EnterMethod"+id);
+    $.ajax({
+        type:"GET",
+        url:'./styles/htmlData/'+ file+".html",
+        data:{"id":id},
+        crossDomain:true,
+        success: function(data) {
+
+            var externalHTML = document.getElementById("articleGroup");
+            console.log(data);
+            //$('#subCategory').html($("#"+id).html(data));
+            externalHTML.innerHTML=data;
+        }
+
+    });
+}
+
+    function handleClientLoad() {
 	gapi.client.setApiKey(apiKey);
 	window.setTimeout(checkAuth,1);
   }
