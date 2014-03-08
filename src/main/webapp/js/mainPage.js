@@ -2,23 +2,29 @@
  * Created by kasutaja on 28.02.14.
  */
 
-function swapPage(id, file) {
-    console.log("EnterMethod"+id);
-    $.ajax({
-        type:"GET",
-        url:'./styles/htmlData/'+ file+".html",
-        data:{"id":id},
-        crossDomain:true,
-        success: function(data) {
+$(this).ready(function(){
+    console.log("HERENAW");
+    $('a[menuItem]').click(function() {
+        console.log("FOUND");
+        var id=3;
+        console.log("EnterMethod"+id);
+        console.log(this);
+        $.ajax({
+            type:"GET",
+            url:'./styles/htmlData/'+ $(this).attr('menuItem')+".html",
+            data:{"id":id},
+            crossDomain:true,
+            success: function(data) {
 
-            var externalHTML = document.getElementById("articleGroup");
-            console.log(data);
-            //$('#subCategory').html($("#"+id).html(data));
-            externalHTML.innerHTML=data;
-        }
+                var externalHTML = document.getElementById("articleGroup");
+                console.log(data);
+                //$('#subCategory').html($("#"+id).html(data));
+                externalHTML.innerHTML=data;
+            }
 
-    });
-}
+        });
+    })
+})
 
     function handleClientLoad() {
 	gapi.client.setApiKey(apiKey);
