@@ -110,3 +110,7 @@ by{
 article {
 	width:95%;
 }
+
+#clear {
+    clear:both;
+}

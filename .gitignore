@@ -16,3 +16,6 @@ target/
 /bin
 .idea/
 .git/
+
+.project
+TheWorldNews.iml

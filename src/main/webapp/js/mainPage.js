@@ -63,10 +63,9 @@ $(this).ready(function(){
 	  });
 	});
   }
-  
-$(this).ready(function(){
-	console.log("Enter Method");
-	$('a[curSite]').click(function() {
+
+function startLogoutPolling() {
+        console.log("Enter");
 		console.log(this);
 		console.log($(this).attr('curSite'));
 		//myIFrame.location='https://www.google.com/accounts/Logout';
@@ -76,5 +75,17 @@ $(this).ready(function(){
 		$('#logoutText').hide();
  
 		$('#uName').text('Not logged in.');
-	});
+}
+
+/*We need to wrap everything...
+Also, this is the page, it works
+*/
+$(this).ready(function() {
+    $('#logoutText').click(function() {
+        console.log('Loaded');
+        myIFrame.location='https://www.google.com/accounts/Logout'
+        startLogoutPolling();
+        console.log(this);
+    });
 });
+
