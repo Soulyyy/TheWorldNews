@@ -21,7 +21,7 @@
 <div class="header">
 		<header id="Head"><a href="#" menuItem="News">THE WORLD</a></header>
         
-        <button id="authorize-button" style="visibility: hidden">Log In</button>
+        <button id="authorize-button">Log In</button>
 
         <button  id="settings" type="submit">Settings</button>
 
@@ -42,9 +42,6 @@
 
 </div>
 
-<div style="clear:both;">
-
-</div>
 
 <div class="navigation">
 		<ul>
@@ -96,8 +93,8 @@
 
 <p id="uName"> Not logged in. </p>
 
-<a href="#" style="display:none" id="logoutText" target='myIFrame' onClick="myIFrame.location='https://www.google.com/accounts/Logout'; startLogoutPolling();return false;"> Click here to logout </a>
-<iframe name='myIFrame' id="myIFrame" style='display:none'></iframe>
+<a href="#" id="logoutText" target='myIFrame' onClick="myIFrame.location='https://www.google.com/accounts/Logout'; startLogoutPolling();return false;"> Click here to logout </a>
+<iframe name='myIFrame' id="myIFrame"></iframe>
  
 </body>
 </html>

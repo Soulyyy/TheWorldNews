@@ -30,6 +30,7 @@ header a {
 	}
 
 #authorize-button {
+	visibility:hidden;
 	float:left;
 	text-decoration: none;
 	color:#999;
@@ -38,6 +39,13 @@ header a {
 	background-color:#FFF;
 	border:none;
 	transition: all 0.5s ease;
+	}
+#logOutText{
+	display:none;
+	}
+
+#myIFrame {
+	display:none;
 	}
  
 #LogIn:hover {
