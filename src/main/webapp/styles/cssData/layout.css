@@ -51,7 +51,9 @@ header a {
 #LogIn:hover {
 	color: #666;
 	}
-	
+div.navigation{
+	clear:both;
+}
 
 ul {
 	overflow: auto;
