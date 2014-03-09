@@ -42,6 +42,7 @@ header a {
 	
 	
 #logOutText{
+    visibility:hidden ;
 	display:none;
 	}
 
