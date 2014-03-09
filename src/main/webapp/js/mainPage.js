@@ -10,7 +10,7 @@ $(this).ready(function(){
         //console.log(this);
         $.ajax({
             type:"GET",
-            url:'./styles/htmlData/'+ $(this).attr('menuItem')+".html",
+            url:'./html/'+ $(this).attr('menuItem')+".html",
             data:{"id":id},
             crossDomain:true,
             success: function(data) {
