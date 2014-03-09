@@ -3,12 +3,11 @@
  */
 
 $(this).ready(function(){
-    console.log("HERENAW");
     $('a[menuItem]').click(function() {
-        console.log("FOUND");
+        //console.log("FOUND");
         var id=3;
-        console.log("EnterMethod"+id);
-        console.log(this);
+        //console.log("EnterMethod"+id);
+        //console.log(this);
         $.ajax({
             type:"GET",
             url:'./styles/htmlData/'+ $(this).attr('menuItem')+".html",
@@ -17,14 +16,14 @@ $(this).ready(function(){
             success: function(data) {
 
                 var externalHTML = document.getElementById("articleGroup");
-                console.log(data);
+                //console.log(data);
                 //$('#subCategory').html($("#"+id).html(data));
                 externalHTML.innerHTML=data;
             }
 
         });
-    })
-})
+    });
+});
 
     function handleClientLoad() {
 	gapi.client.setApiKey(apiKey);
@@ -64,10 +63,18 @@ $(this).ready(function(){
 	  });
 	});
   }
-  function startLogoutPolling() {
-	var authorizeButton = document.getElementById('authorize-button');
-	authorizeButton.style.visibility = '';
-	$('#logoutText').hide();
+  
+$(this).ready(function(){
+	console.log("Enter Method");
+	$('a[curSite]').click(function() {
+		console.log(this);
+		console.log($(this).attr('curSite'));
+		//myIFrame.location='https://www.google.com/accounts/Logout';
+		document.location.href = "https://www.google.com/accounts/Logout?continue="+$(this).attr('curSite');
+		var authorizeButton = document.getElementById('authorize-button');
+		authorizeButton.style.visibility = '';
+		$('#logoutText').hide();
  
-	$('#uName').text('Not logged in.');
-  }
+		$('#uName').text('Not logged in.');
+	});
+});
