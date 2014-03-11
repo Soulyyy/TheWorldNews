@@ -68,9 +68,7 @@ function startLogoutPolling() {
         console.log("Enter");
 		console.log(this);
 		console.log($(this).attr('curSite'));
-		//myIFrame.location='https://www.google.com/accounts/Logout';
-		//document.location.href = "https://www.google.com/accounts/Logout?continue="+$(this).attr('curSite');
-		document.location.href = "https://www.google.com/accounts/Logout?continue=https://appengine.google.com/_ah/logout?continue="+$(this).attr('curSite');
+		document.location.href = "https://www.google.com/accounts/Logout?continue=https://appengine.google.com/_ah/logout?continue=http://gold-experience.herokuapp.com/";
 		var authorizeButton = document.getElementById('authorize-button');
 		authorizeButton.style.visibility = '';
 		$('#logoutText').hide();
