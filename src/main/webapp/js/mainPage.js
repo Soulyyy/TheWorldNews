@@ -69,7 +69,8 @@ function startLogoutPolling() {
 		console.log(this);
 		console.log($(this).attr('curSite'));
 		//myIFrame.location='https://www.google.com/accounts/Logout';
-		document.location.href = "https://www.google.com/accounts/Logout?continue="+$(this).attr('curSite');
+		//document.location.href = "https://www.google.com/accounts/Logout?continue="+$(this).attr('curSite');
+		document.location.href = "https://www.google.com/accounts/Logout?continue=https://appengine.google.com/_ah/logout?continue="+$(this).attr('curSite');
 		var authorizeButton = document.getElementById('authorize-button');
 		authorizeButton.style.visibility = '';
 		$('#logoutText').hide();
