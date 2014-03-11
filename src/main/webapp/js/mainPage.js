@@ -83,13 +83,10 @@ function startLogoutPolling() {
 		$('#uName').text('Not logged in.');
 }
 
-/*We need to wrap everything...
-Also, this is the page, it works
-*/
 $(this).ready(function() {
     $('#logoutText').click(function() {
         console.log('Loaded');
-        //myIFrame.location='https://www.google.com/accounts/Logout';
+ 
         startLogoutPolling();
         console.log(this);
     });
