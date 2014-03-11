@@ -87,7 +87,7 @@ function startLogoutPolling() {
 $(this).ready(function() {
     $('#logoutText').click(function() {
         console.log('Loaded');
-        //myIFrame.location='https://www.google.com/accounts/Logout';
+ 
         startLogoutPolling();
         console.log(this);
     });
