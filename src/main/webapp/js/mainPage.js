@@ -40,6 +40,7 @@ $(this).ready(function(){
 	  authorizeButton.style.visibility = 'hidden';
 	  makeApiCall();
 	} else {
+	  //$('#logoutText').hide();
 	  authorizeButton.style.visibility = '';
 	  authorizeButton.onclick = handleAuthClick;
 	}
@@ -65,13 +66,19 @@ $(this).ready(function(){
   }
 
 function startLogoutPolling() {
+		$('#logoutText').hide();
         console.log("Enter");
 		console.log(this);
 		console.log($(this).attr('curSite'));
-		document.location.href = "https://www.google.com/accounts/Logout?continue=https://appengine.google.com/_ah/logout?continue=http://gold-experience.herokuapp.com/index.html";
+		myw = window.open('https://www.google.com/accounts/logout','logout_from_google','width=500,height=600,menubar=no,status=no,location=no,toolbar=no,scrollbars=no,top=20,left=200');
+
+ 
+		
 		var authorizeButton = document.getElementById('authorize-button');
+ 
 		authorizeButton.style.visibility = '';
-		$('#logoutText').hide();
+ 
+		
  
 		$('#uName').text('Not logged in.');
 }
