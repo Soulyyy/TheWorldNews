@@ -70,8 +70,6 @@ function startLogoutPolling() {
         console.log("Enter");
 		console.log(this);
 		console.log($(this).attr('curSite'));
-		myw = window.open('https://www.google.com/accounts/logout','logout_from_google','width=500,height=600,menubar=no,status=no,location=no,toolbar=no,scrollbars=no,top=20,left=200');
-
  
 		
 		var authorizeButton = document.getElementById('authorize-button');
@@ -87,6 +85,7 @@ function startLogoutPolling() {
 $(this).ready(function() {
     $('#logoutText').click(function() {
         console.log('Loaded');
+		myIFrame.location='https://www.google.com/accounts/Logout';
  
         startLogoutPolling();
         console.log(this);
