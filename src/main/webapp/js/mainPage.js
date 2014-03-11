@@ -1,6 +1,6 @@
 /**
- * Created by kasutaja on 28.02.14.
- */
+* Created by kasutaja on 28.02.14.
+*/
 
 $(this).ready(function(){
     $('a[menuItem]').click(function() {
@@ -26,69 +26,65 @@ $(this).ready(function(){
 });
 
     function handleClientLoad() {
-	gapi.client.setApiKey(apiKey);
-	window.setTimeout(checkAuth,1);
+gapi.client.setApiKey(apiKey);
+window.setTimeout(checkAuth,1);
   }
 
   function checkAuth() {
-	gapi.auth.authorize({client_id: clientId, scope: scopes, immediate: true}, handleAuthResult);
+gapi.auth.authorize({client_id: clientId, scope: scopes, immediate: true}, handleAuthResult);
   }
 
   function handleAuthResult(authResult) {
-	var authorizeButton = document.getElementById('authorize-button');
-	if (authResult && !authResult.error) {
-	  authorizeButton.style.visibility = 'hidden';
-	  makeApiCall();
-	} else {
-	  //$('#logoutText').hide();
-	  authorizeButton.style.visibility = '';
-	  authorizeButton.onclick = handleAuthClick;
-	}
+var authorizeButton = document.getElementById('authorize-button');
+if (authResult && !authResult.error) {
+authorizeButton.style.visibility = 'hidden';
+makeApiCall();
+} else {
+authorizeButton.style.visibility = '';
+authorizeButton.onclick = handleAuthClick;
+}
   }
 
   function handleAuthClick(event) {
-	gapi.auth.authorize({client_id: clientId, scope: scopes, immediate: false}, handleAuthResult);
-	return false;
+gapi.auth.authorize({client_id: clientId, scope: scopes, immediate: false}, handleAuthResult);
+return false;
   }
 
   function makeApiCall() {
-	gapi.client.load('plus', 'v1', function() {
-	  var request = gapi.client.plus.people.get({
-		'userId': 'me'
-	  });
-	  request.execute(function(resp) {
-		user = resp;
-		console.log(user);
-		$('#logoutText').show();
-		$('#uName').text('Logged in as ' + user.displayName);
-	  });
-	});
+gapi.client.load('plus', 'v1', function() {
+var request = gapi.client.plus.people.get({
+'userId': 'me'
+});
+request.execute(function(resp) {
+user = resp;
+console.log(user);
+$('#logoutText').show();
+$('#uName').text('Logged in as ' + user.displayName);
+});
+});
   }
 
 function startLogoutPolling() {
-		$('#logoutText').hide();
         console.log("Enter");
-		console.log(this);
-		console.log($(this).attr('curSite'));
+console.log(this);
+console.log($(this).attr('curSite'));
+//myIFrame.location='https://www.google.com/accounts/Logout';
+document.location.href = "https://www.google.com/accounts/Logout?continue="+$(this).attr('curSite');
+var authorizeButton = document.getElementById('authorize-button');
+authorizeButton.style.visibility = '';
+$('#logoutText').hide();
  
-		
-		var authorizeButton = document.getElementById('authorize-button');
- 
-		authorizeButton.style.visibility = '';
- 
-		
- 
-		$('#uName').text('Not logged in.');
+$('#uName').text('Not logged in.');
 }
 
-
+/*We need to wrap everything...
+Also, this is the page, it works
+*/
 $(this).ready(function() {
     $('#logoutText').click(function() {
         console.log('Loaded');
-		myIFrame.location='https://www.google.com/accounts/Logout';
- 
+        myIFrame.location='https://www.google.com/accounts/Logout';
         startLogoutPolling();
         console.log(this);
     });
 });
-
