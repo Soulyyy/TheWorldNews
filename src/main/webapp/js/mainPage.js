@@ -12,12 +12,13 @@ $(this).ready(function(){
             type:"GET",
             url:'./html/'+ $(this).attr('menuItem')+".html",
             data:{"id":id},
+			
             crossDomain:true,
             success: function(data) {
-
+				window.location.hash = "#"+$(this).attr('menuItem');
                 var externalHTML = document.getElementById("articleGroup");
-                //console.log(data);
-                //$('#subCategory').html($("#"+id).html(data));
+
+   
                 externalHTML.innerHTML=data;
             }
 
@@ -68,20 +69,14 @@ $(this).ready(function(){
 function startLogoutPolling() {
 		$('#logoutText').hide();
         console.log("Enter");
-		console.log(this);
-		console.log($(this).attr('curSite'));
+
 		myw = window.open('https://www.google.com/accounts/logout','logout_from_google','width=500,height=600,menubar=no,status=no,location=no,toolbar=no,scrollbars=no,top=20,left=200');
 		//document.location.href = "https://www.google.com/accounts/Logout?continue="+$(this).attr('curSite');
- 
- 
-		
 		var authorizeButton = document.getElementById('authorize-button');
- 
 		authorizeButton.style.visibility = '';
  
-		
- 
 		$('#uName').text('Not logged in.');
+
 }
 
 
