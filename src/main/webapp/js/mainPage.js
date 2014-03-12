@@ -3,56 +3,80 @@
  */
 
 $(this).ready(function(){
-    $('a[menuItem]').click(function() {
-        //console.log("FOUND");
-        var id=3;
-        //console.log("EnterMethod"+id);
-        //console.log(this);
-        $.ajax({
-            type:"GET",
-            url:'./html/'+ $(this).attr('menuItem')+".html",
-            data:{"id":id},
-			
-            crossDomain:true,
-            success: function(data) {
-				window.location.hash = "#"+$(this).attr('menuItem');
-                var externalHTML = document.getElementById("articleGroup");
-
-   
-                externalHTML.innerHTML=data;
-            }
-
-        });
-    });
+	$('#logoutText').hide();
+ 
+	setInterval(checkHash, 100);
+    $('a[menuItem]').click(  function() {
+		
+		var destination = $(this).attr('menuItem');
+		loadpage(destination);
+ 
+	});
+ 
 });
+var loadpage = function(dest)  {
+    var id=3;
 
-    function handleClientLoad() {
+	$.ajax({
+		type:"GET",
+		url:'./html/'+ dest +".html",
+		data:{"id":id},
+		
+		crossDomain:true,
+		success: function(data) {
+			window.location.hash = dest;
+			var externalHTML = document.getElementById("articleGroup");
+
+			externalHTML.innerHTML=data;
+		}
+
+	});    
+}
+
+var recentHash = "";
+
+var checkHash = function() {
+	var hash = window.location.hash;
+
+	if (hash) {
+		hash = hash.substr(1);
+    if (hash == recentHash) {
+		return;
+    }
+    recentHash = hash;
+
+	loadpage(hash);
+  }
+}
+
+
+function handleClientLoad() {
 	gapi.client.setApiKey(apiKey);
 	window.setTimeout(checkAuth,1);
-  }
+}
 
-  function checkAuth() {
+function checkAuth() {
 	gapi.auth.authorize({client_id: clientId, scope: scopes, immediate: true}, handleAuthResult);
-  }
+}
 
-  function handleAuthResult(authResult) {
+function handleAuthResult(authResult) {
 	var authorizeButton = document.getElementById('authorize-button');
 	if (authResult && !authResult.error) {
 	  authorizeButton.style.visibility = 'hidden';
 	  makeApiCall();
 	} else {
-	  $('#logoutText').hide();
+	  
 	  authorizeButton.style.visibility = '';
 	  authorizeButton.onclick = handleAuthClick;
 	}
-  }
+}
 
-  function handleAuthClick(event) {
+function handleAuthClick(event) {
 	gapi.auth.authorize({client_id: clientId, scope: scopes, immediate: false}, handleAuthResult);
 	return false;
-  }
+}
 
-  function makeApiCall() {
+function makeApiCall() {
 	gapi.client.load('plus', 'v1', function() {
 	  var request = gapi.client.plus.people.get({
 		'userId': 'me'
@@ -64,7 +88,7 @@ $(this).ready(function(){
 		$('#uName').text('Logged in as ' + user.displayName);
 	  });
 	});
-  }
+}
 
 function startLogoutPolling() {
 		$('#logoutText').hide();
