@@ -122,3 +122,16 @@ $(this).ready(function() {
     });
 });
 
+$(this).ready(function() {
+$('#logoutButton').click(function() {
+	$.ajax({
+		type:"GET",
+		success:function() {
+			myIFrame.location='https://www.google.com/accounts/Logout';
+			startLogoutPolling();
+			$('#logoutButton').hide();
+			$('#authorize-button').show();
+		}
+	});
+});
+});	
