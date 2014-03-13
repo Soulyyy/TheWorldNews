@@ -1,0 +1,197 @@
+<!DOCTYPE html> 
+<html>
+<head>
+	<title>The World</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<link rel="stylesheet" type="text/css" href="./css/layout.css">
+    <script src="./lib/jquery-1.11.0.js" type="text/javascript"></script>
+	<script type="text/javascript" src="js/mainPage.js"></script>
+	<script type="text/javascript" src="https://apis.google.com/js/client.js?onload=handleClientLoad"></script>
+</head>
+
+<body>
+
+
+<div id="header">
+
+	<!-- The World logo
+    	 Log In & Setting-->
+         
+	<div id="logoButtons">
+    
+		<header id="Head"><a id="Head" href="#" menuItem="News">THE WORLD</a></header>
+
+        
+        <button  id="settings" type="submit"><a id="settingsPic"></a></button>
+
+        
+        <button id="authorize-button">Log In</button>
+        <button id="logoutButton">Log Out</button>
+        
+	<!-- Searchbar-->
+        
+    </div> 
+    
+    <div id="search">
+        
+        
+        <form action="search" class="form-wrapper">
+    	<p><input type="text" id="searchBox" placeholder="Search"></p>
+		</form>
+        
+	 </div>
+    
+    	<!-- Navigation -->
+    
+    <div id="navigation">
+     
+        <ul>
+            <li><a href="#" menuItem="News">News</a> </li>
+            <!--<li><a href="./styles/htmlData/News.html">News</a></li>-->
+			<li><a href="#" menuItem="Business">Business</a></li>
+			<li><a href="#" menuItem="Sports">Sports</a></li>
+			<li><a href="#" menuItem="Science">Science</a></li>
+			<li><a href="#" menuItem="Arts">Arts</a></li>
+            <li><a href="#" menuItem="FashionStyle">Fashion &amp; Style</a></li>
+		</ul>
+        
+	</div>
+    
+ 
+</div>
+
+
+<div class="clear">
+
+</div>
+
+
+<div id="articleGroup">
+	
+    <div class="mainArticle">
+    
+    	<a href="#"><img class="mainImage" src="./Metadata/siimkallas.jpg"></img></a>
+        
+    	<p class="mainText"><a href="#">Siim Kallas behind bars - literally!</a></p>
+    
+    </div>
+   
+    
+	<div class="leftArticle">
+    
+    	<a href="#"><img class="mainImage" src="./Metadata/money.jpg"></img></a>
+        
+        <p class="sideText"><a href="#">Money - always relevant</a></p>
+    
+	</div>
+    
+	<div class="rightArticle">
+    
+    	<a href="#"><img class="mainImage" src="./Metadata/flip.jpg"></img></a>
+        
+        <p class="sideText"><a href="#">Sweet flip, bro</a></p>
+    
+	</div>
+    
+
+    
+    <div class="mainArticle">
+    
+    	<a href="#"><img class="mainImage" src="./Metadata/signs.jpg"></img></a>
+        
+        <p class="mainText"><a href="#">Putin still going strong</a></p>
+    
+    </div>
+    
+    
+    
+    
+
+</div>
+
+
+<div id="sideBar">
+
+	<div id="latest">
+    
+        <header>
+            <a id="lastestNews" href="#">
+    
+                Latest News
+    
+            </a>
+        </header>
+    
+        <div class="latestNewsDisplay">
+        
+                    <div class="itemodd">ooraora</div>
+                    <div class="itemeven">mudamuda</div>
+                    <div class="itemodd">oraora</div>
+                    <div class="itemeven">mudamuda</div>
+                    <div class="itemodd">oraora</div>
+                    <div class="itemeven">mudamuda</div>
+                    <div class="itemodd">oraora</div>
+                    <div class="itemeven">mudamuda</div>
+
+        </div>
+
+
+    </div>
+    
+    <div class="sideNews">
+    
+    	<a href="#"><img class="mainImage" src="./Metadata/veelsiimkallast.jpg"></img></a>
+        
+         <p class="sideText"><a href="#">More of Siim Kallas</a></p>
+    
+    </div>
+    
+    <div class="sideNews">
+    
+    	<a href="#"><img class="mainImage" src="./Metadata/nicecarbro.jpg"></img></a>
+        
+        <p class="sideText"><a href="#">Estonian wearing a swastika stole a Porsche in Germany</a></p>
+    
+    </div>
+    
+    <div class="sideNews">
+    
+    	<a href="#"><img class="mainImage" src="./Metadata/putingg.jpg"></img></a>
+        
+        <p class="sideText"><a href="#">Putin something something Ukraine something</a></p>
+    
+    </div>
+    
+    <div class="sideNews">
+    
+    	<a href="#"><img class="mainImage" src="./Metadata/ericcantona.jpg"></img></a>
+        
+        <p class="sideText"><a href="#">Cantona arrested for fighting</a></p>
+    
+    </div>
+    
+    <div class="sideNews">
+    
+    	<a href="#"><img class="mainImage" src="./Metadata/maximablunderof100.jpg"></img></a>
+        
+    	<p class="sideText"><a href="#">People couldn't get into Maxima - This is news?</a></p>
+    
+    </div>
+    	
+    
+</div>
+
+
+
+
+
+<div class="footer"> <p>&nbsp;</p> </div>
+
+<!-- I don't like this tim -->
+<p id="uName"> Not logged in. </p>
+ 
+    <a href="#" style="display:none" id="logoutText" target='myIFrame'> Click here to logout </a>
+    <iframe name='myIFrame' id="myIFrame" style='display:none'></iframe>
+ 
+</body>
+</html>
