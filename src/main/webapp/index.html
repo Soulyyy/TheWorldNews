@@ -6,17 +6,11 @@
 	<link rel="stylesheet" type="text/css" href="./css/layout.css">
     <script src="./lib/jquery-1.11.0.js" type="text/javascript"></script>
 	<script type="text/javascript" src="js/mainPage.js"></script>
+	<script type="text/javascript" src="https://apis.google.com/js/client.js?onload=handleClientLoad"></script>
 </head>
 
 <body>
 
-<script type="text/javascript">
-  var clientId = '510213468349-6npga48p58v7rr3s50p0smnp7e6dho5m.apps.googleusercontent.com';
-  var apiKey = 'AIzaSyD7HJs0zDCJKqLcLIK5ok5uAAm33cubOGs';
-  var scopes = 'https://www.googleapis.com/auth/plus.me';
-</script>
-
-<script type="text/javascript" src="https://apis.google.com/js/client.js?onload=handleClientLoad"></script>
 
 <div id="header">
 
@@ -106,9 +100,9 @@
 <div class="footer"> <p>&nbsp;</p> </div>
 
 <p id="uName"> Not logged in. </p>
-
-<a href="#" id="logoutText" target='myIFrame' > Click here to logout </a>
-<iframe name='myIFrame' id="myIFrame"></iframe>
+ 
+    <a href="#" style="display:none" id="logoutText" target='myIFrame'> Click here to logout </a>
+    <iframe name='myIFrame' id="myIFrame" style='display:none'></iframe>
  
 </body>
 </html>

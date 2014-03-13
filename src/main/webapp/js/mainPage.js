@@ -3,6 +3,7 @@
  */
 
 $(this).ready(function(){
+
 	$('#logoutText').hide();
  
 	setInterval(checkHash, 100);
@@ -51,15 +52,19 @@ var checkHash = function() {
 
 
 function handleClientLoad() {
+	var apiKey = 'AIzaSyD7HJs0zDCJKqLcLIK5ok5uAAm33cubOGs';
 	gapi.client.setApiKey(apiKey);
 	window.setTimeout(checkAuth,1);
 }
 
 function checkAuth() {
+	var clientId = '510213468349-6npga48p58v7rr3s50p0smnp7e6dho5m.apps.googleusercontent.com';
+	var scopes = 'https://www.googleapis.com/auth/plus.me';
 	gapi.auth.authorize({client_id: clientId, scope: scopes, immediate: true}, handleAuthResult);
 }
 
 function handleAuthResult(authResult) {
+ 
 	var authorizeButton = document.getElementById('authorize-button');
 	if (authResult && !authResult.error) {
 	  authorizeButton.style.visibility = 'hidden';
@@ -72,6 +77,8 @@ function handleAuthResult(authResult) {
 }
 
 function handleAuthClick(event) {
+	var clientId = '510213468349-6npga48p58v7rr3s50p0smnp7e6dho5m.apps.googleusercontent.com';
+	var scopes = 'https://www.googleapis.com/auth/plus.me';
 	gapi.auth.authorize({client_id: clientId, scope: scopes, immediate: false}, handleAuthResult);
 	return false;
 }
@@ -93,9 +100,9 @@ function makeApiCall() {
 function startLogoutPolling() {
 		$('#logoutText').hide();
         console.log("Enter");
-
-		myw = window.open('https://www.google.com/accounts/logout','logout_from_google','width=500,height=600,menubar=no,status=no,location=no,toolbar=no,scrollbars=no,top=20,left=200');
-		//document.location.href = "https://www.google.com/accounts/Logout?continue="+$(this).attr('curSite');
+	
+		//myw = window.open('https://www.google.com/accounts/logout','logout_from_google','width=500,height=600,menubar=no,status=no,location=no,toolbar=no,scrollbars=no,top=20,left=200');
+  
 		var authorizeButton = document.getElementById('authorize-button');
 		authorizeButton.style.visibility = '';
  
@@ -106,11 +113,12 @@ function startLogoutPolling() {
 
 $(this).ready(function() {
     $('#logoutText').click(function() {
-        console.log('Loaded');
-		//myIFrame.location='https://www.google.com/accounts/Logout';
  
+		myIFrame.location='https://www.google.com/accounts/Logout';
+
         startLogoutPolling();
-        console.log(this);
+		return false;
+ 
     });
 });
 
