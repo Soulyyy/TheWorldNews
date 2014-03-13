@@ -15,6 +15,7 @@ public class User {
 	}
 	
 	public User(Integer id, String userName, int accessRights, int country){
+		//ID is unique
 		this.id=id;
 		this.userName= userName;
 		this.accessRights=accessRights;

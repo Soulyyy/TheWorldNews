@@ -25,6 +25,10 @@ $(this).ready(function(){
     });
 });
 
+function addUser() {
+	
+}
+
     function handleClientLoad() {
 	gapi.client.setApiKey(apiKey);
 	window.setTimeout(checkAuth,1);
