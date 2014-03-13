@@ -1,0 +1,325 @@
+@charset "UTF-8";
+html,body
+{
+	margin-left:auto;
+	margin-right:auto;
+	width:80%;
+	overflow-x:hidden;
+}
+
+#Head {
+	text-decoration: none;
+	color:#000;
+	font: 25px/1 Helvetica, Verdana, sans-serif;
+	text-transform: uppercase;
+	background-color:#FFF;
+	border:none;
+	transition: all 0.5s ease;
+	float: left;
+	margin-right: 0px;
+	padding: 0 20px;
+}
+	
+	
+#authorize-button {
+	text-decoration: none;
+	color:#999;
+	font: 25px/1 Helvetica, Verdana, sans-serif;
+	text-transform: uppercase;
+	background-color:#FFF;
+	border:none;
+	transition: all 0.5s ease;
+	float: right;
+	margin-right: 0px;
+	padding: 0 20px;
+	
+	}
+
+#logoutButton{
+	text-decoration: none;
+	color:#999;
+	font: 25px/1 Helvetica, Verdana, sans-serif;
+	text-transform: uppercase;
+	background-color:#FFF;
+	border:none;
+	transition: all 0.5s ease;
+	float: right;
+	margin-right: 0px;
+	padding: 0 20px;
+	position: absolute;
+	left:72%;
+	visibility:hidden;
+
+}
+
+
+
+#authorize-button:hover {
+	color: #666;
+}
+
+#settings{
+	float:right;	
+    background:url(../Metadata/settings.PNG) no-repeat;
+	background-size:25px;
+
+    cursor:pointer;
+    width: 32px;
+    height: 32px;
+    border: none; 
+}
+
+img.mainImage {
+	width:100%;
+	float:left;
+	padding-bottom:15px;
+	
+	
+}
+
+
+
+	
+#logoButtons {
+	margin-top:20px;
+	
+}
+	
+#searchBox {
+	display: table;
+    margin: 0 auto;
+	width:30%;
+	height:20px;
+
+}
+
+::-webkit-input-placeholder {
+	text-decoration: none;
+	color:#999;
+	font: 17px Helvetica, Verdana, sans-serif;
+	text-transform: uppercase;
+	background-color:#FFF;
+	letter-spacing:20px;
+	display: table;
+    margin: 0 auto;
+	text-align: center; 
+}
+
+	
+::-moz-placeholder {
+	text-decoration: none;
+	color:#999;
+	font: 18px Helvetica, Verdana, sans-serif;
+	text-transform: uppercase;
+	background-color:#FFF;
+	border: 1px solid #666;
+	letter-spacing:20px;
+	display: table;
+    margin: 0 auto;
+	text-align: center;
+}
+	
+	
+:-ms-input-placeholder {
+	text-decoration: none;
+	color:#999;
+	font: 18px Helvetica, Verdana, sans-serif;
+	text-transform: uppercase;
+	background-color:#FFF;
+	border: 1px solid #666;
+	letter-spacing:20px;
+	display: table;
+    margin: 0 auto;
+	text-align: center;
+}
+	
+	
+input:-moz-placeholder {
+	text-decoration: none;
+	color:#999;
+	font: 18px Helvetica, Verdana, sans-serif;
+	text-transform: uppercase;
+	background-color:#FFF;
+	border: 1px solid #666;
+	letter-spacing:20px;
+	display: table;
+    margin: 0 auto;
+	text-align: center;
+}
+
+
+#navigation {
+	display: table;
+    margin: 0 auto;
+	clear:both;
+	overflow: hidden;
+    white-space: nowrap;
+}
+
+
+ul {
+	list-style-type: none;
+}
+ 
+li {
+	height: 25px;
+	float: left;
+	border-right: 1px solid #aaa;
+	padding: 0 20px;
+	border-bottom: 1 px solid #aaa;
+}
+ 
+li:last-child {
+	border-right: none;
+}
+
+li a {
+	text-decoration: none;
+	color:#999;
+	font: 25px/1 Helvetica, Verdana, sans-serif;
+	text-transform: uppercase;
+	transition: all 0.5s ease;
+}
+ 
+li a:hover {
+	color: #666;
+}
+
+li.active a {
+	font-weight: bold;
+	color: #333;
+}
+
+div.clear{
+	clear:both;
+	height:40px;
+}
+
+#articleGroup {
+	float:left;
+	width:70%;
+}
+
+
+#sideBar {
+	float:right;
+	width:30%;
+}
+
+p.mainText {
+	color:#000;
+	text-decoration: none;
+	font: 30px/1 Helvetica, Verdana, sans-serif;
+}
+
+p.mainText a{
+	color:#000;
+	text-decoration: none;
+	font: 30px/1 Helvetica, Verdana, sans-serif;
+}
+
+p.sideText {
+	color:#000;
+	text-decoration: none;
+	font: 22px/1 Helvetica, Verdana, sans-serif;
+}
+
+p.sideText a{
+	color:#000;
+	text-decoration: none;
+	font: 22px/1 Helvetica, Verdana, sans-serif;
+}
+
+#lastestNews {
+	text-decoration: none;
+	color:#999;
+	font: 18px Helvetica, Verdana, sans-serif;
+	text-transform: uppercase;
+	background-color:#FFF;
+	border: 1px solid #666;
+	display: table;
+    margin: 0 auto;
+	text-align: center;
+	padding-left:24%;
+	padding-right:24%;	
+}
+
+div.itemodd {
+	text-align:center;
+}
+
+div.itemeven {
+	text-align:center;
+}
+
+
+div.mainArticle {
+	width:100%;
+	
+}
+
+div.leftArticle {
+	float:left;
+	width:47%;
+	
+}
+
+div.rightArticle {
+	float:right;
+	width:47%;
+	
+}
+
+div.sideNews {
+	margin: 0 auto;
+	width:90%;
+	
+}
+
+
+
+#latest {
+	
+}
+
+div.latestNewsDisplay {
+	 overflow: hidden;
+	 padding: 0px;
+	 width: 100%;
+}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+	
+	
+#logOutText{
+	display:none;
+	visibility:hidden;
+}
+
+#myIFrame {
+	display:none;
+}
+ 
+
+p {
+	text-decoration: none;
+	font: 14px/1 Arial, Helvetica, sans-serif;
+}
+
+by{
+	text-decoration: none;
+	font: 10px/1 Arial, Helvetica, sans-serif;
+}
+
+
+article {
+	width:80%;
+}

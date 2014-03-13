@@ -1,0 +1,173 @@
+@charset "UTF-8";
+html,body
+{
+	margin-left:auto;
+	margin-right:auto;
+	width:75%;
+	overflow-x:hidden;
+	}
+
+header {
+	float:left;
+	width:75%;
+}
+
+header a {
+	text-decoration: none;
+  	font: 55px/1 Helvetica, Verdana, sans-serif;
+  	text-transform: uppercase;
+	color:#000;
+	}
+
+.search{
+	float:left;
+	}
+	
+#settings {
+	padding:11px;
+	margin-left: 7px;
+	}
+
+#LogIn {
+	float:left;
+	text-decoration: none;
+	color:#999;
+	font: 20px Helvetica, Verdana, sans-serif;
+	text-transform: uppercase;
+	background-color:#FFF;
+	border:none;
+	transition: all 0.5s ease;
+	}
+ 
+#LogIn:hover {
+	color: #666;
+	}
+	
+
+ul {
+	overflow: auto;
+	list-style-type: none;
+}
+
+ 
+li {
+	height: 25px;
+	float: left;
+	margin-right: 0px;
+	border-right: 1px solid #aaa;
+	padding: 0 20px;
+	}
+ 
+li:last-child {
+	border-right: none;
+}
+ 
+li a {
+	text-decoration: none;
+	color:#999;
+	font: 25px/1 Helvetica, Verdana, sans-serif;
+	text-transform: uppercase;
+	transition: all 0.5s ease;
+	}
+ 
+li a:hover {
+	color: #666;
+	}
+
+li.active a {
+	font-weight: bold;
+	color: #333;
+	}
+
+
+h2 {
+	text-decoration: none;
+	font: 22px/1 Helvetica, Verdana, sans-serif;
+	}
+
+p {
+	text-decoration: none;
+	font: 14px/1 Arial, Helvetica, sans-serif;
+	}
+
+by{
+	text-decoration: none;
+	font: 10px/1 Arial, Helvetica, sans-serif;
+	}
+
+
+div.profile {
+	width: 100%;
+	}
+	
+div.profile div {
+	float: left;
+	}
+	
+div.profileSettings {
+	width:25%;
+	height:800px;;
+	background-color:#FFF;
+	}
+	
+div.profileOptions {
+	height:800px;;
+	background-color:#FFF;
+	width: 74%;
+	border-left: 1px solid #999;
+	}
+	
+
+	
+div.clear {
+	clear: both;
+	}
+	
+ul {
+	overflow: auto;
+	list-style-type: none;
+}
+
+ 
+li.profileList {
+	float:none;
+	height: 20px;
+	margin-right: 0px;
+	margin-bottom:15px;
+	padding:10px;
+	border:none;
+	}
+
+li.profileList a {
+	text-decoration: none;
+	color:#999;
+	font: 20px/1 Helvetica, Verdana, sans-serif;
+	text-transform: uppercase;
+	transition: all 0.5s ease;
+	}
+ 
+li.profileList a:hover {
+	color: #666;
+	}
+
+li.profileList.active a {
+	font-weight: bold;
+	color: #666;
+	}
+	
+form.options {
+	display: block;
+	margin: 0 auto;
+	padding:20px;
+	width:400px;
+	}
+	
+form.options p {
+	margin: 20px;
+	text-decoration: none;
+	color: #333;
+	font: 12px/1 Helvetica, Verdana, sans-serif;
+	text-transform: uppercase;
+	}
+	
+
