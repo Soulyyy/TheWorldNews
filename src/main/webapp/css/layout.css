@@ -96,10 +96,9 @@ img.mainImage {
 ::-webkit-input-placeholder {
 	text-decoration: none;
 	color:#999;
-	font: 18px Helvetica, Verdana, sans-serif;
+	font: 17px Helvetica, Verdana, sans-serif;
 	text-transform: uppercase;
 	background-color:#FFF;
-	border: 1px solid #666;
 	letter-spacing:20px;
 	display: table;
     margin: 0 auto;

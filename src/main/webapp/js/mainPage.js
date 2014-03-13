@@ -134,4 +134,9 @@ $('#logoutButton').click(function() {
 		}
 	});
 });
-});	
+});
+
+$(this).onload(function(){
+	$('#authorize-button').show();
+	$('#logoutButton').hide();
+});
