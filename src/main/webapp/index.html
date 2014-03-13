@@ -14,15 +14,21 @@
 
 <div id="header">
 
+	<!-- The World logo
+    	 Log In & Setting-->
+         
 	<div id="logoButtons">
     
-		<header id="Head"><a href="#" menuItem="News">THE WORLD</a></header>
+		<header id="Head"><a id="Head" href="#" menuItem="News">THE WORLD</a></header>
+
         
-        
-        <button  id="settings" type="submit">Settings</button>
+        <button  id="settings" type="submit"><a id="settingsPic"></a></button>
+
         
         <button id="authorize-button">Log In</button>
-
+        <button id="logoutButton">Log Out</button>
+        
+	<!-- Searchbar-->
         
     </div> 
     
@@ -34,17 +40,14 @@
 		</form>
         
 	 </div>
-        
     
-    
-    
-    
-    
+    	<!-- Navigation -->
     
     <div id="navigation">
      
         <ul>
             <li><a href="#" menuItem="News">News</a> </li>
+            <!--<li><a href="./styles/htmlData/News.html">News</a></li>-->
 			<li><a href="#" menuItem="Business">Business</a></li>
 			<li><a href="#" menuItem="Sports">Sports</a></li>
 			<li><a href="#" menuItem="Science">Science</a></li>
@@ -63,42 +66,128 @@
 </div>
 
 
-<div id="articleGroup">
-	<div id="article">
-		<div class="article">
+<div id="main">
+	
+    <div class="mainArticle">
+    
+    	<a href="#"><img class="mainImage" src="./Metadata/siimkallas.jpg"></img></a>
         
-        	<h2>A man was crushed by a road roller - witnesses say it was thrown on him!</h2>
+    	<p class="mainText"><a href="#">Siim Kallas behind bars - literally!</a></p>
+    
+    </div>
+   
+    
+	<div class="leftArticle">
+    
+    	<a href="#"><img class="mainImage" src="./Metadata/money.jpg"></img></a>
         
-        	<p>In Egypt, Cairo, several witnesses report a road roller flying through the air and crushing a man. Local authorities have no comments on the situation.</p>
-            
-
-            
-		</div>
-
-		<div class="article">
+        <p class="sideText"><a href="#">Money - always relevant</a></p>
+    
+	</div>
+    
+	<div class="rightArticle">
+    
+    	<a href="#"><img class="mainImage" src="./Metadata/flip.jpg"></img></a>
         
-        	<h2>Mysterious stone masks discovered in ancient Mayan ruins.</h2>
-            
-        	<p>Dire Straits, an archaeologist and a martial artist, found stone masks in long lost Mayan ruins. The masks were immediately taken by The Speedwagon Foundation to an undisclosed location to be examined.</p>
-            
+        <p class="sideText"><a href="#">Sweet flip, bro</a></p>
+    
+	</div>
+    
 
-            
+    
+    <div class="mainArticle">
+    
+    	<a href="#"><img class="mainImage" src="./Metadata/signs.jpg"></img></a>
+        
+        <p class="mainText"><a href="#">Putin still going strong</a></p>
+    
+    </div>
+    
+    
+    
+    
+
+</div>
+
+
+<div id="sideBar">
+
+	<div id="latest">
+    
+        <header>
+            <a id="lastestNews" href="#">
+    
+                Latest News
+    
+            </a>
+        </header>
+    
+        <div class="latestNewsDisplay">
+        
+                    <div class="itemodd">ooraora</div>
+                    <div class="itemeven">mudamuda</div>
+                    <div class="itemodd">oraora</div>
+                    <div class="itemeven">mudamuda</div>
+                    <div class="itemodd">oraora</div>
+                    <div class="itemeven">mudamuda</div>
+                    <div class="itemodd">oraora</div>
+                    <div class="itemeven">mudamuda</div>
+
         </div>
 
-        <div class="article">
-        
-        	<h2>Exclusive interview with a pimp.</h2>
-            
-        	<p>Successful entrepreneur "Pimp named Slickback" talks about his daily hustlin and the pros and cons that follow his lifestyle. "It ain't easy", says Slickback. </p>
-            
 
-            
-		</div>
+    </div>
+    
+    <div class="sideNews">
+    
+    	<a href="#"><img class="mainImage" src="./Metadata/veelsiimkallast.jpg"></img></a>
         
-	</div>
+         <p class="sideText"><a href="#">More of Siim Kallas</a></p>
+    
+    </div>
+    
+    <div class="sideNews">
+    
+    	<a href="#"><img class="mainImage" src="./Metadata/nicecarbro.jpg"></img></a>
+        
+        <p class="sideText"><a href="#">Estonian wearing a swastika stole a Porsche in Germany</a></p>
+    
+    </div>
+    
+    <div class="sideNews">
+    
+    	<a href="#"><img class="mainImage" src="./Metadata/putingg.jpg"></img></a>
+        
+        <p class="sideText"><a href="#">Putin something something Ukraine something</a></p>
+    
+    </div>
+    
+    <div class="sideNews">
+    
+    	<a href="#"><img class="mainImage" src="./Metadata/ericcantona.jpg"></img></a>
+        
+        <p class="sideText"><a href="#">Cantona arrested for fighting</a></p>
+    
+    </div>
+    
+    <div class="sideNews">
+    
+    	<a href="#"><img class="mainImage" src="./Metadata/maximablunderof100.jpg"></img></a>
+        
+    	<p class="sideText"><a href="#">People couldn't get into Maxima - This is news?</a></p>
+    
+    </div>
+    	
+    
 </div>
+
+
+
+
+
 <div class="footer"> <p>&nbsp;</p> </div>
 
+<!-- I don't like this tim -->
 <p id="uName"> Not logged in. </p>
  
     <a href="#" style="display:none" id="logoutText" target='myIFrame'> Click here to logout </a>
