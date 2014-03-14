@@ -3,27 +3,22 @@
  */
 
 $(this).ready(function(){
-
-	$('#logoutText').hide();
-
 	setInterval(checkHash, 100);
-	$('a[menuItem]').click(  function() {
-
+    $('a[menuItem]').click( function() {
 		var destination = $(this).attr('menuItem');
 		loadpage(destination);
-
+ 
 	});
-
+ 
 });
-
 var loadpage = function(dest)  {
-	var id=3;
+    var id=3;
 
 	$.ajax({
 		type:"GET",
 		url:'./html/'+ dest +".html",
 		data:{"id":id},
-
+		
 		crossDomain:true,
 		success: function(data) {
 			window.location.hash = dest;
@@ -33,24 +28,23 @@ var loadpage = function(dest)  {
 		}
 
 	});    
-};
+}
 
 var recentHash = "";
-
 
 var checkHash = function() {
 	var hash = window.location.hash;
 
 	if (hash) {
 		hash = hash.substr(1);
-		if (hash == recentHash) {
-			return;
-		}
-		recentHash = hash;
+    if (hash == recentHash) {
+		return;
+    }
+    recentHash = hash;
 
-		loadpage(hash);
-	}
-};
+	loadpage(hash);
+  }
+}
 
 
 function handleClientLoad() {
@@ -66,15 +60,20 @@ function checkAuth() {
 }
 
 function handleAuthResult(authResult) {
-
+ 
 	var authorizeButton = document.getElementById('authorize-button');
+	var logoutButton = document.getElementById('logoutButton');
 	if (authResult && !authResult.error) {
-		authorizeButton.style.visibility = 'hidden';
-		makeApiCall();
+	  authorizeButton.style.visibility = 'hidden';
+ 
+	  logoutButton.style.visibility = 'visible';
+ 
+	  makeApiCall();
+	  
 	} else {
-
-		authorizeButton.style.visibility = '';
-		authorizeButton.onclick = handleAuthClick;
+	  
+	  authorizeButton.style.visibility = 'visible';
+	  authorizeButton.onclick = handleAuthClick;
 	}
 }
 
@@ -87,58 +86,36 @@ function handleAuthClick(event) {
 
 function makeApiCall() {
 	gapi.client.load('plus', 'v1', function() {
-		var request = gapi.client.plus.people.get({
-			'userId': 'me'
-		});
-		request.execute(function(resp) {
-			user = resp;
-			console.log(user);
-			$('#logoutText').show();
-			$('#uName').text('Logged in as ' + user.displayName);
-		});
+	  var request = gapi.client.plus.people.get({
+		'userId': 'me'
+	  });
+	  request.execute(function(resp) {
+		user = resp;
+		console.log(user);
+  
+		$('#uName').text('Logged in as ' + user.displayName);
+	  });
 	});
 }
-
-function startLogoutPolling() {
-	$('#logoutText').hide();
-	console.log("Enter");
-
-	//myw = window.open('https://www.google.com/accounts/logout','logout_from_google','width=500,height=600,menubar=no,status=no,location=no,toolbar=no,scrollbars=no,top=20,left=200');
-
-	var authorizeButton = document.getElementById('authorize-button');
-	authorizeButton.style.visibility = '';
-
-	$('#uName').text('Not logged in.');
-
-}
-
-
+ 
 $(this).ready(function() {
-	$('#logoutText').click(function() {
-
-		myIFrame.location='https://www.google.com/accounts/Logout';
-
-		startLogoutPolling();
-		return false;
-
+$('#logoutButton').click(function() {
+ 
+	$.ajax({
+		type:"GET",
+		success:function() {
+			myIFrame.location='https://www.google.com/accounts/Logout';
+			var authorizeButton = document.getElementById('authorize-button');
+			authorizeButton.style.visibility = 'visible';
+			var logoutButton = document.getElementById('logoutButton');
+			logoutButton.style.visibility = 'hidden';
+ 
+			
+			
+ 
+		}
 	});
 });
-
-$(this).ready(function() {
-	$('#logoutButton').click(function() {
-		$.ajax({
-			type:"GET",
-			success:function() {
-				myIFrame.location='https://www.google.com/accounts/Logout';
-				startLogoutPolling();
-				$('#logoutButton').hide();
-				$('#authorize-button').show();
-			},
-		});
-	});
 });
 
-$(this).onload(function(){
-	$('#authorize-button').show();
-	$('#logoutButton').hide();
-});
+ 

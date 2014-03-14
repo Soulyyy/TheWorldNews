@@ -33,6 +33,8 @@ html,body
 	margin-right: 0px;
 	padding: 0 20px;
 	visibility:hidden;
+ 
+	
 	}
 
 #logoutButton{
@@ -60,8 +62,9 @@ html,body
 
 #settings{
 	float:right;	
-    background:url(../Metadata/settings.PNG) no-repeat;
+    background:url(../Metadata/settings.png) no-repeat;
 	background-size:25px;
+
     cursor:pointer;
     width: 32px;
     height: 32px;
@@ -72,6 +75,7 @@ img.mainImage {
 	width:100%;
 	float:left;
 	padding-bottom:15px;
+	
 	
 }
 
@@ -228,7 +232,7 @@ p.sideText a{
 	font: 22px/1 Helvetica, Verdana, sans-serif;
 }
 
-#latestNews {
+#lastestNews {
 	text-decoration: none;
 	color:#999;
 	font: 18px Helvetica, Verdana, sans-serif;
@@ -238,47 +242,16 @@ p.sideText a{
 	display: table;
     margin: 0 auto;
 	text-align: center;
-	padding-left:32%;
-	padding-right:32%;	
+	padding-left:24%;
+	padding-right:24%;	
 }
 
 div.itemodd {
-	background-color: #CCC;
-	overflow: hidden;
+	text-align:center;
 }
 
 div.itemeven {
-	background-color:#FFF;
-	overflow: hidden;
-}
-
-div.time {
-	color:#000;
-	text-decoration: none;
-	font: 14px/1 Helvetica, Verdana, sans-serif;
-	display: table;
-	text-align: center;
-	width:20%;
-	padding-top:10px;
-	padding-bottom:10px;
-	float:left;
-}
-
-div.latestHeading{
-	width:80%;
-	float:right;
-	
-}
-
-div.latestHeading a{
-	color:#000;
-	text-decoration: none;
-	font: 14px/1 Helvetica, Verdana, sans-serif;
-	display: table;
-	text-align:start;
-	padding-top:10px;
-	padding-bottom:10px;
-	float:left;
+	text-align:center;
 }
 
 
