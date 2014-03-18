@@ -170,6 +170,10 @@ li {
 	padding: 0 20px;
 	border-bottom: 1 px solid #aaa;
 }
+
+a {
+	cursor: pointer;
+}
  
 li:last-child {
 	border-right: none;
