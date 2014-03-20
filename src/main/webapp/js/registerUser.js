@@ -1,12 +1,23 @@
 
  
 $(this).ready(function() {
-	console.log("a");
+ 
 	$('#reg').click(function() {
-	 
-		var data={ "firstName" : "Ray" };
-		alert(data.firstName);
+		var userdata={ 
+		"username" : $("#username").val() ,
+		"pw" : $("#pw").val() ,
+		"fname" : $("#first").val() ,
+		"lname" : $("#last").val() ,
+		"email" : $("#other-email").val() 
+		
+			
+		};
+		getdata(userdata);
+		
 	});
 });
 
+ function getdata(d) {
+		var info = d;
  
+};
