@@ -28,7 +28,7 @@ public class CreateTables {
 					+ " username VARCHAR(225) NOT NULL UNIQUE, password VARCHAR(225),"
 					+ " accessrights integer NOT NULL, islogged varchar(10));";
 			
-			String articleSql = 
+			//String articleSql = 
 			
 			PreparedStatement ps  = con.prepareStatement(userSql);
 			PreparedStatement ns = con.prepareStatement("CREATE TABLE IF NOT EXISTS"

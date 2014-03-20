@@ -13,7 +13,7 @@ html,body
 	margin-top:-30px;
 }
 
-#Head {
+.Head {
 	text-decoration: none;
 	color:#000;
 	font: 25px/1 Helvetica, Verdana, sans-serif;
@@ -178,7 +178,7 @@ li {
 	float: left;
 	border-right: 1px solid #aaa;
 	padding: 0 20px;
-	border-bottom: 1 px solid #aaa;
+	border-bottom: 1px solid #aaa;
 }
 
 a {
