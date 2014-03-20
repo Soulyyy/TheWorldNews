@@ -7,6 +7,12 @@ html,body
 	overflow-x:hidden;
 }
 
+#logReg {
+	position: fixed;
+	left:80%;
+	margin-top:-30px;
+}
+
 #Head {
 	text-decoration: none;
 	color:#000;
@@ -20,7 +26,11 @@ html,body
 	padding: 0 20px;
 }
 	
+#logoButtons {
 	
+}
+
+
 #authorize-button {
 	text-decoration: none;
 	color:#999;
@@ -33,6 +43,7 @@ html,body
 	margin-right: 0px;
 	padding: 0 20px;
 	visibility:hidden;
+	
  
 	
 	}
@@ -42,15 +53,14 @@ html,body
 	color:#999;
 	font: 25px/1 Helvetica, Verdana, sans-serif;
 	text-transform: uppercase;
-	background-color:#FFF;
+	background-color: transparent;
 	border:none;
 	transition: all 0.5s ease;
 	float: right;
-	margin-right: 0px;
+	margin-right: -10%;
 	padding: 0 20px;
-	position: absolute;
-	left:72%;
 	visibility:hidden;
+
 
 }
 
