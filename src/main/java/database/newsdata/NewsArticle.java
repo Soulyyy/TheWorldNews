@@ -9,25 +9,22 @@ public class NewsArticle {
     public String image;
     public String header;
     public String content;
-    public int id;
-    public ArrayList<Integer> articleGroups;
+    //Assign prime number for each article group, multiply if in more than one, factorization defines
+    int articleGroups;
 
-    public NewsArticle(int id) {
-        this.id = id;
+    public NewsArticle() {
     }
 
-    public NewsArticle(String image, String header, String content, int id, ArrayList<Integer> articleGroups) {
+    public NewsArticle(String image, String header, String content, int articleGroups) {
         this.image = image;
         this.header = header;
         this.content = content;
-        this.id = id;
         this.articleGroups = articleGroups;
     }
 
-    public NewsArticle(String header, String content, int id, ArrayList<Integer> articleGroups) {
+    public NewsArticle(String header, String content,  int articleGroups) {
         this.header = header;
         this.content = content;
-        this.id = id;
         this.articleGroups = articleGroups;
 
     }
