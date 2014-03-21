@@ -1,7 +1,10 @@
 package database.servlet;
 
+
 import com.google.gson.Gson;
+import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
+import com.google.gson.JsonParser;
 
 import database.userdata.UserDataProvider;
 import database.userdata.User;
@@ -40,7 +43,6 @@ public class AccountController extends HttpServlet {
 		resp.setHeader("Content-Type","application/json");
 		resp.setContentType("application/json;charset=UTF-8");
 		
-		
 		//Need to implement all methods in interface
 		String idString = req.getParameter("id");
 		if (idString != null) {
@@ -56,11 +58,21 @@ public class AccountController extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		try {
-			User user = gson.fromJson(req.getReader(), User.class);
-			datastore.addUser(user);
+			String jsonString = req.getParameter("jsonData");
+			//JsonObject jsonObject = (JsonObject) JsonValue.parse(jsonString);
+			//String user = gson.fromJson(req.getReader(), String);
+			//User newUser = new User(user.);
+			//datastore.addUser();
+			
+			JsonObject json = (JsonObject)new JsonParser().parse(jsonString);
+			//Just in case
+			System.out.println("name=" + json.get("username"));
+			System.out.println("width=" + json.get("pw"));
+			User newUser = new User(json.get("username").toString());
+			datastore.addUser(newUser, json.get("pw").toString());
 			
 		    resp.setHeader("Content-Type", "application/json");
-	        resp.getWriter().write(gson.toJson(user));
+	        //resp.getWriter().write(gson.toJson(user));
 		} catch (JsonParseException ex) {
             resp.sendError(HttpServletResponse.SC_BAD_REQUEST, ex.getMessage());
         }

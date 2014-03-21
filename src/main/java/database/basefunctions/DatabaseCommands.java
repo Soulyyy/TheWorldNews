@@ -14,7 +14,7 @@ import database.userdata.User;
 
 public class DatabaseCommands {
 	
-	
+
 	private static String url = "jdbc:postgresql://localhost/testdb";
 	private static String user =  "Souly";
 	private static String password = "kalamees";

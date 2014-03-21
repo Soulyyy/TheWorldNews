@@ -12,6 +12,10 @@ import database.basefunctions.*;
 
 public class UserMemory implements UserDataProvider{
 	
+	public UserMemory(){
+		ArrayList<User> users = findAllUsers();
+	}
+	
 	
 	@Override
 	public User findUserById(int id) {

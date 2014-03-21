@@ -26,5 +26,11 @@ public class User {
 	public User(int accessRights){
 		this.accessRights=accessRights;
 	}
+	
+	public User(String userName) {
+		this.userName= userName;
+		this.accessRights = 0;
+		this.country = 0;
+	}
 
 }
