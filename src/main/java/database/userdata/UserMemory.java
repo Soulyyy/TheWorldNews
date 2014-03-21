@@ -29,6 +29,7 @@ public class UserMemory implements UserDataProvider{
 		*/
 		
 		users= new HashMap<Integer, User>();
+		
 		users.put(1,new User(1, "GGMEANSGETGUD", 1,34) );
 		users.put(2,new User(2, "DIO BRANDO", 3,35) );
 		userCount=2;
@@ -48,9 +49,10 @@ public class UserMemory implements UserDataProvider{
 	}
 
 	@Override
-	public List<User> findAllUsers() {
-		// TODO Auto-generated method stub
-		return null;
+	public ArrayList<User> findAllUsers() {
+		ArrayList<User> allUsers= new ArrayList<User>();
+		String sql=
+		return allUsers;
 	}
 
 	@Override

@@ -9,7 +9,7 @@ public class NewsArticle {
     public String image;
     public String header;
     public String content;
-    //Assign prime number for each article group, multiply if in more than one, factorization defines
+    //Assign prime number for each article group, multiply if in more than one, unique factorization defines
     int articleGroups;
 
     public NewsArticle() {
