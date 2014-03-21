@@ -6,8 +6,11 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+import database.userdata.User;
 
 public class DatabaseCommands {
 	
@@ -15,60 +18,62 @@ public class DatabaseCommands {
 	private static String url = "jdbc:postgresql://localhost/testdb";
 	private static String user =  "Souly";
 	private static String password = "kalamees";
+	private static Connection con = null;
 	
-	public static String sqlCommand() {
-		//Read data from somewhere
-		String command;
-		return(command);
+	
+	
+	public static ArrayList<User> getUserQuery(String query) {
+		 Statement stmt = null;
+		  ArrayList<User> userList = new ArrayList<User>();
+		 try {
+			 con = DriverManager.getConnection(url, user, password);
+			 stmt = con.createStatement();
+		     ResultSet rs = stmt.executeQuery(query);
+		     while(rs.next()) {
+		    	 String username = rs.getString("username");
+		    	 int accessrights = rs.getInt("accessrights");
+		    	 int country = rs.getInt("country");
+		    	 int id = rs.getInt("id");
+		    	 User newUser = new User(id, username, accessrights, country);
+		    	 userList.add(newUser);
+		     }
+		     return(userList);
+		 }catch(SQLException se ) {
+			 Logger lgr = Logger.getLogger(DatabaseCommands.class.getName());
+             lgr.log(Level.WARNING, se.getMessage(), se);
+		 }finally {
+			 if (stmt != null) { 
+				 try {
+					 stmt.close();
+				 }catch (SQLException e) {
+					 e.printStackTrace();
+				 }
+			 }
+		 }
+		return userList;
 	}
 	
-	public static String getAllUsers() {
-		
+	public static void addUser(User newUser, String pw) {
+		 Statement stmt = null;
+		 try {
+			 con = DriverManager.getConnection(url, user, password);
+			 stmt = con.createStatement();
+			 //String query =  "INSERT INTO items (id, username, password, accessrights, country) VALUES (DEFAULT, "+
+			 //newUser.userName+", "+newUser.accessRights+", "+newUser.country+ ");";
+			 //PreparedStatement pst = con.prepareStatement(query);
+			 String query = "INSERT INTO items (id, username, password, accessrights, country)"
+			 		+ " VALUES (DEFAULT ,? ,? ,? ,?  )";
+			 PreparedStatement pst = con.prepareStatement(query);
+			 pst.setString(2, newUser.userName);
+			 pst.setString(3, pw);
+			 pst.setInt(4, newUser.accessRights);
+			 pst.setInt(5, newUser.country);
+			 pst.executeUpdate();
+		 }catch(SQLException se) {
+			 Logger lgr = Logger.getLogger(DatabaseCommands.class.getName());
+	            lgr.log(Level.SEVERE, se.getMessage(), se);
+		 }
 	}
 
-	
-	public static void main(String[] args) {
-		Connection con = null;
-		Statement st = null;
-		ResultSet rs = null;
-		
-		
-		//Change this, hard code
-		
-		try{
-			
-			//Open Connection
-			System.out.println("Connecting to database...");
-			con = DriverManager.getConnection(url, user, password);
-			System.out.println("Connection established.");
-			
-			//Initialize tables
-			String prepString = sqlCommand();
-			
-			
-			PreparedStatement ps  = con.prepareStatement(prepString);
-			ps.executeUpdate();
-		}catch(SQLException se) {
-			 se.printStackTrace();
-		}catch(Exception e) {
-			 e.printStackTrace();
-		}finally {
-			 try {
-                if (rs != null) {
-                    rs.close();
-                }
-                if (st != null) {
-                    st.close();
-                }
-                if (con != null) {
-                    con.close();
-                }
 
-            }catch (SQLException se) {
-                Logger lgr = Logger.getLogger(Version.class.getName());
-                lgr.log(Level.WARNING, se.getMessage(), se);
-            }	 
-		}
-		
-	}
 }
