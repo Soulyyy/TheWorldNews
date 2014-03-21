@@ -7,7 +7,13 @@ html,body
 	overflow-x:hidden;
 }
 
-#Head {
+#logReg {
+	position: fixed;
+	left:80%;
+	margin-top:-30px;
+}
+
+.Head {
 	text-decoration: none;
 	color:#000;
 	font: 25px/1 Helvetica, Verdana, sans-serif;
@@ -20,7 +26,11 @@ html,body
 	padding: 0 20px;
 }
 	
+#logoButtons {
 	
+}
+
+
 #authorize-button {
 	text-decoration: none;
 	color:#999;
@@ -33,6 +43,7 @@ html,body
 	margin-right: 0px;
 	padding: 0 20px;
 	visibility:hidden;
+	
  
 	
 	}
@@ -42,15 +53,14 @@ html,body
 	color:#999;
 	font: 25px/1 Helvetica, Verdana, sans-serif;
 	text-transform: uppercase;
-	background-color:#FFF;
+	background-color: transparent;
 	border:none;
 	transition: all 0.5s ease;
 	float: right;
-	margin-right: 0px;
+	margin-right: -10%;
 	padding: 0 20px;
-	position: absolute;
-	left:72%;
 	visibility:hidden;
+
 
 }
 
@@ -168,7 +178,7 @@ li {
 	float: left;
 	border-right: 1px solid #aaa;
 	padding: 0 20px;
-	border-bottom: 1 px solid #aaa;
+	border-bottom: 1px solid #aaa;
 }
 
 a {
@@ -236,7 +246,7 @@ p.sideText a{
 	font: 22px/1 Helvetica, Verdana, sans-serif;
 }
 
-#lastestNews {
+#latestNews {
 	text-decoration: none;
 	color:#999;
 	font: 18px Helvetica, Verdana, sans-serif;
@@ -246,17 +256,48 @@ p.sideText a{
 	display: table;
     margin: 0 auto;
 	text-align: center;
-	padding-left:24%;
-	padding-right:24%;	
+	width:99%;
 }
 
 div.itemodd {
-	text-align:center;
+	background-color: #CCC;
+	overflow: hidden;
 }
 
 div.itemeven {
-	text-align:center;
+	background-color:#FFF;
+	overflow: hidden;
 }
+
+div.time {
+	color:#000;
+	text-decoration: none;
+	font: 14px/1 Helvetica, Verdana, sans-serif;
+	display: table;
+	text-align: center;
+	width:20%;
+	padding-top:10px;
+	padding-bottom:10px;
+	float:left;
+}
+
+div.latestHeading{
+	width:80%;
+	float:right;
+	
+}
+
+div.latestHeading a{
+	color:#000;
+	text-decoration: none;
+	font: 14px/1 Helvetica, Verdana, sans-serif;
+	display: table;
+	text-align:start;
+	padding-top:10px;
+	padding-bottom:10px;
+	float:left;
+}
+
 
 
 div.mainArticle {
@@ -292,6 +333,11 @@ div.latestNewsDisplay {
 	 overflow: hidden;
 	 padding: 0px;
 	 width: 100%;
+}
+
+#lastestNews {
+	
+	
 }
 	
 	

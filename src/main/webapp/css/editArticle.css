@@ -32,7 +32,7 @@ html,body
 	float: right;
 	margin-right: 0px;
 	padding: 0 20px;
-	visibility:;
+	visibility:visible;
 	}
 
 #logoutButton{
@@ -164,7 +164,6 @@ li {
 	float: left;
 	border-right: 1px solid #aaa;
 	padding: 0 20px;
-	border-bottom: 1 px solid #aaa;
 }
  
 li:last-child {
@@ -253,8 +252,7 @@ li.profileList.active a {
 #editingFieldset {
     float: left;
     background-color: #eee;
-	width:75%%;
-	
+	width:75%;
 }
 	
 	
