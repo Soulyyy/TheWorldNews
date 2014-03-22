@@ -1,36 +1,49 @@
-
- 
 $(this).ready(function() {
-	var userdata;
-	console.log("WE NEED POST");
-	$('#reg').click(function() {
-		console.log("MAYBE HERE?");
-		
-		$.ajax({
-			console.log("MADE IT HERE");
-			type:"POST",
-			success: function(){	
-				userdata={ 
-						"username" : $("#username").val() ,
-						"pw" : $("#pw").val() ,
-						"fname" : $("#first").val() ,
-						"lname" : $("#last").val() ,
-						"email" : $("#other-email").val(),
-				};
-				var jsonString = JSON.stringify(userdata);
-				console.log(jsonString);
-			}
-			
-			});
-	});
-		getdata(userdata);
-		//document.forms[0].submit();
-		var jsonString = JSON.stringify(userdata);
-		console.log(jsonString);
-		console.log(userdata);
-});
 
- function getdata(d) {
-		var info = d;
- 
-};
+	
+	$('#reg').click(function() {
+		var userdata = new Object();
+		userdata.username = $("#username").val();
+		userdata.pw = $("#pw").val();
+		userdata.pw2 = $("#pw2").val();
+		userdata.fname = $("#first").val();
+		userdata.lname = $("#last").val();
+		userdata.email = $("#email").val();
+
+		if (!userdata.username || !userdata.pw || !userdata.pw2 || !userdata.fname || !userdata.lname  || !userdata.email) {
+			alert("Fill all forms.");
+		}
+		else {
+			if ( userdata.pw != userdata.pw2 ) {
+				alert("Paroolid peavad olema samad.");
+			}
+			else {
+				if (userdata.pw.length < 5){
+					alert("Parooli pikkus peab olema vähemalt 5.")
+				
+				}
+				else {
+				
+				$.ajax({
+					console.log("woerjykpü");
+					url: "servlet" ,
+					type:"POST",
+					dataType: 'json',
+					data: JSON.stringify(userdata),
+					contentType: 'application/json',
+					mimeType: 'application/json',
+					success: function(data){	
+		 
+						console.log(data);
+					},
+					error:function(data,status,er) {
+					alert("error: "+data+" status: "+status+" er:"+er);
+					}
+					
+				});
+				}
+			}
+		}
+		
+	});
+});
