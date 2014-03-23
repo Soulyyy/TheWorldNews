@@ -14,7 +14,8 @@ import database.userdata.User;
 
 public class DatabaseCommands {
 	
-
+	//Temporary
+	//private static String url = "jdbc:postgresql://ec2-54-246-90-92.eu-west-1.compute.amazonaws.com:5432/d9peamsq6jc1hv?user=mwytimuobrzzuv&password=vVWQkDdzUuQUC8KMHn_OBjx_Bi&ssl=true";
 	private static String url = "jdbc:postgresql://localhost/testdb";
 	private static String user =  "Souly";
 	private static String password = "kalamees";
@@ -34,7 +35,11 @@ public class DatabaseCommands {
 		    	 int accessrights = rs.getInt("accessrights");
 		    	 int country = rs.getInt("country");
 		    	 int id = rs.getInt("id");
-		    	 User newUser = new User(id, username, accessrights, country);
+		    	 String firstname = rs.getString("firstname");
+		    	 String surname = rs.getString("surname");
+		    	 String email = rs.getString("email");
+		    	 String pw = rs.getString("password");
+		    	 User newUser = new User(id, username, pw, firstname, surname, email, accessrights, country);
 		    	 userList.add(newUser);
 		     }
 		     return(userList);
@@ -53,7 +58,7 @@ public class DatabaseCommands {
 		return userList;
 	}
 	
-	public static void addUser(User newUser, String pw) {
+	public static void addUser(User newUser) {
 		 Statement stmt = null;
 		 try {
 			 con = DriverManager.getConnection(url, user, password);
@@ -61,13 +66,16 @@ public class DatabaseCommands {
 			 //String query =  "INSERT INTO items (id, username, password, accessrights, country) VALUES (DEFAULT, "+
 			 //newUser.userName+", "+newUser.accessRights+", "+newUser.country+ ");";
 			 //PreparedStatement pst = con.prepareStatement(query);
-			 String query = "INSERT INTO items (id, username, password, accessrights, country)"
-			 		+ " VALUES (DEFAULT ,? ,? ,? ,?  )";
+			 String query = "INSERT INTO items (id, username, password, fisrstname, surname, email, accessrights, country)"
+			 		+ " VALUES (DEFAULT ,? ,? ,? ,? ,? ,? ,?  )";
 			 PreparedStatement pst = con.prepareStatement(query);
 			 pst.setString(2, newUser.userName);
-			 pst.setString(3, pw);
-			 pst.setInt(4, newUser.accessRights);
-			 pst.setInt(5, newUser.country);
+			 pst.setString(3, newUser.password);
+			 pst.setString(4, newUser.firstname);
+			 pst.setString(5, newUser.surname);
+			 pst.setString(6, newUser.email);
+			 pst.setInt(7, newUser.accessRights);
+			 pst.setInt(8, newUser.country);
 			 pst.executeUpdate();
 		 }catch(SQLException se) {
 			 Logger lgr = Logger.getLogger(DatabaseCommands.class.getName());

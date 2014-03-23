@@ -8,18 +8,27 @@ public class User {
 	public String userName;
 	public int accessRights;
 	public int country;
+	public String firstname;
+	public String surname;
+	public String password;
+	public String email;
+	
 	//Other stuff we find important, this is incomplete
 	
 	public User(){
 		
 	}
 	
-	public User(Integer id, String userName, int accessRights, int country){
+	public User(Integer id, String userName,String password, String firstname, String surname, String email, int accessRights, int country){
 		//ID is unique
 		this.id=id;
 		this.userName= userName;
 		this.accessRights=accessRights;
 		this.country=country;
+		this.password=password;
+		this.email=email;
+		this.firstname=firstname;
+		this.surname=surname;
 	}
 	
 	//For editing rights

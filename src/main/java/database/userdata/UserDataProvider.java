@@ -9,5 +9,5 @@ public interface UserDataProvider {
 	public List<User> findAllUsers();
 	public List<User> findAllUsersByGroup(int groupId);
 	public List<User> findAllUsersByCountry(int country);
-	public void addUser(User user, String pw);
+	public void addUser(User user);
 }

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
+
 import database.basefunctions.*;
 
 /*THIS IS PROBABLY A BULLSHIT CLASS.
@@ -27,8 +28,8 @@ public class UserMemory implements UserDataProvider{
 
 
 	@Override
-	public void addUser(User user, String pw) {
-		DatabaseCommands.addUser(user, pw);
+	public void addUser(User user) {
+		DatabaseCommands.addUser(user);
 		
 	}
 
@@ -51,5 +52,6 @@ public class UserMemory implements UserDataProvider{
 		ArrayList<User> allUsers= DatabaseCommands.getUserQuery(query);
 		return (allUsers);
 	}
+
 
 }

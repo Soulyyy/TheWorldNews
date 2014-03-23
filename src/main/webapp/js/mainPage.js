@@ -28,7 +28,7 @@ var loadpage = function(dest)  {
 		}
 
 	});    
-}
+};
 
 var recentHash = "";
 
@@ -44,7 +44,7 @@ var checkHash = function() {
 
 	loadpage(hash);
   }
-}
+};
 
 
 function handleClientLoad() {
