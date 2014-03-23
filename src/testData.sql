@@ -1,8 +1,8 @@
-INSERT INTO users(id, username, password, accessrights, islogged) VALUES (1, 'DIO', 'mudamuda', 2, 0 );
-INSERT INTO users VALUES (2, 'SilverTiik', 'olenhomo', 3, 0 );
-INSERT INTO users VALUES (3, 'randommiki', 'skrub', 1, 0 );
-INSERT INTO users VALUES (4, 'simmo', 'esimestkorda', 1, 0 );
-INSERT INTO users VALUES (5, 'erkinool', 'seksikas', 1, 2 );
+INSERT INTO users(id, username, password,firstname, surname, email accessrights, islogged) VALUES (1, 'DIO', 'mudamuda', 'Dio', 'brando','bizzare@gayass.com',  2, 0 );
+INSERT INTO users VALUES (2, 'SilverTiik', 'olenhomo', 'Dio', 'brando','bizzare@gayass.com', 3, 0 );
+INSERT INTO users VALUES (3, 'randommiki', 'skrub', 'Dio', 'brando','bizzare@gayass.com', 1, 0 );
+INSERT INTO users VALUES (4, 'simmo', 'esimestkorda', 'Dio', 'brando','bizzare@gayass.com', 1, 0 );
+INSERT INTO users VALUES (5, 'erkinool', 'seksikas', 'Dio', 'brando','bizzare@gayass.com', 1, 2 );
 INSERT INTO newsarticles VALUES (1, 'DIO', 'SEKS TERVENDAB MUNANDEID', 'blablabla', 1 );
 INSERT INTO newsarticles VALUES (2, 'VIO', 'SEST JEESUSE PEENIS OLI KOLM MEETRIT', 'blablabla', 2 );
 INSERT INTO newsarticles VALUES (3, 'BIO', 'SILVER TIIK ON HALP', 'blablabla', 3 );
