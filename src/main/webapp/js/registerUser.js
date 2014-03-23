@@ -19,13 +19,13 @@ $(this).ready(function() {
 			}
 			else {
 				if (userdata.pw.length < 5){
-					alert("Parooli pikkus peab olema vähemalt 5.")
+					alert("Parooli pikkus peab olema vähemalt 5.");
 				
 				}
 				else {
 				
 				$.ajax({
-					console.log("woerjykpü");
+//					console.log("woerjykpü");
 					url: "servlet" ,
 					type:"POST",
 					dataType: 'json',
@@ -35,6 +35,7 @@ $(this).ready(function() {
 					success: function(data){	
 		 
 						console.log(data);
+						
 					},
 					error:function(data,status,er) {
 					alert("error: "+data+" status: "+status+" er:"+er);

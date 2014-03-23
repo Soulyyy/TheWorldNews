@@ -8,10 +8,23 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.google.gson.Gson;
+import com.google.gson.JsonParseException;
+
 import database.userdata.User;
 import database.userdata.UserMemory;
 
 public class NewsController extends HttpServlet {
+	
+	private Gson gson;
+	private UserMemory userMemory;
+	
+	@Override
+	public void init() throws ServletException {
+		super.init();
+
+	}
+
 
 	
 	@Override
@@ -21,18 +34,32 @@ public class NewsController extends HttpServlet {
         String header = req.getParameter("header");
         String content = req.getParameter("content");
         //Assign prime number for each article group, multiply if in more than one, unique factorization defines
-        int articleGroups = req.getParameter("articleGroup");
-		
+        int articleGroups = Integer.parseInt(req.getParameter("articleGroup"));
+        
 		
 		//Need to implement all methods in interface
 		String idString = req.getParameter("id");
 		if (idString != null) {
-			ArrayList<User> allUsers= UserMemory.findAllUsers();
+			ArrayList<User> allUsers= userMemory.findAllUsers();
 			resp.getWriter().write(gson.toJson(allUsers));
 		} else {
 			int id = Integer.parseInt(idString);
-	        User user = datastore.findUserById(id);
+	        User user = userMemory.findUserById(id);
 	        resp.getWriter().write(gson.toJson(user));
 		}
+	}
+	
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		try {
+
+			
+			
+        } catch (JsonParseException ex) {
+            resp.sendError(HttpServletResponse.SC_BAD_REQUEST, ex.getMessage());
+        }
+		
+		
+		
 	}
 }

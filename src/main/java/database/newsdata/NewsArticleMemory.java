@@ -8,8 +8,6 @@ import database.userdata.User;
 
 public class NewsArticleMemory implements NewsDatabaseRequests {
 	
-	
-	//Map for database indexing
 	private final Map<Integer, NewsArticle> articles;
 	private int articleCount;
 	

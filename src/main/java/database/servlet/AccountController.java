@@ -17,6 +17,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.List;
 
 @WebServlet(value = "/accounts")
@@ -59,25 +62,42 @@ public class AccountController extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		try {
-			String jsonString = req.getParameter("jsonData");
-			//JsonObject jsonObject = (JsonObject) JsonValue.parse(jsonString);
-			//String user = gson.fromJson(req.getReader(), String);
-			//User newUser = new User(user.);
-			//datastore.addUser();
-			
-			JsonObject json = (JsonObject)new JsonParser().parse(jsonString);
-			//Just in case
-			System.out.println("name=" + json.get("username"));
-			System.out.println("width=" + json.get("pw"));
-			User newUser = new User(json.get("username").toString());
-			datastore.addUser(newUser, json.get("pw").toString());
+			User user = gson.fromJson(req.getReader(), User.class);
+			datastore.addUser(user);
+
+//			Connection con = (Connection) getServletContext().getAttribute("DBConnection");
+//			PreparedStatement ps = null;
+//			try {
+//	
+//	            ps = con.prepareStatement("insert into users(name, password, firstname, surname, email, accessRights, country)");
+//	            ps.setString(1, user.userName);
+//	            ps.setString(2, user.password);
+//	            ps.setString(3, user.firstname);
+//	            ps.setString(4, user.surname);
+//	            ps.setString(5, user.email);
+//	            ps.setInt(6, user.accessRights);
+//	            ps.setInt(7,user.country);
+//	             
+//	            ps.execute();
+//	            
+//	            
+//	            
+//			} catch(SQLException e){
+//				e.printStackTrace();
+//			}
+//			finally{
+//				try {
+//					ps.close();
+//				} catch (SQLException e) {
+//					System.out.println("SQLException in closing PreparedStatement");
+//					e.printStackTrace();
+//				}
+//			}
 			
 		    resp.setHeader("Content-Type", "application/json");
-	        //resp.getWriter().write(gson.toJson(user));
 		} catch (JsonParseException ex) {
             resp.sendError(HttpServletResponse.SC_BAD_REQUEST, ex.getMessage());
         }
 	}
 	
-
 }
