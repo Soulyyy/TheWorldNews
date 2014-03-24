@@ -24,9 +24,8 @@ $(this).ready(function() {
 				}
 				else {
 				
-				$.ajax({
+				$.ajax('/accountSignup',{
 				 
-					url: "AccountController" ,
 					type:"POST",
  
 					data: JSON.stringify(userdata),

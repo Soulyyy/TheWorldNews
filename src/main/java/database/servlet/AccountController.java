@@ -23,7 +23,7 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.List;
 
-//@WebServlet(value = "/accounts")
+@WebServlet(value = "/accountSignup")
 public class AccountController extends HttpServlet {
 
 	/**
