@@ -26,7 +26,7 @@ $(this).ready(function() {
 				
 				$.ajax({
 //					console.log("woerjykp�");
-					url: "servlet" ,
+					url: "accounts/AccountController" ,
 					type:"POST",
 					dataType: 'json',
 					data: JSON.stringify(userdata),
