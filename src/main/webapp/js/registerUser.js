@@ -18,28 +18,28 @@ $(this).ready(function() {
 				alert("Paroolid peavad olema samad.");
 			}
 			else {
-				if (userdata.pw.length < 5){
-					alert("Parooli pikkus peab olema v�hemalt 5.");
+				if (userdata.pw.length < 0){
+					alert("Parooli pikkus peab olema vähemalt 5.");
 				
 				}
 				else {
 				
 				$.ajax({
-//					console.log("woerjykp�");
-					url: "accounts/AccountController" ,
+				 
+					url: "AccountController" ,
 					type:"POST",
-					dataType: 'json',
+ 
 					data: JSON.stringify(userdata),
 					contentType: 'application/json',
 					mimeType: 'application/json',
 					success: function(data){	
-		 
-						console.log(data);
+				
+						console.log("gg");
 						
 					},
 					error:function(data,status,er) {
-						console.log(data);
-						alert("error: "+JSON.stringify(data)+" status: "+status+" er:"+er);
+						console.log("error");
+				//		alert("error: "+JSON.stringify(data)+" status: "+status+" er:"+er);
 					}
 					
 				});
