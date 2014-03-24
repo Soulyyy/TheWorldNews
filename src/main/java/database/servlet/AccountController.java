@@ -64,6 +64,7 @@ public class AccountController extends HttpServlet {
 		try {
 			User user = gson.fromJson(req.getReader(), User.class);
 			datastore.addUser(user);
+			System.out.println("ENTERED POST FOR ACCOUNT ADD");
 
 //			Connection con = (Connection) getServletContext().getAttribute("DBConnection");
 //			PreparedStatement ps = null;
@@ -95,7 +96,9 @@ public class AccountController extends HttpServlet {
 //			}
 			
 		    resp.setHeader("Content-Type", "application/json");
+		    System.out.println("SERLVET SUCCESS ON ACCOUNT ADD POST");
 		} catch (JsonParseException ex) {
+			System.err.println("SERVLET FAIL ON ACCOUNT ADD POST");
             resp.sendError(HttpServletResponse.SC_BAD_REQUEST, ex.getMessage());
         }
 	}
