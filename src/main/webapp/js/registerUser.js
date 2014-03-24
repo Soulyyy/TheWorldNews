@@ -26,7 +26,7 @@ $(this).ready(function() {
 				
 				$.ajax({
 				 
-					url: "../accounts/AccountController" ,
+					url: url ,
 					type:"POST",
  
 					data: JSON.stringify(userdata),

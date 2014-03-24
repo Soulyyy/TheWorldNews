@@ -6,6 +6,7 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.JsonParser;
 
+import database.basefunctions.DatabaseCommands;
 import database.userdata.UserDataProvider;
 import database.userdata.User;
 import database.userdata.UserMemory;
@@ -63,7 +64,7 @@ public class AccountController extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		try {
 			User user = gson.fromJson(req.getReader(), User.class);
-			datastore.addUser(user);
+			DatabaseCommands.addUser(user);
 			System.out.println("ENTERED POST FOR ACCOUNT ADD");
 
 //			Connection con = (Connection) getServletContext().getAttribute("DBConnection");
