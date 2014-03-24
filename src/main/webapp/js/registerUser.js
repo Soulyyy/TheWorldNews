@@ -39,7 +39,7 @@ $(this).ready(function() {
 					},
 					error:function(data,status,er) {
 						console.log("error");
-				//		alert("error: "+JSON.stringify(data)+" status: "+status+" er:"+er);
+						alert("error: "+JSON.stringify(data)+" status: "+status+" er:"+er);
 					}
 					
 				});
