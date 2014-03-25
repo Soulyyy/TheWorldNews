@@ -1,50 +1,50 @@
 $(this).ready(function() {
-
-	
-	$('#reg').click(function() {
-		var userdata = new Object();
-		userdata.username = $("#username").val();
-		userdata.pw = $("#pw").val();
-		userdata.pw2 = $("#pw2").val();
-		userdata.fname = $("#first").val();
-		userdata.lname = $("#last").val();
-		userdata.email = $("#email").val();
-
-		if (!userdata.username || !userdata.pw || !userdata.pw2 || !userdata.fname || !userdata.lname  || !userdata.email) {
-			alert("Fill all forms.");
-		}
-		else {
-			if ( userdata.pw != userdata.pw2 ) {
-				alert("Paroolid peavad olema samad.");
-			}
-			else {
-				if (userdata.pw.length < 0){
-					alert("Parooli pikkus peab olema vÃ¤hemalt 5.");
-				
-				}
-				else {
-				
-				$.ajax('/accountSignup',{
-				 
-					type:"POST",
  
-					data: JSON.stringify(userdata),
-					contentType: 'application/json',
-					mimeType: 'application/json',
-					success: function(data){	
-				
-						console.log("gg");
-						
-					},
-					error:function(data,status,er) {
-						console.log("error");
-						alert("error: "+JSON.stringify(data)+" status: "+status+" er:"+er);
-					}
-					
-				});
-				}
-			}
-		}
-		
-	});
+     
+    $('#reg').click(function() {
+        var userdata = new Object();
+        userdata.userName = $("#username").val();
+        userdata.password = $("#pw").val();
+        var pw2 = $("#pw2").val(); // seda pole vaja userdata'ga kaasa saata
+        userdata.firstname = $("#first").val();
+        userdata.surname = $("#last").val();
+        userdata.email = $("#email").val();
+ 
+        if (!userdata.userName || !userdata.password || !pw2 || !userdata.firstname || !userdata.surname  || !userdata.email) {
+            alert("Fill all forms.");
+        }
+        else {
+            if ( userdata.password != pw2 ) {
+                alert("Paroolid peavad olema samad.");
+            }
+            else {
+                if (pw2.length == 0){
+                    alert("Parooli pikkus peab olema v?¤hemalt 5.");
+                 
+                }
+                else {
+                console.log(JSON.stringify(userdata));
+                $.ajax('/accountSignup',{
+                  
+                    type:"POST",
+  
+                    data: JSON.stringify(userdata),
+                    contentType: 'application/json',
+                    //mimeType: 'application/json',
+                    success: function(userdata){   
+                 
+                        console.log("gg");
+                         
+                    },
+                    error:function(req, text) {
+                console.log(req);
+                console.log(text);
+            }
+                     
+                });
+                }
+            }
+        }
+         
+    });
 });
