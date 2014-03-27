@@ -9,13 +9,14 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
-  <servlet>
+  
+  <!--  <servlet>
     <servlet-name>AccountController</servlet-name>           
     <servlet-class>TheWorldNews.servlet.AccountController</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>AccountController</servlet-name>
     <url-pattern>/accountSignup</url-pattern>
-  </servlet-mapping>
+  </servlet-mapping> -->
   
 </web-app>
