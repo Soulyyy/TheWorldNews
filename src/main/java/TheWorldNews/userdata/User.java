@@ -1,4 +1,4 @@
-package database.userdata;
+package TheWorldNews.userdata;
 
 public class User {
 	

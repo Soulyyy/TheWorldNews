@@ -1,4 +1,4 @@
-package database.basefunctions;
+package TheWorldNews.database;
 
 
 import java.sql.Connection;

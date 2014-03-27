@@ -1,4 +1,4 @@
-package database.basefunctions;
+package TheWorldNews.database;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import database.userdata.User;
+import TheWorldNews.userdata.User;
 
 public class DatabaseCommands {
 	

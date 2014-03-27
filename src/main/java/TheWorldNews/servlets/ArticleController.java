@@ -1,11 +1,11 @@
-package database.servlet;
+package TheWorldNews.servlets;
 
 import javax.servlet.annotation.WebServlet;
 
-import com.google.gson.Gson;
+import TheWorldNews.newsdata.NewsArticleMemory;
+import TheWorldNews.newsdata.NewsDatabaseRequests;
 
-import database.newsdata.NewsArticleMemory;
-import database.newsdata.NewsDatabaseRequests;
+import com.google.gson.Gson;
 
 @WebServlet(value = "/newsArticles")
 public class ArticleController {

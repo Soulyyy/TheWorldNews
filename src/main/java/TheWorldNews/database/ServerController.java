@@ -1,4 +1,4 @@
-package database.basefunctions;
+package TheWorldNews.database;
 
 public class ServerController {
 

@@ -1,4 +1,4 @@
-package database.servlet;
+package TheWorldNews.servlets;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -8,11 +8,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import TheWorldNews.userdata.User;
+import TheWorldNews.userdata.UserMemory;
+
 import com.google.gson.Gson;
 import com.google.gson.JsonParseException;
-
-import database.userdata.User;
-import database.userdata.UserMemory;
 
 public class NewsController extends HttpServlet {
 	

@@ -1,4 +1,4 @@
-package database.basefunctions;
+package TheWorldNews.database;
 
 import java.sql.*;
 import java.util.logging.Level;

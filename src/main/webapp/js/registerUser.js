@@ -19,7 +19,7 @@ $(this).ready(function() {
             }
             else {
                 if (pw2.length == 0){
-                    alert("Parooli pikkus peab olema v?¤hemalt 5.");
+                    alert("Parooli pikkus peab olema v?ï¿½hemalt 5.");
                  
                 }
                 else {

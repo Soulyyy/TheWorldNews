@@ -1,22 +1,35 @@
-package database.servlet;
+package TheWorldNews.servlets;
  
  
+import TheWorldNews.database.DatabaseCommands;
+import TheWorldNews.userdata.User;
+import TheWorldNews.userdata.UserDataProvider;
+import TheWorldNews.userdata.UserMemory;
+
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.JsonParser;
  
-import database.basefunctions.DatabaseCommands;
-import database.userdata.UserDataProvider;
-import database.userdata.User;
-import database.userdata.UserMemory;
+
+
+
+
  
+
+
+
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
  
+
+
+
+
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;

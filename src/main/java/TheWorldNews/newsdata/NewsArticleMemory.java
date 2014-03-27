@@ -1,10 +1,10 @@
-package database.newsdata;
+package TheWorldNews.newsdata;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import database.userdata.User;
+import TheWorldNews.userdata.User;
 
 public class NewsArticleMemory implements NewsDatabaseRequests {
 	

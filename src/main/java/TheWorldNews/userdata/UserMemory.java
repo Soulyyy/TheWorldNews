@@ -1,11 +1,16 @@
-package database.userdata;
+package TheWorldNews.userdata;
 
 import java.util.ArrayList;
 import java.util.List;
 
 
 
-import database.basefunctions.*;
+
+
+
+
+import TheWorldNews.database.DatabaseCommands;
+import TheWorldNews.externalFunctions.*;
 
 /*THIS IS PROBABLY A BULLSHIT CLASS.
  * USING THIS FOR TESTING PURPOSES, I AM 90% CONFIDENT WE NEED TO BLOW THIS UP

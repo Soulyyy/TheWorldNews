@@ -1,4 +1,4 @@
-package database.basefunctions;
+package TheWorldNews.externalFunctions;
 
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;

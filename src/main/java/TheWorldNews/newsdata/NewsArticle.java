@@ -1,4 +1,4 @@
-package database.newsdata;
+package TheWorldNews.newsdata;
 
 import java.util.ArrayList;
 
