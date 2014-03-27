@@ -24,7 +24,7 @@ $(this).ready(function() {
                 }
                 else {
                 console.log(JSON.stringify(userdata));
-                $.ajax('/accountSignup',{
+                $.ajax("/accountSignup",{
                   
                     type:"POST",
   
