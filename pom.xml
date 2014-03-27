@@ -23,6 +23,11 @@
 		<artifactId>websocket-servlet</artifactId>
 		<version>9.1.2.v20140210</version>
 	</dependency>
+	<dependency>
+		<groupId>org.eclipse.jetty.websocket</groupId>
+		<artifactId>websocket-servlet</artifactId>
+		<version>9.1.2.v20140210</version>
+	</dependency>
   </dependencies>
   <build>
   	<plugins>
