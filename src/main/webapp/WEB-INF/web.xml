@@ -15,7 +15,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>AccountController</servlet-name>
-    <url-pattern>/registerUser</url-pattern>
+    <url-pattern>/accountSignup</url-pattern>
   </servlet-mapping>
   
 </web-app>
