@@ -10,11 +10,6 @@
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
   <web-app metadata-complete="false" />
-  <servlet>
-        <servlet-name>AccountController</servlet-name>
-        <servlet-class>TheWorldNews.servlet.AccountController</servlet-class>
-        <load-on-startup>1</load-on-startup>
-    </servlet>
   
   <!--  <servlet>
     <servlet-name>AccountController</servlet-name>           

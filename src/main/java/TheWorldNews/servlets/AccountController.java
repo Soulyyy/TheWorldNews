@@ -36,7 +36,7 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.List;
  
-@WebServlet(value = "/accountSignup", name="AccountController")
+@WebServlet(value = "/accountSignup", name="AccountController", loadOnStartup=1)
 public class AccountController extends HttpServlet {
  
     /**
