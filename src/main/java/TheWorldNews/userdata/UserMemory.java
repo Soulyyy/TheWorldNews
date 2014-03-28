@@ -12,7 +12,7 @@ import TheWorldNews.externalFunctions.*;
  */
 
 public class UserMemory implements UserDataProvider{
-	@Override
+
 	public UserMemory(){
 		ArrayList<User> users = findAllUsers();
 	}
