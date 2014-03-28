@@ -11,13 +11,13 @@
   </welcome-file-list>
   <web-app metadata-complete="false" />
   
-  <!--  <servlet>
+<servlet>
     <servlet-name>AccountController</servlet-name>           
     <servlet-class>TheWorldNews.servlet.AccountController</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>AccountController</servlet-name>
     <url-pattern>/accountSignup</url-pattern>
-  </servlet-mapping> -->
+  </servlet-mapping>
   
 </web-app>
