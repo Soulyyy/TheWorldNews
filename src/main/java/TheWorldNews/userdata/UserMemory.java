@@ -38,6 +38,7 @@ public class UserMemory implements UserDataProvider{
 		ArrayList<User> allUsers= DatabaseCommands.getUserQuery("SELECT * FROM users");
 		return allUsers;
 	}
+	
 
 	@Override
 	public List<User> findAllUsersByGroup(int groupId) {
