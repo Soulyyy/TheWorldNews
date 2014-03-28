@@ -4,11 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-
-
-
-
-
 import TheWorldNews.database.DatabaseCommands;
 import TheWorldNews.externalFunctions.*;
 
