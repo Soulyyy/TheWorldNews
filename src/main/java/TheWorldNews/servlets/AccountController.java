@@ -23,7 +23,7 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.List;
  
-@WebServlet(value = "/accountSignup", loadOnStartup=1)
+@WebServlet(value = "/accountSignup")
 public class AccountController extends HttpServlet {
  
     /**
@@ -61,38 +61,8 @@ public class AccountController extends HttpServlet {
         try {
             User user = gson.fromJson(req.getReader(), User.class);
             System.out.println(user.toString());
-            //DatabaseCommands.addUser(user);
+            DatabaseCommands.addUser(user);
             System.out.println("ENTERED POST FOR ACCOUNT ADD");
- 
-//          Connection con = (Connection) getServletContext().getAttribute("DBConnection");
-//          PreparedStatement ps = null;
-//          try {
-// 
-//              ps = con.prepareStatement("insert into users(name, password, firstname, surname, email, accessRights, country)");
-//              ps.setString(1, user.userName);
-//              ps.setString(2, user.password);
-//              ps.setString(3, user.firstname);
-//              ps.setString(4, user.surname);
-//              ps.setString(5, user.email);
-//              ps.setInt(6, user.accessRights);
-//              ps.setInt(7,user.country);
-//              
-//              ps.execute();
-//             
-//             
-//             
-//          } catch(SQLException e){
-//              e.printStackTrace();
-//          }
-//          finally{
-//              try {
-//                  ps.close();
-//              } catch (SQLException e) {
-//                  System.out.println("SQLException in closing PreparedStatement");
-//                  e.printStackTrace();
-//              }
-//          }
-             
             resp.setHeader("Content-Type", "application/json");
             resp.getWriter().write("{\"response\":\"account created \"}"); // peab midagi tagastama, muidu kohe fail. kui content-type on json, siis see siin peab ka korralik JSON olema
             System.out.println("SERLVET SUCCESS ON ACCOUNT ADD POST");
