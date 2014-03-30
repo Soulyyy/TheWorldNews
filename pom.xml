@@ -23,6 +23,18 @@
           <version>9.1.2.v20140210</version>
       </dependency>
       
+      <dependency>
+			<groupId>org.eclipse.jetty.orbit</groupId>
+			<artifactId>javax.servlet</artifactId>
+			<version>3.0.0.v201112011016</version>
+		</dependency>
+		
+      <dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<version>9.3-1101-jdbc41</version>
+		</dependency>
+      
 	  
 	  
   </dependencies>
@@ -36,6 +48,8 @@
                   <scanIntervalSeconds>2</scanIntervalSeconds>
               </configuration>
 		</plugin> -->
+		
+		
 		<plugin>
               <groupId>org.eclipse.jetty</groupId>
               <artifactId>jetty-maven-plugin</artifactId>
@@ -73,9 +87,9 @@
                     <configuration>
                         <artifactItems>
                             <artifactItem>
-                                <groupId>org.eclipse.jetty</groupId>
+                                <groupId>org.mortbay.jetty</groupId>
                                 <artifactId>jetty-runner</artifactId>
-                                <version>9.1.2.v20140210</version>
+                                <version>8.1.14.v20131031</version>
                                 <destFileName>jetty-runner.jar</destFileName>
                             </artifactItem>
                         </artifactItems>

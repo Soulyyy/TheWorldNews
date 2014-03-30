@@ -17,8 +17,8 @@ public class DatabaseCommands {
 	//Temporary
 	private static String url = "jdbc:postgresql://ec2-54-246-90-92.eu-west-1.compute.amazonaws.com:5432/d9peamsq6jc1hv?user=mwytimuobrzzuv&password=vVWQkDdzUuQUC8KMHn_OBjx_Bi&ssl=true";
 	//private static String url = "jdbc:postgresql://localhost/testdb";
-	private static String user =  "soulyyy@gmail.com";
-	private static String password = "kalamees";
+	private static String user =  "oraora556@gmail.com";
+	private static String password = "minemunni";
 	private static Connection con = null;
 	
 	
