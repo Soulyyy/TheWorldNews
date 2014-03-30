@@ -11,25 +11,12 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.JsonParser;
  
-
-
-
-
- 
-
-
-
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
  
-
-
-
-
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -57,20 +44,16 @@ public class AccountController extends HttpServlet {
      
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        //Get Json objects
-        resp.setHeader("Content-Type","application/json");
-        resp.setContentType("application/json;charset=UTF-8");
-         
-        //Need to implement all methods in interface
-        String idString = req.getParameter("id");
-        if (idString != null) {
-//          List<user> allUsers= datastore.findAllUsers();
-            resp.getWriter().write("all");
-        } else {
-            int id = Integer.parseInt(idString);
-//          User user = datastore.findUserById(id);
-            resp.getWriter().write(id);
-        }
+    	//Get Json objects
+    	resp.setHeader("Content-Type","application/json");
+    	resp.setContentType("application/json;charset=UTF-8");
+
+    	//Need to implement all methods in interface
+    	String userString = req.getParameter("userName");
+    	//      List<user> allUsers= datastore.findAllUsers();
+    	resp.getWriter().write("all");
+    	//      User user = datastore.findUserById(id);
+    	resp.getWriter().write(userString);
     }
      
     @Override

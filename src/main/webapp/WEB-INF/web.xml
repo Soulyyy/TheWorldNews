@@ -21,7 +21,10 @@
   <servlet-mapping>
     <servlet-name>AccountController</servlet-name>
     <url-pattern>/accountSignup</url-pattern>
-  </servlet-mapping> -->
+  </servlet-mapping>
+  <display-name>TheWorldNews</display-name>
+</web-app> -->
+
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
 </web-app>
