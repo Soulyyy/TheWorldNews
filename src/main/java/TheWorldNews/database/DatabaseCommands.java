@@ -43,8 +43,8 @@ public class DatabaseCommands {
 	                "jdbc:postgresql://localhost/mydb", "user", "pass");
 	    }
 	
-	private static String url = "jdbc:postgresql://hostname:port" +
-            "/dbname?user=username&password=password&ssl=true";
+	//private static String url = "jdbc:postgresql://hostname:port" +
+      //      "/dbname?user=username&password=password&ssl=true";
 	
 	
 	
@@ -89,6 +89,7 @@ public class DatabaseCommands {
 	
 	public static void addUser(User newUser) {
 		Statement stmt = null;
+		System.out.println("ENTER POST SERVER REQ");
 		try {
 			Connection con = getConnection();
 			stmt = con.createStatement();
@@ -98,13 +99,13 @@ public class DatabaseCommands {
 			 String query = "INSERT INTO items (id, username, password, fisrstname, surname, email, accessrights, country)"
 			 		+ " VALUES (DEFAULT ,? ,? ,? ,? ,? ,? ,?  )";
 			 PreparedStatement pst = con.prepareStatement(query);
-			 pst.setString(2, newUser.userName);
-			 pst.setString(3, newUser.password);
-			 pst.setString(4, newUser.firstname);
-			 pst.setString(5, newUser.surname);
-			 pst.setString(6, newUser.email);
-			 pst.setInt(7, newUser.accessRights);
-			 pst.setInt(8, newUser.country);
+			 pst.setString(1, newUser.userName);
+			 pst.setString(2, newUser.password);
+			 pst.setString(3, newUser.firstname);
+			 pst.setString(4, newUser.surname);
+			 pst.setString(5, newUser.email);
+			 pst.setInt(6, newUser.accessRights);
+			 pst.setInt(7, newUser.country);
 			 pst.executeUpdate();
 		 } catch(URISyntaxException x) {
 			 Logger lgr = Logger.getLogger(DatabaseCommands.class.getName());
