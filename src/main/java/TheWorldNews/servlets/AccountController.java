@@ -59,15 +59,14 @@ public class AccountController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         try {
+        	System.out.println("ENTERED POST FOR ACCOUNT ADD");
             User user = gson.fromJson(req.getReader(), User.class);
-            System.out.println(user.toString());
             DatabaseCommands.addUser(user);
-            System.out.println("ENTERED POST FOR ACCOUNT ADD");
             resp.setHeader("Content-Type", "application/json");
             resp.getWriter().write("{\"response\":\"account created \"}"); // peab midagi tagastama, muidu kohe fail. kui content-type on json, siis see siin peab ka korralik JSON olema
             System.out.println("SERLVET SUCCESS ON ACCOUNT ADD POST");
-        } catch (JsonParseException ex) {
-            System.err.println("SERVLET FAIL ON ACCOUNT ADD POST");
+	} catch (JsonParseException ex) {
+        	System.err.println("SERVLET FAIL ON ACCOUNT ADD POST");
             resp.sendError(HttpServletResponse.SC_BAD_REQUEST, ex.getMessage());
         }
     }
