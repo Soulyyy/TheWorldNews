@@ -96,7 +96,7 @@ public class DatabaseCommands {
 			 //String query =  "INSERT INTO items (id, username, password, accessrights, country) VALUES (DEFAULT, "+
 			 //newUser.userName+", "+newUser.accessRights+", "+newUser.country+ ");";
 			 //PreparedStatement pst = con.prepareStatement(query);
-			 String query = "INSERT INTO users (id, username, password, fisrstname, surname, email, accessrights, country)"
+			 String query = "INSERT INTO users (id, username, password, firstname, surname, email, accessrights, country)"
 			 		+ " VALUES (DEFAULT ,? ,? ,? ,? ,? ,? ,?  )";
 			 PreparedStatement pst = con.prepareStatement(query);
 			 pst.setString(1, newUser.userName);
