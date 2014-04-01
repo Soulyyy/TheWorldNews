@@ -5,6 +5,7 @@ html,body
 	margin-right:auto;
 	width:80%;
 	overflow-x:hidden;
+
 }
 
 #logReg {
@@ -13,17 +14,21 @@ html,body
 	margin-top:-30px;
 }
 
+#header {
+	z-index:1;
+}
+
 .Head {
 	text-decoration: none;
 	color:#000;
-	font: 25px/1 Helvetica, Verdana, sans-serif;
+	font: 1.3vw/1 Helvetica, Verdana, sans-serif;
 	text-transform: uppercase;
 	background-color:#FFF;
 	border:none;
 	transition: all 0.5s ease;
 	float: left;
 	margin-right: 0px;
-	padding: 0 20px;
+	padding: 0 1.0vw;
 }
 	
 #logoButtons {
@@ -31,35 +36,68 @@ html,body
 }
 
 
-#authorize-button {
+#toggleLogin{
 	text-decoration: none;
 	color:#999;
-	font: 25px/1 Helvetica, Verdana, sans-serif;
+	font: 1.3vw/1 Helvetica, Verdana, sans-serif;
 	text-transform: uppercase;
 	background-color:#FFF;
 	border:none;
 	transition: all 0.5s ease;
 	float: right;
 	margin-right: 0px;
-	padding: 0 20px;
-	visibility:hidden;
-	
- 
-	
-	}
+	padding: 0 1.0vw;
+	visibility:visible;
+	cursor:pointer;
+}
+
+#authorize-button {
+	text-decoration: none;
+	color:#999;
+	font: 0.8vw/1 Helvetica, Verdana, sans-serif;
+	text-transform: uppercase;
+	background-color:#FFF;
+	border:none;
+	transition: all 0.5s ease;
+	display: table;
+    margin: 0 auto;
+	text-align: center; 
+	padding: 0 1.0vw;
+	cursor:pointer;
+}
+
+#login {
+	text-decoration: none;
+	color:#999;
+	font: 0.8vw/1 Helvetica, Verdana, sans-serif;
+	text-transform: uppercase;
+	background-color:#FFF;
+	border:none;
+	transition: all 0.5s ease;
+	display: table;
+    margin: 0 auto;
+	text-align: center; 
+	padding: 0 1.0vw;
+	cursor:pointer;
+}
+
+#login:hover {
+	color: #666;
+}
 
 #logoutButton{
 	text-decoration: none;
 	color:#999;
-	font: 25px/1 Helvetica, Verdana, sans-serif;
+	font: 1.3vw/1 Helvetica, Verdana, sans-serif;
 	text-transform: uppercase;
 	background-color: transparent;
 	border:none;
 	transition: all 0.5s ease;
 	float: right;
 	margin-right: -10%;
-	padding: 0 20px;
+	padding: 0 1.0vw;
 	visibility:hidden;
+	cursor:pointer;
 
 
 }
@@ -73,7 +111,7 @@ html,body
 #settings{
 	float:right;	
     background:url(../Metadata/settings.png) no-repeat;
-	background-size:25px;
+	background-size:1.3vw;
 
     cursor:pointer;
     width: 32px;
@@ -84,16 +122,102 @@ html,body
 img.mainImage {
 	width:100%;
 	float:left;
-	padding-bottom:15px;
+	padding-bottom:1.3vw;
 	
 	
+}
+
+#loginContainer {
+	position:absolute;
+	float:right;
+	left:70%;
+	width:10.0vw;
+	background-color:#FFF;
+	padding:1.0vw;
+	border:1px solid #666;
+	height:10.0vw;
+}
+#userName {
+	width:100%;
+	height:1.0vw;
+}
+
+#password {
+	width:100%;
+	height:1.0vw;
+}
+
+#userName::-webkit-input-placeholder {
+	text-decoration: none;
+	color:#999;
+	font: 0.7vw Helvetica, Verdana, sans-serif;
+	background-color:#FFF;
+	color:#333;
+	
+}
+#userName::-moz-placeholder {
+	text-decoration: none;
+	color:#999;
+	font: 0.7vw Helvetica, Verdana, sans-serif;
+	background-color:#FFF;
+	color:#333;
+}
+
+	
+#userName:-ms-input-placeholder {
+	text-decoration: none;
+	color:#999;
+	font: 0.7vw Helvetica, Verdana, sans-serif;
+	background-color:#FFF;
+	color:#333;
+}
+
+#userName input:-moz-placeholder {
+	text-decoration: none;
+	color:#999;
+	font: 0.7vw Helvetica, Verdana, sans-serif;
+	background-color:#FFF;
+	color:#333;
+}
+
+#password::-webkit-input-placeholder {
+	text-decoration: none;
+	color:#999;
+	font: 0.7vw Helvetica, Verdana, sans-serif;
+	background-color:#FFF;
+	color:#333;
+	
+}
+#password::-moz-placeholder {
+	text-decoration: none;
+	color:#999;
+	font: 0.7vw Helvetica, Verdana, sans-serif;
+	background-color:#FFF;
+	color:#333;
+}
+
+	
+#password:-ms-input-placeholder {
+	text-decoration: none;
+	color:#999;
+	font: 0.7vw Helvetica, Verdana, sans-serif;
+	background-color:#FFF;
+	color:#333;
+}
+
+#password input:-moz-placeholder {
+	text-decoration: none;
+	color:#999;
+	font: 0.7vw Helvetica, Verdana, sans-serif;
+	background-color:#FFF;
+	color:#333;
 }
 
 
 
 	
 #logoButtons {
-	margin-top:20px;
+	margin-top:2.0vw;
 	
 }
 	
@@ -101,59 +225,59 @@ img.mainImage {
 	display: table;
     margin: 0 auto;
 	width:30%;
-	height:20px;
+	height:1.0vw;
 
 }
 
-::-webkit-input-placeholder {
+#searchBox::-webkit-input-placeholder {
 	text-decoration: none;
 	color:#999;
-	font: 17px Helvetica, Verdana, sans-serif;
+	font: 1.0vw Helvetica, Verdana, sans-serif;
 	text-transform: uppercase;
 	background-color:#FFF;
-	letter-spacing:20px;
+	letter-spacing:1.6vw;
 	display: table;
     margin: 0 auto;
 	text-align: center; 
 }
 
 	
-::-moz-placeholder {
+#searchBox::-moz-placeholder {
 	text-decoration: none;
 	color:#999;
-	font: 18px Helvetica, Verdana, sans-serif;
+	font: 1.0vw/1 Helvetica, Verdana, sans-serif;
 	text-transform: uppercase;
 	background-color:#FFF;
 	border: 1px solid #666;
-	letter-spacing:20px;
+	letter-spacing:1.6vw;
 	display: table;
     margin: 0 auto;
 	text-align: center;
 }
 	
 	
-:-ms-input-placeholder {
+#searchBox:-ms-input-placeholder {
 	text-decoration: none;
 	color:#999;
-	font: 18px Helvetica, Verdana, sans-serif;
+	font: 1.0vw Helvetica, Verdana, sans-serif;
 	text-transform: uppercase;
 	background-color:#FFF;
 	border: 1px solid #666;
-	letter-spacing:20px;
+	letter-spacing:1.6vw;
 	display: table;
     margin: 0 auto;
 	text-align: center;
 }
 	
 	
-input:-moz-placeholder {
+#searchBox input:-moz-placeholder {
 	text-decoration: none;
 	color:#999;
-	font: 18px Helvetica, Verdana, sans-serif;
+	font: 1.0vw Helvetica, Verdana, sans-serif;
 	text-transform: uppercase;
 	background-color:#FFF;
 	border: 1px solid #666;
-	letter-spacing:20px;
+	letter-spacing:1.6vw;
 	display: table;
     margin: 0 auto;
 	text-align: center;
@@ -171,14 +295,15 @@ input:-moz-placeholder {
 
 ul {
 	list-style-type: none;
+	display:table;
 }
  
 li {
-	height: 25px;
+	display:table-cell;
 	float: left;
 	border-right: 1px solid #aaa;
-	padding: 0 20px;
-	border-bottom: 1px solid #aaa;
+	padding: 0.1vw 0.8vw;
+
 }
 
 a {
@@ -187,12 +312,15 @@ a {
  
 li:last-child {
 	border-right: none;
+
 }
 
 li a {
+	display:block;
 	text-decoration: none;
 	color:#999;
-	font: 25px/1 Helvetica, Verdana, sans-serif;
+	font: 1.3vw/1 Helvetica, Verdana, sans-serif;
+
 	text-transform: uppercase;
 	transition: all 0.5s ease;
 }
@@ -208,12 +336,13 @@ li.active a {
 
 div.clear{
 	clear:both;
-	height:40px;
+	height:1.0vw;
 }
 
 #articleGroup {
 	float:left;
 	width:70%;
+	z-index:1;
 }
 
 
@@ -225,38 +354,41 @@ div.clear{
 p.mainText {
 	color:#000;
 	text-decoration: none;
-	font: 30px/1 Helvetica, Verdana, sans-serif;
+	font: 1.5vw/1 Helvetica, Verdana, sans-serif;
 }
 
 p.mainText a{
 	color:#000;
 	text-decoration: none;
-	font: 30px/1 Helvetica, Verdana, sans-serif;
+	font: 1.5vw/1 Helvetica, Verdana, sans-serif;
 }
 
 p.sideText {
 	color:#000;
 	text-decoration: none;
-	font: 22px/1 Helvetica, Verdana, sans-serif;
+	font: 1.4vw/1 Helvetica, Verdana, sans-serif;
 }
 
 p.sideText a{
 	color:#000;
 	text-decoration: none;
-	font: 22px/1 Helvetica, Verdana, sans-serif;
+	font: 1.3vw/1 Helvetica, Verdana, sans-serif;
 }
 
 #latestNews {
 	text-decoration: none;
 	color:#999;
-	font: 18px Helvetica, Verdana, sans-serif;
+	font: 1.0vw Helvetica, Verdana, sans-serif;
 	text-transform: uppercase;
 	background-color:#FFF;
-	border: 1px solid #666;
+	border-bottom:1px solid #666;
+	border-top:1px solid #666;
 	display: table;
-    margin: 0 auto;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top:1.5vw;
 	text-align: center;
-	width:99%;
+	width:100%;
 }
 
 div.itemodd {
@@ -272,12 +404,12 @@ div.itemeven {
 div.time {
 	color:#000;
 	text-decoration: none;
-	font: 14px/1 Helvetica, Verdana, sans-serif;
+	font: 0.6vw/1 Helvetica, Verdana, sans-serif;
 	display: table;
 	text-align: center;
 	width:20%;
-	padding-top:10px;
-	padding-bottom:10px;
+	padding-top:0.5vw;
+	padding-bottom:0.5vw;
 	float:left;
 }
 
@@ -290,11 +422,11 @@ div.latestHeading{
 div.latestHeading a{
 	color:#000;
 	text-decoration: none;
-	font: 14px/1 Helvetica, Verdana, sans-serif;
+	font: 0.8vw/1 Helvetica, Verdana, sans-serif;
 	display: table;
 	text-align:start;
-	padding-top:10px;
-	padding-bottom:10px;
+	padding-top:0.5vw;
+	padding-bottom:0.5vw;
 	float:left;
 }
 
@@ -363,13 +495,9 @@ div.latestNewsDisplay {
 
 p {
 	text-decoration: none;
-	font: 14px/1 Arial, Helvetica, sans-serif;
+	font: 0.6vw/1 Arial, Helvetica, sans-serif;
 }
 
-by{
-	text-decoration: none;
-	font: 10px/1 Arial, Helvetica, sans-serif;
-}
 
 
 article {

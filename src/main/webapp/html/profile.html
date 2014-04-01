@@ -7,76 +7,17 @@
 
 <body>
 
-<div class="header">
-		<header><a href="index.html">THE WORLD</a></header>
-        
-        <button id="LogIn" type="button" onClick="login()">Log In</button>
-        <!--Yo, listen up, this is the button that functions as the Log In button-->
-                
-                
-        <button  id="settings" type="submit"></button>
-        <!--Yo, listen up, this is the button that functions as the Settings button-->
- 
-</div>
+    <div id="userSettings">
 
-
-<div class="search">
-  
-	<form class="form-wrapper">
-    <input type="text" id="search" placeholder="Search " required>
-    <input type="submit" value="Go" id="submit">
-  </form>
-
-</div>
-
-
-<div class="navigation">
-	<nav>
-		<ul>
-			<li><a href="" onClick="swapPage('#subCategory','testArts.html #Arts')">News</a> </li>
-			<!--<li><a href="./styles/htmlData/News.html">News</a></li>-->
-			<li><a href="./styles/htmlData/Business.html">Business</a></li>
-			<li><a href="./styles/htmlData/Sports.html">Sports</a></li>
-			<li><a href="./styles/htmlData/Science.html">Science</a></li>
-			<li><a href="./styles/htmlData/Arts.html">Arts</a></li>
-			<li><a href="./styles/htmlData/FashionStyle.html">Fashion &amp; Style</a></li>
-		</ul>
-	</nav>
-</div>
-
-
-
-<div class="profile">
-
-    <div class="profileSettings" >
-    
-    <nav>
-    	<ul id="profileNav">
-        
-        <li class="profileList"><a>Profile Settings</a></li>
-        <li class="profileList"><a>Privacy Settings</a></li>
-        <li class="profileList"><a>Connected Accounts</a></li>
-        <li class="profileList"><a>Help</a></li>
-                
-        </ul>
-    </nav>
-  
-    </div>
-    
-    <div class="profileOptions">
- 		<form class="options">
         	<p><label>Name</label></p>
 		<p>
 			<input type="text" name="first" id="first">
 			<input type="text" name="last" id="last">
 		</p>
 
-		<p><label for="username">Choose your Username</label></p>
-		<p><input type="text" name="username" id="username"></p>
-
 		<p><label>Birthday</label></p>
 		<p>
-		<select name="DateOfBirth_Day">
+		<select name="DateOfBirth_Day" id="day">
             <option>- Day -</option>
             <option value="1">1</option>
             <option value="2">2</option>
@@ -111,7 +52,7 @@
             <option value="31">31</option>
 		</select>
         
-		<select name="DateOfBirth_Month">
+		<select name="DateOfBirth_Month" id="month">
             <option>- Month -</option>
             <option value="1">January</option>
             <option value="2">February</option>
@@ -127,7 +68,7 @@
             <option value="12">December</option>
 		</select>
         
-		<select name="DateOfBirth_Year">
+		<select name="DateOfBirth_Year" id="year">
             <option>- Year -</option>
             <option value="2011">2011</option>
             <option value="2010">2010</option>
@@ -246,7 +187,7 @@
 
 		<p><label>Gender</label></p>
 		<p>
-			<select>
+			<select id="gender">
 				<option>Male</option>
 				<option>Female</option>
 				<option>Others</option>
@@ -260,7 +201,7 @@
 		<p><input type="text" name="other-email" id="other-email"></p>
 
 		<p><label>Location</label></p>
-		<p><select name="country">
+		<p><select name="country" id="location">
             <option value="">Country...</option>
             <option value="Afganistan">Afghanistan</option>
             <option value="Albania">Albania</option>
@@ -511,20 +452,9 @@
             <option value="Zimbabwe">Zimbabwe</option>
 </select></p>
 
-			<p><input type="submit" value="Submit">
-			<input type="submit" value="Cancel">
+			<p><button id="Submit" type="submit">Submit</button>
+			<button id="Cancel" type="submit">Cancel</button>
             </p>
-    	</form>
-    </div>
-    
-</div>
-
-<div class="clear"></div>
-
-
-
-
-<footer> <p>&nbsp;</p> </footer>
-    
+        </div>
 </body>
 </html>

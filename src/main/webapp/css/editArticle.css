@@ -3,52 +3,64 @@ html,body
 {
 	margin-left:auto;
 	margin-right:auto;
-	width:75%;
+	width:80%;
 	overflow-x:hidden;
-	}
 
-#Head {
+}
+#logReg {
+	position: fixed;
+	left:80%;
+	margin-top:-30px;
+}
+
+.Head {
 	text-decoration: none;
 	color:#000;
-	font: 25px/1 Helvetica, Verdana, sans-serif;
+	font: 1.3vw/1 Helvetica, Verdana, sans-serif;
 	text-transform: uppercase;
 	background-color:#FFF;
 	border:none;
 	transition: all 0.5s ease;
 	float: left;
 	margin-right: 0px;
-	padding: 0 20px;
+	padding: 0 1.0vw;
 }
 	
+#logoButtons {
 	
+}
+
+
 #authorize-button {
 	text-decoration: none;
 	color:#999;
-	font: 25px/1 Helvetica, Verdana, sans-serif;
+	font: 1.3vw/1 Helvetica, Verdana, sans-serif;
 	text-transform: uppercase;
 	background-color:#FFF;
 	border:none;
 	transition: all 0.5s ease;
 	float: right;
 	margin-right: 0px;
-	padding: 0 20px;
-	visibility:visible;
+	padding: 0 1.0vw;
+	visibility:hidden;
+	
+ 
+	
 	}
 
 #logoutButton{
 	text-decoration: none;
 	color:#999;
-	font: 25px/1 Helvetica, Verdana, sans-serif;
+	font: 1.3vw/1 Helvetica, Verdana, sans-serif;
 	text-transform: uppercase;
-	background-color:#FFF;
+	background-color: transparent;
 	border:none;
 	transition: all 0.5s ease;
 	float: right;
-	margin-right: 0px;
-	padding: 0 20px;
-	position: absolute;
-	left:72%;
+	margin-right: -10%;
+	padding: 0 1.0vw;
 	visibility:hidden;
+
 
 }
 
@@ -60,8 +72,9 @@ html,body
 
 #settings{
 	float:right;	
-    background:url(../Metadata/settings.PNG) no-repeat;
-	background-size:25px;
+    background:url(../Metadata/settings.png) no-repeat;
+	background-size:1.3vw;
+
     cursor:pointer;
     width: 32px;
     height: 32px;
@@ -71,7 +84,8 @@ html,body
 img.mainImage {
 	width:100%;
 	float:left;
-	padding-bottom:15px;
+	padding-bottom:1.3vw;
+	
 	
 }
 
@@ -79,7 +93,7 @@ img.mainImage {
 
 	
 #logoButtons {
-	margin-top:20px;
+	margin-top:2.0vw;
 	
 }
 	
@@ -87,17 +101,17 @@ img.mainImage {
 	display: table;
     margin: 0 auto;
 	width:30%;
-	height:20px;
+	height:1.0vw;
 
 }
 
 ::-webkit-input-placeholder {
 	text-decoration: none;
 	color:#999;
-	font: 17px Helvetica, Verdana, sans-serif;
+	font: 1.0vw Helvetica, Verdana, sans-serif;
 	text-transform: uppercase;
 	background-color:#FFF;
-	letter-spacing:20px;
+	letter-spacing:1.6vw;
 	display: table;
     margin: 0 auto;
 	text-align: center; 
@@ -107,11 +121,11 @@ img.mainImage {
 ::-moz-placeholder {
 	text-decoration: none;
 	color:#999;
-	font: 18px Helvetica, Verdana, sans-serif;
+	font: 1.0vw/1 Helvetica, Verdana, sans-serif;
 	text-transform: uppercase;
 	background-color:#FFF;
 	border: 1px solid #666;
-	letter-spacing:20px;
+	letter-spacing:1.6vw;
 	display: table;
     margin: 0 auto;
 	text-align: center;
@@ -121,11 +135,11 @@ img.mainImage {
 :-ms-input-placeholder {
 	text-decoration: none;
 	color:#999;
-	font: 18px Helvetica, Verdana, sans-serif;
+	font: 1.0vw Helvetica, Verdana, sans-serif;
 	text-transform: uppercase;
 	background-color:#FFF;
 	border: 1px solid #666;
-	letter-spacing:20px;
+	letter-spacing:1.6vw;
 	display: table;
     margin: 0 auto;
 	text-align: center;
@@ -135,11 +149,11 @@ img.mainImage {
 input:-moz-placeholder {
 	text-decoration: none;
 	color:#999;
-	font: 18px Helvetica, Verdana, sans-serif;
+	font: 1.0vw Helvetica, Verdana, sans-serif;
 	text-transform: uppercase;
 	background-color:#FFF;
 	border: 1px solid #666;
-	letter-spacing:20px;
+	letter-spacing:1.6vw;
 	display: table;
     margin: 0 auto;
 	text-align: center;
@@ -157,23 +171,32 @@ input:-moz-placeholder {
 
 ul {
 	list-style-type: none;
+	display:table;
 }
  
 li {
-	height: 25px;
+	display:table-cell;
 	float: left;
 	border-right: 1px solid #aaa;
-	padding: 0 20px;
+	padding: 0.1vw 0.8vw;
+
+}
+
+a {
+	cursor: pointer;
 }
  
 li:last-child {
 	border-right: none;
+
 }
 
 li a {
+	display:block;
 	text-decoration: none;
 	color:#999;
-	font: 25px/1 Helvetica, Verdana, sans-serif;
+	font: 1.3vw/1 Helvetica, Verdana, sans-serif;
+
 	text-transform: uppercase;
 	transition: all 0.5s ease;
 }
@@ -189,7 +212,7 @@ li.active a {
 
 div.clear{
 	clear:both;
-	height:40px;
+	height:1.0vw;
 }
 
 div.profile {
@@ -212,26 +235,26 @@ div.profileOptions {
 	}
  
 li.profileList {
-	height: 20px;
-	margin-right: 0px;
-	margin-bottom:15px;
-	padding:10px;
+
+	margin-bottom:1.0vw;
+	padding:0.8vw;
 	border:none;
-	
+
 	}
 
 li.profileList a {
 	text-decoration: none;
 	color:#999;
-	font: 20px/1 Helvetica, Verdana, sans-serif;
+	font: 1.0vw/1 Helvetica, Verdana, sans-serif;
 	text-transform: uppercase;
 	transition: all 0.5s ease;
+	float:left;
 	}
 	
 legend {
 	text-decoration: none;
 	color:#333;
-	font: 15px/1 Helvetica, Verdana, sans-serif;
+	font: 0.8vw/1 Helvetica, Verdana, sans-serif;
 	text-transform: uppercase;
 	transition: all 0.5s ease;
 }
@@ -258,45 +281,80 @@ li.profileList.active a {
 	
 #titleBar {
 	overflow: hidden;
-    white-space: nowrap;
+
 	width:100%;
 }
 
 label.titleText {
 	text-decoration: none;
 	color:#333;
-	font: 15px/1 Helvetica, Verdana, sans-serif;
+	font: 0.8vw/1 Helvetica, Verdana, sans-serif;
 	text-transform: uppercase;
 	transition: all 0.5s ease;
 }
 
 #titleInput {
 	width:99%;
+	height:0.9vw;
 }
 
 #previewInput {
 	width:99%;
+	height:0.9vw;
 	
 }
 
 #titlePreview {
 	overflow: hidden;
-    white-space: nowrap;
+
 	width:100%;
 }
 
 fieldset {
-	border-radius: 10px;
+
     background: #eee;
-    margin: 0px 20px;
+	margin-left:1.5vw;
+
 	border:groove solid 1px;
 	width:94%;
 
 }
 
 #textArea {
-	height:200px;
+	height:15.0vw;
 	width:99%;
 	resize:vertical;
+}
+
+#Submit {
+	
+	text-decoration: none;
+	color:#666;
+	font: 0.8vw/1 Helvetica, Verdana, sans-serif;
+	text-transform: uppercase;
+	background-color:#FFF;
+	border:none;
+	transition: all 0.5s ease;
+	float: left;
+	margin-left:0.3vw;
+	margin-right: 0px;
+	padding: 0 1.0vw;
+	cursor:pointer;
+
+}
+
+#Cancel {
+		
+	text-decoration: none;
+	color:#666;
+	font: 0.8vw/1 Helvetica, Verdana, sans-serif;
+	text-transform: uppercase;
+	background-color:#FFF;
+	border:none;
+	transition: all 0.5s ease;
+	float: left;
+	margin-right: 0px;
+	padding: 0 1.0vw;
+	cursor:pointer;
 }
 
