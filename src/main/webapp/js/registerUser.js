@@ -1,6 +1,4 @@
 $(this).ready(function() {
- 
-     
     $('#reg').click(function() {
         var userdata = new Object();
         userdata.userName = $("#username").val();
@@ -18,7 +16,7 @@ $(this).ready(function() {
                 alert("Paroolid peavad olema samad.");
             }
             else {
-                if (pw2.length <4){
+                if (pw2.length <1){
                     alert("Parooli pikkus peab olema v2hemalt 5.");
                  
                 }
@@ -34,7 +32,7 @@ $(this).ready(function() {
                     success: function(userdata){   
 					
                         console.log("gg");
-						window.location.href = "index.html";
+						window.location.href = "../index.html";
                          
                     },
                     error:function(req, text) {
