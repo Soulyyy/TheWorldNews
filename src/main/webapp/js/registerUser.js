@@ -5,21 +5,21 @@ $(this).ready(function() {
         var userdata = new Object();
         userdata.userName = $("#username").val();
         userdata.password = $("#pw").val();
-        var pw2 = $("#pw2").val(); // seda pole vaja userdata'ga kaasa saata
+        var pw2 = $("#pw2").val();  
         userdata.firstname = $("#first").val();
         userdata.surname = $("#last").val();
         userdata.email = $("#email").val();
  
         if (!userdata.userName || !userdata.password || !pw2 || !userdata.firstname || !userdata.surname  || !userdata.email) {
-            alert("Fill all forms.");
+            alert("T2ida k6ik vormid.");
         }
         else {
             if ( userdata.password != pw2 ) {
                 alert("Paroolid peavad olema samad.");
             }
             else {
-                if (pw2.length == 0){
-                    alert("Parooli pikkus peab olema v?�hemalt 5.");
+                if (pw2.length <4){
+                    alert("Parooli pikkus peab olema v2hemalt 5.");
                  
                 }
                 else {
@@ -27,20 +27,21 @@ $(this).ready(function() {
                 $.ajax("/accountSignup",{
                   
                     type:"POST",
-  
+					dataType:'json',  
                     data: JSON.stringify(userdata),
                     contentType: 'application/json',
-                    //mimeType: 'application/json',
+
                     success: function(userdata){   
-                 
+					
                         console.log("gg");
+						window.location.href = "index.html";
                          
                     },
                     error:function(req, text) {
-                console.log(req);
-                console.log(text);
-            }
-                     
+						console.log(req);
+						console.log(text);
+					}
+                   
                 });
                 }
             }
