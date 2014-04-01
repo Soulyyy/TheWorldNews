@@ -9,6 +9,39 @@ $(this).ready(function(){
 		loadpage(destination);
  
 	});
+	$('#logoutButton').click(function() {
+	 
+		$.ajax({
+			type:"GET",
+			success:function() {
+				myIFrame.location='https://www.google.com/accounts/Logout';
+				var authorizeButton = document.getElementById('authorize-button');
+				authorizeButton.style.visibility = 'visible';
+				var logoutButton = document.getElementById('logoutButton');
+				logoutButton.style.visibility = 'hidden';
+	 
+				
+				
+	 
+			}
+		});
+	});
+	$('#toggleLogin').click(function() {
+		var authorizeButton = document.getElementById('authorize-button');
+		var container = document.getElementById('loginContainer');
+		if (authorizeButton.style.visibility == 'visible') {
+		
+			authorizeButton.style.visibility = 'hidden';
+			container.style.visibility = 'hidden';
+ 
+		}
+		else {
+			authorizeButton.style.visibility = 'visible';
+			container.style.visibility = 'visible';
+			
+		}
+	
+	});
  
 });
 var loadpage = function(dest)  {
@@ -72,7 +105,7 @@ function handleAuthResult(authResult) {
 	  
 	} else {
 	  
-	  authorizeButton.style.visibility = 'visible';
+	  //authorizeButton.style.visibility = 'visible';
 	  authorizeButton.onclick = handleAuthClick;
 	}
 }
@@ -98,24 +131,4 @@ function makeApiCall() {
 	});
 }
  
-$(this).ready(function() {
-$('#logoutButton').click(function() {
- 
-	$.ajax({
-		type:"GET",
-		success:function() {
-			myIFrame.location='https://www.google.com/accounts/Logout';
-			var authorizeButton = document.getElementById('authorize-button');
-			authorizeButton.style.visibility = 'visible';
-			var logoutButton = document.getElementById('logoutButton');
-			logoutButton.style.visibility = 'hidden';
- 
-			
-			
- 
-		}
-	});
-});
-});
-
  
