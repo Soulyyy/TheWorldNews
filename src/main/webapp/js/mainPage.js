@@ -15,8 +15,8 @@ $(this).ready(function(){
 			type:"GET",
 			success:function() {
 				myIFrame.location='https://www.google.com/accounts/Logout';
-				var authorizeButton = document.getElementById('authorize-button');
-				authorizeButton.style.visibility = 'visible';
+				//var authorizeButton = document.getElementById('authorize-button');
+			//	authorizeButton.style.visibility = 'visible';
 				var logoutButton = document.getElementById('logoutButton');
 				logoutButton.style.visibility = 'hidden';
 	 
