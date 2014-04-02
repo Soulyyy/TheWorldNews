@@ -269,11 +269,9 @@ li.profileList.active a {
 	color: #666;
 	}
 	
-	
 
 
 #editingFieldset {
-    float: left;
     background-color: #eee;
 	width:75%;
 }
@@ -281,14 +279,15 @@ li.profileList.active a {
 	
 #titleBar {
 	overflow: hidden;
-
 	width:100%;
 }
 
 label.titleText {
+
+	padding-bottom:4vw;
 	text-decoration: none;
 	color:#333;
-	font: 0.8vw/1 Helvetica, Verdana, sans-serif;
+	font: 0.7vw/1 Helvetica, Verdana, sans-serif;
 	text-transform: uppercase;
 	transition: all 0.5s ease;
 }
@@ -304,6 +303,11 @@ label.titleText {
 	
 }
 
+#Image {
+	width:99%;
+	height:0.9vw;
+}
+
 #titlePreview {
 	overflow: hidden;
 
@@ -313,7 +317,7 @@ label.titleText {
 fieldset {
 
     background: #eee;
-	margin-left:1.5vw;
+	margin-left:1.0vw;
 
 	border:groove solid 1px;
 	width:94%;
