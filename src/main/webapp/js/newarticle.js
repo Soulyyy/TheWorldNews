@@ -15,13 +15,11 @@ $(this).ready(function() {
 			$.ajax("/newarticle",{
 				type:"POST",
 				dataType:'json',
-				data: JSON.stringify(userdata),
+				data: JSON.stringify(articledata),
 				contentType: 'application/json',
  
-				success: function(userdata){   
-			 
+				success: function(articledata){   
 					console.log("gg");
-					 
 				},
 				error:function(req, text) {
 					console.log(req);
