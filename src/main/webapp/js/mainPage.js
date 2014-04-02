@@ -4,10 +4,11 @@
 
 $(this).ready(function(){
 	setInterval(checkHash, 100);
+	
+ 
     $('a[menuItem]').click( function() {
 		var destination = $(this).attr('menuItem');
 		loadpage(destination);
- 
 	});
 	$('#logoutButton').click(function() {
 	 
@@ -15,10 +16,10 @@ $(this).ready(function(){
 			type:"GET",
 			success:function() {
 				myIFrame.location='https://www.google.com/accounts/Logout';
-				//var authorizeButton = document.getElementById('authorize-button');
-			//	authorizeButton.style.visibility = 'visible';
 				var logoutButton = document.getElementById('logoutButton');
 				logoutButton.style.visibility = 'hidden';
+				var logint = document.getElementById('toggleLogin');
+				logint.style.visibility = 'visible';
 	 
 				
 				
@@ -29,20 +30,94 @@ $(this).ready(function(){
 	$('#toggleLogin').click(function() {
 		var authorizeButton = document.getElementById('authorize-button');
 		var container = document.getElementById('loginContainer');
+		var reg = document.getElementById('regi');
 		if (authorizeButton.style.visibility == 'visible') {
 		
 			authorizeButton.style.visibility = 'hidden';
+			regi.style.visibility = 'hidden';
 			container.style.visibility = 'hidden';
  
 		}
 		else {
 			authorizeButton.style.visibility = 'visible';
+			regi.style.visibility = 'visible';
 			container.style.visibility = 'visible';
 			
 		}
 	
 	});
- 
+	$('#regi').click( function() {
+		var destination = 'registerUser';
+		var id=3;
+		var authorizeButton = document.getElementById('authorize-button');
+		var container = document.getElementById('loginContainer');
+		var reg = document.getElementById('regi');
+		authorizeButton.style.visibility = 'hidden';
+		regi.style.visibility = 'hidden';
+		container.style.visibility = 'hidden';
+		$.ajax({
+			type:"GET",
+			url:'./html/'+ destination +".html",
+			data:{"id":id},
+			
+			crossDomain:true,
+			success: function(data) {
+				window.location.hash = destination;
+				var externalHTML = document.getElementById("wholepage");
+
+				externalHTML.innerHTML=data;
+				$('#reg').click(function() {
+					var userdata = new Object();
+					userdata.userName = $("#username").val();
+					userdata.password = $("#pw").val();
+					var pw2 = $("#pw2").val();  
+					userdata.firstname = $("#first").val();
+					userdata.surname = $("#last").val();
+					userdata.email = $("#email").val();
+			 
+					if (!userdata.userName || !userdata.password || !pw2 || !userdata.firstname || !userdata.surname  || !userdata.email) {
+						alert("T2ida k6ik vormid.");
+					}
+					else {
+						if ( userdata.password != pw2 ) {
+							alert("Paroolid peavad olema samad.");
+						}
+						else {
+							if (pw2.length <1){
+								alert("Parooli pikkus peab olema v2hemalt 5.");
+							 
+							}
+							else {
+							console.log(JSON.stringify(userdata));
+							$.ajax("/accountSignup",{
+							  
+								type:"POST",
+								dataType:'json',  
+								data: JSON.stringify(userdata),
+								contentType: 'application/json',
+
+								success: function(userdata){   
+								
+									console.log("gg");
+									window.location.href = "../index.html";
+									 
+								},
+								error:function(req, text) {
+									console.log(req);
+									console.log(text);
+								}
+							   
+							});
+							}
+						}
+					}
+					 
+				});
+			}
+
+		});    
+	 
+	});
 });
 var loadpage = function(dest)  {
     var id=3;
@@ -96,12 +171,18 @@ function handleAuthResult(authResult) {
  
 	var authorizeButton = document.getElementById('authorize-button');
 	var logoutButton = document.getElementById('logoutButton');
+	var logint = document.getElementById('toggleLogin');
+	var container = document.getElementById('loginContainer');
+	var reg = document.getElementById('regi');
+			
 	if (authResult && !authResult.error) {
-	  authorizeButton.style.visibility = 'hidden';
- 
-	  logoutButton.style.visibility = 'visible';
- 
-	  makeApiCall();
+		authorizeButton.style.visibility = 'hidden';
+		regi.style.visibility = 'hidden';
+		logoutButton.style.visibility = 'visible';
+		logint.style.visibility = 'hidden';
+		container.style.visibility = 'hidden';
+
+		makeApiCall();
 	  
 	} else {
 	  
