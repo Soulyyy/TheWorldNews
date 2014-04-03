@@ -19,7 +19,7 @@ $(this).ready(function() {
 	};
 
      
-    $('#login').click(function() {
+    $('#loginbutton').click(function() {
 		var hash = window.location.hash;
 		console.log(hash);
 		if (hash) {
@@ -31,7 +31,7 @@ $(this).ready(function() {
  
  
         if (!userdata.userName || !userdata.password  ) {
-            alert("Fill all forms.idk this should only popup when clicking on login but it overlaps with register vms");
+            alert("Fill all forms.");
 		}
 		else {
 			$.ajax("/accountLogin",{
