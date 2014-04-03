@@ -11,9 +11,15 @@ import java.util.logging.Logger;
 import TheWorldNews.database.DatabaseConnection;
 import TheWorldNews.newsdata.NewsArticle;
 
+
+
 public class NewsQuerys {
 	
 	//Other querys
+	
+	public static void getArticleByQuery() {
+		
+	}
 
 	public static void addArticle(NewsArticle newArticle) {
 		Statement stmt = null;
