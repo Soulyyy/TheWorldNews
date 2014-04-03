@@ -1,7 +1,7 @@
 package TheWorldNews.servlets;
  
  
-import TheWorldNews.database.DatabaseCommands;
+import TheWorldNews.database.querys.userQuerys;
 import TheWorldNews.userdata.User;
 import TheWorldNews.userdata.UserDataProvider;
 import TheWorldNews.userdata.UserMemory;
@@ -24,7 +24,7 @@ import java.sql.SQLException;
 import java.util.List;
  
 @WebServlet(value = "/accountSignup")
-public class AccountController extends HttpServlet {
+public class signupController extends HttpServlet {
  
     /**
      *
@@ -61,7 +61,7 @@ public class AccountController extends HttpServlet {
         try {
         	System.out.println("ENTERED POST FOR ACCOUNT ADD");
             User user = gson.fromJson(req.getReader(), User.class);
-            DatabaseCommands.addUser(user);
+            userQuerys.addUser(user);
             resp.setHeader("Content-Type", "application/json");
             resp.getWriter().write("{\"response\":\"account created \"}"); // peab midagi tagastama, muidu kohe fail. kui content-type on json, siis see siin peab ka korralik JSON olema
             System.out.println("SERLVET SUCCESS ON ACCOUNT ADD POST");

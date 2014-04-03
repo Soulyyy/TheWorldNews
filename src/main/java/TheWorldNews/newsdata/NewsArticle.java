@@ -28,5 +28,5 @@ public class NewsArticle {
         this.articleGroups = articleGroups;
 
     }
-
+    
 }

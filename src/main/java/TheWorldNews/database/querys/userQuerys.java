@@ -1,4 +1,4 @@
-package TheWorldNews.database;
+package TheWorldNews.database.querys;
 
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -15,7 +15,7 @@ import java.util.logging.Logger;
 
 import TheWorldNews.userdata.User;
 
-public class DatabaseCommands {
+public class userQuerys {
 	
 	static Connection getConnection() throws SQLException, URISyntaxException {
         String databaseUrl = System.getenv("DATABASE_URL");
@@ -69,11 +69,11 @@ public class DatabaseCommands {
 		     }
 		     return(userList);
 		 } catch(URISyntaxException x) {
-			 Logger lgr = Logger.getLogger(DatabaseCommands.class.getName());
+			 Logger lgr = Logger.getLogger(userQuerys.class.getName());
 			 lgr.log(Level.WARNING, x.getMessage(), x);
 		 }
 		 catch(SQLException se ) {
-			 Logger lgr = Logger.getLogger(DatabaseCommands.class.getName());
+			 Logger lgr = Logger.getLogger(userQuerys.class.getName());
              lgr.log(Level.WARNING, se.getMessage(), se);
 		 }finally {
 			 if (stmt != null) { 
@@ -108,10 +108,10 @@ public class DatabaseCommands {
 			 pst.setInt(7, newUser.country);
 			 pst.executeUpdate();
 		 } catch(URISyntaxException x) {
-			 Logger lgr = Logger.getLogger(DatabaseCommands.class.getName());
+			 Logger lgr = Logger.getLogger(userQuerys.class.getName());
 			 lgr.log(Level.WARNING, x.getMessage(), x);
 		 }catch(SQLException se) {
-			 Logger lgr = Logger.getLogger(DatabaseCommands.class.getName());
+			 Logger lgr = Logger.getLogger(userQuerys.class.getName());
 			 lgr.log(Level.SEVERE, se.getMessage(), se);
 		 }
 	}

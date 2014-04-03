@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-import TheWorldNews.database.DatabaseCommands;
+import TheWorldNews.database.querys.userQuerys;
 import TheWorldNews.externalFunctions.*;
 
 /*THIS IS PROBABLY A BULLSHIT CLASS.
@@ -21,7 +21,7 @@ public class UserMemory implements UserDataProvider{
 	@Override
 	public User findUserById(int id) {
 		String query = "SELECT * FROM users WHERE id ="+id;
-		ArrayList<User> allUsers= DatabaseCommands.getUserQuery(query);
+		ArrayList<User> allUsers= userQuerys.getUserQuery(query);
 		User onlyUser = allUsers.get(0);
 		return (onlyUser);
 	}
@@ -29,13 +29,13 @@ public class UserMemory implements UserDataProvider{
 
 	@Override
 	public void addUser(User user) {
-		DatabaseCommands.addUser(user);
+		userQuerys.addUser(user);
 		
 	}
 
 	@Override
 	public ArrayList<User> findAllUsers() {
-		ArrayList<User> allUsers= DatabaseCommands.getUserQuery("SELECT * FROM users");
+		ArrayList<User> allUsers= userQuerys.getUserQuery("SELECT * FROM users");
 		return allUsers;
 	}
 	
@@ -43,13 +43,13 @@ public class UserMemory implements UserDataProvider{
 	@Override
 	public List<User> findAllUsersByGroup(int groupId) {
 		String query = "SELECT * FROM users WHERE accessrights ="+groupId;
-		ArrayList<User> allUsers= DatabaseCommands.getUserQuery(query);
+		ArrayList<User> allUsers= userQuerys.getUserQuery(query);
 		return (allUsers);
 	}
 	@Override
 	public List<User> findAllUsersByCountry(int country) {
 		String query = "SELECT * FROM users WHERE country ="+country;
-		ArrayList<User> allUsers= DatabaseCommands.getUserQuery(query);
+		ArrayList<User> allUsers= userQuerys.getUserQuery(query);
 		return (allUsers);
 	}
 
