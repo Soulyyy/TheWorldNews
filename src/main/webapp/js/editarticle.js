@@ -1,7 +1,7 @@
 $(this).ready(function() {
  
      
-    $('#articlesubmit').click(function() {
+    $('#articleedit').click(function() {
         var articledata = new Object();
         articledata.Title = $("#titleInput").val();
         articledata.imgURL = $("#Image").val();
@@ -13,7 +13,7 @@ $(this).ready(function() {
             alert("Fill all forms.");
 		}
 		else {
-			$.ajax("/submitNews",{
+			$.ajax("/editnews",{
 				type:"POST",
 				dataType:'json',
 				data: JSON.stringify(articledata),

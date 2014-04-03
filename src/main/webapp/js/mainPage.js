@@ -4,10 +4,6 @@
 
 $(this).ready(function(){
 	setInterval(checkHash, 100);
-	if (location.pathname != "/index.html") {
-		window.location.href = "index.html";
-	}
- 
     $('a[menuItem]').click( function() {
 		var destination = $(this).attr('menuItem');
 		loadpage(destination);

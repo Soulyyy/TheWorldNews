@@ -3,7 +3,10 @@
 <title>THE WORLD</title>
 <link rel="stylesheet" type="text/css" href="../css/editArticle.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<script type="text/javascript" src="../js/editarticle.js"></script>
+<script src="../lib/jquery-1.11.0.js" type="text/javascript"></script>
+<script type="text/javascript" src="../js/mainPage.js"></script>
+
+<script type="text/javascript" src="../js/createarticle.js"></script>
 
 </head>
 
@@ -87,7 +90,7 @@
         
         </div>
     	
-        <div id="editArticle">
+        <div id="createarticle">
 
                         
             	<fieldset id="editingFieldset" name="edit" method="post" action="#" accept-charset="UTF-8">
@@ -113,8 +116,15 @@
  
                 </fieldset>
 				<div class="clear"></div>
-                
-                <button  id="articleedit">Submit</button>
+                <input checked type="radio" name="type" id="News" value="News">News
+				<input type="radio" name="type" id="Business" value="Business">Business
+				<input type="radio" name="type" id="Sports"value="Sports">Sports
+				<input type="radio" name="type" id="Science"value="Science">Science
+				<input type="radio" name="type" id="Arts" value="Arts">Arts
+				<input type="radio" name="type" id="Fashion"value="Fashion & Style">Fashion & Style
+ 				<br />
+ 				<br />
+                <button  id="articlesubmit">Submit</button>
                 <button  id="Cancel">Cancel</button>
                                    
 
