@@ -97,6 +97,22 @@ html,body
 	cursor:pointer;
  
 }
+
+#loginbutton {
+	text-decoration: none;
+	color:#999;
+	font: 0.8vw/1 Helvetica, Verdana, sans-serif;
+	text-transform: uppercase;
+	background-color:#FFF;
+	border:none;
+	transition: all 0.5s ease;
+	display: table;
+    margin: 0 auto;
+	text-align: center; 
+	padding: 0 1.0vw;
+	cursor:pointer;
+ 
+}
  
 #login:hover {
 	color: #666;
