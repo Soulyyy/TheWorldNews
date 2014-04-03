@@ -6,9 +6,10 @@ $(this).ready(function() {
         articledata.Title = $("#titleInput").val();
         articledata.imgURL = $("#Image").val();
 		articledata.text = $("#textArea").val();
+		articledata.articleGroup = $("#articleGroup").val();
  
  
-        if (!articledata.Title || !articledata.imgURL  || !articledata.text ) {
+        if (!articledata.Title || !articledata.imgURL  || !articledata.text || !articledata.articleGroup) {
             alert("Fill all forms.");
 		}
 		else {
