@@ -1,4 +1,4 @@
-$(this).ready(function() {
+$(document).ready(function() {
     $('#reg').click(function() {
         var userdata = new Object();
         userdata.userName = $("#username").val();
