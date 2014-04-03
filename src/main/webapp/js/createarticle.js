@@ -8,24 +8,25 @@ $(this).ready(function() {
 		articledata.type = "News";
 		
 		if(document.getElementById('Business').checked) {
-			articledata.type = "Business";
+			articledata.type += ";Business";
 
-		}else if(document.getElementById('Sports').checked) {
-			articledata.type = "Sports";
-		}else if(document.getElementById('Science').checked) {
-			articledata.type = "Science";
-		}else if(document.getElementById('Arts').checked) {
-			articledata.type = "Arts";
-		}else if(document.getElementById('Fashion').checked) {
-			articledata.type = "Fashion";
-		
+		} if(document.getElementById('Sports').checked) {
+			articledata.type += ";Sports";
+		} if(document.getElementById('Science').checked) {
+			articledata.type += ";Science";
+		} if(document.getElementById('Arts').checked) {
+			articledata.type += ";Arts";
+		} if(document.getElementById('Fashion').checked) {
+			articledata.type += ";Fashion";
+		}	
+		console.log(articledata.type);
 
 		
 		
 		
 		
 		
-		}
+		
  
         if (!articledata.Title || !articledata.imgURL  || !articledata.text ) {
             alert("Fill all forms.");
