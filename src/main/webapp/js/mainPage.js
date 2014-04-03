@@ -4,7 +4,9 @@
 
 $(this).ready(function(){
 	setInterval(checkHash, 100);
-	
+	if (location.pathname != "/index.html") {
+		window.location.href = "index.html";
+	}
  
     $('a[menuItem]').click( function() {
 		var destination = $(this).attr('menuItem');
@@ -63,7 +65,7 @@ $(this).ready(function(){
 			crossDomain:true,
 			success: function(data) {
 				window.location.hash = destination;
-				var externalHTML = document.getElementById("wholepage");
+				var externalHTML = document.getElementById("articleGroup");
 
 				externalHTML.innerHTML=data;
 				$('#reg').click(function() {
@@ -121,21 +123,26 @@ $(this).ready(function(){
 });
 var loadpage = function(dest)  {
     var id=3;
+	if (dest != 'index') {
+		$.ajax({
+			type:"GET",
+			url:'./html/'+ dest +".html",
+			data:{"id":id},
+			
+			crossDomain:true,
+			success: function(data) {
+				window.location.hash = dest;
+				var externalHTML = document.getElementById("articleGroup");
 
-	$.ajax({
-		type:"GET",
-		url:'./html/'+ dest +".html",
-		data:{"id":id},
-		
-		crossDomain:true,
-		success: function(data) {
-			window.location.hash = dest;
-			var externalHTML = document.getElementById("articleGroup");
+				externalHTML.innerHTML=data;
+			}
 
-			externalHTML.innerHTML=data;
-		}
-
-	});    
+		});    
+	}
+	else {
+		window.location.href = "index.html";
+ 
+	}
 };
 
 var recentHash = "";
