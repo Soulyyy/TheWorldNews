@@ -2,9 +2,7 @@ package TheWorldNews.newsdata;
 
 import java.util.List;
 
-/**
- * Created by kasutaja on 14.03.14.
- */
+
 public interface NewsDatabaseRequests {
 
 

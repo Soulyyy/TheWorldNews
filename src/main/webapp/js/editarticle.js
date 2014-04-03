@@ -12,7 +12,7 @@ $(this).ready(function() {
             alert("Fill all forms.");
 		}
 		else {
-			$.ajax("/editarticle",{
+			$.ajax("/submitNews",{
 				type:"POST",
 				dataType:'json',
 				data: JSON.stringify(articledata),

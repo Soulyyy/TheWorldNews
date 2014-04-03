@@ -4,18 +4,32 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import TheWorldNews.database.querys.NewsQuerys;
+import TheWorldNews.database.querys.UserQuerys;
+import TheWorldNews.newsdata.NewsArticle;
 import TheWorldNews.userdata.User;
 import TheWorldNews.userdata.UserMemory;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonParseException;
 
-public class NewsController extends HttpServlet {
+
+@WebServlet(value = "/submitNews")
+public class SubmitNewsController extends HttpServlet {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -6250734712181392637L;
+	/**
+	 * 
+	 */
+	//private static final long serialVersionUID = 1L;
 	private Gson gson;
 	private UserMemory userMemory;
 	
@@ -49,10 +63,16 @@ public class NewsController extends HttpServlet {
 		}
 	}
 	
+	//When article is sent to database.
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		try {
-
+			System.out.println("ENTERED POST FOR ACCOUNT ADD");
+            NewsArticle article = gson.fromJson(req.getReader(), NewsArticle.class);
+            NewsQuerys.addArticle(article);
+            resp.setHeader("Content-Type", "application/json");
+            resp.getWriter().write("{\"response\":\"newsarticle created \"}"); // peab midagi tagastama, muidu kohe fail. kui content-type on json, siis see siin peab ka korralik JSON olema
+            System.out.println("Servlet succeeded in adding newsarticle");
 			
 			
         } catch (JsonParseException ex) {

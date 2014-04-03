@@ -1,9 +1,7 @@
 package TheWorldNews.database.querys;
 
-import java.net.URI;
 import java.net.URISyntaxException;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -12,39 +10,10 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-
+import TheWorldNews.database.DatabaseConnection;
 import TheWorldNews.userdata.User;
 
-public class userQuerys {
-	
-	static Connection getConnection() throws SQLException, URISyntaxException {
-        String databaseUrl = System.getenv("DATABASE_URL");
-        if (databaseUrl != null) {
-            return getHerokuConnection(new URI(databaseUrl));
-        } else {
-            return getLocalConnection();
-        }
-    }
-	
-	
-	 static Connection getHerokuConnection(final URI dbUri)
-	            throws SQLException, URISyntaxException {
-	        String username = dbUri.getUserInfo().split(":")[0];
-	        String password = dbUri.getUserInfo().split(":")[1];
-	        String dbUrl = "jdbc:postgresql://" + dbUri.getHost()
-	                + ':' + dbUri.getPort() + dbUri.getPath();
-	 
-	        return DriverManager.getConnection(
-	                dbUrl, username, password);
-	    }
-	 
-	 static Connection getLocalConnection() throws SQLException {
-	        return DriverManager.getConnection(
-	                "jdbc:postgresql://localhost/mydb", "user", "pass");
-	    }
-	
-	//private static String url = "jdbc:postgresql://hostname:port" +
-      //      "/dbname?user=username&password=password&ssl=true";
+public class UserQuerys {
 	
 	
 	
@@ -52,7 +21,7 @@ public class userQuerys {
 		 Statement stmt = null;
 		  ArrayList<User> userList = new ArrayList<User>();
 		 try {
-			 Connection con = getConnection();
+			 Connection con = DatabaseConnection.getConnection();
 			 stmt = con.createStatement();
 		     ResultSet rs = stmt.executeQuery(query);
 		     while(rs.next()) {
@@ -69,11 +38,11 @@ public class userQuerys {
 		     }
 		     return(userList);
 		 } catch(URISyntaxException x) {
-			 Logger lgr = Logger.getLogger(userQuerys.class.getName());
+			 Logger lgr = Logger.getLogger(UserQuerys.class.getName());
 			 lgr.log(Level.WARNING, x.getMessage(), x);
 		 }
 		 catch(SQLException se ) {
-			 Logger lgr = Logger.getLogger(userQuerys.class.getName());
+			 Logger lgr = Logger.getLogger(UserQuerys.class.getName());
              lgr.log(Level.WARNING, se.getMessage(), se);
 		 }finally {
 			 if (stmt != null) { 
@@ -91,11 +60,8 @@ public class userQuerys {
 		Statement stmt = null;
 		System.out.println("ENTER POST SERVER REQ");
 		try {
-			Connection con = getConnection();
+			Connection con = DatabaseConnection.getConnection();
 			stmt = con.createStatement();
-			 //String query =  "INSERT INTO items (id, username, password, accessrights, country) VALUES (DEFAULT, "+
-			 //newUser.userName+", "+newUser.accessRights+", "+newUser.country+ ");";
-			 //PreparedStatement pst = con.prepareStatement(query);
 			 String query = "INSERT INTO users (id, username, password, firstname, surname, email, accessrights, country)"
 			 		+ " VALUES (DEFAULT ,? ,? ,? ,? ,? ,? ,?  )";
 			 PreparedStatement pst = con.prepareStatement(query);
@@ -108,10 +74,10 @@ public class userQuerys {
 			 pst.setInt(7, newUser.country);
 			 pst.executeUpdate();
 		 } catch(URISyntaxException x) {
-			 Logger lgr = Logger.getLogger(userQuerys.class.getName());
+			 Logger lgr = Logger.getLogger(UserQuerys.class.getName());
 			 lgr.log(Level.WARNING, x.getMessage(), x);
 		 }catch(SQLException se) {
-			 Logger lgr = Logger.getLogger(userQuerys.class.getName());
+			 Logger lgr = Logger.getLogger(UserQuerys.class.getName());
 			 lgr.log(Level.SEVERE, se.getMessage(), se);
 		 }
 	}
