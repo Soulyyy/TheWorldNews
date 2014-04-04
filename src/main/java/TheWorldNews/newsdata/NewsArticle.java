@@ -5,7 +5,9 @@ import java.util.ArrayList;
 /**
  * Created by kasutaja on 14.03.14.
  */
+
 public class NewsArticle {
+	public Integer id;
     public String image;
     public String header;
     public String content;
@@ -15,7 +17,8 @@ public class NewsArticle {
     public NewsArticle() {
     }
 
-    public NewsArticle(String image, String header, String content, int articleGroups) {
+    public NewsArticle(int id,String image, String header, String content, int articleGroups) {
+    	this.id = id;
         this.image = image;
         this.header = header;
         this.content = content;
@@ -29,7 +32,8 @@ public class NewsArticle {
 
     }
     
-    public NewsArticle(String image, String header, String content,  String articleGroupsCoded) {
+    public NewsArticle(int id,String image, String header, String content,  String articleGroupsCoded) {
+    	this.id = id;
     	this.image = image;
         this.header = header;
         this.content = content;

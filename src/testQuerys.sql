@@ -1,4 +1,5 @@
 SELECT * FROM users;
+SELECT * FROM newsarticles;
 
 SELECT * FROM users WHERE id = '0';
 

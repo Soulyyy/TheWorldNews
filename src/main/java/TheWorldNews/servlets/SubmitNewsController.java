@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import TheWorldNews.database.querys.NewsQuerys;
-import TheWorldNews.database.querys.UserQuerys;
 import TheWorldNews.newsdata.NewsArticle;
 import TheWorldNews.userdata.User;
 import TheWorldNews.userdata.UserMemory;
@@ -67,7 +66,7 @@ public class SubmitNewsController extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		try {
-			System.out.println("Entered post for adding account");
+			System.out.println("Entered post for adding article");
             NewsArticle article = gson.fromJson(req.getReader(), NewsArticle.class);
             NewsQuerys.addArticle(article);
             resp.setHeader("Content-Type", "application/json");
