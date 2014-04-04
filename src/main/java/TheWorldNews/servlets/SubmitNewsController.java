@@ -43,7 +43,7 @@ public class SubmitNewsController extends HttpServlet {
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-	       
+		System.out.println("Entered get for newsArticles");
         String image = req.getParameter("image");//not really image?
         String header = req.getParameter("header");
         String content = req.getParameter("content");
@@ -67,7 +67,7 @@ public class SubmitNewsController extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		try {
-			System.out.println("ENTERED POST FOR ACCOUNT ADD");
+			System.out.println("Entered post for adding account");
             NewsArticle article = gson.fromJson(req.getReader(), NewsArticle.class);
             NewsQuerys.addArticle(article);
             resp.setHeader("Content-Type", "application/json");

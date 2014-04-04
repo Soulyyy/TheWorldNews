@@ -19,19 +19,17 @@ public class DatabaseConnection {
     }
 	
 	
-	 static Connection getHerokuConnection(final URI dbUri)
-	            throws SQLException, URISyntaxException {
-	        String username = dbUri.getUserInfo().split(":")[0];
-	        String password = dbUri.getUserInfo().split(":")[1];
-	        String dbUrl = "jdbc:postgresql://" + dbUri.getHost()
-	                + ':' + dbUri.getPort() + dbUri.getPath();
+	static Connection getHerokuConnection(final URI dbUri)throws SQLException, URISyntaxException {
+		System.out.println("We are trying to connect with Heroku.");
+		String username = dbUri.getUserInfo().split(":")[0];
+		String password = dbUri.getUserInfo().split(":")[1];
+		String dbUrl = "jdbc:postgresql://" + dbUri.getHost()
+					+ ':' + dbUri.getPort() + dbUri.getPath();
 	 
-	        return DriverManager.getConnection(
-	                dbUrl, username, password);
-	    }
-	 
-	 static Connection getLocalConnection() throws SQLException {
-	        return DriverManager.getConnection(
-	                "jdbc:postgresql://localhost/mydb", "user", "pass");
-	    }
+		return DriverManager.getConnection(dbUrl, username, password);
+	    } 
+	static Connection getLocalConnection() throws SQLException {
+		return DriverManager.getConnection(
+				"jdbc:postgresql://localhost/mydb", "user", "pass");
+		}
 }
