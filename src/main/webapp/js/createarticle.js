@@ -1,5 +1,4 @@
 $(this).ready(function() {
-	console.log("a");
     $('#articlesubmit').click(function() {
     	
         var articledata = new Object();
@@ -9,8 +8,7 @@ $(this).ready(function() {
 		articledata.articlegroupstring = "News;";
 		
 		if(document.getElementById('Business').checked) {
-			articledata.type += "Business;";
-
+			articledata.articlegroupstring += "Business;";
 		} if(document.getElementById('Sports').checked) {
 			articledata.articlegroupstring += "Sports;";
 		} if(document.getElementById('Science').checked) {
@@ -20,20 +18,12 @@ $(this).ready(function() {
 		} if(document.getElementById('Fashion').checked) {
 			articledata.articlegroupstring += "Fashion;";
 		}	
-		console.log(articledata.articlegroupstring);
-
-		
-		
-		
-		
-		
-		
+	
  
         if (!articledata.image || !articledata.header  || !articledata.content ) {
             alert("Fill all forms.");
 		}
 		else {
-			console.log(JSON.stringify(articledata));
 			$.ajax("/submitNews",{
 				type:"POST",
 				dataType:'json',
