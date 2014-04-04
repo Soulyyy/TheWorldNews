@@ -12,7 +12,7 @@ public class NewsArticle {
     public String header;
     public String content;
     //Assign prime number for each article group, multiply if in more than one, unique factorization defines
-    public int articleGroups;
+    public int articlegroups;
 
     public NewsArticle() {
     }
@@ -22,13 +22,13 @@ public class NewsArticle {
         this.image = image;
         this.header = header;
         this.content = content;
-        this.articleGroups = articleGroups;
+        this.articlegroups = articleGroups;
     }
 
     public NewsArticle(String header, String content,  int articleGroups) {
         this.header = header;
         this.content = content;
-        this.articleGroups = articleGroups;
+        this.articlegroups = articleGroups;
 
     }
     
@@ -37,14 +37,14 @@ public class NewsArticle {
     	this.image = image;
         this.header = header;
         this.content = content;
-        this.articleGroups = NewsEncoding.jointArticleConvertToInt(articleGroupsCoded);
+        this.articlegroups = NewsEncoding.jointArticleConvertToInt(articleGroupsCoded);
 
     }
     
     public NewsArticle(String header, String content,  String articleGroupsCoded) {
         this.header = header;
         this.content = content;
-        this.articleGroups = NewsEncoding.jointArticleConvertToInt(articleGroupsCoded);
+        this.articlegroups = NewsEncoding.jointArticleConvertToInt(articleGroupsCoded);
 
     }
     
