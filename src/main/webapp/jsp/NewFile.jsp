@@ -84,17 +84,19 @@
 	Connection conn = DriverManager.getConnection("", "", "");
 	Statement stmt = conn.createStatement();
 	ResultSet articleGroup = stmt.executeQuery("SELECT a, b FROM TABLE2");
-	String Title;
-    String imgURL;
-	String text;
-	int aGroup;
+	String image;
+    String header;
+	String content;
+	int articlegroup;
 	
 	while(articleGroup.next()){
-		Title = articleGroup.getString(""); //fails if in this order
-		imgURL = articleGroup.getString("");
-		text = articleGroup.getString("");
-		aGroup = articleGroup.getInt("");
-		newsArticles.add(new NewsArticle(Title,imgURL,text,aGroup));
+		//CHANGED THESE NAMES, CHECK PLEASE
+		image = articleGroup.getString("");
+		header = articleGroup.getString(""); //fails if in this order
+		content = articleGroup.getString("");
+		articlegroup = articleGroup.getInt("");
+		
+		newsArticles.add(new NewsArticle(image,header,content,articlegroup));
 	}
 
 	

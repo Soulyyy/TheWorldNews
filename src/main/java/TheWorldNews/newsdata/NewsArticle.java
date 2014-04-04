@@ -51,4 +51,11 @@ public class NewsArticle {
 
     }
     
+    public NewsArticle(String image, String header, String content, int articlegroup) {
+        this.image = image;
+        this.header = header;
+        this.content = content;
+        this.articlegroup = articlegroup;
+    }
+    
 }

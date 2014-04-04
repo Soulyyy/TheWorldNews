@@ -41,6 +41,7 @@ public class SubmitNewsController extends HttpServlet {
 		try {
 			System.out.println("Entered post for adding article");
             NewsArticle article = gson.fromJson(req.getReader(), NewsArticle.class);
+            System.out.println("We manage to get JSON object to the required format");
             NewsQuerys.addArticle(article);
             resp.setHeader("Content-Type", "application/json");
             resp.getWriter().write("{\"response\":\"newsarticle created \"}"); // peab midagi tagastama, muidu kohe fail. kui content-type on json, siis see siin peab ka korralik JSON olema
