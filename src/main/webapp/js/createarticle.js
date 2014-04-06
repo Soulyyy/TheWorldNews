@@ -34,7 +34,7 @@ $(this).ready(function() {
 					console.log("gg");
 				},
 				error:function(req, text) {
-					console.debug("%o", data);  
+					console.debug("%o", JSON.stringify(articledata));  
 					console.log(req);
 					console.log(text);
 				}

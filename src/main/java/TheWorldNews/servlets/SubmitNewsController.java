@@ -26,7 +26,7 @@ public class SubmitNewsController extends HttpServlet {
 	@Override
 	public void init() throws ServletException {
 		super.init();
-
+		gson= new Gson();
 	}
 
 	
