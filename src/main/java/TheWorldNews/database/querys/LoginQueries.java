@@ -9,6 +9,7 @@ import java.sql.Statement;
 
 import TheWorldNews.database.DatabaseConnection;
 
+
 public class LoginQueries {
 
 	public static int getUserAccessrights(String username) throws SQLException, URISyntaxException {
