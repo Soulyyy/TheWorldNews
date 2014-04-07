@@ -41,5 +41,13 @@ public class User {
 		this.accessRights = 0;
 		this.country = 0;
 	}
+	
+	public User(String userName, String password) {
+		this.userName = userName;
+		this.password = password;
+	}
+
+	
+	
 
 }
