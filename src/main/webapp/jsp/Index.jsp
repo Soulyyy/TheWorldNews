@@ -4,7 +4,8 @@
 <%@ page import="java.sql.*" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="TheWorldNews.newsdata.NewsArticle" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ page import="TheWorldNews.database.querys.DisplayQueries" %>
+<!DOCTYPE html> 
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -80,27 +81,8 @@
 
 <div id="articleGroup">
 <%	
-	ArrayList<NewsArticle> newsArticles = new ArrayList<NewsArticle>();
-	Connection conn = DriverManager.getConnection("", "", "");
-	Statement stmt = conn.createStatement();
-	ResultSet articleGroup = stmt.executeQuery("SELECT a, b FROM TABLE2");
-	String image;
-    String header;
-	String content;
-	int articlegroup;
+	ArrayList<NewsArticle> newsArticles = DisplayQueries.getArticlesByNumberAndType(28, "News");
 	
-	while(articleGroup.next()){
-		//CHANGED THESE NAMES, CHECK PLEASE
-		image = articleGroup.getString("");
-		header = articleGroup.getString(""); //fails if in this order
-		content = articleGroup.getString("");
-		articlegroup = articleGroup.getInt("");
-		
-		newsArticles.add(new NewsArticle(image,header,content,articlegroup));
-	}
-
-	
-    
     for(int i = 0;i<newsArticles.size();i++){
     	
     	NewsArticle mainArticle = newsArticles.get(i);
@@ -112,36 +94,36 @@
         
     	<p class="mainText"><a href="#"><%=header%></a></p>
     
-    </div>       <%i++;
-    
+    </div>
+    <%
+    i++;
     NewsArticle leftArticle = newsArticles.get(i);
-	String lIMG = leftArticle.image;
-	String lHeader = leftArticle.header;
-    
+	String leftIMG = leftArticle.image;
+	String leftHeader = leftArticle.header;
     %>
     
     		<div class="leftArticle">
     
-    	<a href="#"><img class="mainImage" src=<%=lIMG%> alt="pilt"></a>
+    	<a href="#"><img class="mainImage" src=<%=leftIMG%> alt="pilt"></a>
         
-        <p class="sideText"><a href="#"><%=lHeader%></a></p>
+        <p class="sideText"><a href="#"><%=leftHeader%></a></p>
     
 	</div>
 	
-	<%i++;
-    
+	<%
+	i++;
     NewsArticle rightArticle = newsArticles.get(i);
-	String rIMG = leftArticle.image;
-	String rHeader = leftArticle.header;
+	String rightIMG = leftArticle.image;
+	String rightHeader = leftArticle.header;
     
     %>
 	
     
 	<div class="rightArticle">
     
-    	<a href="#"><img class="mainImage" src=<%=rIMG%> alt="pilt"></a>
+    	<a href="#"><img class="mainImage" src=<%=rightIMG%> alt="pilt"></a>
         
-        <p class="sideText"><a href="#"><%=rHeader%></a></p>
+        <p class="sideText"><a href="#"><%=rightHeader%></a></p>
     
 	</div>
     		
