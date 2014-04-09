@@ -7,6 +7,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -23,27 +24,17 @@ public class NewsQuerys {
 		
 	}
 
-	public static void addArticle(NewsArticle newArticle) {
-		Statement stmt = null;
+	public static void addArticle(NewsArticle newArticle) throws SQLException, URISyntaxException {
 		System.out.println("Entered adding article to database");
-		try {
 			Connection con = DatabaseConnection.getConnection();
-			stmt = con.createStatement();
-			 String query = "INSERT INTO newsarticles (id, image, header, content, articlegroup)"
-			 		+ " VALUES (DEFAULT ,? ,? ,? ,? )";
+			 String query = "INSERT INTO newsarticles (image, header, content, articlegroup)"
+			 		+ " VALUES (? ,? ,? ,? )";
 			 PreparedStatement pst = con.prepareStatement(query);
 			 pst.setString(1, newArticle.image);
 			 pst.setString(2, newArticle.header);
 			 pst.setString(3, newArticle.content);
 			 pst.setInt(4, newArticle.articlegroup);
 			 pst.executeUpdate();
-		 } catch(URISyntaxException x) {
-			 Logger lgr = Logger.getLogger(NewsQuerys.class.getName());
-			 lgr.log(Level.WARNING, x.getMessage(), x);
-		 }catch(SQLException se) {
-			 Logger lgr = Logger.getLogger(NewsQuerys.class.getName());
-			 lgr.log(Level.SEVERE, se.getMessage(), se);
-		 }
 	}
 
 	

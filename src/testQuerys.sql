@@ -13,3 +13,5 @@ COUNT(newsarticles.header) AS newsHeaders
 FROM(newsarticles
 INNER JOIN users ON newsarticles.id = users.id)
 GROUP BY users.id, users.accessrights, newsarticles.id;
+
+EXPLAIN SELECT accessrights from users where username = 'jeesus' AND password = 'hesus';

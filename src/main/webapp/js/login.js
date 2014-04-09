@@ -26,7 +26,7 @@ $(this).ready(function() {
 			hash = hash.substr(1);
 		}
         var userdata = new Object();
-        userdata.userName = $("#login").val();
+        userdata.userName = $("#userName").val();
         userdata.password = $("#password").val();
  
  
