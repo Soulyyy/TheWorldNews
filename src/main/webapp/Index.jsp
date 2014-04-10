@@ -8,6 +8,8 @@
 <!DOCTYPE html> 
 <html>
 <head>
+<script type="text/javascript" src="js/mainPage.js"></script>
+<script type="text/javascript" src="js/login.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href="./css/layout.css">
