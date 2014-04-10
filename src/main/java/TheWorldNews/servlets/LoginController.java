@@ -21,7 +21,7 @@ import com.google.gson.JsonParseException;
 
 @WebServlet(value = "/accountLogin")
 public class LoginController  extends HttpServlet {
-	public static Map<String, String> sessions = new HashMap<>();
+ 
 	/**
 	 * 
 	 */
@@ -40,22 +40,15 @@ public class LoginController  extends HttpServlet {
 	}
 	
 	public String newsessionid() {
-	
- 
 		String idd = "";
-
-		
 		Random r = new Random();
 		char[] massiiv = "1234567890qwertyuiopasdfghjklzxcvbnm".toCharArray();
 		for (int i = 0; i < 20; i++) {
 			idd += massiiv[r.nextInt(massiiv.length)];
 		}
-		
-		
 		return idd;
 	}
 	
-	//When article is sent to database.
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		try {
@@ -64,15 +57,8 @@ public class LoginController  extends HttpServlet {
 			int i=2;//LoginQueries.loginWithAccessrights(currentUser.userName, currentUser.password);
 
 			String newid = newsessionid();
-			//System.out.println(newid);
-			String asd = "";
-			Iterator<String> keySetIterator = sessions.keySet().iterator();
-			while(keySetIterator.hasNext()){
-			  String key = keySetIterator.next();
-			  asd +=  sessions.get(key);
-			  System.out.println("key: " + key + " value: " + sessions.get(key));
-			}
-			System.out.println(asd);
+
+
 			resp.addIntHeader("Authentication response", i);
 			resp.setHeader("Content-Type", "application/json");
 			if (i == 2) {
