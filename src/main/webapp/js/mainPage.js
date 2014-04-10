@@ -3,27 +3,40 @@
  */
 
 $(this).ready(function(){
+	//console.log(document.cookie);
+    if (readCookie("sessionid") != "") {
+		var logoutButton = document.getElementById('logoutButton');
+		logoutButton.style.visibility = 'visible';
+		var logint = document.getElementById('toggleLogin');
+		logint.style.visibility = 'hidden';
+	 }
 	setInterval(checkHash, 100);
     $('a[menuItem]').click( function() {
 		var destination = $(this).attr('menuItem');
 		loadpage(destination);
 	});
 	$('#logoutButton').click(function() {
-	 
-		$.ajax({
-			type:"GET",
-			success:function() {
-				myIFrame.location='https://www.google.com/accounts/Logout';
-				var logoutButton = document.getElementById('logoutButton');
-				logoutButton.style.visibility = 'hidden';
-				var logint = document.getElementById('toggleLogin');
-				logint.style.visibility = 'visible';
-	 
+		var logoutButton = document.getElementById('logoutButton');
+		var logint = document.getElementById('toggleLogin');
+		if (readCookie("sessionid") != "") {
+			eraseCookie("sessionid");
+			logoutButton.style.visibility = 'hidden';
 				
-				
-	 
-			}
-		});
+			logint.style.visibility = 'visible';
+		}
+		else {
+			$.ajax({
+				type:"GET",
+				success:function() {
+					myIFrame.location='https://www.google.com/accounts/Logout';
+
+					logoutButton.style.visibility = 'hidden';
+					logint.style.visibility = 'visible';
+		 
+				}
+			});
+		}
+		
 	});
 	$('#toggleLogin').click(function() {
 		var authorizeButton = document.getElementById('authorize-button');
@@ -46,6 +59,29 @@ $(this).ready(function(){
 	});
 	 
 });
+function createCookie(name,value,days) {
+	if (days) {
+		var date = new Date();
+		date.setTime(date.getTime()+(days*24*60*60*1000));
+		var expires = "; expires="+date.toGMTString();
+	}
+	else var expires = "";
+	document.cookie = name+"="+value+expires;
+}
+function readCookie(name) {
+	var cname = name + "=";
+	var ca = document.cookie.split(';');
+	for(var i=0;i < ca.length;i++) {
+		var c = ca[i];
+		while (c.charAt(0)==' ') c = c.substring(1,c.length);
+		if (c.indexOf(cname) == 0) return c.substring(cname.length,c.length);
+	}
+	return "";
+}
+
+function eraseCookie(name) {
+	createCookie(name,"",-1);
+}
 var loadpage = function(dest)  {
     var id=3;
 	if (dest != 'index') {
@@ -65,7 +101,7 @@ var loadpage = function(dest)  {
 		});    
 	}
 	else {
-		window.location.href = "index.html";
+		window.location.href = "Index.jsp";
  
 	}
 };
