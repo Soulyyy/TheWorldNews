@@ -15,29 +15,25 @@ import TheWorldNews.newsdata.NewsArticle;
 
 
 public class ArticleTag extends SimpleTagSupport{
-	private String Type;
-	private String NewsGroup;
+	private String type;
+	private String newsgroup;
 	
-	public String getType() {
-		return Type;
+	public ArticleTag(){
+		
 	}
 	
 	public void setType(String type) {
-		Type = type;
+		this.type = type;
 	}
-	
-	public String getNewsGroup() {
-		return NewsGroup;
+
+	public void setNewsgroup(String newsgroup) {
+		this.newsgroup = newsgroup;
 	}
-	
-	public void setNewsGroup(String NewsGroup) {
-		this.NewsGroup = NewsGroup;
-	}
-	
-	public void displayMainArticles(String Type, int number){
+
+	public void displayMainArticles(String type, int number){
 		try {
 			
-			ArrayList<NewsArticle> newsArticles = DisplayQueries.getArticlesByNumberAndType(number, Type);
+			ArrayList<NewsArticle> newsArticles = DisplayQueries.getArticlesByNumberAndType(number, type);
 			
 			StringBuffer sb = new StringBuffer();
 			
@@ -110,30 +106,20 @@ public String rightArticle(NewsArticle article){
 }
 
 	
-	public void doTag() throws JspException, IOException {
-		
-
-		
-//		ArrayList<NewsArticle> newsArticles = new ArrayList<NewsArticle>();
-//		NewsArticle n1 = new NewsArticle(1,"http://i.imgur.com/iKv7rLN.jpg" , "Must be more to life", "none", 1);
-//		NewsArticle n2 = new NewsArticle(2,"http://i.imgur.com/MDdYuXW.jpg","Avin' a giggle m8?","none",1);
-//		NewsArticle n3 = new NewsArticle(3,"http://i.imgur.com/QyI6t1k.png","Part 4 fookin joocy", "none", 1);
-//		
-//		newsArticles.add(n1);
-//		newsArticles.add(n2);
-		 try {
-	            String newsType = Type.toString();
-	            int number = Integer.parseInt(NewsGroup);
-	            displayMainArticles(newsType, number);
-	        } catch (Exception e) {
-	            e.printStackTrace();
-	            // stop page from loading further by throwing SkipPageException
-	            throw new SkipPageException("Exception in " + NewsGroup
-	                    + " with type " + Type);
-	        }
-
-		
-	
-	    
-	  }
+@Override
+public void doTag() throws JspException, IOException {
+    System.out.println("Type is:" + type);
+    System.out.println("NewsGroup is:" + newsgroup);
+    try {
+    	int number = Integer.parseInt(newsgroup);
+    	
+    	displayMainArticles(type, number);
+    	
+    } catch (Exception e) {
+        e.printStackTrace();
+        // stop page from loading further by throwing SkipPageException
+        throw new SkipPageException("Exception in formatting " + type
+                + " with format " + newsgroup);
+    }
+}
 }

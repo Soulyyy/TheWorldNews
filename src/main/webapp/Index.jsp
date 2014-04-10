@@ -88,7 +88,7 @@
 <div id="articleGroup">
 
 
-<ex:AT Type="News" NewsGroup="3"/>
+<ex:AT type="News" newsgroup="3"/>
 
 
 </div>
