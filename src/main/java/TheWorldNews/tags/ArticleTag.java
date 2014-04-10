@@ -1,12 +1,15 @@
 package TheWorldNews.tags;
 
 import java.io.IOException;
+import java.net.URISyntaxException;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.JspWriter;
 import javax.servlet.jsp.tagext.SimpleTagSupport;
 
+import TheWorldNews.database.querys.DisplayQueries;
 import TheWorldNews.newsdata.NewsArticle;
 
 
@@ -66,19 +69,23 @@ public String rightArticle(NewsArticle article){
 	
 	public void doTag() throws JspException, IOException {
 		
-		//ArrayList<NewsArticle> newsArticles = DisplayQueries.getArticlesByNumberAndType(28, "News");
+
 		
-		ArrayList<NewsArticle> newsArticles = new ArrayList<NewsArticle>();
-		NewsArticle n1 = new NewsArticle(1,"http://i.imgur.com/iKv7rLN.jpg" , "Must be more to life", "none", 1);
-		NewsArticle n2 = new NewsArticle(2,"http://i.imgur.com/MDdYuXW.jpg","Avin' a giggle m8?","none",1);
-		NewsArticle n3 = new NewsArticle(3,"http://i.imgur.com/QyI6t1k.png","Part 4 fookin joocy", "none", 1);
-		
-		newsArticles.add(n1);
-		newsArticles.add(n2);
-		newsArticles.add(n3);
-		
+//		ArrayList<NewsArticle> newsArticles = new ArrayList<NewsArticle>();
+//		NewsArticle n1 = new NewsArticle(1,"http://i.imgur.com/iKv7rLN.jpg" , "Must be more to life", "none", 1);
+//		NewsArticle n2 = new NewsArticle(2,"http://i.imgur.com/MDdYuXW.jpg","Avin' a giggle m8?","none",1);
+//		NewsArticle n3 = new NewsArticle(3,"http://i.imgur.com/QyI6t1k.png","Part 4 fookin joocy", "none", 1);
+//		
+//		newsArticles.add(n1);
+//		newsArticles.add(n2);
+//		newsArticles.add(n3);
+//		
 		try {
+			
+			ArrayList<NewsArticle> newsArticles = DisplayQueries.getArticlesByNumberAndType(28, "News");
+			
 			StringBuffer sb = new StringBuffer();
+			
 			for(int i = 0;i<newsArticles.size();i++){
 				sb.append(mainArticle(newsArticles.get(i)));
 				i++;
