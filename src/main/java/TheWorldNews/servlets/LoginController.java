@@ -47,7 +47,9 @@ public class LoginController  extends HttpServlet {
 			User currentUser = gson.fromJson(req.getReader(), User.class);
 			int i=LoginQueries.loginWithAccessrights(currentUser.userName, currentUser.password);
 			//You tell me what to do with this int
-            resp.setHeader("Content-Type", "application/json");
+			resp.addIntHeader("Authentication response", i);
+            //resp.setHeader("Content-Type", "application/json");
+			//We need this?
             resp.getWriter().write("{\"response\":\"Login is verified \"}"); // peab midagi tagastama, muidu kohe fail. kui content-type on json, siis see siin peab ka korralik JSON olema
             System.out.println("Servlet succeeded in verifying log in status");
 			
