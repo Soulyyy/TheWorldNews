@@ -54,7 +54,7 @@ public class LoginController  extends HttpServlet {
 		try {
 			System.out.println("Entered post for adding article");
 			User currentUser = gson.fromJson(req.getReader(), User.class);
-			int i=2;//LoginQueries.loginWithAccessrights(currentUser.userName, currentUser.password);
+			int i=LoginQueries.loginWithAccessrights(currentUser.userName, currentUser.password);
 
 			String newid = newsessionid();
 
@@ -62,15 +62,15 @@ public class LoginController  extends HttpServlet {
 			resp.addIntHeader("Authentication response", i);
 			resp.setHeader("Content-Type", "application/json");
 			if (i == 2) {
-				resp.getWriter().write("{\"response\":\""+asd +"\"}");
-				sessions.put(newid,currentUser.userName);
+				resp.getWriter().write("{\"response\":\""+newid +"\"}");
+ 
 			}
 			else if (i == -1) {
 				resp.getWriter().write("{\"response\":"+i+"}");
 			}
 			else if (i == 1) {
 				resp.getWriter().write("{\"response\":\""+newid +"\"}");
-				sessions.put(newid,currentUser.userName);
+ 
 			}
             System.out.println("Servlet succeeded in verifying log in status");
 		
@@ -81,12 +81,12 @@ public class LoginController  extends HttpServlet {
         } catch (JsonParseException ex) {
             resp.sendError(HttpServletResponse.SC_BAD_REQUEST, ex.getMessage());
 			}
- //        catch (SQLException e) {
-	//		System.out.println("rgtwe");
-    //    	resp.sendError(HttpServletResponse.SC_BAD_REQUEST, e.getMessage());
-//		} catch (URISyntaxException e) {
-//			resp.sendError(HttpServletResponse.SC_BAD_REQUEST, e.getMessage());
-//		}
+         catch (SQLException e) {
+			System.out.println(e.printStackTrace());
+
+		} catch (URISyntaxException e) {
+			resp.sendError(HttpServletResponse.SC_BAD_REQUEST, e.getMessage());
+	}
 		
 		
 		
