@@ -77,8 +77,12 @@ public class LoginController  extends HttpServlet {
         } catch (JsonParseException ex) {
             resp.sendError(HttpServletResponse.SC_BAD_REQUEST, ex.getMessage());
 			}
- 
-	
+         catch (SQLException e) {
+			e.printStackTrace();
+
+		} catch (URISyntaxException e) {
+			resp.sendError(HttpServletResponse.SC_BAD_REQUEST, e.getMessage());
+	}
 		
 		
 		

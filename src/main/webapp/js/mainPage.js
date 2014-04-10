@@ -16,21 +16,26 @@ $(this).ready(function(){
 		loadpage(destination);
 	});
 	$('#logoutButton').click(function() {
-		eraseCookie("sessionid");
- 		$.ajax({
-			type:"GET",
-			success:function() {
-				myIFrame.location='https://www.google.com/accounts/Logout';
-				var logoutButton = document.getElementById('logoutButton');
-				logoutButton.style.visibility = 'hidden';
-				var logint = document.getElementById('toggleLogin');
-				logint.style.visibility = 'visible';
-	 
+		var logoutButton = document.getElementById('logoutButton');
+		var logint = document.getElementById('toggleLogin');
+		if (readCookie("sessionid") != "") {
+			eraseCookie("sessionid");
+			logoutButton.style.visibility = 'hidden';
 				
-				
-	 
-			}
-		});
+			logint.style.visibility = 'visible';
+		}
+		else {
+			$.ajax({
+				type:"GET",
+				success:function() {
+					myIFrame.location='https://www.google.com/accounts/Logout';
+
+					logoutButton.style.visibility = 'hidden';
+					logint.style.visibility = 'visible';
+		 
+				}
+			});
+		}
 		
 	});
 	$('#toggleLogin').click(function() {
