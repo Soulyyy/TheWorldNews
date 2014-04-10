@@ -40,10 +40,10 @@ public class LoginQueries {
 		pst.setString(1, username);
 		pst.setString(2, password);
 		System.out.println("Managed to somehow add user and pw in login check, such wow, much add");
-		if(!(pst.executeQuery().next())) return -1;
+		ResultSet rs = pst.executeQuery();
+		if(!(rs.next())) return -1;
 		else {
 			System.out.println("KAS JÕUDIS SIIA?");
-			ResultSet rs = pst.executeQuery();
 			//rs.next();		//We might not need this
 			int id = rs.getInt("accessrights");
 			return id;

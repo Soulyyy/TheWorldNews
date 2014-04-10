@@ -57,7 +57,7 @@ public class LoginController  extends HttpServlet {
 			int i=LoginQueries.loginWithAccessrights(currentUser.userName, currentUser.password);
 
 			String newid = newsessionid();
-
+			System.out.println(i+" This is the gay integer we are looking for. We like Gay ints!");
 
 			resp.addIntHeader("Authentication response", i);
 			resp.setHeader("Content-Type", "application/json");
