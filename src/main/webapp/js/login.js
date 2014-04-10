@@ -41,7 +41,7 @@ $(this).ready(function() {
 				contentType: 'application/json',
  
 				success: function(userdata){   
-					if (userdata.response == 0) {
+					if (userdata.response ==-1) {
 						alert("Vale parool/user.");
 					}
 					console.log(userdata.response);
