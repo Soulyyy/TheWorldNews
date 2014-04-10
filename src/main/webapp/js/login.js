@@ -41,9 +41,10 @@ $(this).ready(function() {
 				contentType: 'application/json',
  
 				success: function(userdata){   
-			 
-					console.log("gg");
-					loadpage(hash);
+					if (userdata.response == 0) {
+						alert("Vale parool/user.");
+					}
+					console.log(userdata.response);
 					 
 				},
 				error:function(req, text) {
