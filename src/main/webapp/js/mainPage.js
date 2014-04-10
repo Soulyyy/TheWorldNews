@@ -101,7 +101,7 @@ var loadpage = function(dest)  {
 		});    
 	}
 	else {
-		window.location.href = "index.html";
+		window.location.href = "Index.jsp";
  
 	}
 };
