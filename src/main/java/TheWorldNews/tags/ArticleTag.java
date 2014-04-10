@@ -15,7 +15,20 @@ import TheWorldNews.newsdata.NewsArticle;
 
 public class ArticleTag extends SimpleTagSupport{
 	String Type;
-	int number;
+	int NewsGroup;
+	
+	public String getType() {
+		return Type;
+	}
+	public void setType(String type) {
+		Type = type;
+	}
+	public int getNewsGroup() {
+		return NewsGroup;
+	}
+	public void setNewsGroup(int NewsGroup) {
+		this.NewsGroup = NewsGroup;
+	}
 	
 	public void displayMainArticles(String Type, int number){
 		try {
@@ -105,10 +118,9 @@ public String rightArticle(NewsArticle article){
 //		newsArticles.add(n1);
 //		newsArticles.add(n2);
 		
-		Type = (String) getJspContext().getAttribute("Type");
-		number = (int) getJspContext().getAttribute("NewsGroup");
+
 		
-		displayMainArticles(Type, number);
+		displayMainArticles(getType(), getNewsGroup());
 	    
 	  }
 }

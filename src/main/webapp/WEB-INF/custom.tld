@@ -8,13 +8,15 @@
     <body-content>empty</body-content>
     <attribute>  
             <name>Type</name>  
-            <required>no</required>  
-            <rtexprvalue>no</rtexprvalue>  
+            <required>true</required>  
+            <rtexprvalue>true</rtexprvalue>
+
         </attribute>  
         <attribute>  
             <name>NewsGroup</name>  
-            <required>no</required>  
-            <rtexprvalue>no</rtexprvalue>  
+            <required>true</required>  
+            <rtexprvalue>true</rtexprvalue>  
+
         </attribute>  
   </tag>
 </taglib>
