@@ -8,13 +8,15 @@
     <body-content>empty</body-content>
     <attribute>  
             <name>Type</name>  
-            <required>no</required>  
-            <rtexprvalue>no</rtexprvalue>  
+            <required>true</required>  
+            <rtexprvalue>true</rtexprvalue>
+            <type>java.lang.String</type>
         </attribute>  
         <attribute>  
             <name>NewsGroup</name>  
-            <required>no</required>  
-            <rtexprvalue>no</rtexprvalue>  
+            <required>true</required>  
+            <rtexprvalue>true</rtexprvalue>  
+            <type>java.lang.Integer</type>
         </attribute>  
   </tag>
 </taglib>

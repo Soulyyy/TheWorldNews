@@ -7,6 +7,7 @@ import java.util.ArrayList;
 
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.JspWriter;
+import javax.servlet.jsp.SkipPageException;
 import javax.servlet.jsp.tagext.SimpleTagSupport;
 
 import TheWorldNews.database.querys.DisplayQueries;
@@ -14,8 +15,24 @@ import TheWorldNews.newsdata.NewsArticle;
 
 
 public class ArticleTag extends SimpleTagSupport{
-	String Type;
-	int number;
+	private String Type;
+	private String NewsGroup;
+	
+	public String getType() {
+		return Type;
+	}
+	
+	public void setType(String type) {
+		Type = type;
+	}
+	
+	public String getNewsGroup() {
+		return NewsGroup;
+	}
+	
+	public void setNewsGroup(String NewsGroup) {
+		this.NewsGroup = NewsGroup;
+	}
 	
 	public void displayMainArticles(String Type, int number){
 		try {
@@ -104,11 +121,19 @@ public String rightArticle(NewsArticle article){
 //		
 //		newsArticles.add(n1);
 //		newsArticles.add(n2);
+		 try {
+	            String newsType = Type.toString();
+	            int number = Integer.parseInt(NewsGroup);
+	            displayMainArticles(newsType, number);
+	        } catch (Exception e) {
+	            e.printStackTrace();
+	            // stop page from loading further by throwing SkipPageException
+	            throw new SkipPageException("Exception in " + NewsGroup
+	                    + " with type " + Type);
+	        }
+
 		
-		Type = (String) getJspContext().getAttribute("Type");
-		number = (int) getJspContext().getAttribute("NewsGroup");
-		
-		displayMainArticles(Type, number);
+	
 	    
 	  }
 }
