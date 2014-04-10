@@ -14,7 +14,33 @@ import TheWorldNews.newsdata.NewsArticle;
 
 
 public class ArticleTag extends SimpleTagSupport{
+	String Type;
+	int number;
 	
+	public void displayMainArticles(String Type, int number){
+		try {
+			
+			ArrayList<NewsArticle> newsArticles = DisplayQueries.getArticlesByNumberAndType(number, Type);
+			
+			StringBuffer sb = new StringBuffer();
+			
+			for(int i = 0;i<newsArticles.size();i++){
+				sb.append(mainArticle(newsArticles.get(i)));
+				i++;
+				sb.append(leftArticle(newsArticles.get(i)));
+				i++;
+				sb.append(rightArticle(newsArticles.get(i)));
+				i++;
+			}
+			
+			JspWriter out = getJspContext().getOut();
+		    
+		    out.println(sb.toString());
+		    
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 	public String mainArticle(NewsArticle article){
 		
 		StringBuffer sb = new StringBuffer();
@@ -78,30 +104,11 @@ public String rightArticle(NewsArticle article){
 //		
 //		newsArticles.add(n1);
 //		newsArticles.add(n2);
-//		newsArticles.add(n3);
-//		
-		try {
-			
-			ArrayList<NewsArticle> newsArticles = DisplayQueries.getArticlesByNumberAndType(3, "News");
-			
-			StringBuffer sb = new StringBuffer();
-			
-			for(int i = 0;i<newsArticles.size();i++){
-				sb.append(mainArticle(newsArticles.get(i)));
-				i++;
-				sb.append(leftArticle(newsArticles.get(i)));
-				i++;
-				sb.append(rightArticle(newsArticles.get(i)));
-				i++;
-			}
-			
-			JspWriter out = getJspContext().getOut();
-		    
-		    out.println(sb.toString());
-		    
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+		
+		Type = (String) getJspContext().getAttribute("Type");
+		number = (int) getJspContext().getAttribute("NewsGroup");
+		
+		displayMainArticles(Type, number);
 	    
 	  }
 }

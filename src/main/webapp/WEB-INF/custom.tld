@@ -6,6 +6,15 @@
     <name>AT</name>
     <tag-class>TheWorldNews.tags.ArticleTag</tag-class>
     <body-content>empty</body-content>
-    
+    <attribute>  
+            <name>Type</name>  
+            <required>no</required>  
+            <rtexprvalue>no</rtexprvalue>  
+        </attribute>  
+        <attribute>  
+            <name>NewsGroup</name>  
+            <required>no</required>  
+            <rtexprvalue>no</rtexprvalue>  
+        </attribute>  
   </tag>
 </taglib>
