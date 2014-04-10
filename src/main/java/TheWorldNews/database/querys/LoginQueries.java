@@ -44,7 +44,6 @@ public class LoginQueries {
 		if(!(rs.next())) return -1;
 		else {
 			System.out.println("KAS JÕUDIS SIIA?");
-			//rs.next();		//We might not need this
 			int id = rs.getInt("accessrights");
 			return id;
 		}
