@@ -1,7 +1,8 @@
 $(this).ready(function() {
-	 var loadpage = function(dest)  {
-		var id=3;
-
+	
+var loadpage = function(dest)  {
+	var id=3;
+	if (dest != 'index') {
 		$.ajax({
 			type:"GET",
 			url:'./html/'+ dest +".html",
@@ -15,73 +16,77 @@ $(this).ready(function() {
 				externalHTML.innerHTML=data;
 			}
 
-		});    
-	};
-	function createCookie(name,value,days) {
-		if (days) {
-			var date = new Date();
-			date.setTime(date.getTime()+(days*24*60*60*1000));
-			var expires = "; expires="+date.toGMTString();
-		}
-		else var expires = "";
-		document.cookie = name+"="+value+expires+"; path=/";
+	});    
 	}
+	else {
+		window.location.href = "index.html";
+ 
+	}
+};
+function createCookie(name,value,days) {
+	if (days) {
+		var date = new Date();
+		date.setTime(date.getTime()+(days*24*60*60*1000));
+		var expires = "; expires="+date.toGMTString();
+	}
+	else var expires = "";
+	document.cookie = name+"="+value+expires;
+}
 
-	function readCookie(name) {
-		var nameEQ = name + "=";
-		var ca = document.cookie.split(';');
-		for(var i=0;i < ca.length;i++) {
-			var c = ca[i];
-			while (c.charAt(0)==' ') c = c.substring(1,c.length);
-			if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
-		}
-		return null;
+	
+$('#loginbutton').click(function() {
+	var hash = window.location.hash;
+	if (hash) {
+		hash = hash.substr(1);
 	}
+	if (hash == "") {
+		hash = "index";
+	}
+	var userdata = new Object();
+	userdata.userName = $("#userName").val();
+	userdata.password = $("#password").val();
 
-	function eraseCookie(name) {
-		createCookie(name,"",-1);
+
+	if (!userdata.userName || !userdata.password  ) {
+		alert("Fill all forms.");
 	}
-     
-    $('#loginbutton').click(function() {
-		var hash = window.location.hash;
-		console.log(hash);
-		if (hash) {
-			hash = hash.substr(1);
-		}
-        var userdata = new Object();
-        userdata.userName = $("#userName").val();
-        userdata.password = $("#password").val();
- 
- 
-        if (!userdata.userName || !userdata.password  ) {
-            alert("Fill all forms.");
-		}
-		else {
-			$.ajax("/accountLogin",{
-				type:"POST",
-				dataType:'json',
-				data: JSON.stringify(userdata),
-				contentType: 'application/json',
- 
-				success: function(userdata){   
-					if (userdata.response ==-1) {
-						alert("Vale parool/user.");
-					}
-					else {
-						createCookie(userdata.UserName,userdata.response,7);
-					}
-					//console.log(userdata.response);
-					 
-				},
-				error:function(req, text) {
-					console.log(req);
-					console.log(text);
+	else {
+		$.ajax("/accountLogin",{
+			type:"POST",
+			dataType:'json',
+			data: JSON.stringify(userdata),
+			contentType: 'application/json',
+
+			success: function(userdata){   
+				if (userdata.response ==-1) {
+					alert("Vale parool/user.");
 				}
-
-			});
-		}
+				else {
+					createCookie("sessionid",userdata.response,7);
+					loadpage(hash);
+					location.reload();
+					var authorizeButton = document.getElementById('authorize-button');
+					var container = document.getElementById('loginContainer');
+					var reg = document.getElementById('regi');
  
+					authorizeButton.style.visibility = 'hidden';
+					regi.style.visibility = 'hidden';
+					container.style.visibility = 'hidden';
+			 
+	 
+					
+				}
+				 
+			},
+			error:function(req, text) {
+				console.log(req);
+				console.log(text);
+			}
 
-         
-    });
+		});
+	}
+
+
+	 
+});
 });

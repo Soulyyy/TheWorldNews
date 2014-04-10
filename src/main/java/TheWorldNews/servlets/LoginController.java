@@ -54,23 +54,19 @@ public class LoginController  extends HttpServlet {
 		try {
 			System.out.println("Entered post for adding article");
 			User currentUser = gson.fromJson(req.getReader(), User.class);
-			int i=LoginQueries.loginWithAccessrights(currentUser.userName, currentUser.password);
+			int i=1;//LoginQueries.loginWithAccessrights(currentUser.userName, currentUser.password);
 
 			String newid = newsessionid();
 
 
 			resp.addIntHeader("Authentication response", i);
 			resp.setHeader("Content-Type", "application/json");
-			if (i == 2) {
+			if (i != -1) {
 				resp.getWriter().write("{\"response\":\""+newid +"\"}");
  
 			}
-			else if (i == -1) {
+			else {
 				resp.getWriter().write("{\"response\":"+i+"}");
-			}
-			else if (i == 1) {
-				resp.getWriter().write("{\"response\":\""+newid +"\"}");
- 
 			}
             System.out.println("Servlet succeeded in verifying log in status");
 		
@@ -81,12 +77,8 @@ public class LoginController  extends HttpServlet {
         } catch (JsonParseException ex) {
             resp.sendError(HttpServletResponse.SC_BAD_REQUEST, ex.getMessage());
 			}
-         catch (SQLException e) {
-			e.printStackTrace();
-
-		} catch (URISyntaxException e) {
-			resp.sendError(HttpServletResponse.SC_BAD_REQUEST, e.getMessage());
-	}
+ 
+	
 		
 		
 		

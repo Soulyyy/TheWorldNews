@@ -3,14 +3,21 @@
  */
 
 $(this).ready(function(){
+	//console.log(document.cookie);
+    if (readCookie("sessionid") != "") {
+		var logoutButton = document.getElementById('logoutButton');
+		logoutButton.style.visibility = 'visible';
+		var logint = document.getElementById('toggleLogin');
+		logint.style.visibility = 'hidden';
+	 }
 	setInterval(checkHash, 100);
     $('a[menuItem]').click( function() {
 		var destination = $(this).attr('menuItem');
 		loadpage(destination);
 	});
 	$('#logoutButton').click(function() {
-	 
-		$.ajax({
+		eraseCookie("sessionid");
+ 		$.ajax({
 			type:"GET",
 			success:function() {
 				myIFrame.location='https://www.google.com/accounts/Logout';
@@ -24,6 +31,7 @@ $(this).ready(function(){
 	 
 			}
 		});
+		
 	});
 	$('#toggleLogin').click(function() {
 		var authorizeButton = document.getElementById('authorize-button');
@@ -46,6 +54,29 @@ $(this).ready(function(){
 	});
 	 
 });
+function createCookie(name,value,days) {
+	if (days) {
+		var date = new Date();
+		date.setTime(date.getTime()+(days*24*60*60*1000));
+		var expires = "; expires="+date.toGMTString();
+	}
+	else var expires = "";
+	document.cookie = name+"="+value+expires;
+}
+function readCookie(name) {
+	var nameEQ = name + "=";
+	var ca = document.cookie.split(';');
+	for(var i=0;i < ca.length;i++) {
+		var c = ca[i];
+		while (c.charAt(0)==' ') c = c.substring(1,c.length);
+		if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+	}
+	return "";
+}
+
+function eraseCookie(name) {
+	createCookie(name,"",-1);
+}
 var loadpage = function(dest)  {
     var id=3;
 	if (dest != 'index') {
