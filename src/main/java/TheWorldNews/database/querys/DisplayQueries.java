@@ -24,12 +24,17 @@ public class DisplayQueries {
 		 ResultSet rs = pst.executeQuery();
 		 ArrayList<NewsArticle> listOfValues = new ArrayList<NewsArticle>();
 		 //PARSE RESULTSET TO ARRAYLIST
-//		 while(rs.next()) {
-//			 NewsArticle tempArticle = new NewsArticle();
-//			 for(int i=0;i<5;i++) {
-//				 
-//			 }
-//		 }
+		 
+		 while(rs.next()){
+
+			 		//CHANGED THESE NAMES, CHECK PLEASE
+			 		String image = rs.getString("image");
+			 		String header = rs.getString("header"); //fails if in this order
+			 		String content = rs.getString("content");
+			 		articlegroup = rs.getInt("articlegroup");
+			 		listOfValues.add(new NewsArticle(1,image, header, content, articlegroup));
+
+			 	}
 		 return(listOfValues);
 		 
 	}
