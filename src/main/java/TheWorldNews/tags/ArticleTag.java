@@ -82,7 +82,7 @@ public String rightArticle(NewsArticle article){
 //		
 		try {
 			
-			ArrayList<NewsArticle> newsArticles = DisplayQueries.getArticlesByNumberAndType(28, "News");
+			ArrayList<NewsArticle> newsArticles = DisplayQueries.getArticlesByNumberAndType(3, "News");
 			
 			StringBuffer sb = new StringBuffer();
 			

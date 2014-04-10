@@ -21,7 +21,7 @@ import com.google.gson.JsonParseException;
 
 @WebServlet(value = "/accountLogin")
 public class LoginController  extends HttpServlet {
-	public static Map<String, String> sessions = new HashMap<>();
+ 
 	/**
 	 * 
 	 */
@@ -40,51 +40,37 @@ public class LoginController  extends HttpServlet {
 	}
 	
 	public String newsessionid() {
-	
- 
 		String idd = "";
-
-		
 		Random r = new Random();
 		char[] massiiv = "1234567890qwertyuiopasdfghjklzxcvbnm".toCharArray();
 		for (int i = 0; i < 20; i++) {
 			idd += massiiv[r.nextInt(massiiv.length)];
 		}
-		
-		
 		return idd;
 	}
 	
-	//When article is sent to database.
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		try {
 			System.out.println("Entered post for adding article");
 			User currentUser = gson.fromJson(req.getReader(), User.class);
-			int i=2;//LoginQueries.loginWithAccessrights(currentUser.userName, currentUser.password);
+			int i=LoginQueries.loginWithAccessrights(currentUser.userName, currentUser.password);
 
 			String newid = newsessionid();
-			//System.out.println(newid);
-			String asd = "";
-			Iterator<String> keySetIterator = sessions.keySet().iterator();
-			while(keySetIterator.hasNext()){
-			  String key = keySetIterator.next();
-			  asd +=  sessions.get(key);
-			  System.out.println("key: " + key + " value: " + sessions.get(key));
-			}
-			System.out.println(asd);
+
+
 			resp.addIntHeader("Authentication response", i);
 			resp.setHeader("Content-Type", "application/json");
 			if (i == 2) {
-				resp.getWriter().write("{\"response\":\""+asd +"\"}");
-				sessions.put(newid,currentUser.userName);
+				resp.getWriter().write("{\"response\":\""+newid +"\"}");
+ 
 			}
 			else if (i == -1) {
 				resp.getWriter().write("{\"response\":"+i+"}");
 			}
 			else if (i == 1) {
 				resp.getWriter().write("{\"response\":\""+newid +"\"}");
-				sessions.put(newid,currentUser.userName);
+ 
 			}
             System.out.println("Servlet succeeded in verifying log in status");
 		
@@ -95,12 +81,12 @@ public class LoginController  extends HttpServlet {
         } catch (JsonParseException ex) {
             resp.sendError(HttpServletResponse.SC_BAD_REQUEST, ex.getMessage());
 			}
- //        catch (SQLException e) {
-	//		System.out.println("rgtwe");
-    //    	resp.sendError(HttpServletResponse.SC_BAD_REQUEST, e.getMessage());
-//		} catch (URISyntaxException e) {
-//			resp.sendError(HttpServletResponse.SC_BAD_REQUEST, e.getMessage());
-//		}
+         catch (SQLException e) {
+			System.out.println(e.printStackTrace());
+
+		} catch (URISyntaxException e) {
+			resp.sendError(HttpServletResponse.SC_BAD_REQUEST, e.getMessage());
+	}
 		
 		
 		
