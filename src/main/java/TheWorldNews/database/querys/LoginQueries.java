@@ -41,8 +41,9 @@ public class LoginQueries {
 		pst.setString(2, password);
 		if(!(pst.executeQuery().next())) return -1;
 		else {
+			System.out.println("KAS JÕUDIS SIIA?");
 			ResultSet rs = pst.executeQuery();
-			rs.next();		//We might not need this
+			//rs.next();		//We might not need this
 			int id = rs.getInt("accessrights");
 			return id;
 		}
