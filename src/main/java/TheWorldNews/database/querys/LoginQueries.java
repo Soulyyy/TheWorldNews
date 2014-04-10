@@ -39,6 +39,7 @@ public class LoginQueries {
 		PreparedStatement pst = con.prepareStatement(query);
 		pst.setString(1, username);
 		pst.setString(2, password);
+		System.out.println("Managed to somehow add user and pw in login check, such wow, much add");
 		if(!(pst.executeQuery().next())) return -1;
 		else {
 			System.out.println("KAS JÕUDIS SIIA?");
