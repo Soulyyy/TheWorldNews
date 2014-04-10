@@ -104,8 +104,10 @@ public String rightArticle(NewsArticle article){
 //		
 //		newsArticles.add(n1);
 //		newsArticles.add(n2);
+		
 		Type = (String) getJspContext().getAttribute("Type");
-		number = (int) getJspContext().getAttribute("number");
+		number = (int) getJspContext().getAttribute("NewsGroup");
+		
 		displayMainArticles(Type, number);
 	    
 	  }

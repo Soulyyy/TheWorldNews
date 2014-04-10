@@ -12,7 +12,7 @@
             <rtexprvalue>no</rtexprvalue>  
         </attribute>  
         <attribute>  
-            <name>numberOfNews</name>  
+            <name>NewsGroup</name>  
             <required>no</required>  
             <rtexprvalue>no</rtexprvalue>  
         </attribute>  
