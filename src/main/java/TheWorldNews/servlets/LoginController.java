@@ -65,10 +65,18 @@ public class LoginController  extends HttpServlet {
 
 			String newid = newsessionid();
 			//System.out.println(newid);
+			String asd = "";
+			Iterator<String> keySetIterator = sessions.keySet().iterator();
+			while(keySetIterator.hasNext()){
+			  String key = keySetIterator.next();
+			  asd +=  sessions.get(key);
+			  System.out.println("key: " + key + " value: " + sessions.get(key));
+			}
+			System.out.println(asd);
 			resp.addIntHeader("Authentication response", i);
 			resp.setHeader("Content-Type", "application/json");
 			if (i == 2) {
-				resp.getWriter().write("{\"response\":\""+newid +"\"}");
+				resp.getWriter().write("{\"response\":\""+asd +"\"}");
 				sessions.put(newid,currentUser.userName);
 			}
 			else if (i == -1) {
@@ -79,12 +87,9 @@ public class LoginController  extends HttpServlet {
 				sessions.put(newid,currentUser.userName);
 			}
             System.out.println("Servlet succeeded in verifying log in status");
-			Iterator<String> keySetIterator = sessions.keySet().iterator();
+		
 
-			while(keySetIterator.hasNext()){
-			  String key = keySetIterator.next();
-			  System.out.println("key: " + key + " value: " + sessions.get(key));
-			}
+			
 						
 			
         } catch (JsonParseException ex) {
