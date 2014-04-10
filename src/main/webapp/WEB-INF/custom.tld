@@ -6,5 +6,6 @@
     <name>AT</name>
     <tag-class>TheWorldNews.tags.ArticleTag</tag-class>
     <body-content>empty</body-content>
+    
   </tag>
 </taglib>

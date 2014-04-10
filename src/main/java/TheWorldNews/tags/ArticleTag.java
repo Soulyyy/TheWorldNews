@@ -67,6 +67,7 @@ public String rightArticle(NewsArticle article){
 	public void doTag() throws JspException, IOException {
 		
 		//ArrayList<NewsArticle> newsArticles = DisplayQueries.getArticlesByNumberAndType(28, "News");
+		
 		ArrayList<NewsArticle> newsArticles = new ArrayList<NewsArticle>();
 		NewsArticle n1 = new NewsArticle(1,"http://i.imgur.com/iKv7rLN.jpg" , "Must be more to life", "none", 1);
 		NewsArticle n2 = new NewsArticle(2,"http://i.imgur.com/MDdYuXW.jpg","Avin' a giggle m8?","none",1);
