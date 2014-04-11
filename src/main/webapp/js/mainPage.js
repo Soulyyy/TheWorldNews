@@ -4,9 +4,12 @@
 
 $(this).ready(function(){
 	var logoutButton = document.getElementById('logoutButton');
-	var logint = document.getElementById('toggleLogin');
-	console.log(document.cookie);
-	
+	try {
+		var logint = document.getElementById('toggleLogin');
+	}
+	catch {
+		
+	}
 	if (readCookie("sessionid") != "") {
 		logoutButton.style.visibility = 'visible';
 		logint.style.visibility = 'hidden';
