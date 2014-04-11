@@ -26,6 +26,7 @@ $(this).ready(function(){
 			eraseCookie("sessionid");
 			logoutButton.style.visibility = 'hidden';
  			logint.style.visibility = 'visible';
+			location.reload;
 			
 		}
 		else {
