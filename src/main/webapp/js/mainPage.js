@@ -8,8 +8,11 @@ $(this).ready(function(){
 	console.log(document.cookie);
 	
 	if (readCookie("sessionid") != "") {
-			logoutButton.style.visibility = 'visible';
-			logint.style.visibility = 'hidden';
+		logoutButton.style.visibility = 'visible';
+		logint.style.visibility = 'hidden';
+	}
+	else {
+		logint.style.visibility = 'visible';	
 	}
 	setInterval(checkHash, 100);
    // $('a[menuItem]').click( function() {
@@ -154,8 +157,7 @@ function handleAuthResult(authResult) {
 		makeApiCall();
 	  
 	} else {
-	  
-	  //authorizeButton.style.visibility = 'visible';
+	
 	  authorizeButton.onclick = handleAuthClick;
 	}
 }
