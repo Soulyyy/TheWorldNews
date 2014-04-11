@@ -5,14 +5,20 @@ import java.net.URISyntaxException;
 import java.sql.SQLException;
 
 import javax.servlet.annotation.WebServlet;
+
 import java.util.Random;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Iterator;
+
+import TheWorldNews.database.querys.AuthenticationQueries;
 import TheWorldNews.database.querys.LoginQueries;
 import TheWorldNews.userdata.User;
 
@@ -56,19 +62,21 @@ public class LoginController  extends HttpServlet {
 			System.out.println("Entered post for adding article");
 			User currentUser = gson.fromJson(req.getReader(), User.class);
 			int i=LoginQueries.loginWithAccessrights(currentUser.userName, currentUser.password);
-
 			//String newid = newsessionid();
 			System.out.println(i+" This is the gay integer we are looking for. We like Gay ints!");
 			if(i==-1) {
-				
+				//Some relevant response
+				resp.addIntHeader("Authentication response", i);
+				resp.setHeader("Content-Type", "application/json");
+				resp.getWriter().write("{\"response\":"+i+"}");
 			} else {
-				//MÜÜR; SIIN PUTSIS HALP
-				addAuthentication(currentUser.userName, req.)
+				HttpSession session = req.getSession();
+				AuthenticationQueries.addAuthentication(session.getId(),currentUser.userName);
+				//Here as well
+				resp.addIntHeader("Authentication response", i);
+				resp.setHeader("Content-Type", "application/json");
+				resp.getWriter().write("{\"response\":"+i+"}");
 			}
-
-			resp.addIntHeader("Authentication response", i);
-			resp.setHeader("Content-Type", "application/json");
-			resp.getWriter().write("{\"response\":"+i+"}");
  
             System.out.println("Servlet succeeded in verifying log in status");
 		
