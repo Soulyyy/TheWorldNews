@@ -2,71 +2,59 @@
  * Created by kasutaja on 28.02.14.
  */
 
-//$(this).ready(function(){
-//	//console.log(document.cookie);
-//    $.ajax({
-//    	type:"GET",
-////		url:'./jsp/'+ dest +".jsp",
-//		data:{"id":id},
-//		success:function(data) {
-//			var logoutButton = document.getElementById('logoutButton');
-//			logoutButton.style.visibility = 'visible';
-//			var logint = document.getElementById('toggleLogin');
-//			logint.style.visibility = 'hidden';
-//			
-//		}
-//    	
-//    });
-////	setInterval(checkHash, 100);
-////    $('a[menuItem]').click( function() {
-////		var destination = $(this).attr('menuItem');
-////		loadpage(destination);
-////	});
-//	$('#logoutButton').click(function() {
-//		
-//		var logoutButton = document.getElementById('logoutButton');
-//		var logint = document.getElementById('toggleLogin');
-//		if (readCookie("sessionid") != "") {
-//			eraseCookie("sessionid");
-//			logoutButton.style.visibility = 'hidden';
-//				
-//			logint.style.visibility = 'visible';
-//		}
-//		else {
-//			$.ajax({
-//				type:"GET",
-//				success:function() {
-//					myIFrame.location='https://www.google.com/accounts/Logout';
-//
-//					logoutButton.style.visibility = 'hidden';
-//					logint.style.visibility = 'visible';
-//		 
-//				}
-//			});
-//		}
-//		
-//	});
-//	$('#toggleLogin').click(function() {
-//		var authorizeButton = document.getElementById('authorize-button');
-//		var container = document.getElementById('loginContainer');
-//		var reg = document.getElementById('regi');
-//		if (authorizeButton.style.visibility == 'visible') {
-//		
-//			authorizeButton.style.visibility = 'hidden';
-//			regi.style.visibility = 'hidden';
-//			container.style.visibility = 'hidden';
-// 
-//		}
-//		else {
-//			authorizeButton.style.visibility = 'visible';
-//			regi.style.visibility = 'visible';
-//			container.style.visibility = 'visible';
-//			
-//		}
-//	
-//	});
-//	 
-//});
+$(this).ready(function(){
+	//console.log(document.cookie);
+ 
+	// setInterval(checkHash, 100);
+   $('a[menuItem]').click( function() {
+		var destination = $(this).attr('menuItem');
+		loadpage(destination);
+	});
+	$('#logoutButton').click(function() {
+		
+		var logoutButton = document.getElementById('logoutButton');
+		var logint = document.getElementById('toggleLogin');
+		if (readCookie("sessionid") != "") {
+			eraseCookie("sessionid");
+			logoutButton.style.visibility = 'hidden';
+				
+			logint.style.visibility = 'visible';
+		}
+		else {
+			$.ajax({
+				type:"GET",
+				success:function() {
+					myIFrame.location='https://www.google.com/accounts/Logout';
+
+					logoutButton.style.visibility = 'hidden';
+					logint.style.visibility = 'visible';
+		 
+				}
+			});
+		}
+		
+	});
+	$('#toggleLogin').click(function() {
+		var authorizeButton = document.getElementById('authorize-button');
+		var container = document.getElementById('loginContainer');
+		var reg = document.getElementById('regi');
+		if (authorizeButton.style.visibility == 'visible') {
+		
+			authorizeButton.style.visibility = 'hidden';
+			regi.style.visibility = 'hidden';
+			container.style.visibility = 'hidden';
+
+		}
+		else {
+			authorizeButton.style.visibility = 'visible';
+			regi.style.visibility = 'visible';
+			container.style.visibility = 'visible';
+			
+		}
+	
+	});
+	 
+});
 function createCookie(name,value,days) {
 	if (days) {
 		var date = new Date();
@@ -188,16 +176,6 @@ function makeApiCall() {
 	  });
 	});
 }
-
-//Template for everything when shit hits the fan
-//$(this).ready(function(){
-//	$.ajax({
-//		type:"GET",
-//		url:'./html/'+ dest +".html",
-//		data:{"id":id},
-//		success:
-//	});
-//	
-//});
+ 
  
  

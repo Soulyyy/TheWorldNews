@@ -24,7 +24,7 @@
 	<!-- The World Log In & Settings -->
 	<div id="logoButtons">
     
-		<header class="Head"><a class="Head" menuItem="index">THE WORLD</a></header>
+		<header class="Head"><a class="Head" menuItem="Index">THE WORLD</a></header>
 
         
         <button  id="settings"></button>
@@ -66,7 +66,7 @@
     <div id="navigation">
      
         <ul>
-            <li><a href="sp/News.jsp">News</a> </li>
+            <li><a href="jsp/News.jsp">News</a> </li>
             
 			<li><a href="jsp/Business.jsp">Business</a></li>
 			<li><a href="jsp/Sports.jsp">Sports</a></li>
