@@ -3,6 +3,7 @@ package TheWorldNews.tags;
 import java.io.IOException;
 
 import javax.servlet.jsp.JspException;
+import javax.servlet.jsp.JspWriter;
 import javax.servlet.jsp.SkipPageException;
 import javax.servlet.jsp.tagext.SimpleTagSupport;
 
@@ -47,7 +48,7 @@ public class NavigationTag extends SimpleTagSupport{
 		sb.append("<p><input type=\"text\" id=\"userName\" name=\"login\" value=\"\" placeholder=\"Username or Email\"></p>");
 		sb.append("<p><input type=\"password\" id=\"password\" name=\"password\" value=\"\" placeholder=\"Password\"></p>");
 			 
-		sb.append("<a href=\"html/registerUser.html\" id=\"regi\">Not a User? Click here to register</a>");
+		sb.append("<a href=\"../html/registerUser.html\" id=\"regi\">Not a User? Click here to register</a>");
 		sb.append("<p class=\"submit\"><button id=\"loginbutton\">Log In</button></p>");
 		sb.append("</div>"); 
 	    sb.append("<div>");
@@ -62,13 +63,13 @@ public class NavigationTag extends SimpleTagSupport{
 	    sb.append("<div id=\"navigation\">");
 	     
 	    sb.append("<ul>");
-	    sb.append("<li><a menuItem=\"News\">News</a> </li>");
+	    sb.append("<li><a href=\"News\">News.jsp</a> </li>");
 	            
-		sb.append("<li><a menuItem=\"Business\">Business</a></li>");
-		sb.append("<li><a menuItem=\"Sports\">Sports</a></li>");
-		sb.append("<li><a menuItem=\"Science\">Science</a></li>");
-		sb.append("<li><a menuItem=\"Arts\">Arts</a></li>");
-	    sb.append("<li><a menuItem=\"FashionStyle\">Fashion &amp; Style</a></li>");
+		sb.append("<li><a href=\"Business.jsp\">Business</a></li>");
+		sb.append("<li><a href=\"Sports.jsp\">Sports</a></li>");
+		sb.append("<li><a href=\"Science.jsp\">Science</a></li>");
+		sb.append("<li><a href=\"Arts.jsp\">Arts</a></li>");
+	    sb.append("<li><a href=\"FashionStyle.jsp\">Fashion &amp; Style</a></li>");
 		sb.append("</ul>");
 	        
 		sb.append("</div>"); 
@@ -85,6 +86,9 @@ public class NavigationTag extends SimpleTagSupport{
 	
 	@Override
 	public void doTag() throws JspException, IOException {
+		
+		JspWriter out = getJspContext().getOut();
 	    
+	    out.println(displayNavigation());
 	}
 }

@@ -9,7 +9,7 @@
 <!DOCTYPE html> 
 <html>
 <head>
-	<title>The World - Arts</title>
+	<title>The World - Fashion &amp; Style</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<link rel="stylesheet" type="text/css" href="../css/layout.css">
     <script src="../lib/jquery-1.11.0.js" type="text/javascript"></script>
@@ -19,6 +19,6 @@
 </head>
 <body>
 <ex:Navigation/>
-<ex:AT type="Arts" newsgroup="3"/>
+<ex:AT type="Fashion" newsgroup="3"/>
 </body>
 </html>
