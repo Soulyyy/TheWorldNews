@@ -68,11 +68,11 @@
         <ul>
             <li><a href="News">News</a> </li>
             
-			<li><a href="Business.jsp">Business</a></li>
-			<li><a href="Sports.jsp">Sports</a></li>
-			<li><a href="Science.jsp">Science</a></li>
+			<li><a href="jsp/Business.jsp">Business</a></li>
+			<li><a href="jsp/Sports.jsp">Sports</a></li>
+			<li><a href="jsp/Science.jsp">Science</a></li>
 			<li><a href="jsp/Arts.jsp">Arts</a></li>
-            <li><a href="FashionStyle.jsp">Fashion &amp; Style</a></li>
+            <li><a href="jsp/FashionStyle.jsp">Fashion &amp; Style</a></li>
 		</ul>
         
 	</div>
