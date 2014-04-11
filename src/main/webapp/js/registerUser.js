@@ -32,7 +32,7 @@ $(document).ready(function() {
                     success: function(userdata){   
 					
                         console.log("gg");
-						window.location.href = "../index.html";
+						window.location.href = "../index.jsp";
                          
                     },
                     error:function(req, text) {
