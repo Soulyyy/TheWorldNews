@@ -4,12 +4,19 @@
 
 $(this).ready(function(){
 	//console.log(document.cookie);
-    if (readCookie("sessionid") != "") {
-		var logoutButton = document.getElementById('logoutButton');
-		logoutButton.style.visibility = 'visible';
-		var logint = document.getElementById('toggleLogin');
-		logint.style.visibility = 'hidden';
-	 }
+    $.ajax({
+    	type:"GET",
+		url:'./html/'+ dest +".html",
+		data:{"id":id},
+		success:function(data) {
+			var logoutButton = document.getElementById('logoutButton');
+			logoutButton.style.visibility = 'visible';
+			var logint = document.getElementById('toggleLogin');
+			logint.style.visibility = 'hidden';
+			
+		}
+    	
+    })
 	setInterval(checkHash, 100);
     $('a[menuItem]').click( function() {
 		var destination = $(this).attr('menuItem');
@@ -179,5 +186,16 @@ function makeApiCall() {
 	  });
 	});
 }
+
+//Template for everything when shit hits the fan
+//$(this).ready(function(){
+//	$.ajax({
+//		type:"GET",
+//		url:'./html/'+ dest +".html",
+//		data:{"id":id},
+//		success:
+//	});
+//	
+//});
  
  

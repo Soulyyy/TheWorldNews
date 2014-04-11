@@ -43,23 +43,28 @@ public class LoginController  extends HttpServlet {
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		System.out.println("Entered get for logging in");
+		try {
+			String session = req.getSession().getId();
+			int i= AuthenticationQueries.userAuthenticationStatus(session);
+			resp.addIntHeader("Authentication response", i);
+			resp.setHeader("Content-Type", "application/json");
+			resp.getWriter().write("{\"response\":"+i+"}");
+		} catch (SQLException e) {
+			resp.sendError(HttpServletResponse.SC_BAD_REQUEST, e.getMessage());
+			e.printStackTrace();
+		} catch (URISyntaxException e) {
+			resp.sendError(HttpServletResponse.SC_BAD_REQUEST, e.getMessage());
+			e.printStackTrace();
+		}
+		
 	}
-	
-	//What is this shit?
-//	public String newsessionid() {
-//		String idd = "";
-//		Random r = new Random();
-//		char[] massiiv = "1234567890qwertyuiopasdfghjklzxcvbnm".toCharArray();
-//		for (int i = 0; i < 20; i++) {
-//			idd += massiiv[r.nextInt(massiiv.length)];
-//		}
-//		return idd;
-//	}
+
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		try {
-			System.out.println("Entered post for adding article");
+			System.out.println("Entered post for logging in");
 			User currentUser = gson.fromJson(req.getReader(), User.class);
 			int i=LoginQueries.loginWithAccessrights(currentUser.userName, currentUser.password);
 			//String newid = newsessionid();

@@ -11,7 +11,7 @@ import TheWorldNews.database.DatabaseConnection;
 public class AuthenticationQueries {
 	
 
-	public int userAuthenticationStatus(String sessionid) throws SQLException, URISyntaxException {
+	public static int userAuthenticationStatus(String sessionid) throws SQLException, URISyntaxException {
 		System.out.println("Entered authentication verification");
 		Connection con = DatabaseConnection.getConnection();
 		String query = "SELECT users.accessrights FROM users INNER JOIN sessions ON sessions.username = users.username+"
