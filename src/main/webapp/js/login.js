@@ -45,7 +45,7 @@ $('#loginbutton').click(function() {
 	var userdata = new Object();
 	userdata.userName = $("#userName").val();
 	userdata.password = $("#password").val();
-
+	var u = userdata.userName;
 
 	if (!userdata.userName || !userdata.password  ) {
 		alert("Fill all forms.");
@@ -64,17 +64,11 @@ $('#loginbutton').click(function() {
 				}
 				else {
 					createCookie("sessionid",userdata.response,7);
+					createCookie("currentuser",u,7);
 					// loadpage(hash);
 					// location.reload();
 					window.location.href = "Index.jsp";
-					// var authorizeButton = document.getElementById('authorize-button');
-					// var container = document.getElementById('loginContainer');
-					// var reg = document.getElementById('regi');
  
-					// authorizeButton.style.visibility = 'hidden';
-					// regi.style.visibility = 'hidden';
-					// container.style.visibility = 'hidden';
-			 
 	 
 					
 				}

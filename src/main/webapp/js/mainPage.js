@@ -5,7 +5,7 @@
 $(this).ready(function(){
 	var logoutButton = document.getElementById('logoutButton');
 	var logint = document.getElementById('toggleLogin');
-
+	console.log(document.cookie);
 	if (readCookie("sessionid") != "") {
 		logoutButton.style.visibility = 'visible';
 		logint.style.visibility = 'hidden';
@@ -23,7 +23,28 @@ $(this).ready(function(){
 		
 		 
 		if (readCookie("sessionid") != "") {
+			//delete session
+ 			var cookiedata = new Object();
+			cookiedata.sessionid = readCookie("sessionid");
+			cookiedata.username = readCookie("currentuser");
+			$.ajax("/accountLogin",{
+				type:"GET",
+				dataType:'json',
+				data:{testt: JSON.stringify(cookiedata)},
+				contentType: 'application/json',
+
+				success: function(cookiedata){   
+					console.log(cookiedata.response);
+ 
+					 
+				},
+				error:function(req, text) {
+					console.log("logout session delete failed");
+				}
+
+			});
 			eraseCookie("sessionid");
+			eraseCookie("currentuser");
 			logoutButton.style.visibility = 'hidden';
  			logint.style.visibility = 'visible';
 			location.reload;

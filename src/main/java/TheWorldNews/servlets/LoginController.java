@@ -44,19 +44,19 @@ public class LoginController  extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		System.out.println("Entered get for logging in");
-		try {
-			String session = req.getSession().getId();
-			int i= AuthenticationQueries.userAuthenticationStatus(session);
-			resp.addIntHeader("Authentication response", i);
-			resp.setHeader("Content-Type", "application/json");
-			resp.getWriter().write("{\"response\":"+i+"}");
-		} catch (SQLException e) {
-			resp.sendError(HttpServletResponse.SC_BAD_REQUEST, e.getMessage());
-			e.printStackTrace();
-		} catch (URISyntaxException e) {
-			resp.sendError(HttpServletResponse.SC_BAD_REQUEST, e.getMessage());
-			e.printStackTrace();
-		}
+		// try {
+			// User currentUser = gson.fromJson(req.getReader(), User.class);
+			String session = req.getParameter("testt");
+			// System.out.println(currentUser.userName);
+			// removeAuthentication(currentUser.userName, String authenticationKey)
+			resp.getWriter().write("{\"response\":\"auth remove success \"}");
+		// } catch (SQLException e) {
+			// resp.sendError(HttpServletResponse.SC_BAD_REQUEST, e.getMessage());
+			// e.printStackTrace();
+		// } catch (URISyntaxException e) {
+			// resp.sendError(HttpServletResponse.SC_BAD_REQUEST, e.getMessage());
+			// e.printStackTrace();
+		// }
 		
 	}
 	public String newsessionid() {
@@ -76,21 +76,16 @@ public class LoginController  extends HttpServlet {
 			User currentUser = gson.fromJson(req.getReader(), User.class);
 			int i=LoginQueries.loginWithAccessrights(currentUser.userName, currentUser.password);
 			String newid = newsessionid();
-			System.out.println(i);
-			
+ 			
 			if(i == -1) {
 				resp.getWriter().write("{\"response\":"+i+"}");
 			} else {
-
+				// AuthenticationQueries.addAuthentication(currentUser.userName, newid);
 				resp.getWriter().write("{\"response\":\""+newid+"\"}");
 			}
  
              System.out.println("Servlet succeeded in verifying log in status");
-		
 
-			
-						
-			
         } catch (JsonParseException ex) {
             resp.sendError(HttpServletResponse.SC_BAD_REQUEST, ex.getMessage());
 			}
@@ -98,13 +93,9 @@ public class LoginController  extends HttpServlet {
 			e.printStackTrace();
 			resp.sendError(HttpServletResponse.SC_BAD_REQUEST, e.getMessage());
 
-		} catch (URISyntaxException e) {
+		} 
+		catch (URISyntaxException e) {
 			resp.sendError(HttpServletResponse.SC_BAD_REQUEST, e.getMessage());
+		}
 	}
-		
-		
-		
-	}
-	
-	
 }
