@@ -4,12 +4,8 @@
 
 $(this).ready(function(){
 	var logoutButton = document.getElementById('logoutButton');
-	try {
-		var logint = document.getElementById('toggleLogin');
-	}
-	catch {
-		
-	}
+	var logint = document.getElementById('toggleLogin');
+
 	if (readCookie("sessionid") != "") {
 		logoutButton.style.visibility = 'visible';
 		logint.style.visibility = 'hidden';
