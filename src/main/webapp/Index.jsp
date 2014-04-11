@@ -66,13 +66,13 @@
     <div id="navigation">
      
         <ul>
-            <li><a menuItem="News">News</a> </li>
+            <li><a href="News">News</a> </li>
             
-			<li><a menuItem="Business">Business</a></li>
-			<li><a menuItem="Sports">Sports</a></li>
-			<li><a menuItem="Science">Science</a></li>
+			<li><a href="Business.jsp">Business</a></li>
+			<li><a href="Sports.jsp">Sports</a></li>
+			<li><a href="Science.jsp">Science</a></li>
 			<li><a href="jsp/Arts.jsp">Arts</a></li>
-            <li><a menuItem="FashionStyle">Fashion &amp; Style</a></li>
+            <li><a href="FashionStyle.jsp">Fashion &amp; Style</a></li>
 		</ul>
         
 	</div>
