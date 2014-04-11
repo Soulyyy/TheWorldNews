@@ -3,7 +3,7 @@
  */
 
 $(this).ready(function(){
-	//console.log(document.cookie);
+	console.log("a");
  
 	// setInterval(checkHash, 100);
    $('a[menuItem]').click( function() {
@@ -35,6 +35,7 @@ $(this).ready(function(){
 		
 	});
 	$('#toggleLogin').click(function() {
+		console.log("b");
 		var authorizeButton = document.getElementById('authorize-button');
 		var container = document.getElementById('loginContainer');
 		var reg = document.getElementById('regi');
@@ -46,6 +47,7 @@ $(this).ready(function(){
 
 		}
 		else {
+			console.log("c");
 			authorizeButton.style.visibility = 'visible';
 			regi.style.visibility = 'visible';
 			container.style.visibility = 'visible';
