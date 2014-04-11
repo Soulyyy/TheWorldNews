@@ -3,24 +3,31 @@
  */
 
 $(this).ready(function(){
- 
-	// setInterval(checkHash, 100);
-   $('a[menuItem]').click( function() {
-		var destination = $(this).attr('menuItem');
-		loadpage(destination);
-	});
+	var logoutButton = document.getElementById('logoutButton');
+	var logint = document.getElementById('toggleLogin');
+	console.log(document.cookie);
+	
+	if (readCookie("sessionid") != "") {
+			eraseCookie("sessionid");
+			logoutButton.style.visibility = 'visible';
+			logint.style.visibility = 'hidden';
+	}
+	setInterval(checkHash, 100);
+   // $('a[menuItem]').click( function() {
+		// var destination = $(this).attr('menuItem');
+		// loadpage(destination);
+	// });
 	$('#logoutButton').click(function() {
 		
-		var logoutButton = document.getElementById('logoutButton');
-		var logint = document.getElementById('toggleLogin');
-		eraseCookie("sessionid");
-		// if (readCookie("sessionid") != "") {
-			// eraseCookie("sessionid");
-			// logoutButton.style.visibility = 'hidden';
-				
-			// logint.style.visibility = 'visible';
-		// }
-		// else {
+		
+		 
+		if (readCookie("sessionid") != "") {
+			eraseCookie("sessionid");
+			logoutButton.style.visibility = 'hidden';
+ 			logint.style.visibility = 'visible';
+			
+		}
+		else {
 			$.ajax({
 				type:"GET",
 				success:function() {
@@ -31,7 +38,7 @@ $(this).ready(function(){
 		 
 				}
 			});
-		// }
+		}
 		
 	});
 	$('#toggleLogin').click(function() {
@@ -81,7 +88,6 @@ function eraseCookie(name) {
 var loadpage = function(dest)  {
     var id=3;
 	if (dest != 'index') {
-		console.log("got this far");
 		$.ajax({
 			type:"GET",
 			url:'./jsp/'+ dest +".jsp",
@@ -99,7 +105,6 @@ var loadpage = function(dest)  {
 	}
 	else {
 		window.location.href = "Index.jsp";
- 
 	}
 };
 
@@ -171,8 +176,7 @@ function makeApiCall() {
 	  request.execute(function(resp) {
 		user = resp;
 		console.log(user);
-  
-		$('#uName').text('Logged in as ' + user.displayName);
+
 	  });
 	});
 }

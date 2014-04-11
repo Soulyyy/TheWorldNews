@@ -64,8 +64,9 @@ $('#loginbutton').click(function() {
 				}
 				else {
 					createCookie("sessionid",userdata.response,7);
-					loadpage(hash);
-					location.reload();
+					// loadpage(hash);
+					// location.reload();
+					window.location.href = "Index.jsp";
 					var authorizeButton = document.getElementById('authorize-button');
 					var container = document.getElementById('loginContainer');
 					var reg = document.getElementById('regi');

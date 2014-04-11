@@ -59,7 +59,15 @@ public class LoginController  extends HttpServlet {
 		}
 		
 	}
-
+	public String newsessionid() {
+		String idd = "";
+		Random r = new Random();
+		char[] massiiv = "1234567890qwertyuiopasdfghjklzxcvbnm".toCharArray();
+		for (int i = 0; i < 20; i++) {
+		idd += massiiv[r.nextInt(massiiv.length)];
+		}
+		return idd;
+	}
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -67,24 +75,17 @@ public class LoginController  extends HttpServlet {
 			System.out.println("Entered post for logging in");
 			User currentUser = gson.fromJson(req.getReader(), User.class);
 			int i=LoginQueries.loginWithAccessrights(currentUser.userName, currentUser.password);
-			//String newid = newsessionid();
-			System.out.println(i+" This is the gay integer we are looking for. We like Gay ints!");
-			// if(i==-1) {
-				// Some relevant response
-				// resp.addIntHeader("Authentication response", i);
-				// resp.setHeader("Content-Type", "application/json");
-				// resp.getWriter().write("{\"response\":"+i+"}");
-			// } else {
-				// HttpSession session = req.getSession();
-				// AuthenticationQueries.addAuthentication(session.getId(),currentUser.userName);
-				// Here as well
-				// resp.addIntHeader("Authentication response", i);
-				// resp.setHeader("Content-Type", "application/json");
-				// resp.getWriter().write("{\"response\":"+i+"}");
-			// }
+			String newid = newsessionid();
+			System.out.println(i);
+			
+			if(i == -1) {
+				resp.getWriter().write("{\"response\":"+i+"}");
+			} else {
+
+				resp.getWriter().write("{\"response\":\""+newid+"\"}");
+			}
  
-			resp.getWriter().write("{\"response\":"+i+"}");
-            System.out.println("Servlet succeeded in verifying log in status");
+             System.out.println("Servlet succeeded in verifying log in status");
 		
 
 			
