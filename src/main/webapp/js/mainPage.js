@@ -3,7 +3,6 @@
  */
 
 $(this).ready(function(){
-	console.log("a");
  
 	// setInterval(checkHash, 100);
    $('a[menuItem]').click( function() {
@@ -14,13 +13,14 @@ $(this).ready(function(){
 		
 		var logoutButton = document.getElementById('logoutButton');
 		var logint = document.getElementById('toggleLogin');
-		if (readCookie("sessionid") != "") {
-			eraseCookie("sessionid");
-			logoutButton.style.visibility = 'hidden';
+		eraseCookie("sessionid");
+		// if (readCookie("sessionid") != "") {
+			// eraseCookie("sessionid");
+			// logoutButton.style.visibility = 'hidden';
 				
-			logint.style.visibility = 'visible';
-		}
-		else {
+			// logint.style.visibility = 'visible';
+		// }
+		// else {
 			$.ajax({
 				type:"GET",
 				success:function() {
@@ -31,11 +31,10 @@ $(this).ready(function(){
 		 
 				}
 			});
-		}
+		// }
 		
 	});
 	$('#toggleLogin').click(function() {
-		console.log("b");
 		var authorizeButton = document.getElementById('authorize-button');
 		var container = document.getElementById('loginContainer');
 		var reg = document.getElementById('regi');
@@ -47,7 +46,6 @@ $(this).ready(function(){
 
 		}
 		else {
-			console.log("c");
 			authorizeButton.style.visibility = 'visible';
 			regi.style.visibility = 'visible';
 			container.style.visibility = 'visible';

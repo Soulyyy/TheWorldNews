@@ -39,7 +39,7 @@ public class AuthenticationQueries {
 	}
 	
 	public static void addAuthentication(String username, String authenticationKey) throws SQLException, URISyntaxException {
-		System.out.println("Entered authentication delete");
+		System.out.println("Entered authentication add");
 		Connection con = DatabaseConnection.getConnection();
 		String query = "INSERT INTO sessions (sessionid, username)"
 		 		+ " VALUES (? ,?)";
