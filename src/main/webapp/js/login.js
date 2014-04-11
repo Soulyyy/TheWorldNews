@@ -19,7 +19,7 @@ var loadpage = function(dest)  {
 	});    
 	}
 	else {
-		window.location.href = "index.jsp";
+		window.location.href = "Index.jsp";
  
 	}
 };
