@@ -69,20 +69,21 @@ public class LoginController  extends HttpServlet {
 			int i=LoginQueries.loginWithAccessrights(currentUser.userName, currentUser.password);
 			//String newid = newsessionid();
 			System.out.println(i+" This is the gay integer we are looking for. We like Gay ints!");
-			if(i==-1) {
-				//Some relevant response
-				resp.addIntHeader("Authentication response", i);
-				resp.setHeader("Content-Type", "application/json");
-				resp.getWriter().write("{\"response\":"+i+"}");
-			} else {
-				HttpSession session = req.getSession();
-				AuthenticationQueries.addAuthentication(session.getId(),currentUser.userName);
-				//Here as well
-				resp.addIntHeader("Authentication response", i);
-				resp.setHeader("Content-Type", "application/json");
-				resp.getWriter().write("{\"response\":"+i+"}");
-			}
+			// if(i==-1) {
+				// Some relevant response
+				// resp.addIntHeader("Authentication response", i);
+				// resp.setHeader("Content-Type", "application/json");
+				// resp.getWriter().write("{\"response\":"+i+"}");
+			// } else {
+				// HttpSession session = req.getSession();
+				// AuthenticationQueries.addAuthentication(session.getId(),currentUser.userName);
+				// Here as well
+				// resp.addIntHeader("Authentication response", i);
+				// resp.setHeader("Content-Type", "application/json");
+				// resp.getWriter().write("{\"response\":"+i+"}");
+			// }
  
+			resp.getWriter().write("{\"response\":\" Login success \"  }");
             System.out.println("Servlet succeeded in verifying log in status");
 		
 

@@ -79,8 +79,7 @@ $('#loginbutton').click(function() {
 				 
 			},
 			error:function(req, text) {
-				console.log(req);
-				console.log(text);
+				console.log("login failed");
 			}
 
 		});
