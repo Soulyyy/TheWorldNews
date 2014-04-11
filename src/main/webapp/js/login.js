@@ -58,6 +58,7 @@ $('#loginbutton').click(function() {
 			contentType: 'application/json',
 
 			success: function(userdata){   
+				console.log(userdata.response);
 				if (userdata.response ==-1) {
 					alert("Vale parool/user.");
 				}

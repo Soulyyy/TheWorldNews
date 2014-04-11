@@ -83,7 +83,7 @@ public class LoginController  extends HttpServlet {
 				// resp.getWriter().write("{\"response\":"+i+"}");
 			// }
  
-			resp.getWriter().write("{\"response\":\" Login success \"  }");
+			resp.getWriter().write("{\"response\":"+i+"}");
             System.out.println("Servlet succeeded in verifying log in status");
 		
 
