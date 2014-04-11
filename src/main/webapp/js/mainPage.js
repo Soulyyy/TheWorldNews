@@ -6,7 +6,7 @@ $(this).ready(function(){
 	//console.log(document.cookie);
     $.ajax({
     	type:"GET",
-		url:'./jsp/'+ dest +".jsp",
+//		url:'./jsp/'+ dest +".jsp",
 		data:{"id":id},
 		success:function(data) {
 			var logoutButton = document.getElementById('logoutButton');
