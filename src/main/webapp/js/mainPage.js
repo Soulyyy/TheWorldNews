@@ -16,6 +16,7 @@ $(this).ready(function(){
 		loadpage(destination);
 	});
 	$('#logoutButton').click(function() {
+		
 		var logoutButton = document.getElementById('logoutButton');
 		var logint = document.getElementById('toggleLogin');
 		if (readCookie("sessionid") != "") {
@@ -85,16 +86,17 @@ function eraseCookie(name) {
 var loadpage = function(dest)  {
     var id=3;
 	if (dest != 'index') {
+		console.log("got this far");
 		$.ajax({
 			type:"GET",
-			url:'./html/'+ dest +".html",
+			url:'./jsp/'+ dest +".jsp",
 			data:{"id":id},
 			
 			crossDomain:true,
 			success: function(data) {
 				window.location.hash = dest;
 				var externalHTML = document.getElementById("articleGroup");
-
+				console.log("GoogleLogOutSuccess");
 				externalHTML.innerHTML=data;
 			}
 
