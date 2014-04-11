@@ -66,7 +66,7 @@
     <div id="navigation">
      
         <ul>
-            <li><a href="News">News</a> </li>
+            <li><a href="sp/News.jsp">News</a> </li>
             
 			<li><a href="jsp/Business.jsp">Business</a></li>
 			<li><a href="jsp/Sports.jsp">Sports</a></li>

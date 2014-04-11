@@ -16,12 +16,12 @@ $(this).ready(function(){
 			
 		}
     	
-    })
-	setInterval(checkHash, 100);
-    $('a[menuItem]').click( function() {
-		var destination = $(this).attr('menuItem');
-		loadpage(destination);
-	});
+    });
+//	setInterval(checkHash, 100);
+//    $('a[menuItem]').click( function() {
+//		var destination = $(this).attr('menuItem');
+//		loadpage(destination);
+//	});
 	$('#logoutButton').click(function() {
 		
 		var logoutButton = document.getElementById('logoutButton');
