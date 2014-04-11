@@ -6,6 +6,7 @@ $(this).ready(function(){
 	var logoutButton = document.getElementById('logoutButton');
 	var logint = document.getElementById('toggleLogin');
 	console.log(document.cookie);
+	eraseCookie("JSESSIONID");
 	
 	if (readCookie("sessionid") != "") {
 			eraseCookie("sessionid");

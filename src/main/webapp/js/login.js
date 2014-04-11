@@ -58,7 +58,7 @@ $('#loginbutton').click(function() {
 			contentType: 'application/json',
 
 			success: function(userdata){   
-				console.log(userdata.response);
+				// console.log(userdata.response);
 				if (userdata.response ==-1) {
 					alert("Vale parool/user.");
 				}
@@ -67,13 +67,13 @@ $('#loginbutton').click(function() {
 					// loadpage(hash);
 					// location.reload();
 					window.location.href = "Index.jsp";
-					var authorizeButton = document.getElementById('authorize-button');
-					var container = document.getElementById('loginContainer');
-					var reg = document.getElementById('regi');
+					// var authorizeButton = document.getElementById('authorize-button');
+					// var container = document.getElementById('loginContainer');
+					// var reg = document.getElementById('regi');
  
-					authorizeButton.style.visibility = 'hidden';
-					regi.style.visibility = 'hidden';
-					container.style.visibility = 'hidden';
+					// authorizeButton.style.visibility = 'hidden';
+					// regi.style.visibility = 'hidden';
+					// container.style.visibility = 'hidden';
 			 
 	 
 					
