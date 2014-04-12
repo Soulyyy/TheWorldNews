@@ -47,7 +47,7 @@ html,body
 	float: right;
 	margin-right: 0px;
 	padding: 0 1.0vw;
-	visibility:visible;
+	visibility:hidden;
 	cursor:pointer;
 }
 

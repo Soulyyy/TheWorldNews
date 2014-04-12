@@ -19,7 +19,7 @@ var loadpage = function(dest)  {
 	});    
 	}
 	else {
-		window.location.href = "index.html";
+		window.location.href = "Index.jsp";
  
 	}
 };
@@ -45,7 +45,7 @@ $('#loginbutton').click(function() {
 	var userdata = new Object();
 	userdata.userName = $("#userName").val();
 	userdata.password = $("#password").val();
-
+	var u = userdata.userName;
 
 	if (!userdata.userName || !userdata.password  ) {
 		alert("Fill all forms.");
@@ -58,29 +58,24 @@ $('#loginbutton').click(function() {
 			contentType: 'application/json',
 
 			success: function(userdata){   
+				// console.log(userdata.response);
 				if (userdata.response ==-1) {
 					alert("Vale parool/user.");
 				}
 				else {
 					createCookie("sessionid",userdata.response,7);
-					loadpage(hash);
-					location.reload();
-					var authorizeButton = document.getElementById('authorize-button');
-					var container = document.getElementById('loginContainer');
-					var reg = document.getElementById('regi');
+					createCookie("currentuser",u,7);
+					// loadpage(hash);
+					// location.reload();
+					window.location.href = "Index.jsp";
  
-					authorizeButton.style.visibility = 'hidden';
-					regi.style.visibility = 'hidden';
-					container.style.visibility = 'hidden';
-			 
 	 
 					
 				}
 				 
 			},
 			error:function(req, text) {
-				console.log(req);
-				console.log(text);
+				console.log("login failed");
 			}
 
 		});

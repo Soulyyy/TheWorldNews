@@ -3,26 +3,52 @@
  */
 
 $(this).ready(function(){
-	//console.log(document.cookie);
-    if (readCookie("sessionid") != "") {
-		var logoutButton = document.getElementById('logoutButton');
+	var logoutButton = document.getElementById('logoutButton');
+	var logint = document.getElementById('toggleLogin');
+	console.log(document.cookie);
+	if (readCookie("sessionid") != "") {
 		logoutButton.style.visibility = 'visible';
-		var logint = document.getElementById('toggleLogin');
 		logint.style.visibility = 'hidden';
-	 }
+	}
+	else {
+		logint.style.visibility = 'visible';	
+	}
 	setInterval(checkHash, 100);
-    $('a[menuItem]').click( function() {
-		var destination = $(this).attr('menuItem');
-		loadpage(destination);
-	});
+   // $('a[menuItem]').click( function() {
+		// var destination = $(this).attr('menuItem');
+		// loadpage(destination);
+	// });
 	$('#logoutButton').click(function() {
-		var logoutButton = document.getElementById('logoutButton');
-		var logint = document.getElementById('toggleLogin');
+		
+		
+		 
 		if (readCookie("sessionid") != "") {
+			//delete session
+ 			var cookiedata = new Object();
+			cookiedata.sessionid = readCookie("sessionid");
+			cookiedata.username = readCookie("currentuser");
+			$.ajax("/accountLogin",{
+				type:"GET",
+				dataType:'json',
+				data:{testt: JSON.stringify(cookiedata)},
+				contentType: 'application/json',
+
+				success: function(cookiedata){   
+					console.log(cookiedata.response);
+ 
+					 
+				},
+				error:function(req, text) {
+					console.log("logout session delete failed");
+				}
+
+			});
 			eraseCookie("sessionid");
+			eraseCookie("currentuser");
 			logoutButton.style.visibility = 'hidden';
-				
-			logint.style.visibility = 'visible';
+ 			logint.style.visibility = 'visible';
+			location.reload;
+			
 		}
 		else {
 			$.ajax({
@@ -47,7 +73,7 @@ $(this).ready(function(){
 			authorizeButton.style.visibility = 'hidden';
 			regi.style.visibility = 'hidden';
 			container.style.visibility = 'hidden';
- 
+
 		}
 		else {
 			authorizeButton.style.visibility = 'visible';
@@ -87,14 +113,14 @@ var loadpage = function(dest)  {
 	if (dest != 'index') {
 		$.ajax({
 			type:"GET",
-			url:'./html/'+ dest +".html",
+			url:'./jsp/'+ dest +".jsp",
 			data:{"id":id},
 			
 			crossDomain:true,
 			success: function(data) {
 				window.location.hash = dest;
 				var externalHTML = document.getElementById("articleGroup");
-
+				console.log("GoogleLogOutSuccess");
 				externalHTML.innerHTML=data;
 			}
 
@@ -102,7 +128,6 @@ var loadpage = function(dest)  {
 	}
 	else {
 		window.location.href = "Index.jsp";
- 
 	}
 };
 
@@ -153,8 +178,7 @@ function handleAuthResult(authResult) {
 		makeApiCall();
 	  
 	} else {
-	  
-	  //authorizeButton.style.visibility = 'visible';
+	
 	  authorizeButton.onclick = handleAuthClick;
 	}
 }
@@ -174,10 +198,10 @@ function makeApiCall() {
 	  request.execute(function(resp) {
 		user = resp;
 		console.log(user);
-  
-		$('#uName').text('Logged in as ' + user.displayName);
+
 	  });
 	});
 }
+ 
  
  

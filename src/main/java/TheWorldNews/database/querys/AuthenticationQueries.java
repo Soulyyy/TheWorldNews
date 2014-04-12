@@ -10,14 +10,14 @@ import TheWorldNews.database.DatabaseConnection;
 
 public class AuthenticationQueries {
 	
-	
-	public int userAuthenticationStatus(String username, String authenticationKey) throws SQLException, URISyntaxException {
+
+	public static int userAuthenticationStatus(String sessionid) throws SQLException, URISyntaxException {
 		System.out.println("Entered authentication verification");
 		Connection con = DatabaseConnection.getConnection();
-		String query = "SELECT accessrights from sessions where username = ? AND sessionid = ?";
+		String query = "SELECT users.accessrights FROM users INNER JOIN sessions ON sessions.username = users.username+"
+				+ "WHERE sessions.sessionid = ?";
 		PreparedStatement pst = con.prepareStatement(query);
-		pst.setString(1, username);
-		pst.setString(2, authenticationKey);
+		pst.setString(1, sessionid);
 		ResultSet rs = pst.executeQuery();
 		if(!(rs.next())) return -1;
 		else {
@@ -38,15 +38,14 @@ public class AuthenticationQueries {
 		System.out.println("Removed authentication for an account");
 	}
 	
-	public void addAuthentication(String username, String authenticationKey, String accessrights) throws SQLException, URISyntaxException {
-		System.out.println("Entered authentication delete");
+	public static void addAuthentication(String username, String authenticationKey) throws SQLException, URISyntaxException {
+		System.out.println("Entered authentication add");
 		Connection con = DatabaseConnection.getConnection();
-		String query = "INSERT INTO sessions (sessionid, username, accessrights)"
-		 		+ " VALUES (? ,? ,? ,? )";
+		String query = "INSERT INTO sessions (sessionid, username)"
+		 		+ " VALUES (? ,?)";
 		PreparedStatement pst = con.prepareStatement(query);
 		pst.setString(2, username);
 		pst.setString(1, authenticationKey);
-		pst.setString(3, accessrights);
 		pst.executeQuery();
 		System.out.println("Added authentication for account");
 	}

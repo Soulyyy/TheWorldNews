@@ -15,4 +15,9 @@
             <required>true</required>  
         </attribute>  
   </tag>
+  <tag>
+  	<name>Navigation</name>
+  	<tag-class>TheWorldNews.tags.NavigationTag</tag-class>
+  	<body-content>empty</body-content>
+  </tag>
 </taglib>
