@@ -10,18 +10,17 @@ $(this).ready(function(){
 		logoutButton.style.visibility = 'visible';
 		logint.style.visibility = 'hidden';
 	}
-	else {
+	
+	else if (readCookie("googlein") == "") {
 		logint.style.visibility = 'visible';	
 	}
-	setInterval(checkHash, 100);
+	// setInterval(checkHash, 100);
    // $('a[menuItem]').click( function() {
 		// var destination = $(this).attr('menuItem');
 		// loadpage(destination);
 	// });
 	$('#logoutButton').click(function() {
-		
-		
-		 
+
 		if (readCookie("sessionid") != "") {
 			//delete session
  			var cookiedata = new Object();
@@ -51,6 +50,7 @@ $(this).ready(function(){
 			
 		}
 		else {
+			eraseCookie("googlein");
 			$.ajax({
 				type:"GET",
 				success:function() {
@@ -147,12 +147,18 @@ var checkHash = function() {
   }
 };
 
-
 function handleClientLoad() {
 	var apiKey = 'AIzaSyD7HJs0zDCJKqLcLIK5ok5uAAm33cubOGs';
-	gapi.client.setApiKey(apiKey);
-	window.setTimeout(checkAuth,1);
+	var clientId = '510213468349-6npga48p58v7rr3s50p0smnp7e6dho5m.apps.googleusercontent.com';
+	var scopes = 'https://www.googleapis.com/auth/plus.me';
+
+ 	if (readCookie("googlein") != "") {
+	
+		gapi.client.setApiKey(apiKey);
+		checkAuth();
+	}
 }
+
 
 function checkAuth() {
 	var clientId = '510213468349-6npga48p58v7rr3s50p0smnp7e6dho5m.apps.googleusercontent.com';
@@ -176,10 +182,8 @@ function handleAuthResult(authResult) {
 		container.style.visibility = 'hidden';
 
 		makeApiCall();
-	  
 	} else {
-	
-	  authorizeButton.onclick = handleAuthClick;
+		  authorizeButton.onclick = handleAuthClick;
 	}
 }
 
