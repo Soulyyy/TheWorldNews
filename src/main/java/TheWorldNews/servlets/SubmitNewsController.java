@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import TheWorldNews.database.querys.AuthenticationQueries;
 import TheWorldNews.database.querys.NewsQuerys;
 import TheWorldNews.newsdata.NewsArticle;
 
@@ -41,10 +42,15 @@ public class SubmitNewsController extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		try {
+		
+
 			System.out.println("Entered post for adding article");
             NewsArticle article = gson.fromJson(req.getReader(), NewsArticle.class);
             System.out.println("We manage to get JSON object to the required format");
+ 			int i=AuthenticationQueries.userAuthenticationStatus(article.sid);
+			if (i == 2) {
 			NewsQuerys.addArticle(article);
+			}
             resp.setHeader("Content-Type", "application/json");
             resp.getWriter().write("{\"response\":\"newsarticle created \"}"); // peab midagi tagastama, muidu kohe fail. kui content-type on json, siis see siin peab ka korralik JSON olema
             System.out.println("Servlet succeeded in adding newsarticle");
@@ -52,7 +58,8 @@ public class SubmitNewsController extends HttpServlet {
 			
         } catch (JsonParseException ex) {
             resp.sendError(HttpServletResponse.SC_BAD_REQUEST, ex.getMessage());
-        } catch (SQLException e) {
+        } 
+		catch (SQLException e) {
 			resp.sendError(HttpServletResponse.SC_BAD_REQUEST, e.getMessage());
 		} catch (URISyntaxException e) {
 			resp.sendError(HttpServletResponse.SC_BAD_REQUEST, e.getMessage());
