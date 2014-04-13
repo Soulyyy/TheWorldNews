@@ -47,6 +47,7 @@ public class SubmitNewsController extends HttpServlet {
 			System.out.println("Entered post for adding article");
             NewsArticle article = gson.fromJson(req.getReader(), NewsArticle.class);
             System.out.println("We manage to get JSON object to the required format");
+			System.out.println(article.sid);
  			int i=AuthenticationQueries.userAuthenticationStatus(article.sid);
 			if (i == 2) {
 			NewsQuerys.addArticle(article);

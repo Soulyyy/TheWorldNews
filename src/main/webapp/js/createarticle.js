@@ -31,15 +31,15 @@ $(this).ready(function() {
 		}	
 	
  
-        // if (!articledata.image || !articledata.header  || !articledata.content ) {
-            // alert("Fill all forms.");
-		// }
+        if (!articledata.image || !articledata.header  || !articledata.content ) {
+            alert("Fill all forms.");
+		}
 
-		// else {
-			// if (readCookie("sessionid") == "") {
-				// alert("Must be logged in as editor");
-			// }
-			// else {
+		else {
+			if (readCookie("sessionid") == "") {
+				alert("Must be logged in as editor");
+			}
+			else {
 				$.ajax("/submitNews",{
 					type:"POST",
 					dataType:'json',
@@ -56,8 +56,8 @@ $(this).ready(function() {
 					}
 
 				});
-			// }
-		// }
+			}
+		}
  
 
          
