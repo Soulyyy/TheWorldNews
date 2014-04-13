@@ -84,7 +84,7 @@ public class LoginController  extends HttpServlet {
 		try {
 			System.out.println("Entered post for logging in");
 			User currentUser = gson.fromJson(req.getReader(), User.class);
-			int i=1;//LoginQueries.loginWithAccessrights(currentUser.userName, currentUser.password);
+			int i=LoginQueries.loginWithAccessrights(currentUser.userName, currentUser.password);
 			String newid = newsessionid();
  			
 			if(i == -1) {
