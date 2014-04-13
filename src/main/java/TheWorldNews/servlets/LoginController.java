@@ -91,7 +91,8 @@ public class LoginController  extends HttpServlet {
 			if(i == -1) {
 				resp.getWriter().write("{\"response\":"+i+"}");
 			} else {
-				AuthenticationQueries.addAuthentication(currentUser.userName, newid);
+				AuthenticationQueries aq = new AuthenticationQueries();
+				aq.AuthenticationQueries.addAuthentication(currentUser.userName, newid);
 				resp.getWriter().write("{\"response\":\""+newid+"\"}");
 			}
  
