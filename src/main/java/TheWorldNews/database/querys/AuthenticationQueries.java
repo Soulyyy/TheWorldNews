@@ -27,7 +27,7 @@ public class AuthenticationQueries {
 		}
 	}
 	
-	public void removeAuthentication(String username, String authenticationKey) throws SQLException, URISyntaxException{
+	public static void removeAuthentication(String username, String authenticationKey) throws SQLException, URISyntaxException{
 		System.out.println("Entered authentication delete");
 		Connection con = DatabaseConnection.getConnection();
 		String query = "DELETE * from sessions where username = ? AND sessionid = ?";
@@ -41,11 +41,11 @@ public class AuthenticationQueries {
 	public static void addAuthentication(String username, String authenticationKey) throws SQLException, URISyntaxException {
 		System.out.println("Entered authentication add");
 		Connection con = DatabaseConnection.getConnection();
-		String query = "INSERT INTO sessions (sessionid, username)"
+		String query = "INSERT INTO sessions (username, sessionid)"
 		 		+ " VALUES (? ,?)";
 		PreparedStatement pst = con.prepareStatement(query);
-		pst.setString(2, username);
-		pst.setString(1, authenticationKey);
+		pst.setString(1, username);
+		pst.setString(2, authenticationKey);
 		pst.executeQuery();
 		System.out.println("Added authentication for account");
 	}

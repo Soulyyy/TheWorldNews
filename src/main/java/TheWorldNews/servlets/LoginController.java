@@ -48,7 +48,7 @@ public class LoginController  extends HttpServlet {
   			String received = req.getParameter("testt");
 			String sessionid = received.substring(14,34);
 			String username = "";
-			System.out.println(received);
+			// System.out.println(received);
 			
 			for (int i=48;i<received.length();i++) {
 			    String ltr = Character.toString(received.charAt(i));
@@ -59,8 +59,7 @@ public class LoginController  extends HttpServlet {
 					break;
 				}
 			}
-			AuthenticationQueries aq = new AuthenticationQueries();
-			aq.removeAuthentication(username, sessionid);
+ 			AuthenticationQueries.removeAuthentication(username, sessionid);
 			resp.getWriter().write("{\"response\":\"auth remove success \"}");
 		} 
 		catch (SQLException e) {
@@ -85,14 +84,16 @@ public class LoginController  extends HttpServlet {
 		try {
 			System.out.println("Entered post for logging in");
 			User currentUser = gson.fromJson(req.getReader(), User.class);
-			int i=LoginQueries.loginWithAccessrights(currentUser.userName, currentUser.password);
+			int i=1;//LoginQueries.loginWithAccessrights(currentUser.userName, currentUser.password);
 			String newid = newsessionid();
  			
 			if(i == -1) {
 				resp.getWriter().write("{\"response\":"+i+"}");
 			} else {
-				AuthenticationQueries aq = new AuthenticationQueries();
-				aq.addAuthentication(currentUser.userName, newid);
+			
+			 
+ 				AuthenticationQueries.addAuthentication(currentUser.userName, newid);
+ 
 				resp.getWriter().write("{\"response\":\""+newid+"\"}");
 			}
  
