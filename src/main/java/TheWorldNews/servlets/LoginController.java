@@ -59,7 +59,7 @@ public class LoginController  extends HttpServlet {
 					break;
 				}
 			}
- 			AuthenticationQueries.removeAuthentication(username, sessionid);
+ 			// AuthenticationQueries.removeAuthentication(username, sessionid);
 			resp.getWriter().write("{\"response\":\"auth remove success \"}");
 		} 
 		catch (SQLException e) {
@@ -92,7 +92,7 @@ public class LoginController  extends HttpServlet {
 			} else {
 			
 			 
- 				AuthenticationQueries.addAuthentication(currentUser.userName, newid);
+ 				// AuthenticationQueries.addAuthentication(currentUser.userName, newid);
  
 				resp.getWriter().write("{\"response\":\""+newid+"\"}");
 			}
