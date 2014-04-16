@@ -20,6 +20,7 @@ public class LoginQueries {
 			ResultSet rs = pst.executeQuery();
 			rs.next();		//We might not need this
 			int id = rs.getInt("accessrights");
+			con.close();
 			return id;
 	}
 	
@@ -29,6 +30,7 @@ public class LoginQueries {
 		String query = "SELECT accessrights from users where username = ? AND password = ?";
 		PreparedStatement pst = con.prepareStatement(query);
 		//If resultset is empty, not valid login details
+		con.close();
 		return(pst.executeQuery().next());
 	}
 	
@@ -41,10 +43,14 @@ public class LoginQueries {
 		pst.setString(2, password);
 		System.out.println("Managed to somehow add user and pw in login check, such wow, much add");
 		ResultSet rs = pst.executeQuery();
-		if(!(rs.next())) return -1;
+		if(!(rs.next())){
+			con.close();
+			return -1;
+		}
 		else {
 			System.out.println("KAS JÕUDIS SIIA?");
 			int id = rs.getInt("accessrights");
+			con.close();
 			return id;
 		}
 	}
