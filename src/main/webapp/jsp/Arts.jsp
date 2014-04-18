@@ -18,7 +18,6 @@
 	<script type="text/javascript" src="https://apis.google.com/js/client.js?onload=handleClientLoad"></script>
 </head>
 <body>
- 
 <ex:AT type="Arts" newsgroup="3"/>
 </body>
 </html>

@@ -7,7 +7,7 @@
 <%@ page import="TheWorldNews.database.querys.DisplayQueries" %>
 <%@ taglib prefix="ex" uri="WEB-INF/custom.tld"%>
 <!DOCTYPE html> 
-<html>
+<html manifest="worldnewsmanifest.appcache">
 <head>
 	<title>The World</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -24,7 +24,7 @@
 	<!-- The World Log In & Settings -->
 	<div id="logoButtons">
     
-		<header class="Head"><a class="Head" >THE WORLD</a></header>
+		<header class="Head"><a class="Head" href="Index.jsp" >THE WORLD</a></header>
 
         
         <button  id="settings"></button>
