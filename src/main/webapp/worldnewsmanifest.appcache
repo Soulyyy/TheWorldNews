@@ -1,10 +1,10 @@
 CACHE MANIFEST
-index.html
-html/Arts.html
-html/Business.html
-html/FashionStyle.html
-html/News.html
-html/Science.html
-html/Sports.html
+Index.jsp
+jsp/Arts.jsp
+jsp/Business.jsp
+jsp/FashionStyle.jsp
+jsp/News.jsp
+jsp/Science.jsp
+jsp/Sports.jsp
 css/layout.css
 metadata/settings.png

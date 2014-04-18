@@ -41,8 +41,10 @@ public class AuthenticationQueries {
 	public static void addAuthentication(String username, String authenticationKey) throws SQLException, URISyntaxException {
 		System.out.println("Entered authentication add");
 		Connection con = DatabaseConnection.getConnection();
+		System.out.println("db connecting");
 		String query = "INSERT INTO sessions (username, sessionid)"
 		 		+ " VALUES (? ,?)";
+				System.out.println("sql viga");
 		PreparedStatement pst = con.prepareStatement(query);
 		pst.setString(1, username);
 		pst.setString(2, authenticationKey);
