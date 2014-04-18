@@ -113,7 +113,7 @@ var loadpage = function(dest)  {
  
 		$.ajax({
 			type:"GET",
-			url:'./jsp/'+ dest +".jsp",
+			url:'../jsp/'+ dest +".jsp",
 			data:{"id":id},
 			
 			crossDomain:true,
