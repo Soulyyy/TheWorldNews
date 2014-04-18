@@ -19,7 +19,7 @@
          
 	<div id="logoButtons">
     
-		<header class="Head"><a class="Head" menuItem="index">THE WORLD</a></header>
+		<header class="Head"><a class="Head" data-menuItem="index">THE WORLD</a></header>
 
         
         <button  id="settings"></button>
@@ -58,12 +58,12 @@
     <div id="navigation">
      
         <ul>
-            <li><a menuItem="News">News</a> </li>
-			<li><a menuItem="Business">Business</a></li>
-			<li><a menuItem="Sports">Sports</a></li>
-			<li><a menuItem="Science">Science</a></li>
-			<li><a menuItem="Arts">Arts</a></li>
-            <li><a menuItem="FashionStyle">Fashion &amp; Style</a></li>
+            <li><a data-menuItem="News">News</a> </li>
+			<li><a data-menuItem="Business">Business</a></li>
+			<li><a data-menuItem="Sports">Sports</a></li>
+			<li><a data-menuItem="Science">Science</a></li>
+			<li><a data-menuItem="Arts">Arts</a></li>
+            <li><a data-menuItem="FashionStyle">Fashion &amp; Style</a></li>
 		</ul>
         
 	</div>
@@ -106,7 +106,7 @@
         <div id="createarticle">
 
                         
-            	<fieldset id="editingFieldset" name="edit" method="post" action="#" accept-charset="UTF-8">
+            	<fieldset id="editingFieldset" name="edit">
                 	
                     <legend>Article</legend>
                 
@@ -131,10 +131,10 @@
 				<div class="clear"></div>
                 <input checked type="checkbox" name="type" id="News" value="News">News
 				<input type="checkbox" name="type" id="Business" value="Business">Business
-				<input type="checkbox" name="type" id="Sports"value="Sports">Sports
-				<input type="checkbox" name="type" id="Science"value="Science">Science
+				<input type="checkbox" name="type" id="Sports" value="Sports">Sports
+				<input type="checkbox" name="type" id="Science" value="Science">Science
 				<input type="checkbox" name="type" id="Arts" value="Arts">Arts
-				<input type="checkbox" name="type" id="Fashion"value="Fashion & Style">Fashion & Style
+				<input type="checkbox" name="type" id="Fashion" value="Fashion & Style">Fashion & Style
  				<br />
  				<br />
                 <button  id="articlesubmit">Submit</button>
