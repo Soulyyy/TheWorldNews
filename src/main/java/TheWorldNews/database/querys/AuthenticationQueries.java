@@ -44,11 +44,14 @@ public class AuthenticationQueries {
 		System.out.println("db connecting");
 		String query = "INSERT INTO sessions (username, sessionid)"
 		 		+ " VALUES (? ,?)";
-				System.out.println("sql viga");
+				
 		PreparedStatement pst = con.prepareStatement(query);
+		System.out.println("before execute");
 		pst.setString(1, username);
+		
 		pst.setString(2, authenticationKey);
 		pst.executeQuery();
+		System.out.println("after execute");
 		System.out.println("Added authentication for account");
 	}
 
