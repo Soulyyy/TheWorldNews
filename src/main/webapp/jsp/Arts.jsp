@@ -8,16 +8,7 @@
 <%@ taglib prefix="ex" uri="../WEB-INF/custom.tld"%>
 <!DOCTYPE html> 
 <html>
-<head>
-	<title>The World - Arts</title>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	<link rel="stylesheet" type="text/css" href="../css/layout.css">
-    <script src="../lib/jquery-1.11.0.js" type="text/javascript"></script>
-	<script type="text/javascript" src="../js/mainPage.js"></script>
-	<script type="text/javascript" src="../js/login.js"></script>
-	<script type="text/javascript" src="https://apis.google.com/js/client.js?onload=handleClientLoad"></script>
-</head>
-<body>
+ <body>
 <ex:Navigation/>
 <ex:AT type="Arts" newsgroup="3"/>
 </body>

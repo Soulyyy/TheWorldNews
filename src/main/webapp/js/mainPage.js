@@ -110,7 +110,7 @@ function eraseCookie(name) {
 }
 var loadpage = function(dest)  {
     var id=3;
-	if (dest != 'index') {
+ 
 		$.ajax({
 			type:"GET",
 			url:'./jsp/'+ dest +".jsp",
@@ -120,15 +120,13 @@ var loadpage = function(dest)  {
 			success: function(data) {
 				window.location.hash = dest;
 				var externalHTML = document.getElementById("articleGroup");
-				console.log("GoogleLogOutSuccess");
+ 
 				externalHTML.innerHTML=data;
 			}
 
 		});    
-	}
-	else {
-		window.location.href = "Index.jsp";
-	}
+ 
+ 
 };
 
 var recentHash = "";
