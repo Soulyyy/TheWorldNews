@@ -21,7 +21,7 @@ public class NavigationTag extends SimpleTagSupport{
 		sb.append("<!-- The World Log In & Settings -->");
 		sb.append("<div id=\"logoButtons\">");
 	    
-		sb.append("<header class=\"Head\"><a class=\"Head\" href=\"../index.jsp\">THE WORLD</a></header>");
+		sb.append("<header class=\"Head\"><a class=\"Head\" href=\"../Index.jsp\">THE WORLD</a></header>");
 
 	        
 	    sb.append("<button  id=\"settings\"></button>");

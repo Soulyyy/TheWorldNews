@@ -36,6 +36,7 @@ public class UserQuerys {
 		    	 User newUser = new User(id, username, pw, firstname, surname, email, accessrights, country);
 		    	 userList.add(newUser);
 		     }
+		     con.close();
 		     return(userList);
 		 } catch(URISyntaxException x) {
 			 Logger lgr = Logger.getLogger(UserQuerys.class.getName());
@@ -73,6 +74,7 @@ public class UserQuerys {
 			 pst.setInt(6, newUser.accessRights);
 			 pst.setInt(7, newUser.country);
 			 pst.executeUpdate();
+			 con.close();
 		 } catch(URISyntaxException x) {
 			 Logger lgr = Logger.getLogger(UserQuerys.class.getName());
 			 lgr.log(Level.WARNING, x.getMessage(), x);

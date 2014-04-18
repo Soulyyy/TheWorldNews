@@ -32,6 +32,7 @@ public class DisplayQueries {
 			 articlegroup = rs.getInt("articlegroup");
 			 listOfValues.add(new NewsArticle(1, image, header, content, articlegroup));
 		}
+		 con.close();
 		 return(listOfValues);
 		 
 	}
