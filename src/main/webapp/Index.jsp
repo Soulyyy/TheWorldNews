@@ -76,12 +76,12 @@
 		</ul>
 		-->
 		<ul>
-            <li><a menuItem="News">News</a> </li>
-			<li><a menuItem="Business">Business</a></li>
-			<li><a menuItem="Sports">Sports</a></li>
-			<li><a menuItem="Science">Science</a></li>
-			<li><a menuItem="Arts">Arts</a></li>
-            <li><a menuItem="FashionStyle">Fashion &amp; Style</a></li>
+            <li><a data-menuItem="News">News</a> </li>
+			<li><a data-menuItem="Business">Business</a></li>
+			<li><a data-menuItem="Sports">Sports</a></li>
+			<li><a data-menuItem="Science">Science</a></li>
+			<li><a data-menuItem="Arts">Arts</a></li>
+            <li><a data-menuItem="FashionStyle">Fashion &amp; Style</a></li>
 		</ul>
         
 	</div>

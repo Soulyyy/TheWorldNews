@@ -62,7 +62,7 @@ public class ArticleTag extends SimpleTagSupport{
     	sb.append("<div class=\"mainArticle\">");
     	sb.append("<a href=\"#\"><img class=\"mainImage\" src=\"");
     	sb.append(img);
-    	sb.append("\"alt=\"pilt\"></a>");
+    	sb.append("\" alt=\"pilt\"></a>");
     	sb.append("<p class=\"mainText\"><a href=\"#\">");
     	sb.append(header);
     	sb.append("</a></p>");
@@ -79,7 +79,7 @@ public String leftArticle(NewsArticle article){
     	sb.append("<div class=\"leftArticle\">");
     	sb.append("<a href=\"#\"><img class=\"mainImage\" src=\"");
     	sb.append(img);
-    	sb.append("\"alt=\"pilt\"></a>");
+    	sb.append("\" alt=\"pilt\"></a>");
     	sb.append("<p class=\"mainText\"><a href=\"#\">");
     	sb.append(header);
     	sb.append("</a></p>");
@@ -96,7 +96,7 @@ public String rightArticle(NewsArticle article){
 		sb.append("<div class=\"rightArticle\">");
 		sb.append("<a href=\"#\"><img class=\"mainImage\" src=\"");
 		sb.append(img);
-		sb.append("\"alt=\"pilt\"></a>");
+		sb.append("\" alt=\"pilt\"></a>");
 		sb.append("<p class=\"mainText\"><a href=\"#\">");
 		sb.append(header);
 		sb.append("</a></p>");
