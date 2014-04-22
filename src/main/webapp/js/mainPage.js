@@ -15,7 +15,7 @@ $(this).ready(function(){
 		logint.style.visibility = 'visible';	
 	}
 	setInterval(checkHash, 100);
-   $('a[menuItem]').click( function() {
+   $('a[data-menuItem]').click( function() {
 		var destination = $(this).attr('menuItem');
 		loadpage(destination);
 	});
