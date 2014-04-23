@@ -26,6 +26,7 @@ $(this).ready(function(){
 		 	loadpage(destination);
 		} 
 		else {
+			console.log("a");
 			window.location.href = "ofindex.jsp";
 		}
 	
