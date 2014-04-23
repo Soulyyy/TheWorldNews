@@ -35,7 +35,7 @@
   
   <init-param>
     <param-name>mimeTypes</param-name>
-    <param-value>text/html,text/plain,text/xml,application/xhtml+xml,text/css,application/javascript,image/svg+xml</param-value>
+    <param-value>text/html,text/plain,text/cache-manifest,text/xml,application/xhtml+xml,text/css,application/javascript,image/svg+xml</param-value>
   </init-param>
 </filter>
 <filter-mapping>
