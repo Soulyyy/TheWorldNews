@@ -7,9 +7,6 @@ $(this).ready(function(){
 	var logoutButton = document.getElementById('logoutButton');
 	var logint = document.getElementById('toggleLogin');
 	// console.log(document.cookie);
-	if (!navigator.onLine) {
-		window.location.href = "ofindex.jsp";
-	}
 	if (readCookie("sessionid") != "") {
 		logoutButton.style.visibility = 'visible';
 		logint.style.visibility = 'hidden';
@@ -23,12 +20,13 @@ $(this).ready(function(){
 		console.log("b");
 		var destination = $(this).attr('data-menuItem');
 		if (navigator.onLine) {
+ 
 		 	loadpage(destination);
 		} 
-		else {
-			console.log("a");
-			window.location.href = "ofindex.jsp";
-		}
+		// else {
+ 
+			// window.location.href = "ofindex.jsp";
+		// }
 	
 	});
 	$('#logoutButton').click(function() {
