@@ -17,6 +17,7 @@ $(this).ready(function(){
 	}
 	setInterval(checkHash, 100);
    $('a[data-menuItem]').click( function() {
+		console.log("b");
 		var destination = $(this).attr('data-menuItem');
 		loadpage(destination);
 	});
