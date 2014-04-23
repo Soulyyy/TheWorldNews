@@ -3,6 +3,7 @@
  */
 
 $(this).ready(function(){
+	console.log("A");
 	var logoutButton = document.getElementById('logoutButton');
 	var logint = document.getElementById('toggleLogin');
 	console.log(document.cookie);
