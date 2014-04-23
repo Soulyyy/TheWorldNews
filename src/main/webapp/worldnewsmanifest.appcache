@@ -13,8 +13,8 @@ jsp/Sports.jsp
 css/layout.css
 Metadata/settings.png
 
-FALLBACK:
-/ /ofindex.jsp
+#FALLBACK:
+#/ /ofindex.jsp
 
 NETWORK:
 *
