@@ -13,8 +13,6 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<link rel="stylesheet" type="text/css" href="./css/layout.css">
    	<script type="text/javascript" src="lib/jquery-1.11.0.js"></script>
-	<script type="text/javascript" src="js/mainPage.js"></script>
-	<script type="text/javascript" src="js/login.js"></script>
 	<script type="text/javascript" src="https://apis.google.com/js/client.js?onload=handleClientLoad"></script>
 </head>
 

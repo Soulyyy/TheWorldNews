@@ -18,7 +18,6 @@ $(this).ready(function(){
    $('a[data-menuItem]').click( function() {
 		console.log("b");
 		var destination = $(this).attr('data-menuItem');
-		console.log(destination);
 		loadpage(destination);
 	});
 	$('#logoutButton').click(function() {
