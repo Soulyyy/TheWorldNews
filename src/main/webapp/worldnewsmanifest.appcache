@@ -1,5 +1,8 @@
 CACHE MANIFEST
-Index.jsp
+#v2
+
+CACHE:
+
 jsp/Arts.jsp
 jsp/Business.jsp
 jsp/FashionStyle.jsp
@@ -8,3 +11,9 @@ jsp/Science.jsp
 jsp/Sports.jsp
 css/layout.css
 Metadata/settings.png
+
+NETWORK:
+Index.jsp
+*
+http://*
+https://*
