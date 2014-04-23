@@ -19,6 +19,7 @@ $(this).ready(function(){
    $('a[data-menuItem]').click( function() {
 		console.log("b");
 		var destination = $(this).attr('data-menuItem');
+		console.log(destination);
 		loadpage(destination);
 	});
 	$('#logoutButton').click(function() {
@@ -110,7 +111,9 @@ function readCookie(name) {
 function eraseCookie(name) {
 	createCookie(name,"",-1);
 }
-var loadpage = function(dest)  {
+
+function loadpage(dest)  {
+	console.log("h");
     var id=3;
  
 		$.ajax({
@@ -124,6 +127,7 @@ var loadpage = function(dest)  {
 				var externalHTML = document.getElementById("articleGroup");
  
 				externalHTML.innerHTML=data;
+					console.log("end");
 			}
 
 		});    
