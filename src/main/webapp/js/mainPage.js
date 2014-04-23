@@ -23,10 +23,10 @@ $(this).ready(function(){
  
 		 	loadpage(destination);
 		} 
-		// else {
+		else {
  
-			// window.location.href = "ofindex.jsp";
-		// }
+			window.location.href = "ofindex.jsp";
+		}
 	
 	});
 	$('#logoutButton').click(function() {
