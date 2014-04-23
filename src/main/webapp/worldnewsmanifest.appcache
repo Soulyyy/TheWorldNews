@@ -1,5 +1,5 @@
 CACHE MANIFEST
-#v4
+#v5
 
 CACHE:
 Index.jsp
@@ -12,6 +12,9 @@ jsp/Sports.jsp
 css/layout.css
 Metadata/settings.png
 js/mainPage.js
+js/jquery-1.11.0.min.js
  
 
+NETWORK:
+*
  
