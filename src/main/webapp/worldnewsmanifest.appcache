@@ -1,8 +1,8 @@
 CACHE MANIFEST
-#v2
+#v3
 
 CACHE:
-
+Index.jsp
 jsp/Arts.jsp
 jsp/Business.jsp
 jsp/FashionStyle.jsp
@@ -13,7 +13,6 @@ css/layout.css
 Metadata/settings.png
 
 NETWORK:
-Index.jsp
 *
 http://*
 https://*
