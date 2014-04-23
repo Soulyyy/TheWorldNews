@@ -3,7 +3,6 @@
  */
 
 $(this).ready(function(){
-	console.log("A");
 	var logoutButton = document.getElementById('logoutButton');
 	var logint = document.getElementById('toggleLogin');
 	console.log(document.cookie);
@@ -113,7 +112,6 @@ function eraseCookie(name) {
 }
 
 function loadpage(dest)  {
-	console.log("h");
     var id=3;
  
 		$.ajax({
@@ -127,7 +125,6 @@ function loadpage(dest)  {
 				var externalHTML = document.getElementById("articleGroup");
  
 				externalHTML.innerHTML=data;
-					console.log("end");
 			}
 
 		});    

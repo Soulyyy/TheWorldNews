@@ -1,8 +1,7 @@
 CACHE MANIFEST
-#v6
+#v7
 
 CACHE:
-Index.jsp
 jsp/Arts.jsp
 jsp/Business.jsp
 jsp/FashionStyle.jsp
@@ -14,6 +13,8 @@ jsp/Sports.jsp
 css/layout.css
 Metadata/settings.png
 
+FALLBACK:
+/ /ofindex.jsp
 
 NETWORK:
 *
