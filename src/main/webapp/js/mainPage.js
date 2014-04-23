@@ -3,9 +3,13 @@
  */
 
 $(this).ready(function(){
+
 	var logoutButton = document.getElementById('logoutButton');
 	var logint = document.getElementById('toggleLogin');
-	console.log(document.cookie);
+	// console.log(document.cookie);
+	if (!navigator.onLine) {
+		window.location.href = "ofindex.jsp";
+	}
 	if (readCookie("sessionid") != "") {
 		logoutButton.style.visibility = 'visible';
 		logint.style.visibility = 'hidden';
@@ -18,7 +22,13 @@ $(this).ready(function(){
    $('a[data-menuItem]').click( function() {
 		console.log("b");
 		var destination = $(this).attr('data-menuItem');
-		loadpage(destination);
+		if (navigator.onLine) {
+		 	loadpage(destination);
+		} 
+		else {
+			window.location.href = "ofindex.jsp";
+		}
+	
 	});
 	$('#logoutButton').click(function() {
 
@@ -111,6 +121,7 @@ function eraseCookie(name) {
 }
 
 function loadpage(dest)  {
+
     var id=3;
  
 		$.ajax({

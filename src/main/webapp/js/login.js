@@ -10,6 +10,7 @@ $(this).ready(function() {
 	}
 		
 	var loadpage = function(dest)  {
+
 		var id=3;
 		if (dest != 'index') {
 			$.ajax({

@@ -1,5 +1,5 @@
 CACHE MANIFEST
-#v8
+#v9
 
 CACHE:
 jsp/Arts.jsp
@@ -12,9 +12,7 @@ jsp/Science.jsp
 jsp/Sports.jsp
 css/layout.css
 Metadata/settings.png
-
-FALLBACK:
-/ /Index.jsp
+ 
 
 NETWORK:
 *

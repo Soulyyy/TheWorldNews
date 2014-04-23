@@ -23,7 +23,7 @@
 	<!-- The World Log In & Settings -->
 	<div id="logoButtons">
     
-		<header class="Head"><a class="Head" href="Index.jsp" >THE WORLD</a></header>
+		<header class="Head"><a class="Head" href="ofindex.jsp" >THE WORLD</a></header>
 
         
         <button  id="settings"></button>
