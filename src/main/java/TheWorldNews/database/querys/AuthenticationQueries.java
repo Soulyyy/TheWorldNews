@@ -30,7 +30,7 @@ public class AuthenticationQueries {
 	public static void removeAuthentication(String username, String authenticationKey) throws SQLException, URISyntaxException{
 		System.out.println("Entered authentication delete");
 		Connection con = DatabaseConnection.getConnection();
-		String query = "DELETE * from sessions where username = ? AND sessionid = ?";
+		String query = "DELETE * from sessions WHERE username = ? AND sessionid = ?";
 		PreparedStatement pst = con.prepareStatement(query);
 		pst.setString(1, username);
 		pst.setString(2, authenticationKey);
