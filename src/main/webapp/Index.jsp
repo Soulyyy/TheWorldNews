@@ -194,7 +194,6 @@
     </div>
 
 	
-</jsp:include>
 
 </div>
 <div class="footer"> <p>&nbsp;</p> </div>
