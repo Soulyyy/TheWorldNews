@@ -99,9 +99,10 @@
 
 <%//response.sendRedirect("TheWorldNews.servlets.NewsDisplayController");%>
 
-<jsp:include page="../java/TheWorldNews/servlets/NewsDisplayController.java"/>
+<jsp:include page="../java/TheWorldNews/servlets/NewsDisplayController.java">
+	<jsp:param name="newsType" value="News"/>
+</jsp:include>
 
-<!--<ex:AT type="News" newsgroup="6"/>-->
 </div>
 
 <div id="sideBar">
