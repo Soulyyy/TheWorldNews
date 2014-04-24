@@ -14,7 +14,7 @@ public class AuthenticationQueries {
 	public static int userAuthenticationStatus(String sessionid) throws SQLException, URISyntaxException {
 		System.out.println("Entered authentication verification");
 		Connection con = DatabaseConnection.getConnection();
-		String query = "SELECT users.accessrights FROM users INNER JOIN sessions ON sessions.username = users.username+"
+		String query = "SELECT users.accessrights FROM users INNER JOIN sessions ON sessions.username = users.username "
 				+ "WHERE sessions.sessionid = ?";
 		PreparedStatement pst = con.prepareStatement(query);
 		pst.setString(1, sessionid);
