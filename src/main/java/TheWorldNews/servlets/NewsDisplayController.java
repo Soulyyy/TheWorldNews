@@ -26,11 +26,12 @@ public class NewsDisplayController extends HttpServlet{
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		try {
 			String newsType = req.getParameter("newsType");
+			int size = Integer.parseInt(req.getParameter("numberOfNews"));
 			log(newsType);
 			System.out.println(newsType);
 			resp.setContentType("text/html");
 		    PrintWriter out = resp.getWriter();
-			ArrayList<NewsArticle> newsArticles = DisplayQueries.getArticlesByNumberAndType(6, newsType);
+			ArrayList<NewsArticle> newsArticles = DisplayQueries.getArticlesByNumberAndType(size, newsType);
 			
 			StringBuffer sb = new StringBuffer();
 			
