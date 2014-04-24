@@ -17,7 +17,6 @@ $(this).ready(function() {
         articledata.header = $("#titleInput").val();
 		articledata.content = $("#textArea").val();
 		articledata.articlegroupstring = "News;";
-		articledata.sid = readCookie("sessionid");
 		if(document.getElementById('Business').checked) {
 			articledata.articlegroupstring += "Business;";
 		} if(document.getElementById('Sports').checked) {
