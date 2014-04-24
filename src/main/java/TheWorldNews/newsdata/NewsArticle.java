@@ -15,15 +15,7 @@ public class NewsArticle {
 
     public NewsArticle() {
     }
-	public NewsArticle(int id,String image, String header, String content,String sid, int articlegroup) {
-		this.id = id;
-		this.image = image;
-		this.header = header;
-		this.content = content;
-		this.sid = sid;
-		this.articlegroup = articlegroup;
 
-    }
 
     public NewsArticle(int id,String image, String header, String content, int articlegroup) {
     	this.id = id;
