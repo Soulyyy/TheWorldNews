@@ -97,7 +97,6 @@
 
 <div id="articleGroup">
 
-<%//response.sendRedirect("TheWorldNews.servlets.NewsDisplayController");%>
 
 <jsp:include page="../java/TheWorldNews/servlets/NewsDisplayController.java">
 	<jsp:param name="newsType" value="News"/>
