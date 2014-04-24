@@ -69,15 +69,6 @@ public class LoginController  extends HttpServlet {
  		// }
 		
 	}
-	public String newsessionid() {
-		String idd = "";
-		Random r = new Random();
-		char[] massiiv = "1234567890qwertyuiopasdfghjklzxcvbnm".toCharArray();
-		for (int i = 0; i < 20; i++) {
-		idd += massiiv[r.nextInt(massiiv.length)];
-		}
-		return idd;
-	}
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -85,16 +76,16 @@ public class LoginController  extends HttpServlet {
 			System.out.println("Entered post for logging in");
 			User currentUser = gson.fromJson(req.getReader(), User.class);
 			int i=LoginQueries.loginWithAccessrights(currentUser.userName, currentUser.password);
-			String newid = newsessionid();
  			
 			if(i == -1) {
 				resp.getWriter().write("{\"response\":"+i+"}");
 			} else {
-			
-			 
- 				AuthenticationQueries.addAuthentication(currentUser.userName, newid);
-				 System.out.println("addauth success");
-				resp.getWriter().write("{\"response\":\""+newid+"\"}");
+				HttpSession sess = req.getSession();
+				if(sess != null) {
+					sess.setAttribute("LOGIN_USER", i);
+				}
+				System.out.println("addauth success");
+				resp.getWriter().write("{\"response\":\""+i+"\"}");
 			}
  
              System.out.println("Servlet succeeded in verifying log in status");
