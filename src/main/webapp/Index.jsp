@@ -6,7 +6,7 @@
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="TheWorldNews.newsdata.NewsArticle" %>
 <%@ page import="TheWorldNews.database.querys.DisplayQueries" %>
-<%@ taglib prefix="ex" uri="WEB-INF/custom.tld"%>
+
 <!DOCTYPE html> 
 <html manifest="worldnewsmanifest.appcache">
 <head>
@@ -101,7 +101,6 @@
 <jsp:include page="/displayNews">
 	<jsp:param name="newsType" value="News"/>
 	<jsp:param name="numberOfNews" value=6/>
-	
 </jsp:include>
 
 </div>
