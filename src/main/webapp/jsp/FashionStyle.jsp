@@ -19,6 +19,7 @@
 </head>
 <body>
 <ex:Navigation/>
-<ex:AT type="Fashion" newsgroup="3"/>
+
+ <ex:AT type="Fashion" newsgroup="3"/>
 </body>
 </html>

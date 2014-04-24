@@ -21,7 +21,7 @@ public class NavigationTag extends SimpleTagSupport{
 		sb.append("<!-- The World Log In & Settings -->");
 		sb.append("<div id=\"logoButtons\">");
 	    
-		sb.append("<header class=\"Head\"><a class=\"Head\" href=\"..index.jsp\">THE WORLD</a></header>");
+		sb.append("<header class=\"Head\"><a class=\"Head\" href=\"../Index.jsp\">THE WORLD</a></header>");
 
 	        
 	    sb.append("<button  id=\"settings\"></button>");
@@ -64,7 +64,6 @@ public class NavigationTag extends SimpleTagSupport{
 	     
 	    sb.append("<ul>");
 	    sb.append("<li><a href=\"News.jsp\">News</a> </li>");
-	            
 		sb.append("<li><a href=\"Business.jsp\">Business</a></li>");
 		sb.append("<li><a href=\"Sports.jsp\">Sports</a></li>");
 		sb.append("<li><a href=\"Science.jsp\">Science</a></li>");

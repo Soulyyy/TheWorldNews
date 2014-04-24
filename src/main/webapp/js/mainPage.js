@@ -3,25 +3,35 @@
  */
 
 $(this).ready(function(){
+
 	var logoutButton = document.getElementById('logoutButton');
 	var logint = document.getElementById('toggleLogin');
-	console.log(document.cookie);
+	// console.log(document.cookie);
 	if (readCookie("sessionid") != "") {
 		logoutButton.style.visibility = 'visible';
 		logint.style.visibility = 'hidden';
 	}
-	else {
+	
+	else if (readCookie("googlein") == "") {
 		logint.style.visibility = 'visible';	
 	}
 	setInterval(checkHash, 100);
-   // $('a[menuItem]').click( function() {
-		// var destination = $(this).attr('menuItem');
-		// loadpage(destination);
-	// });
+   $('a[data-menuItem]').click( function() {
+		console.log("b");
+		var destination = $(this).attr('data-menuItem');
+		loadpage(destination);
+		// if (navigator.onLine) {
+ 
+		 	// loadpage(destination);
+		// } 
+		// else {
+ 
+			// window.location.href = "ofindex.jsp";
+		// }
+	
+	});
 	$('#logoutButton').click(function() {
-		
-		
-		 
+
 		if (readCookie("sessionid") != "") {
 			//delete session
  			var cookiedata = new Object();
@@ -51,6 +61,7 @@ $(this).ready(function(){
 			
 		}
 		else {
+			eraseCookie("googlein");
 			$.ajax({
 				type:"GET",
 				success:function() {
@@ -108,27 +119,27 @@ function readCookie(name) {
 function eraseCookie(name) {
 	createCookie(name,"",-1);
 }
-var loadpage = function(dest)  {
+
+function loadpage(dest)  {
+
     var id=3;
-	if (dest != 'index') {
+ 
 		$.ajax({
 			type:"GET",
-			url:'./jsp/'+ dest +".jsp",
+			url:'../jsp/'+ dest +".jsp",
 			data:{"id":id},
 			
 			crossDomain:true,
 			success: function(data) {
 				window.location.hash = dest;
 				var externalHTML = document.getElementById("articleGroup");
-				console.log("GoogleLogOutSuccess");
+ 
 				externalHTML.innerHTML=data;
 			}
 
 		});    
-	}
-	else {
-		window.location.href = "Index.jsp";
-	}
+ 
+ 
 };
 
 var recentHash = "";
@@ -147,12 +158,18 @@ var checkHash = function() {
   }
 };
 
-
 function handleClientLoad() {
 	var apiKey = 'AIzaSyD7HJs0zDCJKqLcLIK5ok5uAAm33cubOGs';
-	gapi.client.setApiKey(apiKey);
-	window.setTimeout(checkAuth,1);
+	var clientId = '510213468349-6npga48p58v7rr3s50p0smnp7e6dho5m.apps.googleusercontent.com';
+	var scopes = 'https://www.googleapis.com/auth/plus.me';
+
+ 	if (readCookie("googlein") != "") {
+	
+		gapi.client.setApiKey(apiKey);
+		checkAuth();
+	}
 }
+
 
 function checkAuth() {
 	var clientId = '510213468349-6npga48p58v7rr3s50p0smnp7e6dho5m.apps.googleusercontent.com';
@@ -176,10 +193,8 @@ function handleAuthResult(authResult) {
 		container.style.visibility = 'hidden';
 
 		makeApiCall();
-	  
 	} else {
-	
-	  authorizeButton.onclick = handleAuthClick;
+		  authorizeButton.onclick = handleAuthClick;
 	}
 }
 

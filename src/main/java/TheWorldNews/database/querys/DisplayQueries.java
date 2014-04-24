@@ -17,7 +17,7 @@ public class DisplayQueries {
 		System.out.println("Entered article query get by number and type");
 		Connection con = DatabaseConnection.getConnection();
 		int articlegroup = NewsEncoding.jointArticleConvertToInt(type);
-		 String query = "SELECT * FROM newsarticles WHERE mod(articlegroup,?)=0 ORDER BY id DESC limit ?";
+		 String query = "SELECT * FROM newsarticles WHERE articlegroup % ? =0 ORDER BY id DESC limit ?";
 		 PreparedStatement pst = con.prepareStatement(query);
 		 pst.setInt(1, articlegroup);
 		 pst.setInt(2, number);
@@ -32,6 +32,7 @@ public class DisplayQueries {
 			 articlegroup = rs.getInt("articlegroup");
 			 listOfValues.add(new NewsArticle(1, image, header, content, articlegroup));
 		}
+		 con.close();
 		 return(listOfValues);
 		 
 	}

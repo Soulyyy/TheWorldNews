@@ -35,6 +35,7 @@ public class NewsQuerys {
 			 pst.setString(3, newArticle.content);
 			 pst.setInt(4, newArticle.articlegroup);
 			 pst.executeUpdate();
+			 con.close();
 	}
 
 	

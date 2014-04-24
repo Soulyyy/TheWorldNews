@@ -19,6 +19,7 @@
 </head>
 <body>
 <ex:Navigation/>
-<ex:AT type="Science" newsgroup="3"/>
+
+ <ex:AT type="Science" newsgroup="3"/>
 </body>
 </html>
