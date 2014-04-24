@@ -19,14 +19,15 @@ $(this).ready(function(){
    $('a[data-menuItem]').click( function() {
 		console.log("b");
 		var destination = $(this).attr('data-menuItem');
-		if (navigator.onLine) {
+		loadpage(destination);
+		// if (navigator.onLine) {
  
-		 	loadpage(destination);
-		} 
-		else {
+		 	// loadpage(destination);
+		// } 
+		// else {
  
-			window.location.href = "ofindex.jsp";
-		}
+			// window.location.href = "ofindex.jsp";
+		// }
 	
 	});
 	$('#logoutButton').click(function() {
@@ -131,7 +132,7 @@ function loadpage(dest)  {
 			crossDomain:true,
 			success: function(data) {
 				window.location.hash = dest;
-				var externalHTML = document.getElementById("articleGroup");
+				var externalHTML = document.getElementById("whole");
  
 				externalHTML.innerHTML=data;
 			}

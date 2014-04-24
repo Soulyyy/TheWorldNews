@@ -19,7 +19,7 @@
 </head>
 
 <body>
-
+<div id ="whole">
 <div id="header">
  
 	<!-- The World Log In & Settings -->
@@ -110,6 +110,6 @@
 <div class="footer"> <p>&nbsp;</p> </div>
  
 <iframe name='myIFrame' id="myIFrame" style='display:none'></iframe>
- 
+ </div>
 </body>
 </html>
