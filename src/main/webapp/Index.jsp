@@ -1,3 +1,4 @@
+<%@page import="TheWorldNews.servlets.NewsDisplayController"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
 <%@ page import="java.sql.ResultSet" %>
@@ -12,16 +13,15 @@
 	<title>The World</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<link rel="stylesheet" type="text/css" href="./css/layout.css">
-   	<script type="text/javascript" src="lib/jquery-1.11.0.js"></script>
+    <script src="./lib/jquery-1.11.0.js" type="text/javascript"></script>
 	<script type="text/javascript" src="js/mainPage.js"></script>
 	<script type="text/javascript" src="js/login.js"></script>
 	<script type="text/javascript" src="https://apis.google.com/js/client.js?onload=handleClientLoad"></script>
 </head>
-
 <body>
-
 <div id="header">
  
+
 	<!-- The World Log In & Settings -->
 	<div id="logoButtons">
     
@@ -65,7 +65,7 @@
     	<!-- Navigation -->
     
     <div id="navigation">
-
+     <!-- 
         <ul>
             <li><a href="jsp/News.jsp">News</a> </li>
             
@@ -75,7 +75,7 @@
 			<li><a href="jsp/Arts.jsp">Arts</a></li>
             <li><a href="jsp/FashionStyle.jsp">Fashion &amp; Style</a></li>
 		</ul>
-     <!-- 
+		-->
 		<ul>
             <li><a data-menuItem="News">News</a> </li>
 			<li><a data-menuItem="Business">Business</a></li>
@@ -84,7 +84,7 @@
 			<li><a data-menuItem="Arts">Arts</a></li>
             <li><a data-menuItem="FashionStyle">Fashion &amp; Style</a></li>
 		</ul>
-        		-->
+        
 	</div>
     
  
@@ -97,10 +97,11 @@
 
 <div id="articleGroup">
 
+<%//response.sendRedirect("TheWorldNews.servlets.NewsDisplayController");%>
 
-<ex:AT type="News" newsgroup="3"/>
+<jsp:include page="../java/TheWorldNews/servlets/NewsDisplayController.java"/>
 
-
+<!--<ex:AT type="News" newsgroup="6"/>-->
 </div>
 
 <div id="sideBar">
