@@ -100,7 +100,7 @@
 
 <jsp:include page="/displayNews">
 	<jsp:param name="newsType" value="News"/>
-	<jsp:param name="numberOfNews" value=6/>
+	<jsp:param name="numberOfNews" value="6"/>
 </jsp:include>
 
 </div>
