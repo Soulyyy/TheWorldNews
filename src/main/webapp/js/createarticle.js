@@ -36,11 +36,7 @@ $(this).ready(function() {
 		}
 
 		else {
-			if (readCookie("sessionid") == "") {
-				alert("Must be logged in as editor");
-			}
-			else {
-				$.ajax("/submitNews",{
+			$.ajax("/submitNews",{
 					type:"POST",
 					dataType:'json',
 					data: JSON.stringify(articledata),
@@ -56,7 +52,6 @@ $(this).ready(function() {
 					}
 
 				});
-			}
 		}
  
 
