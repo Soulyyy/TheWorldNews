@@ -58,20 +58,20 @@ public class NavigationTag extends SimpleTagSupport{
 	     
 	     
 	    
-	    // sb.append("<!-- Navigation -->");
+	    sb.append("<!-- Navigation -->");
 	    
-	    // sb.append("<div id=\"navigation\">");
+	    sb.append("<div id=\"navigation\">");
 	     
-	    // sb.append("<ul>");
-	    // sb.append("<li><a href=\"News.jsp\">News</a> </li>");
-		// sb.append("<li><a href=\"Business.jsp\">Business</a></li>");
-		// sb.append("<li><a href=\"Sports.jsp\">Sports</a></li>");
-		// sb.append("<li><a href=\"Science.jsp\">Science</a></li>");
-		// sb.append("<li><a href=\"Arts.jsp\">Arts</a></li>");
-	    // sb.append("<li><a href=\"FashionStyle.jsp\">Fashion &amp; Style</a></li>");
-		// sb.append("</ul>");
+	    sb.append("<ul>");
+	    sb.append("<li><a href=\"News.jsp\">News</a> </li>");
+		sb.append("<li><a href=\"Business.jsp\">Business</a></li>");
+		sb.append("<li><a href=\"Sports.jsp\">Sports</a></li>");
+		sb.append("<li><a href=\"Science.jsp\">Science</a></li>");
+		sb.append("<li><a href=\"Arts.jsp\">Arts</a></li>");
+	    sb.append("<li><a href=\"FashionStyle.jsp\">Fashion &amp; Style</a></li>");
+		sb.append("</ul>");
 	        
-		// sb.append("</div>"); 
+		sb.append("</div>"); 
 	    
 	 
 		sb.append("</div>"); 
