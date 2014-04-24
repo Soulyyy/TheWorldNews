@@ -42,9 +42,10 @@ $(this).ready(function() {
 					contentType: 'application/json',
 	 
 					success: function(articledata){   
-						console.log("gg");
+						window.location.href = "http://gold-experience.herokuapp.com/Index.jsp";
 					},
 					error:function(req, text) {
+						alert("Ei lisatud");
 						console.debug("%o", JSON.stringify(articledata));  
 						console.log(req);
 						console.log(text);

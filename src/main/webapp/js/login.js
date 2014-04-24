@@ -77,7 +77,7 @@ $(this).ready(function() {
 						createCookie("currentuser",u,7);
 						// loadpage(hash);
 						// location.reload();
-						window.location.href = "Index.jsp";
+						window.location.href = "http://gold-experience.herokuapp.com/Index.jsp";
 	 
 		 
 						

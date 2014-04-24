@@ -30,7 +30,7 @@ public class EditrightCheckFilter implements Filter {
 	    } else {
 	      Integer userType = (Integer)req.getSession().getAttribute("LOGIN_USER");
 	      if (userType < 2){ //check if user type is not admin
-	        res.sendRedirect(contextPath + "/index.html"); //or page where you want to  
+	        res.sendRedirect(contextPath + "/Index.jsp"); //or page where you want to  
 	      }
 	      fc.doFilter(request, response);
 	    }
