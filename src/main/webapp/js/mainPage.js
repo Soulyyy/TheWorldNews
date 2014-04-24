@@ -132,8 +132,7 @@ function loadpage(dest)  {
 			crossDomain:true,
 			success: function(data) {
 				window.location.hash = dest;
-				console.log("cc");
-				var externalHTML = document.getElementById("whole");
+				var externalHTML = document.getElementById("articleGroup");
  
 				externalHTML.innerHTML=data;
 			}
