@@ -48,7 +48,7 @@ public class NewsDisplayController extends HttpServlet{
 //			req.setAttribute("articles", newsArticles);
 //			req.getRequestDispatcher("Index.jsp").forward(req, resp);;
 		    
-
+//			req.getRequestDispatcher("../folder/index.jsp").forward(req, resp);
 		    
 		} catch (Exception e) {
 			e.printStackTrace();
