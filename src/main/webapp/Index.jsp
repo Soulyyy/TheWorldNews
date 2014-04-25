@@ -1,4 +1,4 @@
-<%@page import="TheWorldNews.servlets.NewsDisplayController"%>
+<%@ page import="TheWorldNews.servlets.NewsDisplayController"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
 <%@ page import="java.sql.ResultSet" %>
@@ -6,6 +6,7 @@
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="TheWorldNews.newsdata.NewsArticle" %>
 <%@ page import="TheWorldNews.database.querys.DisplayQueries" %>
+<%@ taglib prefix="ex" uri="WEB-INF/custom.tld"%>
 
 <!DOCTYPE html> 
 <html manifest="worldnewsmanifest.appcache">
