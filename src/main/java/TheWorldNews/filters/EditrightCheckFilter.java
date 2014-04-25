@@ -26,7 +26,7 @@ public class EditrightCheckFilter implements Filter {
 	    HttpServletResponse res = (HttpServletResponse) response;  
 
 	    if (req.getSession().getAttribute("LOGIN_USER") == null) { //checks if there's a LOGIN_USER set in session...
-	        res.sendRedirect(contextPath + "/index.jsp"); //or page where you want to redirect
+	        res.sendRedirect(contextPath + "/Index.jsp"); //or page where you want to redirect
 	    } else {
 	      Integer userType = (Integer)req.getSession().getAttribute("LOGIN_USER");
 	      if (userType < 2){ //check if user type is not admin
