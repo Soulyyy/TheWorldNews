@@ -24,6 +24,8 @@ public class NewsEncoding {
 	
 	//Convert output to single int
 	public static int jointArticleConvertToInt(String longQuery) {
+		System.out.println("We got this val:");
+		System.out.println(longQuery);
 		String[] separateValues = longQuery.split(";");
 		int multiple = 1;
 		for(String value: separateValues) {
