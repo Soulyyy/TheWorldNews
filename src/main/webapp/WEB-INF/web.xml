@@ -43,7 +43,7 @@
 	
 	  <servlet>
     <servlet-name>displayNews</servlet-name>
-    <servlet-class>TheWorldNews.servlets.NewsDisplayController.java</servlet-class>
+    <servlet-class>TheWorldNews.servlets.NewsDisplayController</servlet-class>
   </servlet>
 
   <servlet-mapping>
