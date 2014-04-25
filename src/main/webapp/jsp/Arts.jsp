@@ -19,6 +19,6 @@
 </head>
 <body>
 <ex:Navigation/>
-<ex:AT type="Arts" newsgroup="3"/>
+<ex:AT type="Arts" size="3"/>
 </body>
 </html>

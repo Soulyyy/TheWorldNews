@@ -20,6 +20,6 @@
 <body>
 <ex:Navigation/>
 
- <ex:AT type="Sports" newsgroup="3"/>
+ <ex:AT type="Sports" size="3"/>
 </body>
 </html>
