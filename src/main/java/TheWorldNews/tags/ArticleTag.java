@@ -1,7 +1,8 @@
 package TheWorldNews.tags;
 
 import java.io.IOException;
-
+import java.net.URISyntaxException;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 import javax.servlet.jsp.JspException;
@@ -13,22 +14,22 @@ import TheWorldNews.database.querys.DisplayQueries;
 import TheWorldNews.newsdata.NewsArticle;
 
 
-
 public class ArticleTag extends SimpleTagSupport{
 	private String type;
 	private String size;
 	
-	public ArticleTag(){
-		
+
+	
+	public void setSize(String size) {
+		this.size = size;
 	}
 	
 	public void setType(String type) {
 		this.type = type;
 	}
 
-	public void setSize(String size) {
-		this.size = size;
-	}
+
+	
 
 	public void displayMainArticles(String type, int number){
 		try {
@@ -109,7 +110,7 @@ public String rightArticle(NewsArticle article){
 @Override
 public void doTag() throws JspException, IOException {
     System.out.println("Type is:" + type);
-    System.out.println("NewsGroup is:" + size);
+    System.out.println("Size is:" + size);
     try {
     	int number = Integer.parseInt(size);
     	
