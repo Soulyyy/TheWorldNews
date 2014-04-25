@@ -16,7 +16,7 @@ import TheWorldNews.newsdata.NewsArticle;
 
 public class ArticleTag extends SimpleTagSupport{
 	private String type;
-	private String newsgroup;
+	private String size;
 	
 
 	
@@ -28,9 +28,6 @@ public class ArticleTag extends SimpleTagSupport{
 		this.type = type;
 	}
 
-	public void setNewsgroup(String newsgroup) {
-		this.newsgroup = newsgroup;
-	}
 
 
 	public void displayMainArticles(String type, int number){
@@ -112,11 +109,11 @@ public String rightArticle(NewsArticle article){
 @Override
 public void doTag() throws JspException, IOException {
     System.out.println("Type is:" + type);
-    System.out.println("NewsGroup is:" + newsgroup);
+    System.out.println("Size is:" + size);
 
     try {
     	
-    	int number = Integer.parseInt(newsgroup);
+    	int number = Integer.parseInt(size);
     	
     	displayMainArticles(type, number);
     	
@@ -124,7 +121,7 @@ public void doTag() throws JspException, IOException {
         e.printStackTrace();
         // stop page from loading further by throwing SkipPageException
         throw new SkipPageException("Exception in formatting " + type
-                + " with format " + newsgroup);
+                + " with format " + size);
     }
 }
 }
