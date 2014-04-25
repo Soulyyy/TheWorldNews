@@ -112,7 +112,7 @@ public void doTag() throws JspException, IOException {
     System.out.println("Type is:" + type);
     System.out.println("NewsGroup is:" + size);
     try {
-    	int number = NewsEncoding.jointArticleConvertToInt(size);
+    	int number = Integer.parseInt(size);
     	
     	displayMainArticles(type, number);
     	
