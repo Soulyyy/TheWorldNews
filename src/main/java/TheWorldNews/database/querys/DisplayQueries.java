@@ -29,7 +29,7 @@ public class DisplayQueries {
 			 String image = rs.getString("image");
 			 String header = rs.getString("header"); //fails if in this order
 			 String content = rs.getString("content");
-			 articlegroup = rs.getInt("articlegroup");
+			 articlegroup = rs.getInt("articleInt");
 			 listOfValues.add(new NewsArticle(1, image, header, content, articlegroup));
 		}
 		 con.close();

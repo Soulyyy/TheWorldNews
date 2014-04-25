@@ -44,6 +44,7 @@ public class LoginController  extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		System.out.println("Entered get for logging in");
+		
 		// try {
   			// String received = req.getParameter("testt");
 			// String sessionid = received.substring(14,34);
