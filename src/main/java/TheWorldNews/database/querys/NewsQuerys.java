@@ -13,6 +13,7 @@ import java.util.logging.Logger;
 
 import TheWorldNews.database.DatabaseConnection;
 import TheWorldNews.newsdata.NewsArticle;
+import TheWorldNews.newsdata.NewsEncoding;
 
 
 
@@ -33,7 +34,8 @@ public class NewsQuerys {
 			 pst.setString(1, newArticle.image);
 			 pst.setString(2, newArticle.header);
 			 pst.setString(3, newArticle.content);
-			 pst.setInt(4, newArticle.articleInt);
+			 int val = NewsEncoding.jointArticleConvertToInt(newArticle.articlegroupstring);
+			 pst.setInt(4, val);
 			 pst.executeUpdate();
 			 con.close();
 	}
