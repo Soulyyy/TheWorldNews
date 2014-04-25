@@ -97,12 +97,12 @@
 
 <div id="articleGroup">
 
-
-<jsp:include page="../java/TheWorldNews/servlets/NewsDisplayController.java">
+<!-- /displayNews -->
+<!--<jsp:include page="../java/TheWorldNews/servlets/NewsDisplayController.java">
 	<jsp:param name="newsType" value="News"/>
 	<jsp:param name="numberOfNews" value="6"/>
 </jsp:include>
-
+-->
 </div>
 
 
