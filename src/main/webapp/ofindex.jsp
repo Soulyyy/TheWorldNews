@@ -5,6 +5,7 @@
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="TheWorldNews.newsdata.NewsArticle" %>
 <%@ page import="TheWorldNews.database.querys.DisplayQueries" %>
+<%@ page import="TheWorldNews.tags.ArticleTag" %>
 <%@ taglib prefix="ex" uri="WEB-INF/custom.tld"%>
 <!DOCTYPE html> 
 <html manifest="worldnewsmanifest.appcache">
