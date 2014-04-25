@@ -46,6 +46,7 @@ public class NewsEncoding {
 
 	//If null, serious trouble in database
 	public static String convertArticleEncodingToString(int encoding) {
+		System.out.println("We want to encode int, WHY?");
 		int[] valueSpace = {2,3,5,7,11,13};
 		String output="";
 		for(int i : valueSpace) {
