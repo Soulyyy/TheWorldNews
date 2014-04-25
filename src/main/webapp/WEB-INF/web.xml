@@ -40,11 +40,22 @@
 		<filter-name>GzipFilter</filter-name>
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
+	
+	  <servlet>
+    <servlet-name>displayNews</servlet-name>
+    <servlet-class>TheWorldNews.servlets.NewsDisplayController.java</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>displayNews</servlet-name>
+    <url-pattern>/displayNews</url-pattern>
+  </servlet-mapping>
 
 	<mime-mapping>
 		<extension>js</extension>
 		<mime-type>application/javascript</mime-type>
 	</mime-mapping>
+	
 
 	<welcome-file-list>
 		<welcome-file>Index.jsp</welcome-file>
