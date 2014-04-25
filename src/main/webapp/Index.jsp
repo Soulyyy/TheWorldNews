@@ -97,12 +97,12 @@
 
 <div id="articleGroup">
 
-
-<jsp:include page="../java/TheWorldNews/servlets/NewsDisplayController.java">
+<!-- /displayNews -->
+<!--<jsp:include page="../java/TheWorldNews/servlets/NewsDisplayController.java">
 	<jsp:param name="newsType" value="News"/>
 	<jsp:param name="numberOfNews" value="6"/>
 </jsp:include>
-
+-->
 </div>
 
 
@@ -122,69 +122,69 @@
         
                     <div class="itemodd">
                     
-                        <div class="time">00:01</div>
+                        <div class="time"></div>
     
-                        <div class="latestHeading"><a href="#">#Rekt</a></div>
+                        <div class="latestHeading"><a href="#"></a></div>
 
                     
                     </div>
                     
                     <div class="itemeven">
                     
-                    	<div class="time">00:02</div>
+                    	<div class="time"></div>
     
-                        <div class="latestHeading"><a href="#">Some day these links will be clickable</a></div>
+                        <div class="latestHeading"><a href="#"></a></div>
                     
                     
                     </div>
                     
                     <div class="itemodd">
                     
-                    	<div class="time">00:03</div>
+                    	<div class="time"></div>
     
-                        <div class="latestHeading"><a href="#">But it is not this day!</a></div>
+                        <div class="latestHeading"><a href="#"></a></div>
                     
                     </div>
                     
                     
                     <div class="itemeven">
                     	
-                        <div class="time">00:04</div>
+                        <div class="time"></div>
     
-                        <div class="latestHeading"><a href="#">This day we write code!</a></div>
+                        <div class="latestHeading"><a href="#"></a></div>
                     
                     </div>
                     
                     
                     <div class="itemodd">
                     
-                    	<div class="time">00:05</div>
+                    	<div class="time"></div>
     
-                        <div class="latestHeading"><a href="#">This is a test for how does this div react to a much much longer news report!</a></div>
+                        <div class="latestHeading"><a href="#"></a></div>
                     
                     </div>
                     
                     <div class="itemeven">
                     
-                    	<div class="time">00:06</div>
+                    	<div class="time"></div>
     
-                        <div class="latestHeading"><a href="#">Siim Kallas is still behind bars....</a></div>
+                        <div class="latestHeading"><a href="#"></a></div>
                     
                     </div>
                     
                     <div class="itemodd">
                     
-                    	<div class="time">00:06</div>
+                    	<div class="time"></div>
     
-                        <div class="latestHeading"><a href="#">Running out of ideas what to write</a></div>
+                        <div class="latestHeading"><a href="#"></a></div>
                         
                     </div>
                     
                     <div class="itemeven">
                     
-                    	<div class="time">14:04</div>
+                    	<div class="time"></div>
     
-                        <div class="latestHeading"><a href="#">I don't care. I'm done.</a></div>
+                        <div class="latestHeading"><a href="#"></a></div>
                         
                     </div>
 

@@ -17,7 +17,6 @@ $(this).ready(function() {
         articledata.header = $("#titleInput").val();
 		articledata.content = $("#textArea").val();
 		articledata.articlegroupstring = "News;";
-		articledata.sid = readCookie("sessionid");
 		if(document.getElementById('Business').checked) {
 			articledata.articlegroupstring += "Business;";
 		} if(document.getElementById('Sports').checked) {
@@ -36,6 +35,7 @@ $(this).ready(function() {
 		}
 
 		else {
+			console.log(articledata.articlegroupstring);
 			$.ajax("/submitNews",{
 					type:"POST",
 					dataType:'json',
@@ -43,9 +43,10 @@ $(this).ready(function() {
 					contentType: 'application/json',
 	 
 					success: function(articledata){   
-						console.log("gg");
+						window.location.href = "http://gold-experience.herokuapp.com/Index.jsp";
 					},
 					error:function(req, text) {
+						alert("Ei lisatud");
 						console.debug("%o", JSON.stringify(articledata));  
 						console.log(req);
 						console.log(text);

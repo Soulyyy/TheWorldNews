@@ -33,7 +33,7 @@ public class NewsQuerys {
 			 pst.setString(1, newArticle.image);
 			 pst.setString(2, newArticle.header);
 			 pst.setString(3, newArticle.content);
-			 pst.setInt(4, newArticle.articlegroup);
+			 pst.setInt(4, newArticle.articleInt);
 			 pst.executeUpdate();
 			 con.close();
 	}
