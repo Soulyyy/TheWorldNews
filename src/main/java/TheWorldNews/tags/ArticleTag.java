@@ -1,8 +1,7 @@
 package TheWorldNews.tags;
 
 import java.io.IOException;
-import java.net.URISyntaxException;
-import java.sql.SQLException;
+
 import java.util.ArrayList;
 
 import javax.servlet.jsp.JspException;
@@ -12,6 +11,7 @@ import javax.servlet.jsp.tagext.SimpleTagSupport;
 
 import TheWorldNews.database.querys.DisplayQueries;
 import TheWorldNews.newsdata.NewsArticle;
+
 
 
 public class ArticleTag extends SimpleTagSupport{
