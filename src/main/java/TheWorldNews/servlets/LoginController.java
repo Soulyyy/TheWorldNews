@@ -48,22 +48,14 @@ public class LoginController extends HttpServlet {
 
 		HttpSession sess = req.getSession();
 		String action = req.getParameter("action");
-		String user = (String) sess.getAttribute("LOGIN_USER");
+		Integer accesright = (Integer) sess.getAttribute("LOGIN_USER");
 
 		if (action == null) {
-			try {
-				int i = LoginQueries.getUserAccessrights(user);
-			} catch (SQLException e) {
-				System.err
-						.println("Failed to get current user access rights: SQL exception");
-			} catch (URISyntaxException e) {
-				System.err
-						.println("Failed to get current user access rights: Connect to DB failed");
-			}
+			resp.getWriter().write("{\"response\":"+accesright+"\"}");
 		} else if (action.equals("logout")) {
 			sess.removeAttribute("LOGIN_USER");
+			resp.getWriter().write("{\"response\":\"success\"}");
 		}
-		resp.getWriter().write("{\"response\":\"success\"}");
 	}
 
 	@Override
