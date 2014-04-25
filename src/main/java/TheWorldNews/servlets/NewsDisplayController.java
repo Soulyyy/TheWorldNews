@@ -19,8 +19,12 @@ import TheWorldNews.newsdata.NewsDisplay;
 public class NewsDisplayController extends HttpServlet{
 	
 	private static final long serialVersionUID = 1L;
-
-
+	
+	@Override
+	public void init() throws ServletException {
+		super.init();
+		System.out.println("Servlet /displayNews got init");
+	}
 	
 	@Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -32,8 +36,9 @@ public class NewsDisplayController extends HttpServlet{
 			resp.setContentType("text/html");
 		    PrintWriter out = resp.getWriter();
 			ArrayList<NewsArticle> newsArticles = DisplayQueries.getArticlesByNumberAndType(6, "News");
+			System.out.println("Displaying "+newsArticles.size()+" articles.");
 			
-			StringBuffer sb = new StringBuffer();
+			StringBuilder sb = new StringBuilder();
 			
 			for(int i = 0;i<newsArticles.size();i++){
 				sb.append(NewsDisplay.mainArticle(newsArticles.get(i)));

@@ -1,4 +1,4 @@
-<%@page import="TheWorldNews.servlets.NewsDisplayController"%>
+<%@ page import="TheWorldNews.servlets.NewsDisplayController" %>
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
 <%@ page import="java.sql.ResultSet" %>
@@ -96,13 +96,7 @@
 
 
 <div id="articleGroup">
-
-<!-- /displayNews -->
-<!--<jsp:include page="../java/TheWorldNews/servlets/NewsDisplayController.java">
-	<jsp:param name="newsType" value="News"/>
-	<jsp:param name="numberOfNews" value="6"/>
-</jsp:include>
--->
+<jsp:include page="/displayNews" flush="true" />
 </div>
 
 

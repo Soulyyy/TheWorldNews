@@ -59,7 +59,9 @@ public class LoginController  extends HttpServlet {
 			}
 		} else if(action.equals("logout")) {
 			sess.removeAttribute("LOGIN_USER");
-		}		
+		}
+		
+		resp.getWriter().write("{\"response\":\"success\"}");
 	}
 	
 	@Override
