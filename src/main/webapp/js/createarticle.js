@@ -35,6 +35,7 @@ $(this).ready(function() {
 		}
 
 		else {
+			console.log(articledata.articlegroupstring);
 			$.ajax("/submitNews",{
 					type:"POST",
 					dataType:'json',
