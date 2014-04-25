@@ -40,8 +40,7 @@ $(this).ready(function(){
 			$.ajax("/accountLogin",{
 				type:"GET",
 				dataType:'json',
-				data:{testt: JSON.stringify(cookiedata)},
-				contentType: 'application/json',
+				data:"action=logout",
 
 				success: function(cookiedata){   
 					console.log(cookiedata.response);

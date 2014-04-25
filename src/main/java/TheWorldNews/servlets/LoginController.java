@@ -44,30 +44,22 @@ public class LoginController  extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		System.out.println("Entered get for logging in");
-		// try {
-  			// String received = req.getParameter("testt");
-			// String sessionid = received.substring(14,34);
-			// String username = "";
-			// System.out.println(received);
-			
-			// for (int i=48;i<received.length();i++) {
-			    // String ltr = Character.toString(received.charAt(i));
-				// if (!ltr.equals("\"")) {
-				   // username +=ltr;
-				// }
-				// else {
-					// break;
-				// }
-			// }
- 			// AuthenticationQueries.removeAuthentication(username, sessionid);
-			// resp.getWriter().write("{\"response\":\"auth remove success \"}");
-		// } 
-		// catch (SQLException e) {
-			// resp.sendError(HttpServletResponse.SC_BAD_REQUEST, e.getMessage());
- 		// } catch (URISyntaxException e) {
-			// resp.sendError(HttpServletResponse.SC_BAD_REQUEST, e.getMessage());
- 		// }
 		
+		HttpSession sess = req.getSession();
+		String action = req.getParameter("action");
+		String user = (String)sess.getAttribute("LOGIN_USER");
+		
+		if(action == null) {
+			try {
+				int i = LoginQueries.getUserAccessrights(user);
+			} catch(SQLException e) {
+				System.err.println("Failed to get current user access rights: SQL exception");
+			} catch(URISyntaxException e) {
+				System.err.println("Failed to get current user access rights: Connect to DB failed");
+			}
+		} else if(action.equals("logout")) {
+			sess.removeAttribute("LOGIN_USER");
+		}		
 	}
 	
 	@Override

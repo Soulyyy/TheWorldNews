@@ -33,7 +33,7 @@
 		<filter-class>TheWorldNews.filters.EditrightCheckFilter</filter-class>
 	</filter>
 	<filter-mapping>
-		<filter-name>EdirightCheckFilter</filter-name>
+		<filter-name>EditrightCheckFilter</filter-name>
 		<url-pattern>/html/createArticle.html</url-pattern>
 	</filter-mapping>
 	<filter-mapping>
