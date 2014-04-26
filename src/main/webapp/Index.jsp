@@ -97,10 +97,11 @@
 </div>
 
 
-<div id="articleGroup">
-
-<jsp:include page="/displayNews" />
-
+<div id="articleGroup" >
+<%
+String news = (String) request.getAttribute("news");
+out.println(news);
+%>
 </div>
 
 

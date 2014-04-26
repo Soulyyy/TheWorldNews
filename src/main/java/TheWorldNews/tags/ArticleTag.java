@@ -32,7 +32,7 @@ public class ArticleTag extends SimpleTagSupport{
 
 	public void displayMainArticles(String type, int number){
 		try {
-			NewsArticle n1 = new NewsArticle(1,"http://i.imgur.com/Sof9O7R.jpg","header1", "content1", "News;Science");
+			NewsArticle n1 = new NewsArticle(1,"http://i.imgur.com/gPUK2bC.jpg","header1", "content1", "News;Science");
 			NewsArticle n2 = new NewsArticle(2,"http://i.imgur.com/wK6iK9d.jpg","header2", "content2", "News;Science");
 			NewsArticle n3 = new NewsArticle(3,"http://i.imgur.com/qOjr0Nn.jpg","header3", "content3", "News;Science");
 			

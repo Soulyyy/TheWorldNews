@@ -7,6 +7,7 @@
 <%@ page import="TheWorldNews.database.querys.DisplayQueries" %>
 <%@ page import="TheWorldNews.tags.ArticleTag" %>
 <%@ taglib prefix="ex" uri="WEB-INF/custom.tld"%>
+
 <!DOCTYPE html> 
 <html manifest="worldnewsmanifest.appcache">
 <head>

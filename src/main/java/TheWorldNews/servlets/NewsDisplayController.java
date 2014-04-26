@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -25,6 +26,7 @@ public class NewsDisplayController extends HttpServlet{
 	@Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		try {
+			String news;
 //			String newsType = req.getParameter("newsType");
 //			int size = Integer.parseInt(req.getParameter("numberOfNews"));
 //			log(newsType);
@@ -43,7 +45,13 @@ public class NewsDisplayController extends HttpServlet{
 				sb.append(NewsDisplay.rightArticle(newsArticles.get(i)));
 				i++;
 			}
-			out.print(sb.toString());
+			news = sb.toString();
+			req.setAttribute("news", news);
+			
+			System.out.println("Siia");
+			
+			RequestDispatcher reqDispatcher = getServletConfig().getServletContext().getRequestDispatcher("../../../webapp/Index.jsp");
+		    reqDispatcher.forward(req,resp);
 			
 //			req.setAttribute("articles", newsArticles);
 //			req.getRequestDispatcher("Index.jsp").forward(req, resp);;
