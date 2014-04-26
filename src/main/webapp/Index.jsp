@@ -99,6 +99,7 @@
 
 <div id="articleGroup" >
 <%
+out.println("Miks?");
 String news = (String) request.getAttribute("news");
 out.println(news);
 %>
