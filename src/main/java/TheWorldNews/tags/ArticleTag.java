@@ -36,8 +36,8 @@ public class ArticleTag extends SimpleTagSupport{
 			NewsArticle n2 = new NewsArticle(2,"http://i.imgur.com/wK6iK9d.jpg","header2", "content2", "News;Science");
 			NewsArticle n3 = new NewsArticle(3,"http://i.imgur.com/qOjr0Nn.jpg","header3", "content3", "News;Science");
 			
-			
-			ArrayList<NewsArticle> newsArticles = DisplayQueries.getArticlesByNumberAndType(number, type);
+			ArrayList<NewsArticle> newsArticles = new ArrayList<NewsArticle>();
+//			ArrayList<NewsArticle> newsArticles = DisplayQueries.getArticlesByNumberAndType(number, type);
 			newsArticles.add(n1);
 			newsArticles.add(n2);
 			newsArticles.add(n3);
