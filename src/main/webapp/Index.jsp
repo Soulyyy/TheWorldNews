@@ -98,16 +98,16 @@
 
 
 <div id="articleGroup" >
-
-
+<!-- töötab!! infinite dispatch loop here we go!!! -->
+<jsp:include page="/displayNews"></jsp:include>
 
 <%
-out.println("Miks?1");
+out.println("Miks?2");
 
-String news = (String) request.getAttribute("news");
-ArrayList<NewsArticle> newsArticles = (ArrayList<NewsArticle>) request.getAttribute("newsArticles");
-out.print(newsArticles);
-out.println(news);
+//String news = (String) request.getAttribute("news");
+//ArrayList<NewsArticle> newsArticles = (ArrayList<NewsArticle>) request.getAttribute("newsArticles");
+//out.print(newsArticles);
+//out.println(news);
 
 %>
 </div>

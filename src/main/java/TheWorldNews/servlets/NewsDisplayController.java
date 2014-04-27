@@ -63,7 +63,7 @@ public class NewsDisplayController extends HttpServlet{
 			out.println("Siia");
 			
 //			RequestDispatcher reqDispatcher = getServletConfig().getServletContext().getRequestDispatcher("../../../webapp/Index.jsp");
-			req.getRequestDispatcher("/Index.jsp").forward(req, resp); 
+//			req.getRequestDispatcher("/Index.jsp").forward(req, resp); 
 //		    reqDispatcher.forward(req,resp);
 			
 //			req.setAttribute("articles", newsArticles);
