@@ -98,10 +98,19 @@
 
 
 <div id="articleGroup" >
+
+<form name="dammit" method="GET" action="displayNews">
+</form>
 <%
+
+out.println(request.getContextPath());
+
 out.println("Miks?");
+
 String news = (String) request.getAttribute("news");
+
 out.println(news);
+
 %>
 </div>
 
