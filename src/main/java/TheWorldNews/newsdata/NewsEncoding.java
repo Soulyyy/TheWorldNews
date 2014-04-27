@@ -17,7 +17,7 @@ public class NewsEncoding {
 		if(input.equals("Sports")) return sports;
 		if(input.equals("Science")) return science;
 		if(input.equals("Arts")) return arts;
-		if(input.equals("FasionAndStyle")) return fashionAndStyle;
+		if(input.equals("FashionAndStyle")) return fashionAndStyle;
 		else return 0;
 		
 	}

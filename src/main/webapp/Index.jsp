@@ -104,15 +104,6 @@
     <jsp:param name="size" value="18"/>
 </jsp:include>
 
-<%
-out.println("Miks?2");
-
-//String news = (String) request.getAttribute("news");
-//ArrayList<NewsArticle> newsArticles = (ArrayList<NewsArticle>) request.getAttribute("newsArticles");
-//out.print(newsArticles);
-//out.println(news);
-
-%>
 </div>
 
 

@@ -18,8 +18,9 @@
 	<script type="text/javascript" src="https://apis.google.com/js/client.js?onload=handleClientLoad"></script>
 </head>
 <body>
-<ex:Navigation/>
-
- <ex:AT type="Science" size="3"/>
+<jsp:include page="/displayNews">
+    <jsp:param name="type" value="Science"/>
+    <jsp:param name="size" value="6"/>
+</jsp:include>
 </body>
 </html>
