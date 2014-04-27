@@ -30,7 +30,7 @@ public class DisplayQueries {
 			 String header = rs.getString("header"); //fails if in this order
 			 String content = rs.getString("content");
 			 
-			 String articlegroupString = rs.getString("articlegroupstring");
+			 String articlegroupString = rs.getString("articlegroup");
 			 listOfValues.add(new NewsArticle(1, image, header, content, articlegroupString));
 		}
 		 con.close();
