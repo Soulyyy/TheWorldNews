@@ -99,16 +99,12 @@
 
 <div id="articleGroup" >
 
-
-<a href="<%=request.getContextPath()%>/displayNews">link</a> 
 <%
-
-out.println(request.getContextPath());
-
-out.println("Miks?");
+out.println("Miks?1");
 
 String news = (String) request.getAttribute("news");
-
+ArrayList<NewsArticle> newsArticles = (ArrayList<NewsArticle>) request.getAttribute("newsArticles");
+out.print(newsArticles.get(0).articlegroupstring);
 out.println(news);
 
 %>

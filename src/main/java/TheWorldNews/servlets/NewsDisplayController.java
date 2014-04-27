@@ -16,7 +16,8 @@ import TheWorldNews.database.querys.DisplayQueries;
 import TheWorldNews.newsdata.NewsArticle;
 import TheWorldNews.newsdata.NewsDisplay;
 
-@WebServlet(value = "/displayNews")
+@WebServlet(value = "/displayNews", 
+			urlPatterns={"/myurl"})
 public class NewsDisplayController extends HttpServlet{
 	private ArrayList<NewsArticle> newsArticles = new ArrayList<NewsArticle>();
 	private static final long serialVersionUID = 1L;
@@ -46,11 +47,11 @@ public class NewsDisplayController extends HttpServlet{
 				i++;
 			}
 			news = sb.toString();
-			req.getSession().setAttribute("news", news);
-			
+			req.setAttribute("news", news);
+			req.setAttribute("newsArticles", newsArticles);
+			System.out.println("Voisiia");
 			
 			out.println("Siia");
-			
 			
 //			RequestDispatcher reqDispatcher = getServletConfig().getServletContext().getRequestDispatcher("../../../webapp/Index.jsp");
 			req.getRequestDispatcher("/Index.jsp").forward(req, resp); 
