@@ -98,7 +98,7 @@
 
 
 <div id="articleGroup" >
-
+<jsp:include page="/displayNews"></jsp:include>
 <%
 
 out.println(request.getContextPath());

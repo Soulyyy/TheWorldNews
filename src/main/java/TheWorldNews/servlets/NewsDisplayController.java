@@ -18,7 +18,7 @@ import TheWorldNews.newsdata.NewsDisplay;
 
 @WebServlet(value = "/displayNews")
 public class NewsDisplayController extends HttpServlet{
-	
+	private ArrayList<NewsArticle> newsArticles = new ArrayList<NewsArticle>();
 	private static final long serialVersionUID = 1L;
 
 
@@ -31,6 +31,7 @@ public class NewsDisplayController extends HttpServlet{
 //			int size = Integer.parseInt(req.getParameter("numberOfNews"));
 //			log(newsType);
 //			System.out.println(newsType);
+			resp.setContentType("text/html;charset=UTF-8");
 		    PrintWriter out = resp.getWriter();
 			ArrayList<NewsArticle> newsArticles = DisplayQueries.getArticlesByNumberAndType(6, "News");
 			
@@ -45,11 +46,10 @@ public class NewsDisplayController extends HttpServlet{
 				i++;
 			}
 			news = sb.toString();
-			req.setAttribute("news", news);
+			req.getSession().setAttribute("news", news);
 			
 			
 			out.println("Siia");
-			out.print(news);
 			
 			
 			RequestDispatcher reqDispatcher = getServletConfig().getServletContext().getRequestDispatcher("../../../webapp/Index.jsp");
