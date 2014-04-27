@@ -98,7 +98,9 @@
 
 
 <div id="articleGroup" >
-<jsp:include page="/displayNews"></jsp:include>
+
+
+<a href="<%=request.getContextPath()%>/displayNews">link</a> 
 <%
 
 out.println(request.getContextPath());
