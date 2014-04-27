@@ -104,7 +104,7 @@ out.println("Miks?1");
 
 String news = (String) request.getAttribute("news");
 ArrayList<NewsArticle> newsArticles = (ArrayList<NewsArticle>) request.getAttribute("newsArticles");
-out.print(newsArticles.get(0).articlegroupstring);
+out.print(newsArticles);
 out.println(news);
 
 %>
