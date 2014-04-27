@@ -34,8 +34,17 @@ public class NewsDisplayController extends HttpServlet{
 //			System.out.println(newsType);
 			resp.setContentType("text/html;charset=UTF-8");
 		    PrintWriter out = resp.getWriter();
-			ArrayList<NewsArticle> newsArticles = DisplayQueries.getArticlesByNumberAndType(6, "News");
+//			ArrayList<NewsArticle> newsArticles = DisplayQueries.getArticlesByNumberAndType(6, "News");
+			ArrayList<NewsArticle> newsArticles;
+			NewsArticle n1 = new NewsArticle(1,"http://i.imgur.com/gPUK2bC.jpg","header1", "content1", "News;Science");
+			NewsArticle n2 = new NewsArticle(2,"http://i.imgur.com/wK6iK9d.jpg","header2", "content2", "News;Science");
+			NewsArticle n3 = new NewsArticle(3,"http://i.imgur.com/qOjr0Nn.jpg","header3", "content3", "News;Science");
 			
+			newsArticles = new ArrayList<NewsArticle>();
+//			newsArticles = DisplayQueries.getArticlesByNumberAndType(number, type);
+			newsArticles.add(n1);
+			newsArticles.add(n2);
+			newsArticles.add(n3);
 			StringBuffer sb = new StringBuffer();
 			
 			for(int i = 0;i<newsArticles.size();i++){
