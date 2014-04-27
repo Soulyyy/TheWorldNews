@@ -99,8 +99,6 @@
 
 <div id="articleGroup" >
 
-<form name="dammit" method="GET" action="displayNews">
-</form>
 <%
 
 out.println(request.getContextPath());

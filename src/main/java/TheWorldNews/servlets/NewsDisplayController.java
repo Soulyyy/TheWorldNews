@@ -31,7 +31,6 @@ public class NewsDisplayController extends HttpServlet{
 //			int size = Integer.parseInt(req.getParameter("numberOfNews"));
 //			log(newsType);
 //			System.out.println(newsType);
-			resp.setContentType("text/html");
 		    PrintWriter out = resp.getWriter();
 			ArrayList<NewsArticle> newsArticles = DisplayQueries.getArticlesByNumberAndType(6, "News");
 			
@@ -48,7 +47,10 @@ public class NewsDisplayController extends HttpServlet{
 			news = sb.toString();
 			req.setAttribute("news", news);
 			
-			System.out.println("Siia");
+			
+			out.println("Siia");
+			out.print(news);
+			
 			
 			RequestDispatcher reqDispatcher = getServletConfig().getServletContext().getRequestDispatcher("../../../webapp/Index.jsp");
 		    reqDispatcher.forward(req,resp);
