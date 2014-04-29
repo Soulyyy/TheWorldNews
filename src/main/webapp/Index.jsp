@@ -67,7 +67,7 @@
     	<!-- Navigation -->
     
     <div id="navigation">
-     <!-- 
+
         <ul>
             <li><a href="jsp/News.jsp">News</a> </li>
             
@@ -77,7 +77,8 @@
 			<li><a href="jsp/Arts.jsp">Arts</a></li>
             <li><a href="jsp/FashionStyle.jsp">Fashion &amp; Style</a></li>
 		</ul>
-		-->
+
+		     <!-- 
 		<ul>
             <li><a data-menuItem="News">News</a> </li>
 			<li><a data-menuItem="Business">Business</a></li>
@@ -86,7 +87,7 @@
 			<li><a data-menuItem="Arts">Arts</a></li>
             <li><a data-menuItem="FashionStyle">Fashion &amp; Style</a></li>
 		</ul>
-        
+        		-->
 	</div>
     
  
