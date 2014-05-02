@@ -26,12 +26,13 @@ public class DisplayQueries {
 		 //PARSE RESULTSET TO ARRAYLIST
 		 
 		 while(rs.next()){
+			 Integer id = rs.getInt("id");
 			 String image = rs.getString("image");
 			 String header = rs.getString("header"); //fails if in this order
 			 String content = rs.getString("content");
 			 
 			 String articlegroupString = rs.getString("articlegroup");
-			 listOfValues.add(new NewsArticle(1, image, header, content, articlegroupString));
+			 listOfValues.add(new NewsArticle(id, image, header, content, articlegroupString));
 		}
 		 con.close();
 		 return(listOfValues);
