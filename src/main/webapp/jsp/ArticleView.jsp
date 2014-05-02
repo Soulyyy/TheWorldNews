@@ -8,7 +8,6 @@
 <%@ page import="TheWorldNews.database.querys.DisplayQueries"%>
 <%@ taglib prefix="ex" uri="../WEB-INF/custom.tld"%>
 
-
 <!DOCTYPE html>
 <html manifest="worldnewsmanifest.appcache">
 <head>
@@ -22,10 +21,9 @@
 	src="https://apis.google.com/js/client.js?onload=handleClientLoad"></script>
 </head>
 <body>
-
+	<ex:Navigation/>
 	<jsp:include page="/newsArticle">
 	<jsp:param value="<% request.getParameter("id");%>" name="id"/>
 	</jsp:include>
-
 </body>
 </html>

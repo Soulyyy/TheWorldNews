@@ -19,6 +19,7 @@
 	src="https://apis.google.com/js/client.js?onload=handleClientLoad"></script>
 </head>
 <body>
+<ex:Navigation/>
 	<jsp:include page="/displayNews">
 		<jsp:param name="type" value="Arts" />
 		<jsp:param name="size" value="6" />
