@@ -10,11 +10,11 @@ public class NewsDisplay {
 		String header = article.header;
 		Integer id = article.id;
 		sb.append("<div class=\"mainArticle\">");
-		sb.append("<a href=\"jsp/test.jsp?id=" + id
+		sb.append("<a href=\"jsp/ArticleView.jsp?id=" + id
 				+ "\"><img class=\"mainImage\" src=\"");
 		sb.append(img);
 		sb.append("\" alt=\"pilt\"></a>");
-		sb.append("<p class=\"mainText\"><a href=\"jsp/test.jsp?id=" + id + "\">");
+		sb.append("<p class=\"mainText\"><a href=\"jsp/ArticleView.jsp?id=" + id + "\">");
 		sb.append(header);
 		sb.append("</a></p>");
 		sb.append("</div>");
@@ -37,11 +37,11 @@ public class NewsDisplay {
 		String header = article.header;
 		Integer id = article.id;
 		sb.append("<div class=\"leftArticle\">");
-		sb.append("<a href=\"jsp/test.jsp?id=" + id
+		sb.append("<a href=\"jsp/ArticleView.jsp?id=" + id
 				+ "\"><img class=\"mainImage\" src=\"");
 		sb.append(img);
 		sb.append("\" alt=\"pilt\"></a>");
-		sb.append("<p class=\"mainText\"><a href=\"jsp/test.jsp?id=" + id + "\">");
+		sb.append("<p class=\"mainText\"><a href=\"jsp/ArticleView.jsp?id=" + id + "\">");
 		sb.append(header);
 		sb.append("</a></p>");
 		sb.append("</div>");
@@ -57,11 +57,11 @@ public class NewsDisplay {
 		String content = article.content;
 
 		sb.append("<div class=\"mainArticle\">");
-		sb.append("<a href=\"jsp/test.jsp?id=" + id
+		sb.append("<a href=\"jsp/ArticleView.jsp?id=" + id
 				+ "\"><img class=\"mainImage\" src=\"");
 		sb.append(img);
 		sb.append("\" alt=\"pilt\"></a>");
-		sb.append("<p class=\"mainText\"><a href=\"jsp/test.jsp?id=" + id + "\">");
+		sb.append("<p class=\"mainText\"><a href=\"jsp/ArticleView.jsp?id=" + id + "\">");
 		sb.append(header);
 		sb.append("</a></p>");
 		sb.append(clearDiv());
@@ -79,11 +79,11 @@ public class NewsDisplay {
 		String header = article.header;
 		Integer id = article.id;
 		sb.append("<div class=\"rightArticle\">");
-		sb.append("<a href=\"jsp/test.jsp?id=" + id
+		sb.append("<a href=\"jsp/ArticleView.jsp?id=" + id
 				+ "\"><img class=\"mainImage\" src=\"");
 		sb.append(img);
 		sb.append("\" alt=\"pilt\"></a>");
-		sb.append("<p class=\"mainText\"><a href=\"jsp/test.jsp?id=" + id + "\">");
+		sb.append("<p class=\"mainText\"><a href=\"jsp/ArticleView.jsp?id=" + id + "\">");
 		sb.append(header);
 		sb.append("</a></p>");
 		sb.append("</div>");
