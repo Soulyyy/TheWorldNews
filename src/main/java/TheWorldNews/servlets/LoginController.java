@@ -6,19 +6,12 @@ import java.sql.SQLException;
 
 import javax.servlet.annotation.WebServlet;
 
-import java.util.Random;
-
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Iterator;
-
-import TheWorldNews.database.querys.AuthenticationQueries;
 import TheWorldNews.database.querys.LoginQueries;
 import TheWorldNews.userdata.User;
 
@@ -26,71 +19,60 @@ import com.google.gson.Gson;
 import com.google.gson.JsonParseException;
 
 @WebServlet(value = "/accountLogin")
-public class LoginController  extends HttpServlet {
- 
+public class LoginController extends HttpServlet {
+
 	/**
-	 * 
+	 *
 	 */
 	private static final long serialVersionUID = 1L;
 
 	@Override
 	public void init() throws ServletException {
 		super.init();
-		gson= new Gson();
+		gson = new Gson();
 	}
 
 	private Gson gson;
-	
+
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		System.out.println("Entered get for logging in");
-		
+
 		HttpSession sess = req.getSession();
 		String action = req.getParameter("action");
-		String user = (String)sess.getAttribute("LOGIN_USER");
-		
-		if(action == null) {
-			try {
-				int i = LoginQueries.getUserAccessrights(user);
-			} catch(SQLException e) {
-				System.err.println("Failed to get current user access rights: SQL exception");
-			} catch(URISyntaxException e) {
-				System.err.println("Failed to get current user access rights: Connect to DB failed");
+		Integer accessRight = (Integer) sess.getAttribute("LOGIN_RIGHTS");
+
+		resp.setContentType("application/json");
+
+		if (action == null) {
+			if (accessRight == null) {
+				resp.getWriter().write("{\"accessRight\": \"null\"}");
+			} else {
+				resp.getWriter().write("{\"accessRight\": " + accessRight + "}");
 			}
-		} else if(action.equals("logout")) {
-			sess.removeAttribute("LOGIN_USER");
+		} else if (action.equals("logout")) {
+			sess.removeAttribute("LOGIN_RIGHTS");
+			resp.getWriter().write("{\"response\":\"success\"}");
+		} else {
+			resp.getWriter().write("{\"response\":\"nothing\"}");
 		}
-		
-		resp.getWriter().write("{\"response\":\"success\"}");
 	}
-	
+
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		try {
-			System.out.println("Entered post for logging in");
 			User currentUser = gson.fromJson(req.getReader(), User.class);
-			int i=LoginQueries.loginWithAccessrights(currentUser.userName, currentUser.password);
- 			
-			if(i == -1) {
-				resp.getWriter().write("{\"response\":"+i+"}");
-			} else {
-				HttpSession sess = req.getSession();
-				if(sess != null) {
-					sess.setAttribute("LOGIN_USER", i);
-				}
-				System.out.println("addauth success");
-				resp.getWriter().write("{\"response\":\""+i+"\"}");
-			}
- 
-             System.out.println("Servlet succeeded in verifying log in status");
+			int i = LoginQueries.loginWithAccessrights(currentUser.userName, currentUser.password);
 
-        } catch (JsonParseException ex) {
-            resp.sendError(HttpServletResponse.SC_BAD_REQUEST, ex.getMessage());
-		}
-         catch (SQLException e) {
+			HttpSession sess = req.getSession();
+			sess.setAttribute("LOGIN_RIGHTS", i);
+
+			resp.setContentType("application/json");
+			resp.getWriter().write("{\"accessRights\": " + i + "}");
+		} catch (JsonParseException ex) {
+			resp.sendError(HttpServletResponse.SC_BAD_REQUEST, ex.getMessage());
+		} catch (SQLException e) {
 			resp.sendError(HttpServletResponse.SC_BAD_REQUEST, e.getMessage());
-		} 
-		catch (URISyntaxException e) {
+		} catch (URISyntaxException e) {
 			resp.sendError(HttpServletResponse.SC_BAD_REQUEST, e.getMessage());
 		}
 	}

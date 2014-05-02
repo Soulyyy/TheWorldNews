@@ -6,12 +6,12 @@ ofindex.jsp
 jsp/Arts.jsp
 jsp/Business.jsp
 jsp/FashionStyle.jsp
-js/mainPage.js
+#js/mainPage.js
 lib/jquery-1.11.0.js
 jsp/News.jsp
 jsp/Science.jsp
 jsp/Sports.jsp
-css/layout.css
+#css/layout.css
 Metadata/settings.png
  
 

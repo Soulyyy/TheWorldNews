@@ -1,136 +1,136 @@
 @charset "UTF-8";
 html,body
 {
-	margin-left:auto;
-	margin-right:auto;
-	width:80%;
-	overflow-x:hidden;
+    margin-left:auto;
+    margin-right:auto;
+    width:80%;
+    overflow-x:hidden;
 
 }
 
 #logReg {
-	position: fixed;
-	left:80%;
-	margin-top:-30px;
+    position: fixed;
+    left:80%;
+    margin-top:-30px;
 }
 
 #header {
-	z-index:1;
+    z-index:1;
 }
 
 .Head {
-	text-decoration: none;
-	color:#000;
-	font: 1.3vw/1 Helvetica, Verdana, sans-serif;
-	text-transform: uppercase;
-	background-color:#FFF;
-	border:none;
-	transition: all 0.5s ease;
-	float: left;
-	margin-right: 0px;
-	padding: 0 1.0vw;
+    text-decoration: none;
+    color:#000;
+    font: 1.3vw/1 Helvetica, Verdana, sans-serif;
+    text-transform: uppercase;
+    background-color:#FFF;
+    border:none;
+    transition: all 0.5s ease;
+    float: left;
+    margin-right: 0px;
+    padding: 0 1.0vw;
 }
-	
+
 #logoButtons {
-	
+
 }
 
 
 #toggleLogin{
-	text-decoration: none;
-	color:#999;
-	font: 1.3vw/1 Helvetica, Verdana, sans-serif;
-	text-transform: uppercase;
-	background-color:#FFF;
-	border:none;
-	transition: all 0.5s ease;
-	float: right;
-	margin-right: 0px;
-	padding: 0 1.0vw;
-	visibility:hidden;
-	cursor:pointer;
+    text-decoration: none;
+    color:#999;
+    font: 1.3vw/1 Helvetica, Verdana, sans-serif;
+    text-transform: uppercase;
+    background-color:#FFF;
+    border:none;
+    transition: all 0.5s ease;
+    float: right;
+    margin-right: 0px;
+    padding: 0 1.0vw;
+    visibility:hidden;
+    cursor:pointer;
 }
 
 #authorize-button {
-	text-decoration: none;
-	color:#999;
-	font: 0.8vw/1 Helvetica, Verdana, sans-serif;
-	text-transform: uppercase;
-	background-color:#FFF;
-	border:none;
-	transition: all 0.5s ease;
-	display: table;
+    text-decoration: none;
+    color:#999;
+    font: 0.8vw/1 Helvetica, Verdana, sans-serif;
+    text-transform: uppercase;
+    background-color:#FFF;
+    border:none;
+    transition: all 0.5s ease;
+    display: table;
     margin: 0 auto;
-	text-align: center; 
-	padding: 0 1.0vw;
-	cursor:pointer;
-	visibility:hidden;
+    text-align: center; 
+    padding: 0 1.0vw;
+    cursor:pointer;
+    visibility: inherit;
 }
 #regi {
-	text-decoration: none;
-	color:#999;
-	font: 0.8vw/1 Helvetica, Verdana, sans-serif;
-	text-transform: uppercase;
-	background-color:#FFF;
-	border:none;
-	transition: all 0.5s ease;
-	display: table;
+    text-decoration: none;
+    color:#999;
+    font: 0.8vw/1 Helvetica, Verdana, sans-serif;
+    text-transform: uppercase;
+    background-color:#FFF;
+    border:none;
+    transition: all 0.5s ease;
+    display: table;
     margin: 0 auto;
-	text-align: center; 
-	padding: 0 1.0vw;
-	cursor:pointer;
-	visibility:hidden;
+    text-align: center; 
+    padding: 0 1.0vw;
+    cursor:pointer;
+    visibility: inherit;
 }
 
 #login {
-	text-decoration: none;
-	color:#999;
-	font: 0.8vw/1 Helvetica, Verdana, sans-serif;
-	text-transform: uppercase;
-	background-color:#FFF;
-	border:none;
-	transition: all 0.5s ease;
-	display: table;
+    text-decoration: none;
+    color:#999;
+    font: 0.8vw/1 Helvetica, Verdana, sans-serif;
+    text-transform: uppercase;
+    background-color:#FFF;
+    border:none;
+    transition: all 0.5s ease;
+    display: table;
     margin: 0 auto;
-	text-align: center; 
-	padding: 0 1.0vw;
-	cursor:pointer;
- 
+    text-align: center; 
+    padding: 0 1.0vw;
+    cursor: pointer;
+    visibility: inherit;
 }
 
 #loginbutton {
-	text-decoration: none;
-	color:#999;
-	font: 0.8vw/1 Helvetica, Verdana, sans-serif;
-	text-transform: uppercase;
-	background-color:#FFF;
-	border:none;
-	transition: all 0.5s ease;
-	display: table;
+    text-decoration: none;
+    color:#999;
+    font: 0.8vw/1 Helvetica, Verdana, sans-serif;
+    text-transform: uppercase;
+    background-color:#FFF;
+    border:none;
+    transition: all 0.5s ease;
+    display: table;
     margin: 0 auto;
-	text-align: center; 
-	padding: 0 1.0vw;
-	cursor:pointer;
- 
+    text-align: center; 
+    padding: 0 1.0vw;
+    cursor:pointer;
+
 }
- 
+
 #login:hover {
-	color: #666;
+    color: #666;
 }
 
 #logoutButton{
-	text-decoration: none;
-	color:#999;
-	font: 1.3vw/1 Helvetica, Verdana, sans-serif;
-	text-transform: uppercase;
-	background-color: transparent;
-	border:none;
-	transition: all 0.5s ease;
-	float: right;
-	margin-right: -10%;
-	padding: 0 1.0vw;
-	visibility:hidden;
-	cursor:pointer;
+    text-decoration: none;
+    color:#999;
+    font: 1.3vw/1 Helvetica, Verdana, sans-serif;
+    text-transform: uppercase;
+    background-color: transparent;
+    border:none;
+    transition: all 0.5s ease;
+    float: right;
+    margin-right: -10%;
+    padding: 0 1.0vw;
+    visibility:hidden;
+    cursor:pointer;
 
 
 }
@@ -138,13 +138,13 @@ html,body
 
 
 #authorize-button:hover {
-	color: #666;
+    color: #666;
 }
 
 #settings{
-	float:right;	
+    float:right;	
     background:url(../Metadata/settings.png) no-repeat;
-	background-size:1.3vw;
+    background-size:1.3vw;
 
     cursor:pointer;
     width: 32px;
@@ -153,387 +153,387 @@ html,body
 }
 
 img.mainImage {
-	width:100%;
-	float:left;
-	padding-bottom:1.3vw;
-	
-	
+    width:100%;
+    float:left;
+    padding-bottom:1.3vw;
+
+
 }
 
 #loginContainer {
-	position:absolute;
-	float:right;
-	left:70%;
-	width:10.0vw;
-	background-color:#FFF;
-	padding:1.0vw;
-	border:1px solid #666;
-	height:10.0vw;
-	visibility:hidden;
+    position:absolute;
+    float:right;
+    left:70%;
+    width:10.0vw;
+    background-color:#FFF;
+    padding:1.0vw;
+    border:1px solid #666;
+    height:10.0vw;
+    visibility:hidden;
 }
 #userName {
-	width:100%;
-	height:1.0vw;
+    width:100%;
+    height:1.0vw;
 }
 
 #password {
-	width:100%;
-	height:1.0vw;
+    width:100%;
+    height:1.0vw;
 }
 
 #userName::-webkit-input-placeholder {
-	text-decoration: none;
-	color:#999;
-	font: 0.7vw Helvetica, Verdana, sans-serif;
-	background-color:#FFF;
-	color:#333;
-	
+    text-decoration: none;
+    color:#999;
+    font: 0.7vw Helvetica, Verdana, sans-serif;
+    background-color:#FFF;
+    color:#333;
+
 }
 #userName::-moz-placeholder {
-	text-decoration: none;
-	color:#999;
-	font: 0.7vw Helvetica, Verdana, sans-serif;
-	background-color:#FFF;
-	color:#333;
+    text-decoration: none;
+    color:#999;
+    font: 0.7vw Helvetica, Verdana, sans-serif;
+    background-color:#FFF;
+    color:#333;
 }
 
-	
+
 #userName:-ms-input-placeholder {
-	text-decoration: none;
-	color:#999;
-	font: 0.7vw Helvetica, Verdana, sans-serif;
-	background-color:#FFF;
-	color:#333;
+    text-decoration: none;
+    color:#999;
+    font: 0.7vw Helvetica, Verdana, sans-serif;
+    background-color:#FFF;
+    color:#333;
 }
 
 #userName input:-moz-placeholder {
-	text-decoration: none;
-	color:#999;
-	font: 0.7vw Helvetica, Verdana, sans-serif;
-	background-color:#FFF;
-	color:#333;
+    text-decoration: none;
+    color:#999;
+    font: 0.7vw Helvetica, Verdana, sans-serif;
+    background-color:#FFF;
+    color:#333;
 }
 
 #password::-webkit-input-placeholder {
-	text-decoration: none;
-	color:#999;
-	font: 0.7vw Helvetica, Verdana, sans-serif;
-	background-color:#FFF;
-	color:#333;
-	
+    text-decoration: none;
+    color:#999;
+    font: 0.7vw Helvetica, Verdana, sans-serif;
+    background-color:#FFF;
+    color:#333;
+
 }
 #password::-moz-placeholder {
-	text-decoration: none;
-	color:#999;
-	font: 0.7vw Helvetica, Verdana, sans-serif;
-	background-color:#FFF;
-	color:#333;
+    text-decoration: none;
+    color:#999;
+    font: 0.7vw Helvetica, Verdana, sans-serif;
+    background-color:#FFF;
+    color:#333;
 }
 
-	
+
 #password:-ms-input-placeholder {
-	text-decoration: none;
-	color:#999;
-	font: 0.7vw Helvetica, Verdana, sans-serif;
-	background-color:#FFF;
-	color:#333;
+    text-decoration: none;
+    color:#999;
+    font: 0.7vw Helvetica, Verdana, sans-serif;
+    background-color:#FFF;
+    color:#333;
 }
 
 #password input:-moz-placeholder {
-	text-decoration: none;
-	color:#999;
-	font: 0.7vw Helvetica, Verdana, sans-serif;
-	background-color:#FFF;
-	color:#333;
+    text-decoration: none;
+    color:#999;
+    font: 0.7vw Helvetica, Verdana, sans-serif;
+    background-color:#FFF;
+    color:#333;
 }
 
 
 
-	
+
 #logoButtons {
-	margin-top:2.0vw;
-	
+    margin-top:2.0vw;
+
 }
-	
+
 #searchBox {
-	display: table;
+    display: table;
     margin: 0 auto;
-	width:30%;
-	height:1.0vw;
+    width:30%;
+    height:1.0vw;
 
 }
 
 #searchBox::-webkit-input-placeholder {
-	text-decoration: none;
-	color:#999;
-	font: 1.0vw Helvetica, Verdana, sans-serif;
-	text-transform: uppercase;
-	background-color:#FFF;
-	letter-spacing:1.6vw;
-	display: table;
+    text-decoration: none;
+    color:#999;
+    font: 1.0vw Helvetica, Verdana, sans-serif;
+    text-transform: uppercase;
+    background-color:#FFF;
+    letter-spacing:1.6vw;
+    display: table;
     margin: 0 auto;
-	text-align: center; 
+    text-align: center; 
 }
 
-	
+
 #searchBox::-moz-placeholder {
-	text-decoration: none;
-	color:#999;
-	font: 1.0vw/1 Helvetica, Verdana, sans-serif;
-	text-transform: uppercase;
-	background-color:#FFF;
-	border: 1px solid #666;
-	letter-spacing:1.6vw;
-	display: table;
+    text-decoration: none;
+    color:#999;
+    font: 1.0vw/1 Helvetica, Verdana, sans-serif;
+    text-transform: uppercase;
+    background-color:#FFF;
+    border: 1px solid #666;
+    letter-spacing:1.6vw;
+    display: table;
     margin: 0 auto;
-	text-align: center;
+    text-align: center;
 }
-	
-	
+
+
 #searchBox:-ms-input-placeholder {
-	text-decoration: none;
-	color:#999;
-	font: 1.0vw Helvetica, Verdana, sans-serif;
-	text-transform: uppercase;
-	background-color:#FFF;
-	border: 1px solid #666;
-	letter-spacing:1.6vw;
-	display: table;
+    text-decoration: none;
+    color:#999;
+    font: 1.0vw Helvetica, Verdana, sans-serif;
+    text-transform: uppercase;
+    background-color:#FFF;
+    border: 1px solid #666;
+    letter-spacing:1.6vw;
+    display: table;
     margin: 0 auto;
-	text-align: center;
+    text-align: center;
 }
-	
-	
+
+
 #searchBox input:-moz-placeholder {
-	text-decoration: none;
-	color:#999;
-	font: 1.0vw Helvetica, Verdana, sans-serif;
-	text-transform: uppercase;
-	background-color:#FFF;
-	border: 1px solid #666;
-	letter-spacing:1.6vw;
-	display: table;
+    text-decoration: none;
+    color:#999;
+    font: 1.0vw Helvetica, Verdana, sans-serif;
+    text-transform: uppercase;
+    background-color:#FFF;
+    border: 1px solid #666;
+    letter-spacing:1.6vw;
+    display: table;
     margin: 0 auto;
-	text-align: center;
+    text-align: center;
 }
 
 
 #navigation {
-	display: table;
+    display: table;
     margin: 0 auto;
-	clear:both;
-	overflow: hidden;
+    clear:both;
+    overflow: hidden;
     white-space: nowrap;
 }
 
 
 ul {
-	list-style-type: none;
-	display:table;
+    list-style-type: none;
+    display:table;
 }
- 
+
 li {
-	display:table-cell;
-	float: left;
-	border-right: 1px solid #aaa;
-	padding: 0.1vw 0.8vw;
+    display:table-cell;
+    float: left;
+    border-right: 1px solid #aaa;
+    padding: 0.1vw 0.8vw;
 
 }
 
 a {
-	cursor: pointer;
+    cursor: pointer;
 }
- 
+
 li:last-child {
-	border-right: none;
+    border-right: none;
 
 }
 
 li a {
-	display:block;
-	text-decoration: none;
-	color:#999;
-	font: 1.3vw/1 Helvetica, Verdana, sans-serif;
+    display:block;
+    text-decoration: none;
+    color:#999;
+    font: 1.3vw/1 Helvetica, Verdana, sans-serif;
 
-	text-transform: uppercase;
-	transition: all 0.5s ease;
+    text-transform: uppercase;
+    transition: all 0.5s ease;
 }
- 
+
 li a:hover {
-	color: #666;
+    color: #666;
 }
 
 li.active a {
-	font-weight: bold;
-	color: #333;
+    font-weight: bold;
+    color: #333;
 }
 
 div.clear{
-	clear:both;
-	height:1.0vw;
+    clear:both;
+    height:1.0vw;
 }
 
 #articleGroup {
-	float:left;
-	width:70%;
-	z-index:1;
+    float:left;
+    width:70%;
+    z-index:1;
 }
 
 
 #sideBar {
-	float:right;
-	width:30%;
+    float:right;
+    width:30%;
 }
 
 p.mainText {
-	color:#000;
-	text-decoration: none;
-	font: 1.5vw/1 Helvetica, Verdana, sans-serif;
+    color:#000;
+    text-decoration: none;
+    font: 1.5vw/1 Helvetica, Verdana, sans-serif;
 }
 
 p.mainText a{
-	color:#000;
-	text-decoration: none;
-	font: 1.5vw/1 Helvetica, Verdana, sans-serif;
+    color:#000;
+    text-decoration: none;
+    font: 1.5vw/1 Helvetica, Verdana, sans-serif;
 }
 
 p.sideText {
-	color:#000;
-	text-decoration: none;
-	font: 1.4vw/1 Helvetica, Verdana, sans-serif;
+    color:#000;
+    text-decoration: none;
+    font: 1.4vw/1 Helvetica, Verdana, sans-serif;
 }
 
 p.sideText a{
-	color:#000;
-	text-decoration: none;
-	font: 1.3vw/1 Helvetica, Verdana, sans-serif;
+    color:#000;
+    text-decoration: none;
+    font: 1.3vw/1 Helvetica, Verdana, sans-serif;
 }
 
 #latestNews {
-	text-decoration: none;
-	color:#999;
-	font: 1.0vw Helvetica, Verdana, sans-serif;
-	text-transform: uppercase;
-	background-color:#FFF;
-	border-bottom:1px solid #666;
-	border-top:1px solid #666;
-	display: table;
-	margin-left: auto;
-	margin-right: auto;
-	margin-top:1.5vw;
-	text-align: center;
-	width:100%;
+    text-decoration: none;
+    color:#999;
+    font: 1.0vw Helvetica, Verdana, sans-serif;
+    text-transform: uppercase;
+    background-color:#FFF;
+    border-bottom:1px solid #666;
+    border-top:1px solid #666;
+    display: table;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top:1.5vw;
+    text-align: center;
+    width:100%;
 }
 
 div.itemodd {
-	background-color: #CCC;
-	overflow: hidden;
+    background-color: #CCC;
+    overflow: hidden;
 }
 
 div.itemeven {
-	background-color:#FFF;
-	overflow: hidden;
+    background-color:#FFF;
+    overflow: hidden;
 }
 
 div.time {
-	color:#000;
-	text-decoration: none;
-	font: 0.6vw/1 Helvetica, Verdana, sans-serif;
-	display: table;
-	text-align: center;
-	width:20%;
-	padding-top:0.5vw;
-	padding-bottom:0.5vw;
-	float:left;
+    color:#000;
+    text-decoration: none;
+    font: 0.6vw/1 Helvetica, Verdana, sans-serif;
+    display: table;
+    text-align: center;
+    width:20%;
+    padding-top:0.5vw;
+    padding-bottom:0.5vw;
+    float:left;
 }
 
 div.latestHeading{
-	width:80%;
-	float:right;
-	
+    width:80%;
+    float:right;
+
 }
 
 div.latestHeading a{
-	color:#000;
-	text-decoration: none;
-	font: 0.8vw/1 Helvetica, Verdana, sans-serif;
-	display: table;
-	text-align:start;
-	padding-top:0.5vw;
-	padding-bottom:0.5vw;
-	float:left;
+    color:#000;
+    text-decoration: none;
+    font: 0.8vw/1 Helvetica, Verdana, sans-serif;
+    display: table;
+    text-align:start;
+    padding-top:0.5vw;
+    padding-bottom:0.5vw;
+    float:left;
 }
 
 
 
 div.mainArticle {
-	width:100%;
-	
+    width:100%;
+
 }
 
 div.leftArticle {
-	float:left;
-	width:47%;
-	
+    float:left;
+    width:47%;
+
 }
 
 div.rightArticle {
-	float:right;
-	width:47%;
-	
+    float:right;
+    width:47%;
+
 }
 
 div.sideNews {
-	margin: 0 auto;
-	width:90%;
-	
+    margin: 0 auto;
+    width:90%;
+
 }
 
 
 
 #latest {
-	
+
 }
 
 div.latestNewsDisplay {
-	 overflow: hidden;
-	 padding: 0px;
-	 width: 100%;
+    overflow: hidden;
+    padding: 0px;
+    width: 100%;
 }
 
 #lastestNews {
-	
-	
-}
-	
-	
-	
-	
-	
-	
-	
-	
-	
 
-	
-	
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
 #logOutText{
-	display:none;
-	visibility:hidden;
+    display:none;
+    visibility:hidden;
 }
 
 #myIFrame {
-	display:none;
+    display:none;
 }
- 
+
 
 p {
-	text-decoration: none;
-	font: 0.6vw/1 Arial, Helvetica, sans-serif;
+    text-decoration: none;
+    font: 0.6vw/1 Arial, Helvetica, sans-serif;
 }
 
 
 
 article {
-	width:80%;
+    width:80%;
 }

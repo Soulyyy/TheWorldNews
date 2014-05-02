@@ -29,8 +29,9 @@ public class DisplayQueries {
 			 String image = rs.getString("image");
 			 String header = rs.getString("header"); //fails if in this order
 			 String content = rs.getString("content");
-			 articlegroup = rs.getInt("articleInt");
-			 listOfValues.add(new NewsArticle(1, image, header, content, articlegroup));
+			 
+			 String articlegroupString = rs.getString("articlegroupstring");
+			 listOfValues.add(new NewsArticle(1, image, header, content, articlegroupString));
 		}
 		 con.close();
 		 return(listOfValues);

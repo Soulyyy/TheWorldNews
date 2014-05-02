@@ -14,31 +14,30 @@ import javax.servlet.http.HttpServletResponse;
 public class EditrightCheckFilter implements Filter {
 
 	private String contextPath;
+
 	@Override
 	public void destroy() {
-		// TODO Auto-generated method stub
-
 	}
 
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain fc) throws IOException, ServletException {
 		HttpServletRequest req = (HttpServletRequest) request;
-	    HttpServletResponse res = (HttpServletResponse) response;  
+		HttpServletResponse res = (HttpServletResponse) response;
 
-	    if (req.getSession().getAttribute("LOGIN_USER") == null) { //checks if there's a LOGIN_USER set in session...
-	        res.sendRedirect(contextPath + "/Index.jsp"); //or page where you want to redirect
-	    } else {
-	      Integer userType = (Integer)req.getSession().getAttribute("LOGIN_USER");
-	      if (userType < 2){ //check if user type is not admin
-	        res.sendRedirect(contextPath + "/Index.jsp"); //or page where you want to  
+		System.out.println("Passing login check filter for page: " + req.getRequestURI());
 
-	      }
-	      fc.doFilter(request, response);
-	    }
+		Integer loginRights = (Integer) req.getSession().getAttribute("LOGIN_RIGHTS");
+
+		if (loginRights == null || loginRights < 2) {
+			res.sendRedirect(contextPath + "/Index.jsp");
+		} else {
+			fc.doFilter(request, response);
+		}
 	}
 
 	@Override
 	public void init(FilterConfig fc) throws ServletException {
+
 		contextPath = fc.getServletContext().getContextPath();
 	}
 

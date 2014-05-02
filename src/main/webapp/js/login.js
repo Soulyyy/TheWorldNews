@@ -1,110 +1,127 @@
 $(this).ready(function() {
-	function createCookie(name,value,days) {
-		if (days) {
-			var date = new Date();
-			date.setTime(date.getTime()+(days*24*60*60*1000));
-			var expires = "; expires="+date.toGMTString();
-		}
-		else var expires = "";
-		document.cookie = name+"="+value+expires;
-	}
-		
-	var loadpage = function(dest)  {
+	var loginButton = $("#loginbutton");
+	var logoutButton = $("#logoutButton");
+	var loginPopupButton = $("#toggleLogin");
+	var loginContainer = $("#loginContainer");
+	var authorizeButton = $("#authorize-button");
 
-		var id=3;
-		if (dest != 'index') {
-			$.ajax({
-				type:"GET",
-				url:'./html/'+ dest +".html",
-				data:{"id":id},
-				
-				crossDomain:true,
-				success: function(data) {
-					window.location.hash = dest;
-					var externalHTML = document.getElementById("articleGroup");
-
-					externalHTML.innerHTML=data;
-				}
-
-		});    
+	/**
+	 * Sisselogimise kasti kuvamise/peitmise abifunktsioon
+	 * @param {Boolean} forceVis Kas sunnime login kasti kuvamist.
+	 */
+	function toggleLoginContainer(forceVis) {
+		if(typeof forceVis !== 'Boolean' && loginContainer.css('visibility') === 'visible' || forceVis === true) {
+			loginContainer.css('visibility', 'hidden');
+		} else if(typeof forceVis !== 'Boolean' && loginContainer.css('visibility') === 'hidden' || forceVis === false) {
+			loginContainer.css('visibility', 'visible');
 		}
-		else {
-			window.location.href = "Index.jsp";
-	 
-		}
-	};
-	function createCookie(name,value,days) {
-		if (days) {
-			var date = new Date();
-			date.setTime(date.getTime()+(days*24*60*60*1000));
-			var expires = "; expires="+date.toGMTString();
-		}
-		else var expires = "";
-		document.cookie = name+"="+value+expires;
 	}
 
-	
-	$('#loginbutton').click(function() {
-		var hash = window.location.hash;
-		if (hash) {
-			hash = hash.substr(1);
+	/**
+	 * Abifunkstioon, mis vahetab login/logout nupu kuvamist.
+	 * @param {Boolean} isLoggedIn Kas tuleb kuvada olek, kus kasutaja on sisse logitud.
+	 */
+	function toggleLoginButtons(isLoggedIn) {
+		if(isLoggedIn === true) {
+			logoutButton.css('visibility', 'visible');
+			loginPopupButton.css('visibility', 'hidden');
+		} else {
+			logoutButton.css('visibility', 'hidden');
+			loginPopupButton.css('visibility', 'visible');
 		}
-		if (hash == "") {
-			hash = "index";
+	}
+
+	/*
+	 * Küsime lehe laadides login servletilt kasutaja õigusi ja vastavalt sellele
+	 * näitame login/logout nuppu.
+	 * NoScript puhul ei ole sisselogimine toetatud.
+	 */
+	$.ajax("/accountLogin", {
+		type: "GET",
+		dataType: 'json',
+		success: function(resp) {
+			if(resp.accessRight >= 0) {
+				console.log("Logged in with accessrights: " + resp.accessRight);
+				toggleLoginButtons(true);
+			} else {
+				console.log("Not logged in");
+				toggleLoginButtons(false);
+			}
 		}
-		var userdata = new Object();
-		userdata.userName = $("#userName").val();
-		userdata.password = $("#password").val();
-		var u = userdata.userName;
-
-		if (!userdata.userName || !userdata.password  ) {
-			alert("Fill all forms.");
-		}
-		else {
-			$.ajax("/accountLogin",{
-				type:"POST",
-				dataType:'json',
-				data: JSON.stringify(userdata),
-				contentType: 'application/json',
-
-				success: function(userdata){   
-					// console.log(userdata.response);
-					if (userdata.response ==-1) {
-						alert("Vale parool/user.");
-					}
-					else {
-						createCookie("sessionid",userdata.response,7);
-						createCookie("currentuser",u,7);
-						// loadpage(hash);
-						// location.reload();
-						window.location.href = "http://gold-experience.herokuapp.com/Index.jsp";
-	 
-		 
-						
-					}
-					 
-				},
-				error:function(req, text) {
-					console.log("login failed");
-				}
-
-			});
-		}
-
-
-		 
 	});
+
+	/**
+	 * Kuvame/peidame sisselogimise/regamise/google-auth kasti
+	 */
+	loginPopupButton.click(toggleLoginContainer);
+
+	/*
+	 * Saadab servletile päringu sisselogimiseks. Servlet seab sessioni parameetri
+	 * LOGIN_RIGHTS väärtuseks accessRights või -1, kui kasutajat ei leita.
+	 */
+	$.getScript("js/Sha256.js", function() {
+		loginButton.click(function() {
+			var hash = window.location.hash;
+			if(hash) {
+				hash = hash.substr(1);
+			}
+			if(hash === "") {
+				hash = "index";
+			}
+			var userdata = new Object();
+			userdata.userName = $("#userName").val();
+
+			//Räsime parooli siin, et POST päringus paintexti ei edastataks
+			userdata.password = Sha256.hash($("#password").val());
+
+			if(!userdata.userName || !userdata.password) {
+				alert("Fill all forms.");
+			} else {
+				$.ajax("/accountLogin", {
+					type: "POST",
+					dataType: 'json',
+					data: JSON.stringify(userdata),
+					contentType: 'application/json',
+					success: function(userdata) {
+						if(userdata.accessRights === -1) {
+							alert("Vale parool/kasutaja.");
+						} else {
+							console.log("logged in with accessrights: " + userdata.accessRights);
+							toggleLoginButtons(true);
+							toggleLoginContainer(false);
+						}
+					}
+				});
+			}
+		});
+	});
+
+	/**
+	 * Väljalogimiseks saadamae GET /accountLogin?action=logout.
+	 * Servlet tagastab hetkel alati success, aga jätame tulevikuks kontrolli.
+	 */
+	logoutButton.click(function() {
+		$.ajax("/accountLogin", {
+			type: "GET",
+			dataType: 'json',
+			data: "action=logout",
+			success: function(resp) {
+				if(resp.response === "success") {
+					toggleLoginButtons(false);
+				}
+			}
+		});
+	});
+
+	/**
+	 * Google auth. Idee poolest peaks login servletile saatma kasutaja ja vastavalt sellele
+	 * regama uue kasutaja või logima olemasolevaga sisse.
+	 */
 	$('#authorize-button').click(function() {
-		var authorizeButton = document.getElementById('authorize-button');
-		var logoutButton = document.getElementById('logoutButton');
-		var logint = document.getElementById('toggleLogin');
-		var container = document.getElementById('loginContainer');
-		var reg = document.getElementById('regi');
 		var apiKey = 'AIzaSyD7HJs0zDCJKqLcLIK5ok5uAAm33cubOGs';
 		var clientId = '510213468349-6npga48p58v7rr3s50p0smnp7e6dho5m.apps.googleusercontent.com';
 		var scopes = 'https://www.googleapis.com/auth/plus.me';
-		
-		
+
 		checkAuth();
 
 		function checkAuth() {
@@ -113,20 +130,13 @@ $(this).ready(function() {
 		}
 
 		function handleAuthResult(authResult) {
- 
-			if (authResult && !authResult.error) {
-				authorizeButton.style.visibility = 'hidden';
-				regi.style.visibility = 'hidden';
-				logoutButton.style.visibility = 'visible';
-				logint.style.visibility = 'hidden';
-				container.style.visibility = 'hidden';
-				createCookie("googlein","y",7);
+			if(authResult && !authResult.error) {
+				toggleLoginContainer(false);
+				toggleLoginButtons(true);
+				createCookie("googlein", "y", 7);
 				makeApiCall();
-				
-			  
 			} else {
-			
-			  authorizeButton.onclick = handleAuthClick;
+				authorizeButton.click(handleAuthClick);
 			}
 		}
 
@@ -137,23 +147,14 @@ $(this).ready(function() {
 
 		function makeApiCall() {
 			gapi.client.load('plus', 'v1', function() {
-			  var request = gapi.client.plus.people.get({
-				'userId': 'me'
-			  });
-			  request.execute(function(resp) {
-				user = resp;
-				console.log(user);
-
-			  });
+				var request = gapi.client.plus.people.get({
+					'userId': 'me'
+				});
+				request.execute(function(resp) {
+					user = resp;
+					console.log(user);
+				});
 			});
 		}
-
- 
-	
-	
-	
-	
 	});
-
-	
 });
