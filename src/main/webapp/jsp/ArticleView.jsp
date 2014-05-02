@@ -23,7 +23,7 @@
 <body>
 	<ex:Navigation/>
 	<jsp:include page="/newsArticle">
-	<jsp:param value="<% request.getParameter("id");%>" name="id"/>
+	<jsp:param value="<%= request.getParameter("id")%>" name="id"/>
 	</jsp:include>
 </body>
 </html>

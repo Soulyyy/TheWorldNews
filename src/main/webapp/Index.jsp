@@ -93,12 +93,6 @@
 </div>
 
 
-            <!-- The World Log In & Settings -->
-            <div id="logoButtons">
-
-                <header class="Head"><a class="Head" href="Index.jsp" >THE WORLD</a></header>
-
-
 <div id="articleGroup" >
 <!-- töötab!! infinite dispatch loop here we go!!! -->
 <jsp:include page="/displayNews">
@@ -109,73 +103,7 @@
 </div>
 
 
-                <button id="toggleLogin">Log In</button>
-                <button id="logoutButton">Log Out</button>
-
-            </div> 
-
-            <div id="search">
-
-
-                <form action="search" class="form-wrapper">
-                    <p><input type="text" id="searchBox" placeholder="Search"></p>
-                </form>
-
-            </div>
-
-
-
-            <div id="loginContainer">
-                <div id="login">
-                    <p><input type="text" id="userName" name="login" value="" placeholder="Username or Email"></p>
-                    <p><input type="password" id="password" name="password" value="" placeholder="Password"></p>
-
-                    <a href="html/registerUser.html" id="regi">Not a User? Click here to register</a> 
-                    <p class="submit"><button id="loginbutton">Log In</button></p>
-                </div>
-                <div>
-                    <button id="authorize-button">Log In With Google</button>
-                </div>
-            </div>
-
-
-
-            <!-- Navigation -->
-
-            <div id="navigation">
-                <!-- 
-                   <ul>
-                       <li><a href="jsp/News.jsp">News</a> </li>
-                       
-                                   <li><a href="jsp/Business.jsp">Business</a></li>
-                                   <li><a href="jsp/Sports.jsp">Sports</a></li>
-                                   <li><a href="jsp/Science.jsp">Science</a></li>
-                                   <li><a href="jsp/Arts.jsp">Arts</a></li>
-                       <li><a href="jsp/FashionStyle.jsp">Fashion &amp; Style</a></li>
-                           </ul>
-                -->
-                <ul>
-                    <li><a data-menuItem="News">News</a> </li>
-                    <li><a data-menuItem="Business">Business</a></li>
-                    <li><a data-menuItem="Sports">Sports</a></li>
-                    <li><a data-menuItem="Science">Science</a></li>
-                    <li><a data-menuItem="Arts">Arts</a></li>
-                    <li><a data-menuItem="FashionStyle">Fashion &amp; Style</a></li>
-                </ul>
-
-            </div>
-
-
-        </div>
-
-
-        <div class="clear">
-        </div>
-
-
-        <div id="articleGroup">
-            <jsp:include page="/displayNews" flush="true" />
-        </div>
+               
 
 
         <div id="sideBar">
