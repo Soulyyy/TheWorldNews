@@ -29,15 +29,6 @@
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
 	
-  <servlet>
-    <servlet-name>displayNews</servlet-name>
-    <servlet-class>TheWorldNews.servlets.NewsDisplayController</servlet-class>
-  </servlet>
-
-  <servlet-mapping>
-    <servlet-name>displayNews</servlet-name>
-    <url-pattern>/displayNews</url-pattern>
-  </servlet-mapping>
 
 	<mime-mapping>
 		<extension>js</extension>
