@@ -1,21 +1,36 @@
 package TheWorldNews.servlets;
 
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
-import TheWorldNews.newsdata.NewsArticleMemory;
-import TheWorldNews.newsdata.NewsDatabaseRequests;
+import TheWorldNews.database.querys.DisplayQueries;
+import TheWorldNews.newsdata.NewsArticle;
+import TheWorldNews.newsdata.NewsDisplay;
 
-import com.google.gson.Gson;
+@WebServlet(value = "/newsArticle")
+public class ArticleController extends HttpServlet {
+	private static final long serialVersionUID = 1L;
 
-@WebServlet(value = "/newsArticles")
-public class ArticleController {
-	
-	private Gson gson;
-	private NewsDatabaseRequests newsRequests;
-	
-	public void init() {
-		gson = new Gson();
-		newsRequests = new NewsArticleMemory();
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
+			throws ServletException, IOException {
+		try {
+			PrintWriter out = resp.getWriter();
+			Integer articleID = Integer.parseInt(req.getParameter("id"));
+			NewsArticle article = DisplayQueries.getArticleById(articleID);
+
+			out.print(NewsDisplay.displayArticle(article));
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
 	}
 
 }

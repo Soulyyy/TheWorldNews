@@ -37,5 +37,24 @@ public class DisplayQueries {
 		 return(listOfValues);
 		 
 	}
+	
+	public static NewsArticle getArticleById(int ID) throws SQLException, URISyntaxException{
+		System.out.println("Entered article query get by id");
+		Connection con = DatabaseConnection.getConnection();
+		String query = "SELECT * FROM newsarticles WHERE id = ?";
+		PreparedStatement pst = con.prepareStatement(query);
+		pst.setInt(1, ID);
+		ResultSet rs = pst.executeQuery();
+		Integer id = rs.getInt("id");
+		String image = rs.getString("image");
+		String header = rs.getString("header");
+		String content = rs.getString("content");
+		String articlegroupString = rs.getString("articlegroup");
+		
+		NewsArticle article = new NewsArticle(id, image, header, content, articlegroupString);
+		con.close();
+		return article;
+		
+	}
 
 }
