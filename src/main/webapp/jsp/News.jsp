@@ -19,6 +19,9 @@
 </head>
 <body>
 <ex:Navigation/>
- <ex:AT type="News" newsgroup="3"/>
+<jsp:include page="/displayNews">
+    <jsp:param name="type" value="News"/>
+    <jsp:param name="size" value="6"/>
+</jsp:include>
 </body>
 </html>

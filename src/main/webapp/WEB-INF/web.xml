@@ -1,19 +1,7 @@
-<!DOCTYPE web-app PUBLIC
- "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
- "http://java.sun.com/dtd/web-app_2_3.dtd" >
-<!-- <?xml version="1.0" encoding="UTF-8"?> <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:web="http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" 
-xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" 
-id="WebApp_ID" version="3.0"> <display-name>TheWorldNews</display-name> <welcome-file-list> 
-<welcome-file>index.html</welcome-file> <welcome-file>index.htm</welcome-file> 
-<welcome-file>index.jsp</welcome-file> <welcome-file>default.html</welcome-file> 
-<welcome-file>default.htm</welcome-file> <welcome-file>default.jsp</welcome-file> 
-</welcome-file-list> <web-app metadata-complete="false" /> <servlet> <servlet-name>AccountController</servlet-name> 
-<servlet-class>TheWorldNews.servlet.AccountController</servlet-class> </servlet> 
-<servlet-mapping> <servlet-name>AccountController</servlet-name> <url-pattern>/accountSignup</url-pattern> 
-</servlet-mapping> <display-name>TheWorldNews</display-name> </web-app> -->
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
 
-<web-app>
+
 
     <display-name>Archetype Created Web Application</display-name>
 
@@ -27,31 +15,26 @@ id="WebApp_ID" version="3.0"> <display-name>TheWorldNews</display-name> <welcome
             <param-value>text/html,text/plain,text/cache-manifest,text/xml,application/xhtml+xml,text/css,application/javascript,image/svg+xml</param-value>
         </init-param>
 
-    </filter>
-    
-    <filter>
-        <filter-name>EditrightCheckFilter</filter-name>
-        <filter-class>TheWorldNews.filters.EditrightCheckFilter</filter-class>
-    </filter>
-    <filter-mapping>
-        <filter-name>EditrightCheckFilter</filter-name>
-        <url-pattern>/html/createArticle.html</url-pattern>
-    </filter-mapping>
-        
-    <filter-mapping>
-        <filter-name>GzipFilter</filter-name>
-        <url-pattern>/*</url-pattern>
-    </filter-mapping>
+	</filter>
+	<filter>
+		<filter-name>EditrightCheckFilter</filter-name>
+		<filter-class>TheWorldNews.filters.EditrightCheckFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>EditrightCheckFilter</filter-name>
+		<url-pattern>/html/createArticle.html</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>GzipFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
 	
-    <servlet>
-        <servlet-name>displayNews</servlet-name>
-        <servlet-class>TheWorldNews.servlets.NewsDisplayController</servlet-class>
-    </servlet>
 
-    <servlet-mapping>
-        <servlet-name>displayNews</servlet-name>
-        <url-pattern>/displayNews</url-pattern>
-    </servlet-mapping>
+	<mime-mapping>
+		<extension>js</extension>
+		<mime-type>application/javascript</mime-type>
+	</mime-mapping>
+	
 
     <mime-mapping>
         <extension>js</extension>

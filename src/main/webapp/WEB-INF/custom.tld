@@ -11,7 +11,7 @@
             <required>true</required>  
         </attribute>  
         <attribute>  
-            <name>newsgroup</name>  
+            <name>size</name>  
             <required>true</required>  
         </attribute>  
   </tag>

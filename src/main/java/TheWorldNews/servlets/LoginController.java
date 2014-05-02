@@ -21,9 +21,6 @@ import com.google.gson.JsonParseException;
 @WebServlet(value = "/accountLogin")
 public class LoginController extends HttpServlet {
 
-	/**
-	 *
-	 */
 	private static final long serialVersionUID = 1L;
 
 	@Override
@@ -34,6 +31,13 @@ public class LoginController extends HttpServlet {
 
 	private Gson gson;
 
+	/**
+	 * GET /accountLogin
+	 * Võimalikud funktsioonid:
+	 *		"" - Tagastab session attribuudi LOGIN_RIGHTS väärtuse "accessRight:LOGIN_RIGHTS
+	 *		"?action=logout" - logib aktiivse kasutaja välja ja saadab vastuse "response:success"
+	 *		muu - Tagastab "response:nothing"
+	 */
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
@@ -57,8 +61,15 @@ public class LoginController extends HttpServlet {
 		}
 	}
 
+	/**
+	 * POST /accountLogin
+	 * Võimalikud funktsioonid:
+	 *		?userName=___&password=___ - Tagastab "accessRights:LOGIN_RIGHTS", kui kasutaja
+	 *			eksisteerib, muidu "accessRights:-1"
+	 */
 	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
+			throws ServletException, IOException {
 		try {
 			User currentUser = gson.fromJson(req.getReader(), User.class);
 			int i = LoginQueries.loginWithAccessrights(currentUser.userName, currentUser.password);

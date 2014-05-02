@@ -16,17 +16,17 @@ $(this).ready(function() {
         articledata.image = $("#Image").val();
         articledata.header = $("#titleInput").val();
 		articledata.content = $("#textArea").val();
-		articledata.articlegroupstring = "News;";
+		articledata.articlegroup = "News;";
 		if(document.getElementById('Business').checked) {
-			articledata.articlegroupstring += "Business;";
+			articledata.articlegroup += "Business;";
 		} if(document.getElementById('Sports').checked) {
-			articledata.articlegroupstring += "Sports;";
+			articledata.articlegroup += "Sports;";
 		} if(document.getElementById('Science').checked) {
-			articledata.articlegroupstring += "Science;";
+			articledata.articlegroup += "Science;";
 		} if(document.getElementById('Arts').checked) {
-			articledata.articlegroupstring += "Arts;";
+			articledata.articlegroup += "Arts;";
 		} if(document.getElementById('Fashion').checked) {
-			articledata.articlegroupstring += "Fashion;";
+			articledata.articlegroup += "Fashion;";
 		}	
 	
  
@@ -35,7 +35,7 @@ $(this).ready(function() {
 		}
 
 		else {
-			console.log(articledata.articlegroupstring);
+			console.log(articledata.articlegroup);
 			$.ajax("/submitNews",{
 					type:"POST",
 					dataType:'json',
