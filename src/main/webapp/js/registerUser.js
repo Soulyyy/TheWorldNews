@@ -1,5 +1,5 @@
 $(document).ready(function() {
-	$.getScript("js/Sha256.js", function() {
+	$.getScript("../js/Sha256.js", function() {
 		$('#reg').click(function() {
 			var userdata = new Object();
 			userdata.userName = $("#username").val();
@@ -9,13 +9,16 @@ $(document).ready(function() {
 			userdata.surname = $("#last").val();
 			userdata.email = $("#email").val();
 
-			if(!userdata.userName || !userdata.password || !pw2 || !userdata.firstname || !userdata.surname || !userdata.email) {
+			if(userdata.userName === '' || userdata.password === '' ||
+					pw2 === '' || userdata.firstname === '' ||
+					userdata.surname === '' || userdata.email === '')
+			{
 				alert("Täida kõik vormid.");
 			} else {
 				if(userdata.password !== pw2) {
 					alert("Paroolid peavad olema samad.");
 				} else {
-					if(pw2.length < 1) {
+					if(pw2.length < 5) {
 						alert("Parooli pikkus peab olema vähemalt 5.");
 					} else {
 						userdata.password = Sha256.hash(userdata.password);
