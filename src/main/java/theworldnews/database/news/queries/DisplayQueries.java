@@ -11,35 +11,33 @@ import theworldnews.database.connection.DatabaseConnection;
 import theworldnews.database.news.objects.*;
 
 public class DisplayQueries {
-
+	
 	public static ArrayList<Article> getArticlesByNumberAndType(int number, String type) throws SQLException, URISyntaxException {
 		System.out.println("Entered article query get by number and type");
 		Connection con = DatabaseConnection.getConnection();
 		int articlegroup = ArticlegroupEncoding.stringToInt(type);
-		String query = "SELECT * FROM Articles WHERE articlegroup % ? =0 ORDER BY id DESC limit ?";
-		PreparedStatement pst = con.prepareStatement(query);
-		pst.setInt(1, articlegroup);
-		pst.setInt(2, number);
-		ResultSet rs = pst.executeQuery();
-		ArrayList<Article> listOfValues = new ArrayList<>();
-		//PARSE RESULTSET TO ARRAYLIST
-
-		while (rs.next()) {
-			Integer id = rs.getInt("id");
-			String image = rs.getString("image");
-			String header = rs.getString("header"); //fails if in this order
-			String content = rs.getString("content");
-			String articlegroupString = rs.getString("articlegroup");
-			Integer authorId = rs.getInt("authorid");
-
-			listOfValues.add(new Article(1, image, header, content, articlegroupString, authorId));
+		 String query = "SELECT * FROM Articles WHERE articlegroup % ? =0 ORDER BY id DESC limit ?";
+		 PreparedStatement pst = con.prepareStatement(query);
+		 pst.setInt(1, articlegroup);
+		 pst.setInt(2, number);
+		 ResultSet rs = pst.executeQuery();
+		 ArrayList<Article> listOfValues = new ArrayList<Article>();
+		 //PARSE RESULTSET TO ARRAYLIST
+		 
+		 while(rs.next()){
+			 String image = rs.getString("image");
+			 String header = rs.getString("header"); //fails if in this order
+			 String content = rs.getString("content");
+			 
+			 String articlegroupString = rs.getString("articlegroup");
+			 listOfValues.add(new Article(1, image, header, content, articlegroupString));
 		}
-		con.close();
-		return (listOfValues);
-
+		 con.close();
+		 return(listOfValues);
+		 
 	}
-
-	public static Article getArticleById(int ID) throws SQLException, URISyntaxException {
+	
+	public static Article getArticleById(int ID) throws SQLException, URISyntaxException{
 		System.out.println("Entered article query get by id");
 		Connection con = DatabaseConnection.getConnection();
 		String query = "SELECT * FROM Articles WHERE id = ?";
@@ -51,12 +49,11 @@ public class DisplayQueries {
 		String header = rs.getString("header");
 		String content = rs.getString("content");
 		String articlegroupString = rs.getString("articlegroup");
-		Integer authorId = rs.getInt("authorid");
-
-		Article article = new Article(id, image, header, content, articlegroupString, authorId);
+		
+		Article article = new Article(id, image, header, content, articlegroupString);
 		con.close();
 		return article;
-
+		
 	}
 
 }

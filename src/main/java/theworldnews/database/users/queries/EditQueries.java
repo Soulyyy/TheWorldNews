@@ -7,68 +7,82 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
 import theworldnews.database.connection.DatabaseConnection;
 import theworldnews.database.users.objects.User;
 
 public class EditQueries {
-
-	public static List<User> getUserQuery(String query) {
+	
+	
+	
+	public static ArrayList<User> getUserQuery(String query) {
+		 Statement stmt = null;
+		  ArrayList<User> userList = new ArrayList<User>();
+		 try {
+			 Connection con = DatabaseConnection.getConnection();
+			 stmt = con.createStatement();
+		     ResultSet rs = stmt.executeQuery(query);
+		     while(rs.next()) {
+		    	 String username = rs.getString("username");
+		    	 int accessrights = rs.getInt("accessrights");
+		    	 int country = rs.getInt("country");
+		    	 int id = rs.getInt("id");
+		    	 String firstname = rs.getString("firstname");
+		    	 String surname = rs.getString("surname");
+		    	 String email = rs.getString("email");
+		    	 String pw = rs.getString("password");
+		    	 User newUser = new User(id, username, pw, firstname, surname, email, accessrights, country);
+		    	 userList.add(newUser);
+		     }
+		     con.close();
+		     return(userList);
+		 } catch(URISyntaxException x) {
+			 Logger lgr = Logger.getLogger(UserQuerys.class.getName());
+			 lgr.log(Level.WARNING, x.getMessage(), x);
+		 }
+		 catch(SQLException se ) {
+			 Logger lgr = Logger.getLogger(UserQuerys.class.getName());
+             lgr.log(Level.WARNING, se.getMessage(), se);
+		 }finally {
+			 if (stmt != null) { 
+				 try {
+					 stmt.close();
+				 }catch (SQLException e) {
+					 e.printStackTrace();
+				 }
+			 }
+		 }
+		return userList;
+	}
+	
+	public static void addUser(User newUser) {
 		Statement stmt = null;
-		List<User> userList = new ArrayList<>();
+		System.out.println("ENTER POST SERVER REQ");
 		try {
 			Connection con = DatabaseConnection.getConnection();
 			stmt = con.createStatement();
-			ResultSet rs = stmt.executeQuery(query);
-			while (rs.next()) {
-				int id = rs.getInt("id");
-				String username = rs.getString("username");
-				String pw = rs.getString("password");
-				int accessrights = rs.getInt("accessrights");
-
-				User user = new User(id, username, pw, accessrights);
-				userList.add(user);
-			}
-			con.close();
-			return (userList);
-		} catch (URISyntaxException x) {
-			Logger lgr = Logger.getLogger(EditQueries.class.getName());
-			lgr.log(Level.WARNING, x.getMessage(), x);
-		} catch (SQLException se) {
-			Logger lgr = Logger.getLogger(EditQueries.class.getName());
-			lgr.log(Level.WARNING, se.getMessage(), se);
-		} finally {
-			if (stmt != null) {
-				try {
-					stmt.close();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
-			}
-		}
-		return userList;
+			 String query = "INSERT INTO users (id, username, password, firstname, surname, email, accessrights, country)"
+			 		+ " VALUES (DEFAULT ,? ,? ,? ,? ,? ,? ,?  )";
+			 PreparedStatement pst = con.prepareStatement(query);
+			 pst.setString(1, newUser.userName);
+			 pst.setString(2, newUser.password);
+			 pst.setString(3, newUser.firstname);
+			 pst.setString(4, newUser.surname);
+			 pst.setString(5, newUser.email);
+			 pst.setInt(6, newUser.accessRights);
+			 pst.setInt(7, newUser.country);
+			 pst.executeUpdate();
+			 con.close();
+		 } catch(URISyntaxException x) {
+			 Logger lgr = Logger.getLogger(UserQuerys.class.getName());
+			 lgr.log(Level.WARNING, x.getMessage(), x);
+		 }catch(SQLException se) {
+			 Logger lgr = Logger.getLogger(UserQuerys.class.getName());
+			 lgr.log(Level.SEVERE, se.getMessage(), se);
+		 }
 	}
 
-	public static void addUser(User newUser) {
-		try {
-			Connection con = DatabaseConnection.getConnection();
-			String query = "INSERT INTO users (id, username, password, accessrights)"
-					+ " VALUES (DEFAULT ,? ,? ,?)";
-			PreparedStatement pst = con.prepareStatement(query);
-			pst.setString(1, newUser.getUsername());
-			pst.setString(2, newUser.getPassword());
-			pst.setInt(3, newUser.getAccessrights());
-			pst.executeUpdate();
-			con.close();
-		} catch (URISyntaxException x) {
-			Logger lgr = Logger.getLogger(EditQueries.class.getName());
-			lgr.log(Level.WARNING, x.getMessage(), x);
-		} catch (SQLException se) {
-			Logger lgr = Logger.getLogger(EditQueries.class.getName());
-			lgr.log(Level.SEVERE, se.getMessage(), se);
-		}
-	}
 
 }
