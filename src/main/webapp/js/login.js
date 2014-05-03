@@ -40,8 +40,8 @@ $(this).ready(function() {
 		type: "GET",
 		dataType: 'json',
 		success: function(resp) {
-			if(resp.accessRight >= 0) {
-				console.log("Logged in with accessrights: " + resp.accessRight);
+			if(resp.accessRights >= 0) {
+				console.log("Logged in with accessrights: " + resp.accessRights);
 				toggleLoginButtons(true);
 			} else {
 				console.log("Not logged in");
@@ -69,19 +69,18 @@ $(this).ready(function() {
 				hash = "index";
 			}
 			var userdata = new Object();
-			userdata.userName = $("#userName").val();
+			userdata.username = $("#userName").val();
 
 			//Räsime parooli siin, et POST päringus paintexti ei edastataks
 			userdata.password = Sha256.hash($("#password").val());
 
-			if(!userdata.userName || !userdata.password) {
+			if(!userdata.username || !userdata.password) {
 				alert("Fill all forms.");
 			} else {
 				$.ajax("/accountLogin", {
 					type: "POST",
 					dataType: 'json',
-					data: JSON.stringify(userdata),
-					contentType: 'application/json',
+					data: userdata,
 					success: function(userdata) {
 						if(userdata.accessRights === -1) {
 							alert("Vale parool/kasutaja.");

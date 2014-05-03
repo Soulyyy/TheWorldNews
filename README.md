@@ -1,4 +1,4 @@
 TheWorldNews
 ============
 
-Web application development project.News portal, called
+Web application development project.News portal, called THE WORLD.
