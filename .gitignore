@@ -19,3 +19,5 @@ target/
 *.iml
 *.class
 /target
+
+.log
