@@ -1,5 +1,12 @@
 package theworldnews.database.news.objects;
 
+/**
+ * Object of a news article. id: A serial value, primary key in the database
+ * image: image url header: header of the article content: article content, kept
+ * as a string articlegroup: String of groups where the article is displayed,
+ * int in the database author: user id of the author clickcount: int of the
+ * number of clicks on the article
+ */
 public class Article {
 
 	private Integer id;
@@ -7,29 +14,59 @@ public class Article {
 	private String header;
 	private String content;
 	private String articlegroup; // String in object, int in database
-	private String author;
+	private int authorid;
 	private int clickCount;
 
-	
-	//Page object
+	/**
+	 * 
+	 * @param id
+	 *            : int, serial primary key of the database entry
+	 * @param image
+	 *            : String, url of the image
+	 * @param header
+	 *            : String, header of the article
+	 * @param content
+	 *            : String, content of the article
+	 * @param articlegroup
+	 *            : String, list of groups the article belongs to, int in the
+	 *            database
+	 * @param authorid
+	 *            : int, id value from the users table, corresponds to the
+	 *            creator of the article
+	 */
 	public Article(int id, String image, String header, String content,
-			String articlegroup, String author) {
+			String articlegroup, int authorid) {
 		this.setId(id);
 		this.setImage(image);
 		this.setHeader(header);
 		this.setContent(content);
 		this.setArticlegroup(articlegroup);
-		this.setAuthor(author);
+		this.setAuthorid(authorid);
 
 	}
-	
-	//Preview	
-	public Article(int id, String image, String header, String articleGroup, String author) {
+
+	/**
+	 * 
+	 * @param id
+	 *            : int, serial primary key of the database entry
+	 * @param image
+	 *            : String, url of the image
+	 * @param header
+	 *            : String, header of the article
+	 * @param articlegroup
+	 *            : String, list of groups the article belongs to, int in the
+	 *            database
+	 * @param authorid
+	 *            : int, id value from the users table, corresponds to the
+	 *            creator of the article
+	 */
+	public Article(int id, String image, String header, String articleGroup,
+			int authorid) {
 		this.setId(id);
 		this.setImage(image);
 		this.setHeader(header);
 		this.setArticlegroup(articlegroup);
-		this.setAuthor(author);
+		this.setAuthorid(authorid);
 	}
 
 	public Integer getId() {
@@ -72,12 +109,12 @@ public class Article {
 		this.articlegroup = articlegroup;
 	}
 
-	public String getAuthor() {
-		return author;
+	public int getAuthorid() {
+		return authorid;
 	}
 
-	public void setAuthor(String author) {
-		this.author = author;
+	public void setAuthorid(int authorid) {
+		this.authorid = authorid;
 	}
 
 	public int getClickCount() {

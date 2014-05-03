@@ -29,11 +29,16 @@ public class ArticlegroupEncoding {
 
 	}
 
-	// Convert output to single int
-	public static int stringToInt(String longQuery) {
+	/**
+	 * 
+	 * @param articlegroups
+	 *            : String, articlegroups separated by ";"
+	 * @return integer value of the articlegroup
+	 */
+	public static int stringToInt(String articlegroups) {
 		System.out.println("We got this val:");
-		System.out.println(longQuery);
-		String[] separateValues = longQuery.split(";");
+		System.out.println(articlegroups);
+		String[] separateValues = articlegroups.split(";");
 		int multiple = 1;
 		for (String value : separateValues) {
 			multiple = multiple * oneArticleStringToInt(value);
@@ -59,7 +64,12 @@ public class ArticlegroupEncoding {
 			return "";
 	}
 
-	// If null, serious trouble in database
+	/**
+	 * 
+	 * @param encoding
+	 *            : int, value of the articlegroups
+	 * @return : articlegroups separated by ";"
+	 */
 	public static String intToString(int encoding) {
 		System.out.println("We want to encode int, WHY?");
 		int[] valueSpace = { 2, 3, 5, 7, 11, 13 };

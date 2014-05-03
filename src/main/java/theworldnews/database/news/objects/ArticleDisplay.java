@@ -3,6 +3,15 @@ package theworldnews.database.news.objects;
 public class ArticleDisplay {
 
 	// positions: 0-top, 1-left, 2-right
+	/**
+	 * 
+	 * @param article
+	 *            : Object of type Article without content
+	 * @param position
+	 *            : int, position of the article in the previews page, top=0,
+	 *            left=1, right=2
+	 * @return : jsp representation of article without content
+	 */
 	public static String previewArticle(Article article, int position) {
 
 		StringBuffer sb = new StringBuffer();
@@ -32,6 +41,12 @@ public class ArticleDisplay {
 		return sb.toString();
 	}
 
+	/**
+	 * 
+	 * @param article
+	 *            : Object of type Article with content
+	 * @return : jsp representation of article with conent
+	 */
 	public static String viewArticle(Article article) {
 		StringBuffer sb = new StringBuffer();
 		String img = article.getImage();
