@@ -7,10 +7,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import TheWorldNews.database.DatabaseConnection;
+import theworldnews.database.connection.DatabaseConnection;
 
 
-public class LoginQueries {
+public class AuthenticationQueries {
 
 	public static int getUserAccessrights(String username) throws SQLException, URISyntaxException {
 		System.out.println("Getting access rights");

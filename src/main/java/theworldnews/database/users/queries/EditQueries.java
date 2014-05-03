@@ -10,10 +10,10 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import TheWorldNews.database.DatabaseConnection;
-import TheWorldNews.userdata.User;
+import theworldnews.database.connection.DatabaseConnection;
+import theworldnews.database.users.objects.User;
 
-public class UserQuerys {
+public class EditQueries {
 	
 	
 	

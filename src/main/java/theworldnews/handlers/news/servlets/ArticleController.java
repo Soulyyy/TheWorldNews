@@ -9,9 +9,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import TheWorldNews.database.querys.DisplayQueries;
-import TheWorldNews.newsdata.NewsArticle;
-import TheWorldNews.newsdata.NewsDisplay;
+import theworldnews.database.news.objects.Article;
+import theworldnews.database.news.objects.ArticleDisplay;
+import theworldnews.database.news.queries.DisplayQueries;
 
 @WebServlet(value = "/newsArticle")
 public class ArticleController extends HttpServlet {
@@ -23,9 +23,9 @@ public class ArticleController extends HttpServlet {
 		try {
 			PrintWriter out = resp.getWriter();
 			Integer articleID = Integer.parseInt(req.getParameter("id"));
-			NewsArticle article = DisplayQueries.getArticleById(articleID);
+			Article article = DisplayQueries.getArticleById(articleID);
 
-			out.print(NewsDisplay.displayArticle(article));
+			out.print(ArticleDisplay.viewArticle(article));
 
 		} catch (Exception e) {
 			e.printStackTrace();

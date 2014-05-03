@@ -7,22 +7,21 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import TheWorldNews.database.DatabaseConnection;
-import TheWorldNews.newsdata.NewsArticle;
-import TheWorldNews.newsdata.NewsEncoding;
+import theworldnews.database.connection.DatabaseConnection;
+import theworldnews.database.news.objects.*;
 
 public class DisplayQueries {
 	
-	public static ArrayList<NewsArticle> getArticlesByNumberAndType(int number, String type) throws SQLException, URISyntaxException {
+	public static ArrayList<Article> getArticlesByNumberAndType(int number, String type) throws SQLException, URISyntaxException {
 		System.out.println("Entered article query get by number and type");
 		Connection con = DatabaseConnection.getConnection();
-		int articlegroup = NewsEncoding.jointArticleConvertToInt(type);
-		 String query = "SELECT * FROM newsarticles WHERE articlegroup % ? =0 ORDER BY id DESC limit ?";
+		int articlegroup = ArticlegroupEncoding.stringToInt(type);
+		 String query = "SELECT * FROM Articles WHERE articlegroup % ? =0 ORDER BY id DESC limit ?";
 		 PreparedStatement pst = con.prepareStatement(query);
 		 pst.setInt(1, articlegroup);
 		 pst.setInt(2, number);
 		 ResultSet rs = pst.executeQuery();
-		 ArrayList<NewsArticle> listOfValues = new ArrayList<NewsArticle>();
+		 ArrayList<Article> listOfValues = new ArrayList<Article>();
 		 //PARSE RESULTSET TO ARRAYLIST
 		 
 		 while(rs.next()){
@@ -31,17 +30,17 @@ public class DisplayQueries {
 			 String content = rs.getString("content");
 			 
 			 String articlegroupString = rs.getString("articlegroup");
-			 listOfValues.add(new NewsArticle(1, image, header, content, articlegroupString));
+			 listOfValues.add(new Article(1, image, header, content, articlegroupString));
 		}
 		 con.close();
 		 return(listOfValues);
 		 
 	}
 	
-	public static NewsArticle getArticleById(int ID) throws SQLException, URISyntaxException{
+	public static Article getArticleById(int ID) throws SQLException, URISyntaxException{
 		System.out.println("Entered article query get by id");
 		Connection con = DatabaseConnection.getConnection();
-		String query = "SELECT * FROM newsarticles WHERE id = ?";
+		String query = "SELECT * FROM Articles WHERE id = ?";
 		PreparedStatement pst = con.prepareStatement(query);
 		pst.setInt(1, ID);
 		ResultSet rs = pst.executeQuery();
@@ -51,7 +50,7 @@ public class DisplayQueries {
 		String content = rs.getString("content");
 		String articlegroupString = rs.getString("articlegroup");
 		
-		NewsArticle article = new NewsArticle(id, image, header, content, articlegroupString);
+		Article article = new Article(id, image, header, content, articlegroupString);
 		con.close();
 		return article;
 		

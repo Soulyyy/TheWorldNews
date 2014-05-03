@@ -5,7 +5,7 @@ import java.util.List;
 import theworldnews.database.news.objects.Article;
 
 
-public interface NewsDatabaseRequests {
+public interface DisplayQueriesInterface {
 
 
     public  Article getArticleById (int id);

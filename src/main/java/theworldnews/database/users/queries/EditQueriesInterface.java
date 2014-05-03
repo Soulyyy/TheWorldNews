@@ -1,9 +1,11 @@
-package theworldnews.database.users.objects;
+package theworldnews.database.users.queries;
 
 import java.util.List;
 
+import theworldnews.database.users.objects.User;
 
-public interface UserDataProvider {
+
+public interface EditQueriesInterface {
 
 	public User findUserById(int id);
 	public List<User> findAllUsers();

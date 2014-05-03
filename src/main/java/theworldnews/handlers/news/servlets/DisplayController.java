@@ -13,13 +13,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.jsp.JspWriter;
 
-import TheWorldNews.database.querys.DisplayQueries;
-import TheWorldNews.newsdata.NewsArticle;
-import TheWorldNews.newsdata.NewsDisplay;
+import theworldnews.database.news.objects.Article;
+import theworldnews.database.news.objects.ArticleDisplay;
+import theworldnews.database.news.queries.DisplayQueries;
 
-@WebServlet(value = "/displayNews")
-public class NewsDisplayController extends HttpServlet {
-	private ArrayList<NewsArticle> newsArticles = new ArrayList<NewsArticle>();
+
+
+
+@WebServlet(value = "/newsDisplay")
+public class DisplayController extends HttpServlet {
+	private ArrayList<Article> newsArticles = new ArrayList<Article>();
 	private static final long serialVersionUID = 1L;
 
 	@Override
@@ -30,11 +33,11 @@ public class NewsDisplayController extends HttpServlet {
 
 			resp.setContentType("text/html;charset=UTF-8");
 			PrintWriter out = resp.getWriter();
-			ArrayList<NewsArticle> newsArticles;
+			ArrayList<Article> newsArticles;
 			String type = req.getParameter("type");
 			Integer size = Integer.parseInt(req.getParameter("size"));
 
-			newsArticles = new ArrayList<NewsArticle>();
+			newsArticles = new ArrayList<Article>();
 			newsArticles = DisplayQueries
 					.getArticlesByNumberAndType(size, type);
 
@@ -42,23 +45,23 @@ public class NewsDisplayController extends HttpServlet {
 			int i = 0;
 			while (!newsArticles.isEmpty()) {
 				if (newsArticles.size() == 2 && ((i % 3 == 1) || (i % 3 == 0))) {
-					sb.append(NewsDisplay.leftArticle(newsArticles.remove(0)));
-					sb.append(NewsDisplay.rightArticle(newsArticles.remove(0)));
-					sb.append(NewsDisplay.clearDiv());
+					sb.append(ArticleDisplay.leftArticle(newsArticles.remove(0)));
+					sb.append(ArticleDisplay.rightArticle(newsArticles.remove(0)));
+					sb.append(ArticleDisplay.clearDiv());
 				} else {
 					if (i % 3 == 0) {
-						sb.append(NewsDisplay.mainArticle(newsArticles
+						sb.append(ArticleDisplay.mainArticle(newsArticles
 								.remove(0)));
 						i++;
 					} else if (i % 3 == 1) {
-						sb.append(NewsDisplay.leftArticle(newsArticles
+						sb.append(ArticleDisplay.leftArticle(newsArticles
 								.remove(0)));
 						i++;
 					} else if (i % 3 == 2) {
-						sb.append(NewsDisplay.rightArticle(newsArticles
+						sb.append(ArticleDisplay.rightArticle(newsArticles
 								.remove(0)));
 						i++;
-						sb.append(NewsDisplay.clearDiv());
+						sb.append(ArticleDisplay.clearDiv());
 					}
 				}
 			}
