@@ -1,4 +1,4 @@
-package theworldnews.database.users.queries;
+package theworldnews.database.users.interfaces;
 
 public interface AuthenticationQueriesInterface {
 

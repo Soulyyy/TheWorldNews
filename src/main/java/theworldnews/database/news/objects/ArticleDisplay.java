@@ -15,9 +15,9 @@ public class ArticleDisplay {
 	public static String previewArticle(Article article, int position) {
 
 		StringBuffer sb = new StringBuffer();
-		String img = article.getImage();
-		String header = article.getHeader();
-		Integer id = article.getId();
+		String img = article.image;
+		String header = article.header;
+		Integer id = article.id;
 		if (position == 0) {
 			sb.append("<div class=\"mainArticle\">");
 		} else if (position == 1) {
@@ -49,10 +49,10 @@ public class ArticleDisplay {
 	 */
 	public static String viewArticle(Article article) {
 		StringBuffer sb = new StringBuffer();
-		String img = article.getImage();
-		String header = article.getHeader();
-		Integer id = article.getId();
-		String content = article.getContent();
+		String img = article.image;
+		String header = article.header;
+		Integer id = article.id;
+		String content = article.content;
 
 		sb.append("<div class=\"mainArticle\">");
 		sb.append("<a href=\"jsp/ArticleView.jsp?id=" + id
@@ -72,8 +72,8 @@ public class ArticleDisplay {
 
 	public static String sideArticle(Article article) {
 		StringBuffer sb = new StringBuffer();
-		String img = article.getImage();
-		String header = article.getHeader();
+		String img = article.image;
+		String header = article.header;
 		sb.append("<div class=\"sideNews\">");
 
 		sb.append("<a href=\"#\"><img class=\"img\" src=\"");

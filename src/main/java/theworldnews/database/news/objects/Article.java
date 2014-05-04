@@ -9,13 +9,13 @@ package theworldnews.database.news.objects;
  */
 public class Article {
 
-	private Integer id;
-	private String image;
-	private String header;
-	private String content;
-	private String articlegroup; // String in object, int in database
-	private int authorid;
-	private int clickCount;
+	public Integer id;
+	public String image;
+	public String header;
+	public String content;
+	public String articlegroup; // String in object, int in database
+	public int authorid;
+	public int clickCount;
 
 	/**
 	 * 
@@ -59,66 +59,12 @@ public class Article {
 	 *            : int, id value from the users table, corresponds to the
 	 *            creator of the article
 	 */
-	public Article(int id, String image, String header, String articleGroup, int authorid) {
+	public Article(int id, String image, String header, String articleGroup,
+			int authorid) {
 		this(id, image, header, null, articleGroup, authorid);
 	}
 
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
-
-	public String getImage() {
-		return image;
-	}
-
-	public void setImage(String image) {
-		this.image = image;
-	}
-
-	public String getHeader() {
-		return header;
-	}
-
-	public void setHeader(String header) {
-		this.header = header;
-	}
-
-	public String getContent() {
-		return content;
-	}
-
-	public void setContent(String content) {
-		this.content = content;
-	}
-
-	public String getArticlegroup() {
-		return articlegroup;
-	}
-
-	public void setArticlegroup(String articlegroup) {
-		this.articlegroup = articlegroup;
-	}
-
-	public int getAuthorid() {
-		return authorid;
-	}
-
-	public void setAuthorid(int authorid) {
-		this.authorid = authorid;
-	}
-
-	public int getClickCount() {
-		return clickCount;
-	}
-
-	public void setClickCount(int clickCount) {
-		this.clickCount = clickCount;
-	}
-
+	// WHETHER WE WE NEED THIS. TBA!
 	public void incrementClickCount() {
 		this.clickCount++;
 	}

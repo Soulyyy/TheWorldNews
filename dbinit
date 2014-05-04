@@ -1,9 +1,0 @@
-﻿CREATE TABLE newsarticles (
-	id SERIAL,
-	image varchar(255),
-	header varchar(255) NOT NULL,
-	content text NOT NULL,
-	articlegroup int NOT NULL,
-	PRIMARY KEY (id)
-);
-

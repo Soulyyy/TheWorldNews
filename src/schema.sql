@@ -1,10 +1,10 @@
 
 
-CREATE TABLE IF NOT EXISTS users (id SERIAL NOT NULL PRIMARY KEY,
+CREATE TABLE IF NOT EXISTS users (id SERIAL PRIMARY KEY,
 username VARCHAR(225) NOT NULL UNIQUE, password VARCHAR(225),
 accessrights integer NOT NULL);
 
-create table if not exists usersettings(userid PRIMARY KEY, firstname VARCHAR(225) NOT NULL,
+create table if not exists userinfo(userid INTEGER PRIMARY KEY, firstname VARCHAR(225) NOT NULL,
 surname VARCHAR(225) NOT NULL, email VARCHAR(225) NOT NULL, country integer NOT NULL)
 
 CREATE TABLE IF NOT EXISTS newsarticles(id SERIAL NOT NULL PRIMARY KEY, image varchar(225),
