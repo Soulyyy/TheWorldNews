@@ -96,7 +96,7 @@ $(this).ready(function() {
 	});
 
 	/**
-	 * Väljalogimiseks saadamae GET /accountLogin?action=logout.
+	 * Väljalogimiseks saadame GET /accountLogin?action=logout.
 	 * Servlet tagastab hetkel alati success, aga jätame tulevikuks kontrolli.
 	 */
 	logoutButton.click(function() {

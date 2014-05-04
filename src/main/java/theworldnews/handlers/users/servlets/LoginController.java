@@ -23,7 +23,7 @@ import theworldnews.database.users.queries.AuthenticationQueries;
  *         Tagastab accessRights:LOGIN_RIGHTS, kui kasutaja eksisteerib, muidu
  *         "accessRights:-1"
  */
-@WebServlet(value = "/loginUser")
+@WebServlet(value = "/accountLogin")
 public class LoginController extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;

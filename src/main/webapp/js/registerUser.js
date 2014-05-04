@@ -23,7 +23,7 @@ $(document).ready(function() {
 					} else {
 						userdata.password = Sha256.hash(userdata.password);
 						console.log(JSON.stringify(userdata));
-						$.ajax("/accountSignup", {
+						$.ajax("/signupUser", {
 							type: "POST",
 							dataType: 'json',
 							data: JSON.stringify(userdata),
