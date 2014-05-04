@@ -1,11 +1,11 @@
-<%@ page import="TheWorldNews.servlets.NewsDisplayController"%>
+<%@ page import="theworldnews.handlers.news.servlets.PreviewController"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
-	pageEncoding="utf-8"%>
-<%@ page import="java.sql.ResultSet"%>
-<%@ page import="java.sql.*"%>
-<%@ page import="java.util.ArrayList"%>
-<%@ page import="TheWorldNews.newsdata.NewsArticle"%>
-<%@ page import="TheWorldNews.database.querys.DisplayQueries"%>
+         pageEncoding="utf-8"%>
+<%@ page import="java.sql.ResultSet" %>
+<%@ page import="java.sql.*" %>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="theworldnews.database.news.objects.Article" %>
+<%@ page import="theworldnews.database.news.queries.DisplayQueries" %>
 <%@ taglib prefix="ex" uri="../WEB-INF/custom.tld"%>
 
 <!DOCTYPE html>
@@ -22,7 +22,7 @@
 </head>
 <body>
 	<ex:Navigation/>
-	<jsp:include page="/newsArticle">
+	<jsp:include page="/displayArticle">
 	<jsp:param value="<%= request.getParameter("id")%>" name="id"/>
 	</jsp:include>
 </body>

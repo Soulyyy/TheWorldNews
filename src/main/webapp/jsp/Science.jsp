@@ -1,10 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page import="theworldnews.handlers.news.servlets.PreviewController"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+         pageEncoding="utf-8"%>
 <%@ page import="java.sql.ResultSet" %>
 <%@ page import="java.sql.*" %>
 <%@ page import="java.util.ArrayList" %>
-<%@ page import="TheWorldNews.newsdata.NewsArticle" %>
-<%@ page import="TheWorldNews.database.querys.DisplayQueries" %>
+<%@ page import="theworldnews.database.news.objects.Article" %>
+<%@ page import="theworldnews.database.news.queries.DisplayQueries" %>
 <%@ taglib prefix="ex" uri="../WEB-INF/custom.tld"%>
 <!DOCTYPE html> 
 <html>
@@ -19,7 +20,7 @@
 </head>
 <body>
 <ex:Navigation/>
-<jsp:include page="/displayNews">
+<jsp:include page="/previewArticle">
     <jsp:param name="type" value="Science"/>
     <jsp:param name="size" value="6"/>
 </jsp:include>
