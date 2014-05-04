@@ -24,7 +24,7 @@ public class EditQueries {
 	 * @param user
 	 *            Object of type User from theworldnews.database.users.objects
 	 */
-	public void addUser(Connection con, User user) {
+	public static void addUser(Connection con, User user) {
 		try {
 			String query = "INSERT INTO users (id, username, password, accessrights)"
 					+ " VALUES (DEFAULT ,? ,? ,?)";

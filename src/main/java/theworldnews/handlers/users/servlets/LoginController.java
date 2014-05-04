@@ -14,13 +14,16 @@ import javax.servlet.http.HttpSession;
 import theworldnews.database.users.queries.AuthenticationQueries;
 
 /**
- * Võimalikud funktsioonid:
- *	GET accountLogin - Tagastab session attribuudi LOGIN_RIGHTS väärtuse accessRights:LOGIN_RIGHTS
- *	GET accountLogin?action=logout - logib aktiivse kasutaja välja ja saadab vastuse response:success
- *	POST accountLogin userName, password - Tagastab accessRights:LOGIN_RIGHTS, kui kasutaja
- *		 eksisteerib, muidu "accessRights:-1"
+ * @author Murka
+ * 
+ *         Võimalikud funktsioonid: GET accountLogin - Tagastab session
+ *         attribuudi LOGIN_RIGHTS väärtuse accessRights:LOGIN_RIGHTS GET
+ *         accountLogin?action=logout - logib aktiivse kasutaja välja ja saadab
+ *         vastuse response:success POST accountLogin userName, password -
+ *         Tagastab accessRights:LOGIN_RIGHTS, kui kasutaja eksisteerib, muidu
+ *         "accessRights:-1"
  */
-@WebServlet(value = "/accountLogin")
+@WebServlet(value = "/loginUser")
 public class LoginController extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
@@ -34,7 +37,8 @@ public class LoginController extends HttpServlet {
 	private Gson gson;
 
 	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
+			throws ServletException, IOException {
 		HttpSession sess = req.getSession();
 		String action = req.getParameter("action");
 		Integer accessRights = (Integer) sess.getAttribute("LOGIN_RIGHTS");
@@ -45,7 +49,8 @@ public class LoginController extends HttpServlet {
 			if (accessRights == null) {
 				resp.getWriter().write("{\"accessRights\": \"null\"}");
 			} else {
-				resp.getWriter().write("{\"accessRights\": " + accessRights + "}");
+				resp.getWriter().write(
+						"{\"accessRights\": " + accessRights + "}");
 			}
 		} else if (action.equals("logout")) {
 			sess.removeAttribute("LOGIN_RIGHTS");
@@ -56,14 +61,16 @@ public class LoginController extends HttpServlet {
 	}
 
 	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
+			throws ServletException, IOException {
 		try {
 			String username = req.getParameter("username");
 			String password = req.getParameter("password");
 
 			resp.setContentType("application/json");
 			if (username != null && password != null) {
-				int i = AuthenticationQueries.loginWithAccessrights(username, password);
+				int i = AuthenticationQueries.loginWithAccessrights(username,
+						password);
 
 				HttpSession sess = req.getSession();
 				sess.setAttribute("LOGIN_RIGHTS", i);

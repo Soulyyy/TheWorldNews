@@ -47,7 +47,7 @@ public class ArticleResponse {
 	 *            : Object of type Article with content
 	 * @return : jsp representation of article with conent
 	 */
-	public static String viewArticle(Article article) {
+	public static String displayArticle(Article article) {
 		StringBuffer sb = new StringBuffer();
 		String img = article.image;
 		String header = article.header;
