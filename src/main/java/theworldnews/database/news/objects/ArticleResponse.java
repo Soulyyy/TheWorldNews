@@ -1,6 +1,6 @@
 package theworldnews.database.news.objects;
 
-public class ArticleDisplay {
+public class ArticleResponse {
 
 	// positions: 0-top, 1-left, 2-right
 	/**

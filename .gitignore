@@ -22,9 +22,6 @@ nb*.xml
 /target
 
 .log
-nb-configurations.xml
-nbactions.xml
-TheWorldNews.iml
 system.properties
 jettylog.log
 dbinit
