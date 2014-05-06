@@ -41,7 +41,7 @@ public class SubmitController extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		resp.setHeader("Content-Type", "application/json");
-
+		doPost(req, resp);
 	}
 	
 
