@@ -33,17 +33,17 @@ public class SubmitController extends HttpServlet {
 
 	@Override
 	public void init() throws ServletException {
-		super.init();
+//		super.init();
 		gson = new Gson();
 	}
 
-//	@Override
-//	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
-//			throws ServletException, IOException {
-//		resp.setHeader("Content-Type", "application/json");
-//
-//	}
-//	
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
+			throws ServletException, IOException {
+		resp.setHeader("Content-Type", "application/json");
+
+	}
+	
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
