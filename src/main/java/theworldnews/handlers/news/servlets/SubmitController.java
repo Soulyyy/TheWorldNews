@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import theworldnews.database.connection.DatabaseConnection;
 import theworldnews.database.news.objects.Article;
 import theworldnews.database.news.queries.EditQueries;
+import theworldnews.handlers.news.sockets.*;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonParseException;
@@ -41,6 +42,7 @@ public class SubmitController extends HttpServlet {
 			throws ServletException, IOException {
 
 	}
+	
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
@@ -53,6 +55,14 @@ public class SubmitController extends HttpServlet {
 			EditQueries.addArticle(con, article);
 			resp.setHeader("Content-Type", "application/json");
 			resp.getWriter().write("{\"response\":\"newsarticle created \"}");
+			
+			try {
+			LatestNewsSocketController.find(req.getServletContext()).loadLatestNews();
+			} catch (NullPointerException e) {
+			System.out
+			.println("WS nullpointer.");
+			}
+			
 		} catch (JsonParseException ex) {
 			resp.sendError(HttpServletResponse.SC_BAD_REQUEST, ex.getMessage());
 		} catch (SQLException e) {

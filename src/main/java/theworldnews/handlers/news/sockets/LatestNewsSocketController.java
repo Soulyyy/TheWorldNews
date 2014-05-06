@@ -40,7 +40,9 @@ public class LatestNewsSocketController extends WebSocketServlet implements
 	
 	public void loadLatestNews(){
 		if (sockets.size() > 0) {
-			List<Article> list = whereEverTheFuck.getLatestNews();
+			//List<Article> list = whereEverTheFuck.getLatestNews();
+			List<String> list = new List<String>();
+			list.add("3");
 			for(LatestNewsSocket socket : sockets){
 				try {
 				socket.send(gson.toJson(list));
