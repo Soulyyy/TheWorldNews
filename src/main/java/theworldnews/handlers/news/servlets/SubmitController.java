@@ -48,6 +48,7 @@ public class SubmitController extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		Connection con = null;
+		LatestNewsSocketController lnsc = new LatestNewsSocketController();
 		try {
 			con = DatabaseConnection.getConnection();
 			Article article = gson.fromJson(req.getReader(), Article.class);
@@ -57,7 +58,7 @@ public class SubmitController extends HttpServlet {
 			resp.getWriter().write("{\"response\":\"newsarticle created \"}");
 			
 			try {
-			LatestNewsSocketController.find(req.getServletContext()).loadLatestNews();
+			lnsc.loadLatestNews();
 			} catch (NullPointerException e) {
 			System.out
 			.println("WS nullpointer.");

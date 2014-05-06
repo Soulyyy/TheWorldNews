@@ -5,7 +5,7 @@ package theworldnews.handlers.news.sockets;
 import java.io.IOException;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
-
+import java.util.ArrayList;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -41,7 +41,7 @@ public class LatestNewsSocketController extends WebSocketServlet implements
 	public void loadLatestNews(){
 		if (sockets.size() > 0) {
 			//List<Article> list = whereEverTheFuck.getLatestNews();
-			List<String> list = new List<String>();
+			List<String> list = new ArrayList<String>();
 			list.add("3");
 			for(LatestNewsSocket socket : sockets){
 				try {

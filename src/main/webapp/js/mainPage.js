@@ -1,4 +1,5 @@
 $(this).ready(function() {
+	createWebsocket();
 	$('a[data-menuItem]').click(function() {
 		var destination = $(this).attr('data-menuItem');
 		loadpage(destination);
@@ -63,10 +64,7 @@ function createWebsocket() {
 	}
 };
  
-
-$(function() {
-createWebsocket();
-});
+ 
 var recentHash = "";
 
 var checkHash = function() {
