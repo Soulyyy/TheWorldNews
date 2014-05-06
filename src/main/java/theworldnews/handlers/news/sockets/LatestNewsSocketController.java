@@ -18,13 +18,7 @@ import org.eclipse.jetty.websocket.servlet.WebSocketCreator;
 import org.eclipse.jetty.websocket.servlet.WebSocketServlet;
 import org.eclipse.jetty.websocket.servlet.WebSocketServletFactory;
 
-
-
-
-
-
-
-import theworldnews.database.news.objects.Article;
+import theworldnews.database.news.objects.*;
 
 import com.google.gson.Gson;
 
