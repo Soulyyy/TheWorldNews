@@ -2,6 +2,8 @@ package theworldnews.handlers.news.sockets;
 
 
 
+import RecentSocketController;
+
 import java.io.IOException;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
@@ -16,6 +18,7 @@ import org.eclipse.jetty.websocket.servlet.ServletUpgradeResponse;
 import org.eclipse.jetty.websocket.servlet.WebSocketCreator;
 import org.eclipse.jetty.websocket.servlet.WebSocketServlet;
 import org.eclipse.jetty.websocket.servlet.WebSocketServletFactory;
+
 
 
 
@@ -99,6 +102,11 @@ public class LatestNewsSocketController extends WebSocketServlet implements
         // see @WebListener and @WebFilter for details about servlet init
         context.setAttribute(LatestNewsSocketController.class.getName(), controller);
     }
+    
+	public static LatestNewsSocketController find(ServletContext context) {
+		return (LatestNewsSocketController) context
+				.getAttribute(LatestNewsSocketController.class.getName());
+	}
 
 	/**
 	 * Class to keep the connection open. Credit to Jaan Janno.
