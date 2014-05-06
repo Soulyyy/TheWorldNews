@@ -56,16 +56,12 @@ public class LatestNewsSocketController extends WebSocketServlet implements WebS
 
     @Override
     public void init(ServletConfig config) throws ServletException {
-//        super.init(config);
-        sockets = new CopyOnWriteArrayList<>(); // thread-safe impl
+    	super.init(config);
+        sockets = new CopyOnWriteArrayList<LatestNewsSocket>(); // thread-safe impl
         context = config.getServletContext(); // shared between ALL servlets
         publish(this, context); // so that other servlets could find us
     }
-    
-    @Override
-    protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    	
-    }
+
     
     @Override
     public Object createWebSocket(ServletUpgradeRequest req, ServletUpgradeResponse resp) {
