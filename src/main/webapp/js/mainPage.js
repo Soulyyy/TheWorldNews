@@ -1,5 +1,5 @@
 $(this).ready(function() {
-	createWebsocket();
+	// createWebsocket();
 	$('a[data-menuItem]').click(function() {
 		var destination = $(this).attr('data-menuItem');
 		loadpage(destination);
@@ -52,21 +52,21 @@ function loadpage(dest) {
 	});
 }
  
-function createWebsocket() {
- 	if (!window.location.origin) {
-	   window.location.origin = window.location.protocol + "//" + window.location.hostname + (window.location.port ? ':' + window.location.port: '');
-	}
-	var socketAddr = window.location.origin.replace("http", "ws") + "/feed";
-    var websocket = new WebSocket(socketAddr);
-    websocket.onopen = function() { console.log("socket up!"); };
-    websocket.onclose = function() { console.log("socket closed!"); };
+// function createWebsocket() {
+ 	// if (!window.location.origin) {
+	   // window.location.origin = window.location.protocol + "//" + window.location.hostname + (window.location.port ? ':' + window.location.port: '');
+	// }
+	// var socketAddr = window.location.origin.replace("http", "ws") + "/feed";
+    // var websocket = new WebSocket(socketAddr);
+    // websocket.onopen = function() { console.log("socket up!"); };
+    // websocket.onclose = function() { console.log("socket closed!"); };
  
-    websocket.onmessage = function(event) {
-		if (!event.data == "") {
-			console.log("ws received " + event.data);
-		}
-	}
-}; 
+    // websocket.onmessage = function(event) {
+		// if (!event.data == "") {
+			// console.log("ws received " + event.data);
+		// }
+	// }
+// }; 
 
 var recentHash = "";
 
