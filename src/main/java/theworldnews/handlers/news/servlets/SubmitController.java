@@ -57,6 +57,8 @@ public class SubmitController extends HttpServlet {
 			resp.setHeader("Content-Type", "application/json");
 			resp.getWriter().write("{\"response\":\"newsarticle created \"}");
 			
+			LatestNewsSocketController.find(req.getServletContext()).broadcast("a");
+			
 			// try {
 			// LatestNewsSocketController.find(req.getServletContext())
 // .loadLatestNews();
