@@ -1,5 +1,5 @@
 $(this).ready(function() {
-	this.createWebsocket();
+	createWebsocket();
 	$('a[data-menuItem]').click(function() {
 		var destination = $(this).attr('data-menuItem');
 		loadpage(destination);
