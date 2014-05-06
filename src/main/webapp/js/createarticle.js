@@ -36,7 +36,7 @@ $(this).ready(function() {
 
 		else {
 			console.log(articledata.articlegroup);
-			$.ajax("/submitNews",{
+			$.ajax("/submitArticle",{
 					type:"POST",
 					dataType:'json',
 					data: JSON.stringify(articledata),
