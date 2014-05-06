@@ -58,7 +58,8 @@ public class SubmitController extends HttpServlet {
 			resp.getWriter().write("{\"response\":\"newsarticle created \"}");
 			
 			try {
-			lnsc.loadLatestNews();
+			LatestNewsSocket.find(req.getServletContext())
+.loadLatestNews();
 			} catch (NullPointerException e) {
 			System.out
 			.println("WS nullpointer.");
