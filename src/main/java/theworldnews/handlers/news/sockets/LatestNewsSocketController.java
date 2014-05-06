@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.ArrayList;
+
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -21,6 +22,10 @@ import org.eclipse.jetty.websocket.servlet.WebSocketServletFactory;
 
 
 
+
+
+import theworldnews.database.news.objects.Article;
+
 import com.google.gson.Gson;
 
 /**
@@ -35,6 +40,7 @@ public class LatestNewsSocketController extends WebSocketServlet implements
 	private List<LatestNewsSocket> sockets;
 	private ServletContext context;
 	private Gson gson;
+	private Pinger pinger;
 
 	// private Pinger pinger;
 	
@@ -68,10 +74,9 @@ public class LatestNewsSocketController extends WebSocketServlet implements
 		sockets = new CopyOnWriteArrayList<LatestNewsSocket>();
 		publish(this, context);
 		context = config.getServletContext(); // shared between ALL servlets
-//		publish(this, context); // so that other servlets could find us
-//		gson = new com.google.gson.GsonBuilder().registerTypeAdapter(Article.class,
-//				new RecentItemSerializer()).create();
-//		pinger = new Pinger();
+		gson = new com.google.gson.GsonBuilder().registerTypeAdapter(Article.class,
+				new Object()).create();
+		pinger = new Pinger();
 	}
 
 	public Object createWebSocket(ServletUpgradeRequest req,
