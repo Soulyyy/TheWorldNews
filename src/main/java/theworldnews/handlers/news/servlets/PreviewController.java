@@ -39,7 +39,8 @@ public class PreviewController extends HttpServlet {
 			Integer size = Integer.parseInt(req.getParameter("size"));
 			articles = DisplayQueries.getDisplayarticlesByNumberAndType(con,
 					size, type);
-
+			System.out.println("Siia");
+			
 			StringBuffer sb = new StringBuffer();
 			int i = 0;
 			while (!articles.isEmpty()) {
