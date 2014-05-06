@@ -7,7 +7,7 @@ import javax.servlet.jsp.JspWriter;
 import javax.servlet.jsp.SkipPageException;
 import javax.servlet.jsp.tagext.SimpleTagSupport;
 
-import TheWorldNews.newsdata.NewsArticle;
+import theworldnews.database.news.objects.*;
 
 public class NavigationTag extends SimpleTagSupport{
 
