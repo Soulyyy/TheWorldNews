@@ -38,11 +38,11 @@ public class LatestNewsSocketController extends WebSocketServlet implements WebS
 
     public void broadcast(String message) {
         for (LatestNewsSocket socket : sockets) {
-            try {
-                socket.send(message);
-            } catch (IOException e) {
-                System.out.println("failed to broadcast to " + socket);
-            }
+//            try {
+//                socket.send(message);
+//            } catch (IOException e) {
+//                System.out.println("failed to broadcast to " + socket);
+//            }
         }
     }
 

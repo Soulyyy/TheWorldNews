@@ -54,7 +54,7 @@ function loadpage(dest) {
  
 function createWebsocket() {
 	
-	var socketAddr = window.location.origin.replace("http", "wss") + "/feed";
+	var socketAddr = window.location.origin.replace("http", "ws") + "/feed";
     var websocket = new WebSocket(socketAddr);
     websocket.onopen = function() { console.log("socket up!"); };
     websocket.onclose = function() { console.log("socket closed!"); };
