@@ -57,13 +57,13 @@ public class SubmitController extends HttpServlet {
 			resp.setHeader("Content-Type", "application/json");
 			resp.getWriter().write("{\"response\":\"newsarticle created \"}");
 			
-			try {
-			LatestNewsSocketController.find(req.getServletContext())
-.loadLatestNews();
-			} catch (NullPointerException e) {
-			System.out
-			.println("WS nullpointer.");
-			}
+			// try {
+			// LatestNewsSocketController.find(req.getServletContext())
+// .loadLatestNews();
+			// } catch (NullPointerException e) {
+			// System.out
+			// .println("WS nullpointer.");
+			// }
 			
 		} catch (JsonParseException ex) {
 			resp.sendError(HttpServletResponse.SC_BAD_REQUEST, ex.getMessage());
