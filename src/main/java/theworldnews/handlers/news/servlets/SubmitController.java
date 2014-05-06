@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import theworldnews.database.connection.DatabaseConnection;
 import theworldnews.database.news.objects.Article;
 import theworldnews.database.news.queries.EditQueries;
-import theworldnews.handlers.news.sockets.*;
+// import theworldnews.handlers.news.sockets.*;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonParseException;
@@ -48,7 +48,7 @@ public class SubmitController extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		Connection con = null;
-		LatestNewsSocketController lnsc = new LatestNewsSocketController();
+ 
 		try {
 			con = DatabaseConnection.getConnection();
 			Article article = gson.fromJson(req.getReader(), Article.class);
