@@ -62,9 +62,12 @@ function createWebsocket() {
     websocket.onclose = function() { console.log("socket closed!"); };
  
     websocket.onmessage = function(event) {
-        console.log("ws received " + event.data);
+		if (!event.data == "") {
+			console.log("ws received " + event.data);
+		}
 	}
 }; 
+
 var recentHash = "";
 
 var checkHash = function() {
