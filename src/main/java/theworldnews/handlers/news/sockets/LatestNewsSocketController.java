@@ -11,6 +11,8 @@ import javax.servlet.ServletConfig;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.eclipse.jetty.websocket.servlet.ServletUpgradeRequest;
 import org.eclipse.jetty.websocket.servlet.ServletUpgradeResponse;
@@ -54,13 +56,17 @@ public class LatestNewsSocketController extends WebSocketServlet implements WebS
 
     @Override
     public void init(ServletConfig config) throws ServletException {
-    	config.getServletContext();
 //        super.init(config);
         sockets = new CopyOnWriteArrayList<>(); // thread-safe impl
         context = config.getServletContext(); // shared between ALL servlets
         publish(this, context); // so that other servlets could find us
     }
-
+    
+    @Override
+    protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    	
+    }
+    
     @Override
     public Object createWebSocket(ServletUpgradeRequest req, ServletUpgradeResponse resp) {
         return new LatestNewsSocket(this); // socket instance created per client
