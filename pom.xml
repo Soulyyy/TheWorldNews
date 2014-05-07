@@ -25,7 +25,7 @@
       <dependency>
 	  <groupId>org.eclipse.jetty.websocket</groupId>
 	  <artifactId>websocket-api</artifactId>
-	  <version>9.1.0.v20131115</version>
+	  	<version>9.1.2.v20140210</version>
 	</dependency>
 	<!-- To run websockets in embedded server -->
 	<dependency>
