@@ -56,6 +56,7 @@ function createWebsocket() {
 	
 	var socketAddr = window.location.origin.replace("http", "ws") + "/feed";
     var websocket = new WebSocket(socketAddr);
+    setTimeout(function(){alert("Hello")}, 1000);
     websocket.onopen = function() { console.log("socket up!"); };
     websocket.onclose = function() { console.log("socket closed!"); };
  

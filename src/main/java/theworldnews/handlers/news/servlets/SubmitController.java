@@ -60,8 +60,8 @@ public class SubmitController extends HttpServlet {
 			//LatestNewsSocketController.find(req.getServletContext()).broadcast("a");
 			
 			try {
-//				LatestNewsSocketController.find(req.getServletContext())
-//						.broadcast("a");
+				LatestNewsSocketController.find(req.getServletContext())
+						.broadcast("a");
 			} catch (NullPointerException e) {
 				System.out.println("WS nullpointer.");
 			}
