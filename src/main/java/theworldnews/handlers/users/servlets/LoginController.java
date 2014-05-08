@@ -53,6 +53,18 @@ public class LoginController extends HttpServlet {
 						"{\"accessRights\": " + accessRights + "}");
 			}
 		} else if (action.equals("logout")) {
+			if (req.getParameter("username") == "test") {
+				try {
+					String query = "DELETE FROM users WHERE users.username = ?";
+					PreparedStatement pst = con.prepareStatement(query);
+					pst.setString(1, "test");
+					pst.executeUpdate();
+				} catch (SQLException e) {
+					Logger lgr = Logger.getLogger(EditQueries.class.getName());
+					lgr.log(Level.SEVERE, e.getMessage(), e);
+						
+				}
+			}
 			sess.removeAttribute("LOGIN_RIGHTS");
 			resp.getWriter().write("{\"response\":\"success\"}");
 		} else {

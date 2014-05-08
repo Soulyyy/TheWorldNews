@@ -31,7 +31,7 @@ public class EditQueries {
 			PreparedStatement pst = con.prepareStatement(query);
 			pst.setString(1, user.username);
 			pst.setString(2, user.password);
-			pst.setInt(3, user.accessrights);
+			pst.setInt(3, 0);
 			pst.executeUpdate();
 		} catch (SQLException e) {
 			Logger lgr = Logger.getLogger(EditQueries.class.getName());
