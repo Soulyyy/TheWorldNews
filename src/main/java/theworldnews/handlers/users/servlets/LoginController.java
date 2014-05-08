@@ -65,21 +65,21 @@ public class LoginController extends HttpServlet {
 						"{\"accessRights\": " + accessRights + "}");
 			}
 		} else if (action.equals("logout")) {
-			if (req.getParameter("username") == "test") {
-				try {
-					con = DatabaseConnection.getConnection();
-					String query = "DELETE FROM users WHERE users.username = ?";
-					PreparedStatement pst = con.prepareStatement(query);
-					pst.setString(1, "test");
-					pst.executeUpdate();
-				} catch (SQLException e) {
-					e.printStackTrace();
+			// if (req.getParameter("username") == "test") {
+				// try {
+					// con = DatabaseConnection.getConnection();
+					// String query = "DELETE FROM users WHERE users.username = ?";
+					// PreparedStatement pst = con.prepareStatement(query);
+					// pst.setString(1, "test");
+					// pst.executeUpdate();
+				// } catch (SQLException e) {
+					// e.printStackTrace();
 						
-				}
-				catch (URISyntaxException e) {
-		e.printStackTrace();
-		}
-			}
+				// }
+				// catch (URISyntaxException e) {
+					// e.printStackTrace();
+				// }
+			// }
 			sess.removeAttribute("LOGIN_RIGHTS");
 			resp.getWriter().write("{\"response\":\"success\"}");
 		} else {
