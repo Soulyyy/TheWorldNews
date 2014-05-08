@@ -9,7 +9,7 @@
 <%@ taglib prefix="ex" uri="WEB-INF/custom.tld"%>
 
 <!DOCTYPE html> 
-<html>
+<html manifest="worldnewsmanifest.appcache">
 <head>
 	<title>The World</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
