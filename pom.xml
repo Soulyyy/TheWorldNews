@@ -1,58 +1,65 @@
-<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>TheWorldNews</groupId>
-  <artifactId>TheWorldNews</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
-  <packaging>war</packaging>
-  <name>TheWorldNews</name>
-  <description>News that will change your World</description>
-  <dependencies>
-  	<dependency>
-   	 <groupId>javax</groupId>
-   	 <artifactId>javaee-api</artifactId>
-   	 <version>6.0</version>
-	 </dependency>
-	 <dependency>
-		<groupId>org.eclipse.jetty</groupId>
-		<artifactId>jetty-servlets</artifactId>
-		<version>9.1.3.v20140225</version>
-	</dependency>
-	  <dependency>
-          <groupId>com.google.code.gson</groupId>
-          <artifactId>gson</artifactId>
-          <version>2.2.4</version>
-      </dependency>	 
-      <dependency>
-	  <groupId>org.eclipse.jetty.websocket</groupId>
-	  <artifactId>websocket-api</artifactId>
-	  	<version>9.1.2.v20140210</version>
-	</dependency>
-	<!-- To run websockets in embedded server -->
-	<dependency>
-	  <groupId>org.eclipse.jetty.websocket</groupId>
-	  <artifactId>websocket-server</artifactId>
-	  <version>9.1.0.v20131115</version>
-	</dependency>
-	<!-- To run websockets client -->
-	<dependency>
-	  <groupId>org.eclipse.jetty.websocket</groupId>
-	  <artifactId>websocket-client</artifactId>
-	  <version>9.1.0.v20131115</version>
-	</dependency>
-      
-      <dependency>
-        <groupId>org.apache.cxf</groupId>
-        <artifactId>cxf-api</artifactId>
-        <version>2.3.0</version>
-      </dependency>
-      
-      <dependency>
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>TheWorldNews</groupId>
+	<artifactId>TheWorldNews</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>war</packaging>
+	<name>TheWorldNews</name>
+	<description>News that will change your World</description>
+	<dependencies>
+		<dependency>
+			<groupId>javax</groupId>
+			<artifactId>javaee-api</artifactId>
+			<version>6.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.jetty</groupId>
+			<artifactId>jetty-servlets</artifactId>
+			<version>9.1.3.v20140225</version>
+		</dependency>
+		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+			<version>2.2.4</version>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.jetty.websocket</groupId>
+			<artifactId>websocket-api</artifactId>
+			<version>9.1.2.v20140210</version>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.jetty.websocket</groupId>
+			<artifactId>websocket-servlet</artifactId>
+			<version>9.1.2.v20140210</version>
+		</dependency>
+		<!-- To run websockets in embedded server -->
+		<dependency>
+			<groupId>org.eclipse.jetty.websocket</groupId>
+			<artifactId>websocket-server</artifactId>
+			<version>9.1.0.v20131115</version>
+		</dependency>
+		<!-- To run websockets client -->
+		<dependency>
+			<groupId>org.eclipse.jetty.websocket</groupId>
+			<artifactId>websocket-client</artifactId>
+			<version>9.1.0.v20131115</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-api</artifactId>
+			<version>2.3.0</version>
+		</dependency>
+
+		<dependency>
 			<groupId>org.eclipse.jetty.orbit</groupId>
 			<artifactId>javax.servlet</artifactId>
 			<version>3.0.0.v201112011016</version>
 		</dependency>
-		
-      <dependency>
+
+		<dependency>
 			<groupId>org.postgresql</groupId>
 			<artifactId>postgresql</artifactId>
 			<version>9.3-1101-jdbc41</version>
@@ -60,68 +67,66 @@
 
 
 
-      <dependency>
-      	<groupId>org.apache.activemq</groupId>
-      	<artifactId>activemq-core</artifactId>
-      	<version>5.7.0</version>
-      </dependency>
-  </dependencies>
-  <build>
-	<plugins>
-		    
-		<plugin>
-              <groupId>org.eclipse.jetty</groupId>
-              <artifactId>jetty-maven-plugin</artifactId>
-              <version>9.1.2.v20140210</version>
-              <configuration>
-                  <scanIntervalSeconds>2</scanIntervalSeconds>
-                  <!-- <systemProperties>
-					<systemProperty>
-						<name>logback.configurationFile</name>
-						<value>./src/etc/logback.xml</value>
-					</systemProperty>
-				</systemProperties>-->
-              </configuration>
-          </plugin>
-          <plugin>
-              <groupId>org.apache.maven.plugins</groupId>
-              <artifactId>maven-compiler-plugin</artifactId>
-              <version>3.1</version>
-              <configuration>
-                  <source>1.8</source>
-                  <target>1.8</target>
-              </configuration>
-          </plugin>
+		<dependency>
+			<groupId>org.apache.activemq</groupId>
+			<artifactId>activemq-core</artifactId>
+			<version>5.7.0</version>
+		</dependency>
+	</dependencies>
+	<build>
+		<plugins>
 
-          <plugin>
-              <groupId>org.apache.maven.plugins</groupId>
-              <artifactId>maven-war-plugin</artifactId>
-              <version>2.4</version>
-              <configuration>
-                  <failOnMissingWebXml>false</failOnMissingWebXml>
-              </configuration>
-          </plugin>
-  		<plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-dependency-plugin</artifactId>
-            <version>2.8</version>
-            <executions>
-                <execution>
-                    <phase>package</phase>
-                    <goals><goal>copy</goal></goals>
-                    <configuration>
-                        <artifactItems>
-                            <artifactItem>
-                                <groupId>org.mortbay.jetty</groupId>
-                                <artifactId>jetty-runner</artifactId>
-                                <version>8.1.14.v20131031</version>
-                                <destFileName>jetty-runner.jar</destFileName>
-                            </artifactItem>
-                        </artifactItems>
-                    </configuration>
-                </execution>
-            </executions>
-        </plugin>
-  	</plugins>
-  </build>
+			<plugin>
+				<groupId>org.eclipse.jetty</groupId>
+				<artifactId>jetty-maven-plugin</artifactId>
+				<version>9.1.2.v20140210</version>
+				<configuration>
+					<scanIntervalSeconds>2</scanIntervalSeconds>
+					<!-- <systemProperties> <systemProperty> <name>logback.configurationFile</name> 
+						<value>./src/etc/logback.xml</value> </systemProperty> </systemProperties> -->
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.1</version>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>2.4</version>
+				<configuration>
+					<failOnMissingWebXml>false</failOnMissingWebXml>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<version>2.8</version>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>copy</goal>
+						</goals>
+						<configuration>
+							<artifactItems>
+								<artifactItem>
+									<groupId>org.mortbay.jetty</groupId>
+									<artifactId>jetty-runner</artifactId>
+									<version>8.1.14.v20131031</version>
+									<destFileName>jetty-runner.jar</destFileName>
+								</artifactItem>
+							</artifactItems>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
 </project>
