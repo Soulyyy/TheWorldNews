@@ -8,12 +8,12 @@
 <body>
 <table id="suiteTable" cellpadding="1" cellspacing="1" border="1" class="selenium"><tbody>
 <tr><td><b>Test Suite</b></td></tr>
+<tr><td><a href="addarticlesaccessdenied.html">addarticlesaccessdenied</a></td></tr>
 <tr><td><a href="wronglogin.html">wronglogin</a></td></tr>
 <tr><td><a href="wrongreg1.html">wrongreg1</a></td></tr>
 <tr><td><a href="wrongreg2.html">wrongreg2</a></td></tr>
 <tr><td><a href="reg.html">reg</a></td></tr>
 <tr><td><a href="login.html">login</a></td></tr>
-<tr><td><a href="addarticlesaccessdenied.html">addarticlesaccessdenied</a></td></tr>
 <tr><td><a href="addarticle.html">addarticle</a></td></tr>
 </tbody></table>
 </body>
