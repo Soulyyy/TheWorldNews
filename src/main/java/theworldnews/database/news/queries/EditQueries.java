@@ -22,11 +22,12 @@ public class EditQueries {
 	 *            Connection from @package java.sql
 	 * @param article
 	 *            Object of type Article
+	 * @return int with query id
 	 */
-	public static void addArticle(Connection con, Article article) {
+	public static int addArticle(Connection con, Article article) {
 		try {
 			String query = "INSERT INTO newsarticles (image, header, content, articlegroup, author, clickcount)"
-					+ " VALUES (? ,? ,? ,?, ?, 0 )";
+					+ " VALUES (? ,? ,? ,?, ?, 0 ) RETURNING ID";
 			PreparedStatement pst = con.prepareStatement(query);
 			pst.setString(1, article.image);
 			pst.setString(2, article.header);
@@ -34,11 +35,14 @@ public class EditQueries {
 			int val = ArticlegroupEncoding.stringToInt(article.articlegroup);
 			pst.setInt(4, val);
 			pst.setInt(5, article.authorid);
-			pst.executeUpdate();
+			int result =pst.executeUpdate();
+			return(result);
+			
 		} catch (SQLException e) {
 			Logger lgr = Logger.getLogger(EditQueries.class.getName());
 			lgr.log(Level.SEVERE, e.getMessage(), e);
 		}
+		return(-1);
 	}
 
 }

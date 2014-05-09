@@ -93,7 +93,7 @@ public class DisplayQueries {
 			Connection con, int number, String type) {
 		try {
 			int articlegroup = ArticlegroupEncoding.stringToInt(type);
-			String query = "SELECT id,image,header,articlegroup,author,clickcount FROM Articles WHERE articlegroup % ? =0 ORDER BY id DESC limit ?";
+			String query = "SELECT id,image,header,articlegroup,author,clickcount FROM newsarticles WHERE articlegroup % ? =0 ORDER BY id DESC limit ?";
 			PreparedStatement pst = con.prepareStatement(query);
 			pst.setInt(1, articlegroup);
 			pst.setInt(2, number);
@@ -130,7 +130,8 @@ public class DisplayQueries {
 			Connection con, int articlegroupid) {
 
 		try {
-			String query = "SELECT id,image,header,articlegroup,author,clickcount FROM Articles WHERE articlegroup % ? =0 ORDER BY id DESC";
+			String query = "SELECT newsarticles.id,newsarticles.image,newsarticles.header,newsarticles.articlegroup,newsarticles.author,"
+					+ "newsarticles.clickcount FROM newsarticles WHERE articlegroup % ? =0 ORDER BY id DESC";
 			PreparedStatement pst = con.prepareStatement(query);
 			pst.setInt(1, articlegroupid);
 			ResultSet rs = pst.executeQuery();
@@ -152,5 +153,9 @@ public class DisplayQueries {
 		}
 		return null;
 	}
+	
+//	public static List<Article> getArticlesByCreator(){
+//		
+//	}
 
 }
