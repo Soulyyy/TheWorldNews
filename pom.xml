@@ -105,7 +105,6 @@
 	</dependencies>
 	<build>
 		<plugins>
-			<!--
 			<plugin>
 				<groupId>org.eclipse.jetty</groupId>
 				<artifactId>jetty-maven-plugin</artifactId>
@@ -156,7 +155,6 @@
 				</executions>
 			</plugin>
 			
-			-->
 			<plugin>
 				<groupId>org.mortbay.jetty</groupId>
 				<artifactId>maven-jetty-plugin</artifactId>
