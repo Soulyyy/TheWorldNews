@@ -9,6 +9,7 @@ var websocket = {
         websocket.onmessage = function(event) {
             console.log("ws received " + event.data);
         };
+        websocket.onerror = function(event) {console.log(event.data)};
     }
 };
 
