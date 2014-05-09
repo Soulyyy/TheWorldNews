@@ -12,6 +12,18 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import theworldnews.database.users.queries.AuthenticationQueries;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import theworldnews.database.connection.DatabaseConnection;
+import theworldnews.database.news.objects.Article;
+import theworldnews.database.news.objects.ArticleResponse;
+import theworldnews.database.news.queries.DisplayQueries;
 
 /**
  * @author Murka
@@ -42,7 +54,7 @@ public class LoginController extends HttpServlet {
 		HttpSession sess = req.getSession();
 		String action = req.getParameter("action");
 		Integer accessRights = (Integer) sess.getAttribute("LOGIN_RIGHTS");
-
+		Connection con = null;
 		resp.setContentType("application/json");
 
 		if (action == null) {
@@ -53,6 +65,21 @@ public class LoginController extends HttpServlet {
 						"{\"accessRights\": " + accessRights + "}");
 			}
 		} else if (action.equals("logout")) {
+			if (req.getParameter("username") == "test") {
+				try {
+					con = DatabaseConnection.getConnection();
+					String query = "DELETE FROM users WHERE users.username = ?";
+					PreparedStatement pst = con.prepareStatement(query);
+					pst.setString(1, "test");
+					pst.executeUpdate();
+				} catch (SQLException e) {
+					e.printStackTrace();
+						
+				}
+				catch (URISyntaxException e) {
+					e.printStackTrace();
+				}
+			}
 			sess.removeAttribute("LOGIN_RIGHTS");
 			resp.getWriter().write("{\"response\":\"success\"}");
 		} else {

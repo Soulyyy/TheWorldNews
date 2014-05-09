@@ -9,7 +9,7 @@
 <%@ taglib prefix="ex" uri="WEB-INF/custom.tld"%>
 
 <!DOCTYPE html> 
-<html>
+<html manifest="worldnewsmanifest.appcache">
 <head>
 	<title>The World</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -17,6 +17,7 @@
     <script src="./lib/jquery-1.11.0.js" type="text/javascript"></script>
 	<script type="text/javascript" src="js/mainPage.js"></script>
 	<script type="text/javascript" src="js/login.js"></script>
+	<script type="text/javascript" src="js/websocket.js"></script>
 	<script type="text/javascript" src="https://apis.google.com/js/client.js?onload=handleClientLoad"></script>
 </head>
 <body>
