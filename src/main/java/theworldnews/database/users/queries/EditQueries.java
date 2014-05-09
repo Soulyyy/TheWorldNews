@@ -51,6 +51,8 @@ public class EditQueries {
 	 * @param userinfo
 	 *            Object of type UserInfo from
 	 *            theworldnews.database.users.objects
+	 * @return
+	 *			
 	 */
 	public int addUserInfo(Connection con, UserInfo userinfo) {
 		try {
