@@ -1,24 +1,20 @@
-function createWebsocket() {
+var websocket = {
 
-	var socketAddr = window.location.origin.replace("http", "ws") + "/feed";
-	var websocket = new WebSocket(socketAddr);
-	websocket.onopen = function() {
-		console.log("socket up!");
-	};
-	websocket.onclose = function() {
-		console.log("socket closed!");
-	};
+    createWebsocket: function() {
+        var socketAddr = window.location.origin.replace("http", "ws") + "/feed";
+        var websocket = new WebSocket(socketAddr);
+        console.log(socketAddr);
+        websocket.onopen = function() { console.log("socket up!"); };
+        websocket.onclose = function() { console.log("socket closed!"); };
+        websocket.onmessage = function(evt) {
 
-	websocket.onmessage = function(event) {
-		console.log("ws received " + event.data);
-		
-	
-	};
-	websocket.onerror = function(err) {
-	    alert("Error: " + err);
-	};
+        };
+    }
 };
 
 $(function() {
-	createWebsocket();
+
+   
+    websocket.createWebsocket();
+
 });
