@@ -5,6 +5,8 @@ $(this).ready(function() {
 	var loginContainer = $("#loginContainer");
 	var authorizeButton = $("#authorize-button");
 
+	var accountLoginServlet = "/userServlets/accountLogin";
+
 	/**
 	 * Sisselogimise kasti kuvamise/peitmise abifunktsioon
 	 * @param {Boolean} forceVis Kas sunnime login kasti kuvamist.
@@ -36,7 +38,7 @@ $(this).ready(function() {
 	 * näitame login/logout nuppu.
 	 * NoScript puhul ei ole sisselogimine toetatud.
 	 */
-	$.ajax("/accountLogin", {
+	$.ajax(accountLoginServlet, {
 		type: "GET",
 		dataType: 'json',
 		success: function(resp) {
@@ -77,7 +79,7 @@ $(this).ready(function() {
 			if(!userdata.username || !userdata.password) {
 				alert("Fill all forms.");
 			} else {
-				$.ajax("/accountLogin", {
+				$.ajax(accountLoginServlet, {
 					type: "POST",
 					dataType: 'json',
 					data: userdata,
@@ -100,7 +102,7 @@ $(this).ready(function() {
 	 * Servlet tagastab hetkel alati success, aga jätame tulevikuks kontrolli.
 	 */
 	logoutButton.click(function() {
-		$.ajax("/accountLogin", {
+		$.ajax(accountLoginServlet, {
 			type: "GET",
 			dataType: 'json',
 			data: "action=logout",

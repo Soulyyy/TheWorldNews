@@ -1,71 +1,54 @@
 package theworldnews.handlers.users.servlets;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonParseException;
 import java.io.IOException;
 import java.net.URISyntaxException;
-import java.sql.SQLException;
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import theworldnews.database.users.queries.AuthenticationQueries;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+import javax.ws.rs.Consumes;
+import javax.ws.rs.FormParam;
+import javax.ws.rs.GET;
+import javax.ws.rs.POST;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
+import javax.ws.rs.core.Context;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 import theworldnews.database.connection.DatabaseConnection;
-import theworldnews.database.news.objects.Article;
-import theworldnews.database.news.objects.ArticleResponse;
-import theworldnews.database.news.queries.DisplayQueries;
+import theworldnews.database.users.queries.AuthenticationQueries;
 
 /**
- * @author Murka
- * 
- *         Võimalikud funktsioonid: GET accountLogin - Tagastab session
- *         attribuudi LOGIN_RIGHTS väärtuse accessRights:LOGIN_RIGHTS GET
- *         accountLogin?action=logout - logib aktiivse kasutaja välja ja saadab
- *         vastuse response:success POST accountLogin userName, password -
- *         Tagastab accessRights:LOGIN_RIGHTS, kui kasutaja eksisteerib, muidu
- *         "accessRights:-1"
+ * Võimalikud funktsioonid:
+ *		GET accountLogin - Tagastab session attribuudi LOGIN_RIGHTS väärtuse accessRights:LOGIN_RIGHTS
+ *		GET accountLogin?action=logout - logib aktiivse kasutaja välja ja saadab vastuse response:success
+ *		POST accountLogin userName, password - Tagastab accessRights:LOGIN_RIGHTS, kui kasutaja eksisteerib, muidu "accessRights:-1"
  */
-@WebServlet(value = "/accountLogin")
-public class LoginController extends HttpServlet {
+@Path("/accountLogin")
+public class LoginController {
 
-	private static final long serialVersionUID = 1L;
-
-	@Override
-	public void init() throws ServletException {
-		super.init();
-		gson = new Gson();
-	}
-
-	private Gson gson;
-
-	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
-			throws ServletException, IOException {
+	@GET
+	@Produces(MediaType.APPLICATION_JSON)
+	public Response doGet(@QueryParam("action") String action,
+						  @Context HttpServletRequest req) {
 		HttpSession sess = req.getSession();
-		String action = req.getParameter("action");
+
 		Integer accessRights = (Integer) sess.getAttribute("LOGIN_RIGHTS");
-		Connection con = null;
-		resp.setContentType("application/json");
+		String username = (String) sess.getAttribute("LOGIN_USER");
+
+		Connection con;
 
 		if (action == null) {
 			if (accessRights == null) {
-				resp.getWriter().write("{\"accessRights\": \"null\"}");
+				return Response.ok("{\"accessRights\": \"null\"}").build();
 			} else {
-				resp.getWriter().write(
-						"{\"accessRights\": " + accessRights + "}");
+				return Response.ok("{\"accessRights\": " + accessRights + "}").build();
 			}
-		} else if (action.equals("logout")) {
-			if (req.getParameter("username") == "test") {
+		} else if (action.equals("logout") && username != null) {
+			if (username.equals("test")) {
 				try {
 					con = DatabaseConnection.getConnection();
 					String query = "DELETE FROM users WHERE users.username = ?";
@@ -73,45 +56,44 @@ public class LoginController extends HttpServlet {
 					pst.setString(1, "test");
 					pst.executeUpdate();
 				} catch (SQLException e) {
-					e.printStackTrace();
-						
-				}
-				catch (URISyntaxException e) {
-					e.printStackTrace();
+					return Response.status(Response.Status.INTERNAL_SERVER_ERROR).build();
+				} catch (URISyntaxException e) {
+					return Response.status(Response.Status.INTERNAL_SERVER_ERROR).build();
 				}
 			}
+			sess.removeAttribute("LOGIN_USER");
 			sess.removeAttribute("LOGIN_RIGHTS");
-			resp.getWriter().write("{\"response\":\"success\"}");
+			return Response.ok("{\"response\":\"success\"}").build();
 		} else {
-			resp.getWriter().write("{\"response\":\"nothing\"}");
+			return Response.ok("{\"response\":\"nothing\"}").build();
 		}
 	}
 
-	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
-			throws ServletException, IOException {
+	@POST
+	@Produces(MediaType.APPLICATION_JSON)
+	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+	public Response doPost(@FormParam("username") String username,
+						   @FormParam("password") String password,
+						   @Context HttpServletRequest req) {
 		try {
-			String username = req.getParameter("username");
-			String password = req.getParameter("password");
-
-			resp.setContentType("application/json");
 			if (username != null && password != null) {
 				int i = AuthenticationQueries.loginWithAccessrights(username,
-						password);
+																	password);
 
 				HttpSession sess = req.getSession();
+				if (i >= 0) {
+					sess.setAttribute("LOGIN_USER", username);
+				}
 				sess.setAttribute("LOGIN_RIGHTS", i);
 
-				resp.getWriter().write("{\"accessRights\": " + i + "}");
+				return Response.ok("{\"accessRights\": " + i + "}").build();
 			} else {
-				resp.getWriter().write("{\"response\":\"nothing\"}");
+				return Response.ok("{\"response\":\"nothing\"}").build();
 			}
-		} catch (JsonParseException ex) {
-			resp.sendError(HttpServletResponse.SC_BAD_REQUEST, ex.getMessage());
 		} catch (SQLException e) {
-			resp.sendError(HttpServletResponse.SC_BAD_REQUEST, e.getMessage());
+			return Response.status(Response.Status.INTERNAL_SERVER_ERROR).build();
 		} catch (URISyntaxException e) {
-			resp.sendError(HttpServletResponse.SC_BAD_REQUEST, e.getMessage());
+			return Response.status(Response.Status.INTERNAL_SERVER_ERROR).build();
 		}
 	}
 }

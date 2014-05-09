@@ -1,58 +1,88 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns="http://java.sun.com/xml/ns/javaee"
-	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
-	id="WebApp_ID" version="3.0">
+		 xmlns="http://java.sun.com/xml/ns/javaee"
+		 xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+		 version="3.0">
 
-
-
-    <display-name>Archetype Created Web Application</display-name>
-
-
-    <filter>
-        <filter-name>GzipFilter</filter-name>
-        <filter-class>org.eclipse.jetty.servlets.GzipFilter</filter-class>
-
-        <init-param>
-            <param-name>mimeTypes</param-name>
-            <param-value>text/html,text/plain,text/cache-manifest,text/xml,application/xhtml+xml,text/css,application/javascript,image/svg+xml</param-value>
-        </init-param>
-
-    </filter>
-    <filter>
-        <filter-name>EditrightCheckFilter</filter-name>
-        <filter-class>theworldnews.handlers.users.filters.EditrightCheckFilter</filter-class>
-    </filter>
-    <filter-mapping>
-        <filter-name>EditrightCheckFilter</filter-name>
-        <url-pattern>/html/createArticle.html</url-pattern>
-    </filter-mapping>
-    <filter-mapping>
-        <filter-name>GzipFilter</filter-name>
-        <url-pattern>/*</url-pattern>
-    </filter-mapping>
-
-
-    <mime-mapping>
-        <extension>js</extension>
-        <mime-type>application/javascript</mime-type>
-    </mime-mapping>
-
-
-    <mime-mapping>
-        <extension>js</extension>
-        <mime-type>application/javascript</mime-type>
-    </mime-mapping>
+	<servlet>
+		<servlet-name>User Controller Servlet</servlet-name>
+		<servlet-class>com.sun.jersey.spi.container.servlet.ServletContainer</servlet-class>
+		<init-param>
+			<param-name>com.sun.jersey.config.property.packages</param-name>
+			<param-value>theworldnews.handlers.users.servlets</param-value>
+		</init-param>
+		<init-param>
+			<param-name>com.sun.jersey.api.json.POJOMappingFeature</param-name>
+			<param-value>true</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
 	
+	<servlet>
+		<servlet-name>News Controller Servlet</servlet-name>
+		<servlet-class>com.sun.jersey.spi.container.servlet.ServletContainer</servlet-class>
+		<init-param>
+			<param-name>com.sun.jersey.config.property.packages</param-name>
+			<param-value>theworldnews.handlers.news.servlets</param-value>
+		</init-param>
+		<init-param>
+			<param-name>com.sun.jersey.api.json.POJOMappingFeature</param-name>
+			<param-value>true</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>User Controller Servlet</servlet-name>
+		<url-pattern>/userServlets/*</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>News Controller Servlet</servlet-name>
+		<url-pattern>/newsServlets/*</url-pattern>
+	</servlet-mapping>
+
+	<filter>
+		<filter-name>GzipFilter</filter-name>
+		<filter-class>org.mortbay.servlet.GzipFilter</filter-class>
+
+		<init-param>
+			<param-name>mimeTypes</param-name>
+			<param-value>text/html,text/plain,text/cache-manifest,text/xml,application/xhtml+xml,text/css,application/javascript,image/svg+xml</param-value>
+		</init-param>
+	</filter>
+	
+	<filter>
+		<filter-name>EditrightCheckFilter</filter-name>
+		<filter-class>theworldnews.handlers.users.filters.EditrightCheckFilter</filter-class>
+	</filter>
+	
+	<filter-mapping>
+		<filter-name>EditrightCheckFilter</filter-name>
+		<url-pattern>/html/createArticle.html</url-pattern>
+	</filter-mapping>
+	
+	<filter-mapping>
+		<filter-name>GzipFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
 
 	<mime-mapping>
 		<extension>js</extension>
 		<mime-type>application/javascript</mime-type>
 	</mime-mapping>
 
+	<mime-mapping>
+		<extension>js</extension>
+		<mime-type>application/javascript</mime-type>
+	</mime-mapping>
+	
+	<mime-mapping>
+		<extension>js</extension>
+		<mime-type>application/javascript</mime-type>
+	</mime-mapping>
 
 	<welcome-file-list>
 		<welcome-file>Index.jsp</welcome-file>
 	</welcome-file-list>
-
 </web-app>

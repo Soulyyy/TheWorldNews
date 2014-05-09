@@ -1,8 +1,10 @@
 $(document).ready(function() {
+	var signupServlet = "/userServlets/signupUser";
+
 	$.getScript("../js/Sha256.js", function() {
 		$('#reg').click(function() {
 			var userdata = new Object();
-			userdata.userName = $("#username").val();
+			userdata.username = $("#username").val();
 			userdata.password = $("#pw").val();
 			var pw2 = $("#pw2").val();
 			userdata.firstname = $("#first").val();
@@ -23,11 +25,10 @@ $(document).ready(function() {
 					} else {
 						userdata.password = Sha256.hash(userdata.password);
 						console.log(JSON.stringify(userdata));
-						$.ajax("/signupUser", {
+						$.ajax(signupServlet, {
 							type: "POST",
 							dataType: 'json',
-							data: JSON.stringify(userdata),
-							contentType: 'application/json',
+							data: userdata,
 							success: function() {
 								console.log("gg");
 								window.location.href = "../Index.jsp";

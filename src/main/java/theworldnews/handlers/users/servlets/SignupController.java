@@ -1,73 +1,42 @@
 package theworldnews.handlers.users.servlets;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonParseException;
-
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
-import theworldnews.database.connection.DatabaseConnection;
-import theworldnews.database.users.objects.User;
-import theworldnews.database.users.queries.EditQueries;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.sql.Connection;
 import java.sql.SQLException;
+import javax.servlet.ServletException;
+import javax.ws.rs.*;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
+import theworldnews.database.connection.DatabaseConnection;
+import theworldnews.database.users.objects.User;
+import theworldnews.database.users.objects.UserInfo;
+import theworldnews.database.users.queries.EditQueries;
 
-/**
- * 
- * @author Souly
- * 
- */
-@WebServlet(value = "/signupUser")
-public class SignupController extends HttpServlet {
+@Path("/signupUser")
+public class SignupController {
 
-	/**
-     *
-     */
-	private static final long serialVersionUID = 1L;
-	private Gson gson;
+	@POST
+	@Produces(MediaType.APPLICATION_JSON)
+	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+	public Response doPost(@FormParam("username") String username,
+						   @FormParam("password") String password,
+						   @FormParam("firstname") String firstname,
+						   @FormParam("surname") String surname,
+						   @FormParam("email") String email) {
+		if (username == null || password == null || firstname == null || surname == null || email == null) {
+			return Response.status(Response.Status.BAD_REQUEST).build();
+		}
+		try (Connection con = DatabaseConnection.getConnection()) {
+			User user = new User(-1, username, password);
+			UserInfo info = new UserInfo(-1, firstname, surname, email, 0);
 
-	@Override
-	public void init() throws ServletException {
-		super.init();
-		gson = new Gson();
-
-	}
-
-	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
-			throws ServletException, IOException {
-		// NOTHING TO SEE HERE
-	}
-
-	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
-			throws ServletException, IOException {
-		Connection con = null;
-		try {
-			con = DatabaseConnection.getConnection();
-			User user = gson.fromJson(req.getReader(), User.class);
 			EditQueries.addUser(con, user);
-			resp.setHeader("Content-Type", "application/json");
-			resp.getWriter().write("{\"response\":\"account created \"}");
-		} catch (JsonParseException e) {
-			resp.sendError(HttpServletResponse.SC_BAD_REQUEST, e.getMessage());
+			return Response.ok("{\"response\":\"account created \"}").build();
 		} catch (SQLException e) {
-			resp.sendError(HttpServletResponse.SC_BAD_REQUEST, e.getMessage());
+			return Response.status(Response.Status.INTERNAL_SERVER_ERROR).build();
 		} catch (URISyntaxException e) {
-			resp.sendError(HttpServletResponse.SC_BAD_REQUEST, e.getMessage());
-		} finally {
-			try {
-				con.close();
-			} catch (SQLException e) {
-				resp.sendError(HttpServletResponse.SC_BAD_REQUEST,
-						e.getMessage());
-			}
+			return Response.status(Response.Status.INTERNAL_SERVER_ERROR).build();
 		}
 	}
-
 }

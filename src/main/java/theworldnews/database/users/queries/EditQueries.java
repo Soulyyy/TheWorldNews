@@ -32,7 +32,6 @@ public class EditQueries {
 			pst.setString(1, user.username);
 			pst.setString(2, user.password);
 			pst.setInt(3, user.accessrights);
-			System.out.println(user.accessrights);
 			pst.executeUpdate();
 		} catch (SQLException e) {
 			Logger lgr = Logger.getLogger(EditQueries.class.getName());
@@ -48,16 +47,13 @@ public class EditQueries {
 	 * @param userinfo
 	 *            Object of type UserInfo from
 	 *            theworldnews.database.users.objects
-	 * @param userid
-	 *            "userid" value from table "userinfo". Equivalent to "id" from
-	 *            table "users"
 	 */
-	public void addUserInfo(Connection con, UserInfo userinfo, int userid) {
+	public void addUserInfo(Connection con, UserInfo userinfo) {
 		try {
 			String query = "INSERT INTO userinfo (userid, firstname, surname, country)"
 					+ " VALUES (DEFAULT ,? ,? ,?)";
 			PreparedStatement pst = con.prepareStatement(query);
-			pst.setInt(2, userid);
+			pst.setInt(1, userinfo.userid);
 			pst.setString(2, userinfo.firstname);
 			pst.setString(3, userinfo.surname);
 			pst.setInt(4, userinfo.country);

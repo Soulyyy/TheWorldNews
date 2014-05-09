@@ -1,58 +1,30 @@
 package theworldnews.handlers.news.servlets;
 
-import java.io.IOException;
-import java.io.PrintWriter;
 import java.net.URISyntaxException;
 import java.sql.Connection;
 import java.sql.SQLException;
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
+import javax.ws.rs.*;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 import theworldnews.database.connection.DatabaseConnection;
 import theworldnews.database.news.objects.Article;
 import theworldnews.database.news.objects.ArticleResponse;
 import theworldnews.database.news.queries.DisplayQueries;
 
-/**
- * 
- * @author Souly
- * 
- */
-@WebServlet(value = "/displayArticle")
-public class DisplayController extends HttpServlet {
-	private static final long serialVersionUID = 1L;
+@Path("/displayArticle")
+public class DisplayController {
 
-	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
-			throws ServletException, IOException {
-		Connection con = null;
-		try {
-			con = DatabaseConnection.getConnection();
-			PrintWriter out = resp.getWriter();
-			int articleid = Integer.parseInt(req.getParameter("id"));
-			Article article = DisplayQueries.getDisplayarticleById(con,
-					articleid);
+	@GET
+	@Produces(MediaType.TEXT_HTML)
+	public Response doGet(@QueryParam("id") Integer id) {
+		try (Connection con = DatabaseConnection.getConnection()) {
+			Article article = DisplayQueries.getDisplayarticleById(con, id);
 
-			out.print(ArticleResponse.displayArticle(article));
-
+			return Response.ok(ArticleResponse.displayArticle(article)).build();
 		} catch (SQLException e) {
-			resp.sendError(HttpServletResponse.SC_BAD_REQUEST, e.getMessage());
+			return Response.status(Response.Status.INTERNAL_SERVER_ERROR).build();
 		} catch (URISyntaxException e) {
-			resp.sendError(HttpServletResponse.SC_BAD_REQUEST, e.getMessage());
-		} catch (Exception e) {
-			resp.sendError(HttpServletResponse.SC_BAD_REQUEST, e.getMessage());
-		} finally {
-			try {
-				con.close();
-			} catch (SQLException e) {
-				resp.sendError(HttpServletResponse.SC_BAD_REQUEST,
-						e.getMessage());
-			}
+			return Response.status(Response.Status.INTERNAL_SERVER_ERROR).build();
 		}
-
 	}
-
 }
