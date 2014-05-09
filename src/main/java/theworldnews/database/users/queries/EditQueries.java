@@ -52,7 +52,7 @@ public class EditQueries {
 	 *            Object of type UserInfo from
 	 *            theworldnews.database.users.objects
 	 */
-	public void addUserInfo(Connection con, UserInfo userinfo) {
+	public int addUserInfo(Connection con, UserInfo userinfo) {
 		try {
 			String query = "INSERT INTO userinfo (userid, firstname, surname, country)"
 					+ " VALUES (? ,? ,? ,?) RETURNING ID";

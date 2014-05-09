@@ -1,4 +1,4 @@
-package TheWorldNews.tags;
+package theworldnews.tags;
 
 import java.io.IOException;
 
