@@ -57,7 +57,7 @@ public class LatestNewsSocketController extends WebSocketServlet implements WebS
     @Override
     public void init(ServletConfig config) throws ServletException {
     	super.init(config);
-        sockets = new CopyOnWriteArrayList<LatestNewsSocket>(); // thread-safe impl
+        sockets = new CopyOnWriteArrayList<>(); // thread-safe impl
         context = config.getServletContext(); // shared between ALL servlets
         publish(this, context); // so that other servlets could find us
     }
