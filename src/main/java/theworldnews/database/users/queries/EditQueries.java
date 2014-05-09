@@ -23,21 +23,24 @@ public class EditQueries {
 	 *            Connection from java.sql package
 	 * @param user
 	 *            Object of type User from theworldnews.database.users.objects
+	 * @return query id
 	 */
-	public static void addUser(Connection con, User user) {
+	public static int addUser(Connection con, User user) {
 		try {
 			String query = "INSERT INTO users (id, username, password, accessrights)"
-					+ " VALUES (DEFAULT ,? ,? ,?)";
+					+ " VALUES (DEFAULT ,? ,? ,?) RETURNING ID";
 			PreparedStatement pst = con.prepareStatement(query);
 			pst.setString(1, user.username);
 			pst.setString(2, user.password);
 			pst.setInt(3, user.accessrights);
 			System.out.println(user.accessrights);
-			pst.executeUpdate();
+			int result = pst.executeUpdate();
+			return (result);
 		} catch (SQLException e) {
 			Logger lgr = Logger.getLogger(EditQueries.class.getName());
 			lgr.log(Level.SEVERE, e.getMessage(), e);
 		}
+		return (-1);
 	}
 
 	/**
@@ -51,21 +54,24 @@ public class EditQueries {
 	 * @param userid
 	 *            "userid" value from table "userinfo". Equivalent to "id" from
 	 *            table "users"
+	 * @return query id
 	 */
-	public void addUserInfo(Connection con, UserInfo userinfo, int userid) {
+	public int addUserInfo(Connection con, UserInfo userinfo) {
 		try {
 			String query = "INSERT INTO userinfo (userid, firstname, surname, country)"
-					+ " VALUES (DEFAULT ,? ,? ,?)";
+					+ " VALUES (? ,? ,? ,?) RETURNING ID";
 			PreparedStatement pst = con.prepareStatement(query);
-			pst.setInt(2, userid);
+			pst.setInt(1, userinfo.userid);
 			pst.setString(2, userinfo.firstname);
 			pst.setString(3, userinfo.surname);
 			pst.setInt(4, userinfo.country);
-			pst.executeUpdate();
+			int result = pst.executeUpdate();
+			return (result);
 		} catch (SQLException e) {
 			Logger lgr = Logger.getLogger(EditQueries.class.getName());
 			lgr.log(Level.SEVERE, e.getMessage(), e);
 		}
+		return (-1);
 
 	}
 
@@ -77,17 +83,20 @@ public class EditQueries {
 	 * @param id
 	 *            "id" value from table "users". Equivalent to "userid" from
 	 *            table "userinfo"
+	 * @return query id
 	 */
-	public void deleteUser(Connection con, int id) {
+	public int deleteUser(Connection con, int id) {
 		try {
-			String query = "DELETE FROM users WHERE id = ";
+			String query = "DELETE FROM users WHERE id = ? RETURNING ID";
 			PreparedStatement pst = con.prepareStatement(query);
 			pst.setInt(1, id);
-			pst.executeUpdate();
+			int result = pst.executeUpdate();
+			return (result);
 		} catch (SQLException e) {
 			Logger lgr = Logger.getLogger(EditQueries.class.getName());
 			lgr.log(Level.SEVERE, e.getMessage(), e);
 		}
+		return (-1);
 
 	}
 
@@ -99,17 +108,20 @@ public class EditQueries {
 	 * @param userid
 	 *            "userid" value from table "userinfo". Equivalent to "id" from
 	 *            table "users"
+	 * @return query id
 	 */
-	public void deleteUserInfo(Connection con, int userid) {
+	public int deleteUserInfo(Connection con, int userid) {
 		try {
-			String query = "DELETE FROM usersettings WHERE userid = ";
+			String query = "DELETE FROM usersettings WHERE userid = ?";
 			PreparedStatement pst = con.prepareStatement(query);
 			pst.setInt(1, userid);
-			pst.executeUpdate();
+			int result = pst.executeUpdate();
+			return (result);
 		} catch (SQLException e) {
 			Logger lgr = Logger.getLogger(EditQueries.class.getName());
 			lgr.log(Level.SEVERE, e.getMessage(), e);
 		}
+		return (-1);
 	}
 
 	/**
