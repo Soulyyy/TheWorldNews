@@ -11,7 +11,12 @@ function createWebsocket() {
 
 	websocket.onmessage = function(event) {
 		console.log("ws received " + event.data);
-	}
+		
+	
+	};
+	websocket.onerror = function(err) {
+	    alert("Error: " + err);
+	};
 };
 
 $(function() {
