@@ -51,8 +51,10 @@ public class EditQueries {
 	 * @param userinfo
 	 *            Object of type UserInfo from
 	 *            theworldnews.database.users.objects
+	 * @return
+	 *			
 	 */
-	public void addUserInfo(Connection con, UserInfo userinfo) {
+	public int addUserInfo(Connection con, UserInfo userinfo) {
 		try {
 			String query = "INSERT INTO userinfo (userid, firstname, surname, country)"
 					+ " VALUES (? ,? ,? ,?) RETURNING ID";
