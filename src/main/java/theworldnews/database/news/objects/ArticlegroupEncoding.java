@@ -12,27 +12,26 @@ public class ArticlegroupEncoding {
 
 	// Null means a problem
 	private static int oneArticleStringToInt(String input) {
-		if (input.equals("News"))
-			return news;
-		if (input.equals("Business"))
-			return business;
-		if (input.equals("Sports"))
-			return sports;
-		if (input.equals("Science"))
-			return science;
-		if (input.equals("Arts"))
-			return arts;
-		if (input.equals("FashionAndStyle"))
-			return fashionAndStyle;
-		else
-			return 0;
-
+		switch (input) {
+			case "News":
+				return news;
+			case "Business":
+				return business;
+			case "Sports":
+				return sports;
+			case "Science":
+				return science;
+			case "Arts":
+				return arts;
+			case "FashionAndStyle":
+				return fashionAndStyle;
+			default:
+				return 0;
+		}
 	}
 
 	/**
-	 * 
-	 * @param articlegroups
-	 *            : String, articlegroups separated by ";"
+	 * @param articlegroups : String, articlegroups separated by ";"
 	 * @return integer value of the articlegroup
 	 */
 	public static int stringToInt(String articlegroups) {
@@ -48,31 +47,31 @@ public class ArticlegroupEncoding {
 
 	// If String empty, throw error, assert this
 	private static String oneArticleIntToString(int input) {
-		if (input == 2)
-			return "News";
-		if (input == 3)
-			return "Business";
-		if (input == 5)
-			return "Sports";
-		if (input == 7)
-			return "Science";
-		if (input == 11)
-			return "Arts";
-		if (input == 13)
-			return "FashionAndStyle";
-		else
-			return "";
+		switch (input) {
+			case 2:
+				return "News";
+			case 3:
+				return "Business";
+			case 5:
+				return "Sports";
+			case 7:
+				return "Science";
+			case 11:
+				return "Arts";
+			case 13:
+				return "FashionAndStyle";
+			default:
+				return "";
+		}
 	}
 
 	/**
-	 * 
-	 * @param encoding
-	 *            : int, value of the articlegroups
+	 * @param encoding : int, value of the articlegroups
 	 * @return : articlegroups separated by ";"
 	 */
 	public static String intToString(int encoding) {
 		System.out.println("We want to encode int, WHY?");
-		int[] valueSpace = { 2, 3, 5, 7, 11, 13 };
+		int[] valueSpace = {2, 3, 5, 7, 11, 13};
 		String output = "";
 		for (int i : valueSpace) {
 			if (encoding % i == 0) {

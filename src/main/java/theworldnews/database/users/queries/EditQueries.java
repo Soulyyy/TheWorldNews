@@ -10,53 +10,35 @@ import java.util.logging.Logger;
 import theworldnews.database.users.objects.User;
 import theworldnews.database.users.objects.UserInfo;
 
-/**
- * 
- * @author Souly
- * 
- */
 public class EditQueries {
 
 	/**
-	 * 
-	 * @param con
-	 *            Connection from java.sql package
-	 * @param user
-	 *            Object of type User from theworldnews.database.users.objects
-	 * @return query id
+	 * @param con Connection from java.sql package
+	 * @param user Object of type User from theworldnews.database.users.objects
+	 * @return Id of the newly added user, -1 on failure
 	 */
 	public static int addUser(Connection con, User user) {
 		try {
-			String query = "INSERT INTO users (id, username, password, accessrights)"
-					+ " VALUES (DEFAULT ,? ,? ,?) RETURNING ID";
+			String query = "INSERT INTO users (username, password, accessrights) VALUES (? ,? ,?) RETURNING ID";
 			PreparedStatement pst = con.prepareStatement(query);
 			pst.setString(1, user.username);
 			pst.setString(2, user.password);
 			pst.setInt(3, user.accessrights);
 			System.out.println(user.accessrights);
 			int result = pst.executeUpdate();
-			return (result);
+			return result;
 		} catch (SQLException e) {
-			Logger lgr = Logger.getLogger(EditQueries.class.getName());
-			lgr.log(Level.SEVERE, e.getMessage(), e);
+			Logger.getLogger(EditQueries.class.getName()).log(Level.SEVERE, e.getMessage(), e);
 		}
-		return (-1);
+		return -1;
 	}
 
 	/**
-	 * 
-	 * @param con
-	 *            Connection from java.sql package
-	 * 
-	 * @param userinfo
-	 *            Object of type UserInfo from
-	 *            theworldnews.database.users.objects
-	 * @param userid
-	 *            "userid" value from table "userinfo". Equivalent to "id" from
-	 *            table "users"
-	 * @return query id
+	 * @param con Connection from java.sql package
+	 * @param userinfo Object of type UserInfo from theworldnews.database.users.objects
+	 * @return Id of the newly added userinfo, -1 on failure
 	 */
-	public int addUserInfo(Connection con, UserInfo userinfo) {
+	public static int addUserInfo(Connection con, UserInfo userinfo) {
 		try {
 			String query = "INSERT INTO userinfo (userid, firstname, surname, country)"
 					+ " VALUES (? ,? ,? ,?) RETURNING ID";
@@ -66,26 +48,20 @@ public class EditQueries {
 			pst.setString(3, userinfo.surname);
 			pst.setInt(4, userinfo.country);
 			int result = pst.executeUpdate();
-			return (result);
+			return result;
 		} catch (SQLException e) {
-			Logger lgr = Logger.getLogger(EditQueries.class.getName());
-			lgr.log(Level.SEVERE, e.getMessage(), e);
+			Logger.getLogger(EditQueries.class.getName()).log(Level.SEVERE, e.getMessage(), e);
 		}
-		return (-1);
-
+		return -1;
 	}
 
 	/**
-	 * 
-	 * @param con
-	 *            Connection from java.sql package
-	 * 
-	 * @param id
-	 *            "id" value from table "users". Equivalent to "userid" from
-	 *            table "userinfo"
+	 *
+	 * @param con Connection from java.sql package
+	 * @param id "id" value from table "users". Equivalent to "userid" from table "userinfo"
 	 * @return query id
 	 */
-	public int deleteUser(Connection con, int id) {
+	public static int deleteUser(Connection con, int id) {
 		try {
 			String query = "DELETE FROM users WHERE id = ? RETURNING ID";
 			PreparedStatement pst = con.prepareStatement(query);
@@ -93,24 +69,18 @@ public class EditQueries {
 			int result = pst.executeUpdate();
 			return (result);
 		} catch (SQLException e) {
-			Logger lgr = Logger.getLogger(EditQueries.class.getName());
-			lgr.log(Level.SEVERE, e.getMessage(), e);
+			Logger.getLogger(EditQueries.class.getName()).log(Level.SEVERE, e.getMessage(), e);
 		}
-		return (-1);
+		return -1;
 
 	}
 
 	/**
-	 * 
-	 * @param con
-	 *            Connection from java.sql package
-	 * 
-	 * @param userid
-	 *            "userid" value from table "userinfo". Equivalent to "id" from
-	 *            table "users"
+	 * @param con Connection from java.sql package
+	 * @param userid "userid" value from table "userinfo". Equivalent to "id" from table "users"
 	 * @return query id
 	 */
-	public int deleteUserInfo(Connection con, int userid) {
+	public static int deleteUserInfo(Connection con, int userid) {
 		try {
 			String query = "DELETE FROM usersettings WHERE userid = ?";
 			PreparedStatement pst = con.prepareStatement(query);
@@ -118,22 +88,17 @@ public class EditQueries {
 			int result = pst.executeUpdate();
 			return (result);
 		} catch (SQLException e) {
-			Logger lgr = Logger.getLogger(EditQueries.class.getName());
-			lgr.log(Level.SEVERE, e.getMessage(), e);
+			Logger.getLogger(EditQueries.class.getName()).log(Level.SEVERE, e.getMessage(), e);
 		}
-		return (-1);
+		return -1;
 	}
 
 	/**
-	 * 
-	 * @param con
-	 *            Connection from java.sql package
-	 * 
-	 * @param user
-	 *            Object of type User from theworldnews.database.users.objects
+	 * @param con Connection from java.sql package
+	 * @param user Object of type User from theworldnews.database.users.objects
 	 * @return The "id" column value from table "users"
 	 */
-	public int returnUserid(Connection con, User user) {
+	public static int returnUserid(Connection con, User user) {
 		try {
 			String query = "SELECT id FROM users WHERE username=?";
 			PreparedStatement pst = con.prepareStatement(query);
@@ -142,10 +107,8 @@ public class EditQueries {
 			int userid = rs.getInt("id");
 			return userid;
 		} catch (SQLException e) {
-			Logger lgr = Logger.getLogger(EditQueries.class.getName());
-			lgr.log(Level.SEVERE, e.getMessage(), e);
+			Logger.getLogger(EditQueries.class.getName()).log(Level.SEVERE, e.getMessage(), e);
 		}
 		return 0;
 	}
-
 }

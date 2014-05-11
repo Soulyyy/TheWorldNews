@@ -16,43 +16,29 @@ import theworldnews.database.news.objects.Article;
 import theworldnews.database.news.objects.ArticleResponse;
 import theworldnews.database.news.queries.DisplayQueries;
 
-/**
- * 
- * @author Souly
- * 
- */
 @WebServlet(value = "/displayArticle")
 public class DisplayController extends HttpServlet {
+
 	private static final long serialVersionUID = 1L;
 
 	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
-			throws ServletException, IOException {
-		Connection con = null;
-		try {
-			con = DatabaseConnection.getConnection();
-			PrintWriter out = resp.getWriter();
-			int articleid = Integer.parseInt(req.getParameter("id"));
-			Article article = DisplayQueries.getDisplayarticleById(con,
-					articleid);
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		String id = req.getParameter("id");
 
-			out.print(ArticleResponse.displayArticle(article));
-
-		} catch (SQLException e) {
-			resp.sendError(HttpServletResponse.SC_BAD_REQUEST, e.getMessage());
-		} catch (URISyntaxException e) {
-			resp.sendError(HttpServletResponse.SC_BAD_REQUEST, e.getMessage());
-		} catch (Exception e) {
-			resp.sendError(HttpServletResponse.SC_BAD_REQUEST, e.getMessage());
-		} finally {
-			try {
-				con.close();
-			} catch (SQLException e) {
-				resp.sendError(HttpServletResponse.SC_BAD_REQUEST,
-						e.getMessage());
-			}
+		if (id == null) {
+			resp.sendError(HttpServletResponse.SC_BAD_REQUEST);
+			return;
 		}
 
-	}
+		try (Connection con = DatabaseConnection.getConnection()) {
+			PrintWriter out = resp.getWriter();
 
+			Integer articleid = Integer.parseInt(id);
+
+			Article article = DisplayQueries.getDisplayarticleById(con, articleid);
+			out.print(ArticleResponse.displayArticle(article));
+		} catch (SQLException | URISyntaxException e) {
+			resp.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, e.getMessage());
+		}
+	}
 }

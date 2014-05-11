@@ -19,11 +19,6 @@ import theworldnews.handlers.news.sockets.*;
 import com.google.gson.Gson;
 import com.google.gson.JsonParseException;
 
-/**
- * 
- * @author Souly
- * 
- */
 @WebServlet(value = "/submitArticle")
 public class SubmitController extends HttpServlet {
 
@@ -38,47 +33,31 @@ public class SubmitController extends HttpServlet {
 	}
 
 	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
-			throws ServletException, IOException {
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		resp.setHeader("Content-Type", "application/json");
 	}
-	
 
 	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
-			throws ServletException, IOException {
-		Connection con = null;
- 
-		try {
-			con = DatabaseConnection.getConnection();
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		try (Connection con = DatabaseConnection.getConnection()) {
 			Article article = gson.fromJson(req.getReader(), Article.class);
 			System.out.println(article.articlegroup);
+
 			EditQueries.addArticle(con, article);
 			resp.setHeader("Content-Type", "application/json");
 			resp.getWriter().write("{\"response\":\"newsarticle created \"}");
-			
+
 			//LatestNewsSocketController.find(req.getServletContext()).broadcast("a");
-			
 			try {
-				LatestNewsSocketController.find(req.getServletContext())
-						.broadcast("a");
+				LatestNewsSocketController.find(req.getServletContext()).broadcast("a");
 			} catch (NullPointerException e) {
 				System.out.println("WS nullpointer.");
 			}
-			
+
 		} catch (JsonParseException ex) {
 			resp.sendError(HttpServletResponse.SC_BAD_REQUEST, ex.getMessage());
-		} catch (SQLException e) {
-			resp.sendError(HttpServletResponse.SC_BAD_REQUEST, e.getMessage());
-		} catch (URISyntaxException e) {
-			resp.sendError(HttpServletResponse.SC_BAD_REQUEST, e.getMessage());
-		} finally {
-			try {
-				con.close();
-			} catch (SQLException e) {
-				resp.sendError(HttpServletResponse.SC_BAD_REQUEST, e.getMessage());
-			}
+		} catch (SQLException | URISyntaxException e) {
+			resp.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, e.getMessage());
 		}
-
 	}
 }

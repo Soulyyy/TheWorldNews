@@ -17,17 +17,9 @@ import java.net.URISyntaxException;
 import java.sql.Connection;
 import java.sql.SQLException;
 
-/**
- * 
- * @author Souly
- * 
- */
 @WebServlet(value = "/signupUser")
 public class SignupController extends HttpServlet {
 
-	/**
-     *
-     */
 	private static final long serialVersionUID = 1L;
 	private Gson gson;
 
@@ -39,35 +31,26 @@ public class SignupController extends HttpServlet {
 	}
 
 	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
-			throws ServletException, IOException {
-		// NOTHING TO SEE HERE
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		resp.sendError(HttpServletResponse.SC_NOT_FOUND);
 	}
 
 	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
-			throws ServletException, IOException {
-		Connection con = null;
-		try {
-			con = DatabaseConnection.getConnection();
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		try (Connection con = DatabaseConnection.getConnection()) {
 			User user = gson.fromJson(req.getReader(), User.class);
-			EditQueries.addUser(con, user);
+			int result = EditQueries.addUser(con, user);
 			resp.setHeader("Content-Type", "application/json");
-			resp.getWriter().write("{\"response\":\"account created \"}");
+
+			if (result >= 0) {
+				resp.getWriter().write("{\"response\":\"success\"}");
+			} else {
+				resp.getWriter().write("{\"response\":\"failure\"}");
+			}
 		} catch (JsonParseException e) {
 			resp.sendError(HttpServletResponse.SC_BAD_REQUEST, e.getMessage());
-		} catch (SQLException e) {
-			resp.sendError(HttpServletResponse.SC_BAD_REQUEST, e.getMessage());
-		} catch (URISyntaxException e) {
-			resp.sendError(HttpServletResponse.SC_BAD_REQUEST, e.getMessage());
-		} finally {
-			try {
-				con.close();
-			} catch (SQLException e) {
-				resp.sendError(HttpServletResponse.SC_BAD_REQUEST,
-						e.getMessage());
-			}
+		} catch (SQLException | URISyntaxException e) {
+			resp.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, e.getMessage());
 		}
 	}
-
 }
