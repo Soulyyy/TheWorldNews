@@ -1,7 +1,5 @@
 package theworldnews.handlers.users.servlets;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonParseException;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.sql.*;
