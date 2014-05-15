@@ -56,7 +56,7 @@ public class DisplayQueries {
 			String articlegroup = rs.getString("articlegroup");
 			int authorid = rs.getInt("author");
 
-			Article article = new Article(id, image, header, content, articlegroup, author);
+			Article article = new Article(id, image, header, content, articlegroup, authorid);
 			return article;
 		} catch (SQLException e) {
 			Logger.getLogger(DisplayQueries.class.getName()).log(Level.SEVERE, e.getMessage(), e);
