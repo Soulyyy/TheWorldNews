@@ -1,18 +1,23 @@
 $(this).ready(function() {
- 	$.ajax("/latestN", {
-		type: "GET",
-		dataType:'json',
-		success: function(resp) {
-			console.log(resp);
-			console.log(resp[0]);
-			$(".latestNewsDisplay").html("<div class=\"itemeven\">"+resp[0]+"</div><div class=\"itemodd\">"+resp[1]+"</div><div class=\"itemeven\">"+resp[2]+"</div><div class=\"itemodd\">"+resp[3]+"</div><div class=\"itemeven\">"+resp[4]+"</div>");
-		}
-	});
+ 	setInterval(latestnews, 1500); 
 	// $('a[data-menuItem]').click(function() {
 		// var destination = $(this).attr('data-menuItem');
 		// loadpage(destination);
 	// });
 });
+
+function latestnews() {
+	$.ajax("/latestN", {
+			type: "GET",
+			dataType:'json',
+			success: function(resp) {
+				console.log(resp);
+				console.log(resp[0]);
+				$(".latestNewsDisplay").html("<div class=\"itemeven\">"+resp[0]+"</div><div class=\"itemodd\">"+resp[1]+"</div><div class=\"itemeven\">"+resp[2]+"</div><div class=\"itemodd\">"+resp[3]+"</div><div class=\"itemeven\">"+resp[4]+"</div>");
+			}
+	});
+
+}
 
 function createCookie(name, value, days) {
 	var expires = "";
