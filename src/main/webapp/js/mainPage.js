@@ -1,7 +1,6 @@
 $(this).ready(function() {
  	$.ajax("/latestN", {
 		type: "GET",
-		url: '../jsp/' + dest + ".jsp",
 		dataType:'json',
 		success: function(resp) {
 			console.log(resp);
