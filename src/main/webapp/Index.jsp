@@ -121,73 +121,7 @@
 
                 <div class="latestNewsDisplay">
 
-                    <div class="itemodd">
-
-                        <div class="time"></div>
-
-                        <div class="latestHeading"><a href="#"></a></div>
-
-
-                    </div>
-
-                    <div class="itemeven">
-
-                        <div class="time"></div>
-
-                        <div class="latestHeading"><a href="#"></a></div>
-
-
-                    </div>
-
-                    <div class="itemodd">
-
-                        <div class="time"></div>
-
-                        <div class="latestHeading"><a href="#"></a></div>
-
-                    </div>
-
-
-                    <div class="itemeven">
-
-                        <div class="time"></div>
-
-                        <div class="latestHeading"><a href="#"></a></div>
-
-                    </div>
-
-
-                    <div class="itemodd">
-
-                        <div class="time"></div>
-
-                        <div class="latestHeading"><a href="#"></a></div>
-
-                    </div>
-
-                    <div class="itemeven">
-
-                        <div class="time"></div>
-
-                        <div class="latestHeading"><a href="#"></a></div>
-
-                    </div>
-
-                    <div class="itemodd">
-
-                        <div class="time"></div>
-
-                        <div class="latestHeading"><a href="#"></a></div>
-
-                    </div>
-
-                    <div class="itemeven">
-
-                        <div class="time"></div>
-
-                        <div class="latestHeading"><a href="#"></a></div>
-
-                    </div>
+                 
 
                 </div>
 

@@ -5,6 +5,7 @@ $(this).ready(function() {
 		success: function(resp) {
 			console.log(resp);
 			console.log(resp[0]);
+			$(".latestNewsDisplay").html("<div class=\"itemeven\">"+resp[0]+"</div><div class=\"itemodd\">"+resp[1]+"</div><div class=\"itemeven\">"+resp[2]+"</div><div class=\"itemodd\">"+resp[3]+"</div><div class=\"itemeven\">"+resp[4]+"</div>");
 		}
 	});
 	// $('a[data-menuItem]').click(function() {
