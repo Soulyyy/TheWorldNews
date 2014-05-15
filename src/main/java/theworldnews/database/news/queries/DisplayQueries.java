@@ -44,7 +44,6 @@ public class DisplayQueries {
 	 * @return Article with content with the given id
 	 */
 	public static Article getViewarticleById(Connection con, int id) {
- 
 		try {
 			String query = "SELECT image, header, content, articlegroup, author FROM newsarticles WHERE id = ?";
 			PreparedStatement pst = con.prepareStatement(query);
@@ -58,16 +57,13 @@ public class DisplayQueries {
 
 			Article article = new Article(id, image, header, content, articlegroup, authorid);
 			pst.close();
-			// return article;
-			return new Article(1, "a", "For some reason it comes here", "and returns this shit", "d", 5);
-			
+			return article;
+
 		} catch (SQLException e) {
-	
 			Logger.getLogger(DisplayQueries.class.getName()).log(Level.SEVERE, e.getMessage(), e);
 		}
-		// return new Article(1, "a", "For some reason it comes here", "and returns this shit", 4, 5);
 		return null;
-		
+		// return new Article(1, "a", "For some reason it comes here", "and returns this shit", 4, 5);
 	}
 
 	/**
