@@ -26,7 +26,7 @@ public class ArticleResponse {
 		}
 
 		sb.append("<div class=\"mainArticle\">")
-				.append("<a href=\"ArticleView.jsp?id=")
+				.append("<a href=\"jsp/ArticleView.jsp?id=")
 				.append(id)
 				.append("\"><img class=\"mainImage\" src=\"")
 				.append(img)
@@ -52,7 +52,7 @@ public class ArticleResponse {
 		String content = article.content;
 
 		sb.append("<div class=\"mainArticle\">")
-				.append("<a href=\"jsp/ArticleView.jsp?id=")
+				.append("<a href=\"ArticleView.jsp?id=")
 				.append(id)
 				.append("\"><img class=\"mainImage\" src=\"")
 				.append(img)
