@@ -46,7 +46,7 @@ public class DisplayQueries {
 	 */
 	public static Article getViewarticleById(Connection con, int id) {
 		try {
-			String query = "SELECT image, header, content, articlegroup, authorid FROM newsarticles WHERE id = ?";
+			String query = "SELECT image, header, content, articlegroup, author FROM newsarticles WHERE id = ?";
 			PreparedStatement pst = con.prepareStatement(query);
 			pst.setInt(1, id);
 			ResultSet rs = pst.executeQuery();
@@ -54,9 +54,9 @@ public class DisplayQueries {
 			String header = rs.getString("header");
 			String content = rs.getString("content");
 			String articlegroup = rs.getString("articlegroup");
-			int authorid = rs.getInt("authorid");
+			int authorid = rs.getInt("author");
 
-			Article article = new Article(id, image, header, content, articlegroup, authorid);
+			Article article = new Article(id, image, header, content, articlegroup, author);
 			return article;
 		} catch (SQLException e) {
 			Logger.getLogger(DisplayQueries.class.getName()).log(Level.SEVERE, e.getMessage(), e);
