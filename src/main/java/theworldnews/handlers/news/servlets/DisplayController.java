@@ -37,7 +37,7 @@ public class DisplayController extends HttpServlet {
 
 			Article article = DisplayQueries.getViewarticleById(con, articleid);
 			if (article.id == null) {
-				out.print("broked")
+				out.print("broked");
 				}
 				else {
 				
