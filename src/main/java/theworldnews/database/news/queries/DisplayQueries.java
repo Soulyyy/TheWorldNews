@@ -56,12 +56,13 @@ public class DisplayQueries {
 			int authorid = rs.getInt("author");
 
 			Article article = new Article(id, image, header, content, articlegroup, authorid);
+			pst.close();
 			return article;
 		} catch (SQLException e) {
  
 			Logger.getLogger(DisplayQueries.class.getName()).log(Level.SEVERE, e.getMessage(), e);
 		}
-		return new Article(1, "a", "b", "c", "d", 5);
+		return new Article(1, "For some reason", "it comes here", "and returns", "this shit", 5);
 		
 	}
 
