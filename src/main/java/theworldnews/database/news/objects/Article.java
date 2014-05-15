@@ -5,13 +5,13 @@ package theworldnews.database.news.objects;
  */
 public class Article {
 
-	public Integer id; //Primary key
-	public String image; //Image url
-	public String header; //Header text
-	public String content; //Content text
-	public String articlegroup; //String of groups where the article is displayed
-	public int authorid; //user id of the author
-	public int clickCount;
+	public Integer id; // Primary key
+	public String image; // Image url
+	public String header; // Header text
+	public String content; // Content text
+	public String articlegroup; // String of groups where the article is
+	// displayed
+	public int authorid; // user id of the author
 
 	/**
 	 * @param id int, serial primary key of the database entry
@@ -21,8 +21,7 @@ public class Article {
 	 * @param articlegroup String, list of groups the article belongs to, int in the database
 	 * @param authorid int, id value from the users table, corresponds to the creator of the article
 	 */
-	public Article(int id, String image, String header, String content,
-				   String articlegroup, int authorid) {
+	public Article(int id, String image, String header, String content, String articlegroup, int authorid) {
 		this.id = id;
 		this.image = image;
 		this.header = header;
@@ -43,8 +42,8 @@ public class Article {
 		this(id, image, header, null, articleGroup, authorid);
 	}
 
-	// WHETHER WE WE NEED THIS. TBA!
-	public void incrementClickCount() {
-		this.clickCount++;
+	public Article(int id, String header, String articleGroup, int authorid) {
+		this(id, null, header, null, articleGroup, authorid);
 	}
+
 }

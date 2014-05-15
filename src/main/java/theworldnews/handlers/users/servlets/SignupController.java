@@ -35,10 +35,17 @@ public class SignupController extends HttpServlet {
 		resp.sendError(HttpServletResponse.SC_NOT_FOUND);
 	}
 
+	//TODO: Read also the userinfo
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		try (Connection con = DatabaseConnection.getConnection()) {
 			User user = gson.fromJson(req.getReader(), User.class);
+
+			if (user.username == null || user.password == null) {
+				resp.sendError(HttpServletResponse.SC_BAD_REQUEST, "Username or password empty");
+				return;
+			}
+
 			int result = EditQueries.addUser(con, user);
 			resp.setHeader("Content-Type", "application/json");
 

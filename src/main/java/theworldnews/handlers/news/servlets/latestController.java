@@ -10,35 +10,27 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
+import com.google.gson.Gson;
 import theworldnews.database.connection.DatabaseConnection;
 import theworldnews.database.news.objects.Article;
 import theworldnews.database.news.objects.ArticleResponse;
-import theworldnews.database.news.queries.DisplayQueries;
+import theworldnews.database.news.queries.*;
 
-@WebServlet(value = "/displayArticle")
-public class DisplayController extends HttpServlet {
+@WebServlet(value = "/latestN")
+public class latestController extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		String id = req.getParameter("id");
-		
-		if (id == null) {
-			resp.sendError(HttpServletResponse.SC_BAD_REQUEST);
-			return;
-		}
-
-		try (Connection con = DatabaseConnection.getConnection()) {
-			PrintWriter out = resp.getWriter();
-
-			Integer articleid = Integer.parseInt(id);
-
-			Article article = DisplayQueries.getViewarticleById(con, articleid);
-			
-			out.print(ArticleResponse.displayArticle(article));
  
+		try (Connection con = DatabaseConnection.getConnection()) {
+			Gson gson = new Gson();
+
+			String[] test = latest.getlatest(con);
+			String test2 = gson.toJson(test);
+			
+			resp.getWriter().write(test2);
 		} catch (SQLException | URISyntaxException e) {
 			resp.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, e.getMessage());
 		}

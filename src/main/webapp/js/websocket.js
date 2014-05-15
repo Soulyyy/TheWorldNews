@@ -14,8 +14,5 @@ var websocket = {
 };
 
 $(function() {
-
-   
-    websocket.createWebsocket();
-
+    // websocket.createWebsocket();
 });

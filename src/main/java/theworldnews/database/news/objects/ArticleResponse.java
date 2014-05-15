@@ -25,8 +25,7 @@ public class ArticleResponse {
 			throw new IllegalArgumentException("Article position does not exist");
 		}
 
-		sb.append("<div class=\"mainArticle\">")
-				.append("<a href=\"jsp/ArticleView.jsp?id=")
+		sb.append("<a href=\"jsp/ArticleView.jsp?id=")
 				.append(id)
 				.append("\"><img class=\"mainImage\" src=\"")
 				.append(img)
@@ -46,18 +45,18 @@ public class ArticleResponse {
 	 */
 	public static String displayArticle(Article article) {
 		StringBuilder sb = new StringBuilder();
-		String img = article.image;
-		String header = article.header;
 		Integer id = article.id;
+		String img = "a";
+		String header = article.header;
 		String content = article.content;
 
 		sb.append("<div class=\"mainArticle\">")
-				.append("<a href=\"jsp/ArticleView.jsp?id=")
+				.append("<a href=\"ArticleView.jsp?id=")
 				.append(id)
 				.append("\"><img class=\"mainImage\" src=\"")
 				.append(img)
 				.append("\" alt=\"pilt\"></a>")
-				.append("<p class=\"mainText\"><a href=\"jsp/ArticleView.jsp?id=")
+				.append("<p class=\"mainText\"><a href=\"ArticleView.jsp?id=")
 				.append(id)
 				.append("\">")
 				.append(header)

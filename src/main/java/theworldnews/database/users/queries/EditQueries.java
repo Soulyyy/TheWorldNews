@@ -12,6 +12,7 @@ import theworldnews.database.users.objects.UserInfo;
 
 public class EditQueries {
 
+	//TODO: Return something sensible when user exists. Please do not assume every exception==duplicate user.
 	/**
 	 * @param con Connection from java.sql package
 	 * @param user Object of type User from theworldnews.database.users.objects
@@ -24,9 +25,10 @@ public class EditQueries {
 			pst.setString(1, user.username);
 			pst.setString(2, user.password);
 			pst.setInt(3, user.accessrights);
-			System.out.println(user.accessrights);
-			int result = pst.executeUpdate();
-			return result;
+
+			ResultSet rs = pst.executeQuery();
+			rs.next();
+			return rs.getInt(1);
 		} catch (SQLException e) {
 			Logger.getLogger(EditQueries.class.getName()).log(Level.SEVERE, e.getMessage(), e);
 		}
@@ -47,8 +49,10 @@ public class EditQueries {
 			pst.setString(2, userinfo.firstname);
 			pst.setString(3, userinfo.surname);
 			pst.setInt(4, userinfo.country);
-			int result = pst.executeUpdate();
-			return result;
+
+			ResultSet rs = pst.executeQuery();
+			rs.next();
+			return rs.getInt(1);
 		} catch (SQLException e) {
 			Logger.getLogger(EditQueries.class.getName()).log(Level.SEVERE, e.getMessage(), e);
 		}
@@ -66,8 +70,10 @@ public class EditQueries {
 			String query = "DELETE FROM users WHERE id = ? RETURNING ID";
 			PreparedStatement pst = con.prepareStatement(query);
 			pst.setInt(1, id);
-			int result = pst.executeUpdate();
-			return (result);
+
+			ResultSet rs = pst.executeQuery();
+			rs.next();
+			return rs.getInt(1);
 		} catch (SQLException e) {
 			Logger.getLogger(EditQueries.class.getName()).log(Level.SEVERE, e.getMessage(), e);
 		}
@@ -86,7 +92,7 @@ public class EditQueries {
 			PreparedStatement pst = con.prepareStatement(query);
 			pst.setInt(1, userid);
 			int result = pst.executeUpdate();
-			return (result);
+			return result;
 		} catch (SQLException e) {
 			Logger.getLogger(EditQueries.class.getName()).log(Level.SEVERE, e.getMessage(), e);
 		}
@@ -98,17 +104,19 @@ public class EditQueries {
 	 * @param user Object of type User from theworldnews.database.users.objects
 	 * @return The "id" column value from table "users"
 	 */
-	public static int returnUserid(Connection con, User user) {
-		try {
-			String query = "SELECT id FROM users WHERE username=?";
-			PreparedStatement pst = con.prepareStatement(query);
-			pst.setString(1, user.username);
-			ResultSet rs = pst.executeQuery();
-			int userid = rs.getInt("id");
-			return userid;
-		} catch (SQLException e) {
-			Logger.getLogger(EditQueries.class.getName()).log(Level.SEVERE, e.getMessage(), e);
-		}
-		return 0;
-	}
+	/*
+	 public static int returnUserid(Connection con, User user) {
+	 try {
+	 String query = "SELECT id FROM users WHERE username=?";
+	 PreparedStatement pst = con.prepareStatement(query);
+	 pst.setString(1, user.username);
+	 ResultSet rs = pst.executeQuery();
+	 int userid = rs.getInt("id");
+	 return userid;
+	 } catch (SQLException e) {
+	 Logger.getLogger(EditQueries.class.getName()).log(Level.SEVERE, e.getMessage(), e);
+	 }
+	 return 0;
+	 }
+	 */
 }

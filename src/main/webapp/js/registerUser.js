@@ -2,14 +2,14 @@ $(document).ready(function() {
 	$.getScript("../js/Sha256.js", function() {
 		$('#reg').click(function() {
 			var userdata = new Object();
-			userdata.userName = $("#username").val();
+			userdata.username = $("#username").val();
 			userdata.password = $("#pw").val();
 			var pw2 = $("#pw2").val();
 			userdata.firstname = $("#first").val();
 			userdata.surname = $("#last").val();
 			userdata.email = $("#email").val();
 
-			if(userdata.userName === '' || userdata.password === '' ||
+			if(userdata.username === '' || userdata.password === '' ||
 					pw2 === '' || userdata.firstname === '' ||
 					userdata.surname === '' || userdata.email === '')
 			{
@@ -28,13 +28,17 @@ $(document).ready(function() {
 							dataType: 'json',
 							data: JSON.stringify(userdata),
 							contentType: 'application/json',
-							success: function() {
-								console.log("gg");
-								window.location.href = "../Index.jsp";
+							success: function(result) {
+								if(result.response === 'success') {
+									window.location.href = "../Index.jsp";
+								} else {
+									console.log("Failure: Creating user failed")
+								}
 							},
-							error: function(req, text) {
-								console.log(req);
-								console.log(text);
+							error: function(result) {
+								if(result.response === 'failure') {
+									console.log("Error: Creating user failed");
+								}
 							}
 						});
 					}

@@ -9,7 +9,7 @@
 <%@ taglib prefix="ex" uri="WEB-INF/custom.tld"%>
 
 <!DOCTYPE html> 
-<html manifest="worldnewsmanifest.appcache">
+<html >
 <head>
 	<title>The World</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -37,7 +37,7 @@
         <button id="logoutButton">Log Out</button>
 
     </div> 
-    
+        <!-- 
     <div id="search">
         
         
@@ -46,7 +46,7 @@
 		</form>
         
 	 </div>
-     
+     		-->
      
      
 	<div id="loginContainer">
@@ -95,7 +95,7 @@
 
 
 <div id="articleGroup" >
-<!-- tÃ¶Ã¶tab!! infinite dispatch loop here we go!!! -->
+<!-- töötab!! infinite dispatch loop here we go!!! -->
 <jsp:include page="/previewArticle">
     <jsp:param name="type" value="News"/>
     <jsp:param name="size" value="18"/>
@@ -121,73 +121,16 @@
 
                 <div class="latestNewsDisplay">
 
-                    <div class="itemodd">
-
-                        <div class="time"></div>
-
-                        <div class="latestHeading"><a href="#"></a></div>
-
-
-                    </div>
-
                     <div class="itemeven">
 
-                        <div class="time"></div>
-
-                        <div class="latestHeading"><a href="#"></a></div>
+              
+ 
 
 
                     </div>
+ 
 
-                    <div class="itemodd">
-
-                        <div class="time"></div>
-
-                        <div class="latestHeading"><a href="#"></a></div>
-
-                    </div>
-
-
-                    <div class="itemeven">
-
-                        <div class="time"></div>
-
-                        <div class="latestHeading"><a href="#"></a></div>
-
-                    </div>
-
-
-                    <div class="itemodd">
-
-                        <div class="time"></div>
-
-                        <div class="latestHeading"><a href="#"></a></div>
-
-                    </div>
-
-                    <div class="itemeven">
-
-                        <div class="time"></div>
-
-                        <div class="latestHeading"><a href="#"></a></div>
-
-                    </div>
-
-                    <div class="itemodd">
-
-                        <div class="time"></div>
-
-                        <div class="latestHeading"><a href="#"></a></div>
-
-                    </div>
-
-                    <div class="itemeven">
-
-                        <div class="time"></div>
-
-                        <div class="latestHeading"><a href="#"></a></div>
-
-                    </div>
+               
 
                 </div>
 

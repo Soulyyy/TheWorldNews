@@ -46,13 +46,7 @@ public class SubmitController extends HttpServlet {
 			EditQueries.addArticle(con, article);
 			resp.setHeader("Content-Type", "application/json");
 			resp.getWriter().write("{\"response\":\"newsarticle created \"}");
-
-			//LatestNewsSocketController.find(req.getServletContext()).broadcast("a");
-			try {
-				LatestNewsSocketController.find(req.getServletContext()).broadcast("a");
-			} catch (NullPointerException e) {
-				System.out.println("WS nullpointer.");
-			}
+ 
 
 		} catch (JsonParseException ex) {
 			resp.sendError(HttpServletResponse.SC_BAD_REQUEST, ex.getMessage());
