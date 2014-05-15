@@ -20,7 +20,7 @@ public class DisplayQueries {
 	 */
 	public static Article getDisplayarticleById(Connection con, int id) {
 		try {
-			String query = "SELECT id, image, header, content, articlegroup, authorid FROM newsarticles WHERE id = ?";
+			String query = "SELECT image, header, content, articlegroup, author FROM newsarticles WHERE id = ?";
 			PreparedStatement pst = con.prepareStatement(query);
 			pst.setInt(1, id);
 			ResultSet rs = pst.executeQuery();
@@ -28,9 +28,8 @@ public class DisplayQueries {
 			String content = rs.getString("content");
 			String header = rs.getString("header");
 			String articlegroup = rs.getString("articlegroup");
-			int authorid = rs.getInt("authorid");
-			Article article = new Article(id, image, content, header, articlegroup,
-										  authorid);
+			int authorid = rs.getInt("author");
+			Article article = new Article(id, image, content, header, articlegroup, authorid);
 			return article;
 
 		} catch (SQLException e) {
