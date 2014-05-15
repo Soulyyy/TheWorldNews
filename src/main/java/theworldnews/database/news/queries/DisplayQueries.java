@@ -61,10 +61,11 @@ public class DisplayQueries {
 			return article;
 
 		} catch (SQLException e) {
+		
 			Logger.getLogger(DisplayQueries.class.getName()).log(Level.SEVERE, e.getMessage(), e);
+			return null;
 		}
-		// return null;
-		return new Article(1, "a", "For some reason it comes here", "and returns this shit", "d", 5);
+ 
 	}
 
 	/**
