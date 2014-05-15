@@ -1,4 +1,5 @@
 $(this).ready(function() {
+	latestnews();
  	setInterval(latestnews, 10000); 
 	// $('a[data-menuItem]').click(function() {
 		// var destination = $(this).attr('data-menuItem');
