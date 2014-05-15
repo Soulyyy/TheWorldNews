@@ -28,7 +28,7 @@ public class latestController extends HttpServlet {
 			Gson gson = new Gson();
 
 			String[] test = latest.getlatest(con);
-				String test2 = gson.toJson(test);
+			String test2 = gson.toJson(test);
 			
 			resp.getWriter().write(test2);
 		} catch (SQLException | URISyntaxException e) {

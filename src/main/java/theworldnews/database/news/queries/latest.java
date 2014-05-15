@@ -24,7 +24,10 @@ public class latest {
 			while(rs.next()) {
 				la[i] = rs.getString(1);
 			}
-			return la;
+		
+			
+			pst.close();
+				return la;
 
 		} catch (SQLException e) {
 			Logger.getLogger(latest.class.getName()).log(Level.SEVERE,
