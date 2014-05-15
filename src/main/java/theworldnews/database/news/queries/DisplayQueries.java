@@ -8,7 +8,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
+import java.io.StringWriter;
+import java.io.PrintWriter;
 import theworldnews.database.news.objects.*;
 
 public class DisplayQueries {
@@ -43,7 +44,7 @@ public class DisplayQueries {
 	 * @param id field value in table newsarticles
 	 * @return Article with content with the given id
 	 */
-	public static Article getViewarticleById(Connection con, int id) {
+	public static String getViewarticleById(Connection con, int id) {
 		try {
 			String query = "SELECT image, header, content, articlegroup, author FROM newsarticles WHERE id = ?";
 			PreparedStatement pst = con.prepareStatement(query);
@@ -58,12 +59,15 @@ public class DisplayQueries {
 			Article article = new Article(id, image, header, content, articlegroup, authorid);
 			rs.close();
 			pst.close();
-			return article;
+			return "a";
 
 		} catch (SQLException e) {
+			StringWriter errors = new StringWriter();
+			e.printStackTrace(new PrintWriter(errors));
 		
+ 
 			Logger.getLogger(DisplayQueries.class.getName()).log(Level.SEVERE, e.getMessage(), e);
-			return null;
+ 	return errors.toString();
 		}
  
 	}
