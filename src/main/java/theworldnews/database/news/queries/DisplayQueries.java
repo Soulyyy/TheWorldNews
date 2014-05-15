@@ -56,6 +56,7 @@ public class DisplayQueries {
 			int authorid = rs.getInt("author");
 
 			Article article = new Article(id, image, header, content, articlegroup, authorid);
+			rs.close();
 			pst.close();
 			return article;
 
