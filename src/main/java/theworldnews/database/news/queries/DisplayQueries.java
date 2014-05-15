@@ -58,9 +58,11 @@ public class DisplayQueries {
 			Article article = new Article(id, image, header, content, articlegroup, authorid);
 			return article;
 		} catch (SQLException e) {
+ 
 			Logger.getLogger(DisplayQueries.class.getName()).log(Level.SEVERE, e.getMessage(), e);
 		}
-		return null;
+		return new Article(1, "a", "b", "c", "d", 5);
+		
 	}
 
 	/**
