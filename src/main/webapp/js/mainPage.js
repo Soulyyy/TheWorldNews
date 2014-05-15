@@ -4,6 +4,7 @@ $(this).ready(function() {
 		dataType:'json',
 		success: function(resp) {
 			console.log(resp);
+			console.log(resp[0]);
 		}
 	});
 	// $('a[data-menuItem]').click(function() {

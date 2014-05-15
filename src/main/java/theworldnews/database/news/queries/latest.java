@@ -23,11 +23,12 @@ public class latest {
 			int i=0;
 			while(rs.next()) {
 				la[i] = rs.getString(1);
+				i+=1;
 			}
 		
 			
 			pst.close();
-				return la;
+			return la;
 
 		} catch (SQLException e) {
 			Logger.getLogger(latest.class.getName()).log(Level.SEVERE,
