@@ -8,8 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import java.io.StringWriter;
-import java.io.PrintWriter;
+
 import theworldnews.database.news.objects.*;
 
 public class DisplayQueries {
@@ -44,33 +43,36 @@ public class DisplayQueries {
 	 * @param id field value in table newsarticles
 	 * @return Article with content with the given id
 	 */
-	public static String getViewarticleById(Connection con, int id) {
+	public static Article getViewarticleById(Connection con, int id) {
+ 
 		try {
 			String query = "SELECT image, header, content, articlegroup, author FROM newsarticles WHERE id = ?";
 			PreparedStatement pst = con.prepareStatement(query);
 			pst.setInt(1, id);
 			ResultSet rs = pst.executeQuery();
+			if( rs.first()){
 			String image = rs.getString("image");
 			String header = rs.getString("header");
 			String content = rs.getString("content");
 			String articlegroup = rs.getString("articlegroup");
 			int authorid = rs.getInt("author");
-
-			Article article = new Article(id, image, header, content, articlegroup, authorid);
-			rs.close();
+				Article article = new Article(id, image, header, content, articlegroup, authorid);
+						return article;
+			}
+ 
 			pst.close();
-			return "a";
-
+	
+ 
+			
 		} catch (SQLException e) {
-			StringWriter errors = new StringWriter();
-			e.printStackTrace(new PrintWriter(errors));
-		
- 
+	
 			Logger.getLogger(DisplayQueries.class.getName()).log(Level.SEVERE, e.getMessage(), e);
- 	return errors.toString();
 		}
- 
+		// return new Article(1, "a", "For some reason it comes here", "and returns this shit", 4, 5);
+		return null;
+		
 	}
+ 
 
 	/**
 	 * @param con Connection from java.sql package

@@ -35,9 +35,9 @@ public class DisplayController extends HttpServlet {
 
 			Integer articleid = Integer.parseInt(id);
 
-			String article = DisplayQueries.getViewarticleById(con, articleid);
-			out.print(article);
-			// out.print(ArticleResponse.displayArticle(article));
+			Article article = DisplayQueries.getViewarticleById(con, articleid);
+			
+			out.print(ArticleResponse.displayArticle(article));
  
 		} catch (SQLException | URISyntaxException e) {
 			resp.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, e.getMessage());
