@@ -56,16 +56,16 @@ public class DisplayQueries {
 			String articlegroup = rs.getString("articlegroup");
 			int authorid = rs.getInt("author");
 
-			Article asd2 = new Article(id, image, header, content, articlegroup, authorid);
+			Article article = new Article(id, image, header, content, articlegroup, authorid);
 			pst.close();
-			return asd2;
-			
+			// return article;
+			return new Article(1, "a", "For some reason it comes here", "and returns this shit", "d", 5);
 			
 		} catch (SQLException e) {
 	
 			Logger.getLogger(DisplayQueries.class.getName()).log(Level.SEVERE, e.getMessage(), e);
 		}
-				 // return new Article(1, "a", "For some reason it comes here", "and returns this shit", "d", 5);
+		// return new Article(1, "a", "For some reason it comes here", "and returns this shit", 4, 5);
 		return null;
 		
 	}
