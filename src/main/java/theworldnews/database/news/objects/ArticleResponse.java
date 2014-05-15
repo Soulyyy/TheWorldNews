@@ -46,10 +46,10 @@ public class ArticleResponse {
 	 */
 	public static String displayArticle(Article article) {
 		StringBuilder sb = new StringBuilder();
-		String img = "a";
-		String header = "b";
-		Integer id = 3;
-		String content = "4";
+		Integer id = article.id;
+		String img = "a"
+		String header = article.header;
+		String content = article.content;
 
 		sb.append("<div class=\"mainArticle\">")
 				.append("<a href=\"jsp/ArticleView.jsp?id=")

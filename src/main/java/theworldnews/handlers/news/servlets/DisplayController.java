@@ -25,7 +25,6 @@ public class DisplayController extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String id = req.getParameter("id");
 		
-		// resp.getWriter().write(id);
 		if (id == null) {
 			resp.sendError(HttpServletResponse.SC_BAD_REQUEST);
 			return;
