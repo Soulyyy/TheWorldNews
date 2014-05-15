@@ -1,5 +1,5 @@
 $(this).ready(function() {
- 	setInterval(latestnews, 1500); 
+ 	setInterval(latestnews, 10000); 
 	// $('a[data-menuItem]').click(function() {
 		// var destination = $(this).attr('data-menuItem');
 		// loadpage(destination);
