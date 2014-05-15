@@ -50,7 +50,7 @@ public class DisplayQueries {
 			PreparedStatement pst = con.prepareStatement(query);
 			pst.setInt(1, id);
 			ResultSet rs = pst.executeQuery();
-			if( rs.first()){
+			if(rs.next()){
 			String image = rs.getString("image");
 			String header = rs.getString("header");
 			String content = rs.getString("content");
