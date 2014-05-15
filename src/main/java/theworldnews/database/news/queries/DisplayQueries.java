@@ -63,7 +63,7 @@ public class DisplayQueries {
 			Logger.getLogger(DisplayQueries.class.getName()).log(Level.SEVERE, e.getMessage(), e);
 		}
 		// return null;
-		return new Article(1, "a", "For some reason it comes here", "and returns this shit", 4, 5);
+		return new Article(1, "a", "For some reason it comes here", "and returns this shit", "d", 5);
 	}
 
 	/**
