@@ -9,7 +9,7 @@
 <%@ taglib prefix="ex" uri="WEB-INF/custom.tld"%>
 
 <!DOCTYPE html> 
-<html manifest="worldnewsmanifest.appcache">
+<html>
 <head>
 	<title>The World</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -37,18 +37,7 @@
         <button id="logoutButton">Log Out</button>
 
     </div> 
-    
-    <div id="search">
-        
-        
-        <form action="search" class="form-wrapper">
-    	<p><input type="text" id="searchBox" placeholder="Search"></p>
-		</form>
-        
-	 </div>
-     
-     
-     
+ 
 	<div id="loginContainer">
 		<div id="login">
 			<p><input type="text" id="userName" name="login" value="" placeholder="Username or Email"></p>
@@ -78,7 +67,7 @@
             <li><a href="jsp/FashionStyle.jsp">Fashion &amp; Style</a></li>
 		</ul>
 
-		     <!-- 
+		<!-- 
 		<ul>
             <li><a data-menuItem="News">News</a> </li>
 			<li><a data-menuItem="Business">Business</a></li>
@@ -87,7 +76,7 @@
 			<li><a data-menuItem="Arts">Arts</a></li>
             <li><a data-menuItem="FashionStyle">Fashion &amp; Style</a></li>
 		</ul>
-        		-->
+        -->
 	</div>
     
  
@@ -95,7 +84,6 @@
 
 
 <div id="articleGroup" >
-<!-- töötab!! infinite dispatch loop here we go!!! -->
 <jsp:include page="/previewArticle">
     <jsp:param name="type" value="News"/>
     <jsp:param name="size" value="18"/>
@@ -112,7 +100,7 @@
             <div id="latest">
 
                 <header>
-                    <a id="latestNews" href="#">
+                    <a id="latestNews">
 
                         Latest News
 
@@ -123,71 +111,13 @@
 
                     <div class="itemodd">
 
-                        <div class="time"></div>
+         
 
-                        <div class="latestHeading"><a href="#"></a></div>
-
-
-                    </div>
-
-                    <div class="itemeven">
-
-                        <div class="time"></div>
-
-                        <div class="latestHeading"><a href="#"></a></div>
+                        <div class="latestHeading"></div>
 
 
                     </div>
-
-                    <div class="itemodd">
-
-                        <div class="time"></div>
-
-                        <div class="latestHeading"><a href="#"></a></div>
-
-                    </div>
-
-
-                    <div class="itemeven">
-
-                        <div class="time"></div>
-
-                        <div class="latestHeading"><a href="#"></a></div>
-
-                    </div>
-
-
-                    <div class="itemodd">
-
-                        <div class="time"></div>
-
-                        <div class="latestHeading"><a href="#"></a></div>
-
-                    </div>
-
-                    <div class="itemeven">
-
-                        <div class="time"></div>
-
-                        <div class="latestHeading"><a href="#"></a></div>
-
-                    </div>
-
-                    <div class="itemodd">
-
-                        <div class="time"></div>
-
-                        <div class="latestHeading"><a href="#"></a></div>
-
-                    </div>
-
-                    <div class="itemeven">
-
-                        <div class="time"></div>
-
-                        <div class="latestHeading"><a href="#"></a></div>
-
-                    </div>
+ 
 
                 </div>
 
