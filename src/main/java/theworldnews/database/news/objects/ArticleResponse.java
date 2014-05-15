@@ -25,8 +25,7 @@ public class ArticleResponse {
 			throw new IllegalArgumentException("Article position does not exist");
 		}
 
-		sb.append("<div class=\"mainArticle\">")
-				.append("<a href=\"jsp/ArticleView.jsp?id=")
+		sb.append("<a href=\"jsp/ArticleView.jsp?id=")
 				.append(id)
 				.append("\"><img class=\"mainImage\" src=\"")
 				.append(img)
