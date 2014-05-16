@@ -104,9 +104,7 @@ public class DisplayQueries {
 			
 			
 		}
-		LinkedHashMap<Article, UserInfo> articleMap2 = new LinkedHashMap<Article, UserInfo>();
-		articleMap2.put(new Article(2, "a", "Not this", "again","a", 1), new UserInfo(1, "this doesnt actually", "work"));
-		return articleMap2;
+		return null;
  
 	}
 
