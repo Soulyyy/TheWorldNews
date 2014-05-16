@@ -14,7 +14,8 @@ function latestnews() {
 			success: function(resp) {
 				console.log(resp);
 				console.log(resp[0]);
-				$(".latestNewsDisplay").html("<div class=\"itemeven\">"+resp[0]+"</div><div class=\"itemodd\">"+resp[1]+"</div><div class=\"itemeven\">"+resp[2]+"</div><div class=\"itemodd\">"+resp[3]+"</div><div class=\"itemeven\">"+resp[4]+"</div>");
+				var id = parseInt(resp[0]);
+				$(".latestNewsDisplay").html("<div class=\"itemeven\"><a href=\"http://gold-experience.herokuapp.com/jsp/ArticleView.jsp?id="+resp[0]"\">"+resp[1]+"</a></div><div class=\"itemodd\"><a href=\"http://gold-experience.herokuapp.com/jsp/ArticleView.jsp?id="+resp[0]"\">"+resp[2]+"<div class=\"itemeven\"><a href=\"http://gold-experience.herokuapp.com/jsp/ArticleView.jsp?id="+resp[0]"\">"+resp[3]+"</div><div class=\"itemodd\"><a href=\"http://gold-experience.herokuapp.com/jsp/ArticleView.jsp?id="+resp[0]"\">"+resp[4]+"</div><div class=\"itemeven\"><a href=\"http://gold-experience.herokuapp.com/jsp/ArticleView.jsp?id="+resp[0]"\">"+resp[5]+"</div>");
 			}
 	});
 

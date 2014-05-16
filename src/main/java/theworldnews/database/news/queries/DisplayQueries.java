@@ -101,7 +101,7 @@ public class DisplayQueries {
 
 			Logger.getLogger(DisplayQueries.class.getName()).log(Level.SEVERE,
 					e.getMessage(), e);
-			// return errors.toString();
+
 
 		}
 		return null;

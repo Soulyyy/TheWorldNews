@@ -10,14 +10,20 @@ import java.util.logging.Logger;
 public class latest {
 
 	public static String[] getlatest(Connection con) {
-		String query = "SELECT header FROM newsarticles ORDER BY id DESC LIMIT 5";
+		String query = "SELECT id,header FROM newsarticles ORDER BY id DESC LIMIT 5";
 		String[] la;
 		try (PreparedStatement pst = con.prepareStatement(query)) {
 			ResultSet rs = pst.executeQuery();
-			la = new String[5];
+			la = new String[6];
 			int i = 0;
 			while (rs.next()) {
-				la[i] = rs.getString(1);
+				if (i==0){
+				la[0] = rs.getString(1);
+				}
+				else{
+				la[i] = rs.getString(2);
+			
+				}
 				i += 1;
 			}
 			return la;
