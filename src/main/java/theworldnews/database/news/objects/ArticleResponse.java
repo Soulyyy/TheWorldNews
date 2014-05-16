@@ -1,6 +1,7 @@
 package theworldnews.database.news.objects;
 
 import java.util.TreeMap;
+import java.util.Map.Entry;
 
 import theworldnews.database.users.objects.UserInfo;
 
@@ -15,10 +16,11 @@ public class ArticleResponse {
 	 *            left=1, right=2
 	 * @return jsp representation of article without content
 	 */
-	public static String previewArticle(Article article, UserInfo userinfo,
+	public static String previewArticle(Entry<Article, UserInfo> articleEntry,
 			int position) {
 		StringBuilder sb = new StringBuilder();
-
+		Article article = articleEntry.getKey();
+		UserInfo userinfo = articleEntry.getValue();
 		String img = article.image;
 		String header = article.header;
 		Integer id = article.id;

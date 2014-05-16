@@ -5,7 +5,6 @@ import java.io.PrintWriter;
 import java.net.URISyntaxException;
 import java.sql.Connection;
 import java.sql.SQLException;
-import java.util.Map.Entry;
 import java.util.TreeMap;
 
 import javax.servlet.ServletException;
@@ -47,34 +46,28 @@ public class PreviewController extends HttpServlet {
 			StringBuilder sb = new StringBuilder();
 			int i = 0;
 			while (!articles.isEmpty()) {
-				Entry<Article, UserInfo> entry;
 				if (articles.size() == 2 && ((i % 3 == 1) || (i % 3 == 0))) {
-					entry = articles.firstEntry();
-					sb.append(ArticleResponse.previewArticle(entry.getKey(),
-							entry.getValue(), 1));
+					sb.append(ArticleResponse.previewArticle(
+							articles.firstEntry(), 1));
 					articles.pollFirstEntry();
-					entry = articles.firstEntry();
-					sb.append(ArticleResponse.previewArticle(entry.getKey(),
-							entry.getValue(), 2));
+					sb.append(ArticleResponse.previewArticle(
+							articles.firstEntry(), 2));
 					articles.pollFirstEntry();
 					sb.append(ArticleResponse.clearDiv());
 				} else {
 					if (i % 3 == 0) {
-						entry = articles.firstEntry();
 						sb.append(ArticleResponse.previewArticle(
-								entry.getKey(), entry.getValue(), 0));
+								articles.firstEntry(), 0));
 						articles.pollFirstEntry();
 						i++;
 					} else if (i % 3 == 1) {
-						entry = articles.firstEntry();
 						sb.append(ArticleResponse.previewArticle(
-								entry.getKey(), entry.getValue(), 1));
+								articles.firstEntry(), 1));
 						articles.pollFirstEntry();
 						i++;
 					} else if (i % 3 == 2) {
-						entry = articles.firstEntry();
 						sb.append(ArticleResponse.previewArticle(
-								entry.getKey(), entry.getValue(), 2));
+								articles.firstEntry(), 2));
 						articles.pollFirstEntry();
 						i++;
 						sb.append(ArticleResponse.clearDiv());
