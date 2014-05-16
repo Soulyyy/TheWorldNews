@@ -1,5 +1,6 @@
 package theworldnews.database.news.objects;
 
+import java.util.LinkedHashMap;
 import java.util.List;
 
 import theworldnews.database.users.objects.UserInfo;
@@ -110,5 +111,29 @@ public class ArticleResponse {
 
 		return sb.toString();
 
+	}
+	
+	public static String editArticle(LinkedHashMap<Article, UserInfo> article){
+		Article a = article.keySet().iterator().next();
+		
+		StringBuilder sb = new StringBuilder();
+		sb.append("<fieldset id=\"editingFieldset\" name=\"edit\">")
+    	.append("<legend>Article</legend>")
+    	.append("<label class=\"titleText\">Article Title</label>")
+    	.append("<input id=\"titleInput\" class=\"input-block\" type=\"text\" value=\"")
+    	.append(a.header)
+    	.append("\">")
+        .append("<label class=\"titleText\">Image URL</label>")
+        .append("<input id=\"Image\" class=\"input-block\" type=\"text\" value=\"")
+        .append(a.image)
+        .append("\">")
+        .append("<label class=\"titleText\">Article Text</label>")
+        .append("<textarea id=\"textArea\">"
+        		+ a.content
+        		+ "</textarea>")
+        .append("</fieldset>");
+		
+		return sb.toString();
+		
 	}
 }

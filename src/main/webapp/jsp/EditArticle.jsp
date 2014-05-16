@@ -45,30 +45,14 @@
 			
 			
 			<div id="createarticle">
+			<jsp:include page="/editArticle">
+			<jsp:param value="<%= request.getParameter("id")%>" name="id"/>
+			</jsp:include>
 
                         
-            	<fieldset id="editingFieldset" name="edit">
-                	
-                    <legend>Article</legend>
+            	
                 
-
-    				<label class="titleText">Article Title</label>
-                    
-    				<input id="titleInput" class="input-block" type="text" value="">
-                    
-                    
-                    <label class="titleText">Image URL</label>
-                    
-    				<input id="Image" class="input-block" type="text" value="">
-
-
-    				<label class="titleText">Article Text</label>
-                     
-
-                    <textarea id="textArea"></textarea>
-                    
- 
-                </fieldset>
+                
 				<div class="clear"></div>
                 <input checked type="checkbox" name="type" id="News" value="News">News
 				<input type="checkbox" name="type" id="Business" value="Business">Business
