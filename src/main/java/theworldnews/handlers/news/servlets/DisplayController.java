@@ -40,12 +40,11 @@ public class DisplayController extends HttpServlet {
 
 			Integer articleid = Integer.parseInt(id);
 
-			LinkedHashMap<Article, UserInfo> article = DisplayQueries.getDisplayarticleById(con, articleid);
-			// out.print(article);
+			LinkedHashMap<Article, UserInfo> article = DisplayQueries.getViewarticleById(con, articleid);
 			Article key = article.keySet().iterator().next();
 			UserInfo value = article.get(key);
 			key.image = img;
-			out.print(ArticleResponse.displayArticle(key, value));
+			out.print(ArticleResponse.previewArticle(key, value));
 
 		} catch (SQLException | URISyntaxException e) {
 			resp.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR,
