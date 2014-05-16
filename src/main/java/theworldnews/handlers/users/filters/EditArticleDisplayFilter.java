@@ -14,8 +14,6 @@ public class EditArticleDisplayFilter implements Filter {
 
 		Integer loginRights = (Integer) req.getSession().getAttribute("LOGIN_RIGHTS");
 
-		Integer articleId = Integer.valueOf(req.getParameter("id"));
-
 		if (loginRights == null || loginRights < 1) {
 			res.sendRedirect("/Index.jsp");
 		} else {
