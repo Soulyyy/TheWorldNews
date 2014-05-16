@@ -9,7 +9,8 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
+import java.io.StringWriter;
+import java.io.PrintWriter;
 import theworldnews.database.news.objects.*;
 import theworldnews.database.users.objects.UserInfo;
 
@@ -60,8 +61,7 @@ public class DisplayQueries {
 	 *            field value in table newsarticles
 	 * @return Article with content with the given id
 	 */
-	public static LinkedHashMap<Article, UserInfo> getViewarticleById(
-			Connection con, int id) {
+	public static String getViewarticleById(Connection con, int id) {
 
 		try {
 			String query = "SELECT userinfo.userid, userinfo.firstname, userinfo.surname,newsarticles.image,"
@@ -84,18 +84,22 @@ public class DisplayQueries {
 			LinkedHashMap<Article, UserInfo> articleMap = new LinkedHashMap<Article, UserInfo>();
 			articleMap.put(article, userinfo);
 		
-			return articleMap;
-			}
 			
-			rs.close();
-			pst.close();
+			}
+				pst.close();
+			return "a";
+		
 		} catch (SQLException e) {
 
-			Logger.getLogger(DisplayQueries.class.getName()).log(Level.SEVERE,
-					e.getMessage(), e);
+			StringWriter errors = new StringWriter();
+
+			e.printStackTrace(new PrintWriter(errors));
+
+ 			Logger.getLogger(DisplayQueries.class.getName()).log(Level.SEVERE, e.getMessage(), e);
+			return errors.toString();
 			
 		}
-		return null;
+ 
 	}
 
 	/**
