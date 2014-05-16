@@ -24,11 +24,11 @@ public class DisplayQueries {
 	 *            field value in table newsarticles
 	 * @return Article without content
 	 */
-	public static Map<Article, UserInfo> getDisplayarticleById(Connection con,
-			int id) {
+	public static TreeMap<Article, UserInfo> getDisplayarticleById(
+			Connection con, int id) {
 		try {
 			String query = "SELECT userinfo.userid, userinfo.firstname, userinfo.surname,newsarticles.image,"
-					+ "newsarticles.header, newsarticles.content, newsarticles.articlegroup FROM userinfo"
+					+ "newsarticles.header, newsarticles.articlegroup FROM userinfo"
 					+ "INNER JOIN newsarticles ON userinfo.userid=newsarticles.author WHERE userinfo.userid=?";
 			// String query =
 			// "SELECT newsarticles.image, newsarticles.header, newsarticles.content, newsarticles.articlegroup, newsarticles.author,"
@@ -38,17 +38,18 @@ public class DisplayQueries {
 			pst.setInt(1, id);
 			ResultSet rs = pst.executeQuery();
 			String image = rs.getString("image");
-			String content = rs.getString("content");
 			String header = rs.getString("header");
 			String articlegroup = rs.getString("articlegroup");
 			int authorid = rs.getInt("author");
-			Article article = new Article(id, image, content, header,
-					articlegroup, authorid);
+			Article article = new Article(id, image, header, articlegroup,
+					authorid);
 			String firstname = rs.getString("firstname");
 			String surname = rs.getString("surname");
 			UserInfo userinfo = new UserInfo(authorid, firstname, surname);
-			Map<Article, UserInfo> articleMap = new HashMap<Article, UserInfo>();
+			TreeMap<Article, UserInfo> articleMap = new TreeMap<Article, UserInfo>();
 			articleMap.put(article, userinfo);
+			rs.close();
+			pst.close();
 			return articleMap;
 
 		} catch (SQLException e) {
@@ -65,10 +66,13 @@ public class DisplayQueries {
 	 *            field value in table newsarticles
 	 * @return Article with content with the given id
 	 */
-	public static Article getViewarticleById(Connection con, int id) {
+	public static TreeMap<Article, UserInfo> getViewarticleById(Connection con,
+			int id) {
 
 		try {
-			String query = "SELECT image, header, content, articlegroup, author FROM newsarticles WHERE id = ?";
+			String query = "SELECT userinfo.userid, userinfo.firstname, userinfo.surname,newsarticles.image,"
+					+ "newsarticles.header, newsarticles.content, newsarticles.articlegroup FROM userinfo"
+					+ "INNER JOIN newsarticles ON userinfo.userid=newsarticles.author WHERE userinfo.userid=?";
 			PreparedStatement pst = con.prepareStatement(query);
 			pst.setInt(1, id);
 			ResultSet rs = pst.executeQuery();
@@ -78,12 +82,17 @@ public class DisplayQueries {
 				String content = rs.getString("content");
 				String articlegroup = rs.getString("articlegroup");
 				int authorid = rs.getInt("author");
+				String firstname = rs.getString("firstname");
+				String surname = rs.getString("surname");
 
 				Article article = new Article(id, image, header, content,
 						articlegroup, authorid);
+				UserInfo userinfo = new UserInfo(id, firstname, surname);
+				TreeMap<Article, UserInfo> articleMap = new TreeMap<Article, UserInfo>();
+				articleMap.put(article, userinfo);
 				rs.close();
 				pst.close();
-				return article;
+				return articleMap;
 			} else {
 				return null;
 			}
@@ -127,6 +136,8 @@ public class DisplayQueries {
 						rs.getString("firstname"), rs.getString("surname"));
 				articleMap.put(article, userinfo);
 			}
+			rs.close();
+			pst.close();
 			return articleMap;
 		} catch (SQLException e) {
 			Logger lgr = Logger.getLogger(DisplayQueries.class.getName());
