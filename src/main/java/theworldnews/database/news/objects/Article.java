@@ -10,16 +10,24 @@ public class Article {
 	public String header; // Header text
 	public String content; // Content text
 	public String articlegroup; // String of groups where the article is
-	// displayed
+								// displayed
 	public int authorid; // user id of the author
 
 	/**
-	 * @param id int, serial primary key of the database entry
-	 * @param image String, url of the image
-	 * @param header String, header of the article
-	 * @param content String, content of the article
-	 * @param articlegroup String, list of groups the article belongs to, int in the database
-	 * @param authorid int, id value from the users table, corresponds to the creator of the article
+	 * @param id
+	 *            int, serial primary key of the database entry
+	 * @param image
+	 *            String, url of the image
+	 * @param header
+	 *            String, header of the article
+	 * @param content
+	 *            String, content of the article
+	 * @param articlegroup
+	 *            String, list of groups the article belongs to, int in the
+	 *            database
+	 * @param authorid
+	 *            int, id value from the users table, corresponds to the creator
+	 *            of the article
 	 */
 	public Article(int id, String image, String header, String content, String articlegroup, int authorid) {
 		this.id = id;
@@ -32,13 +40,21 @@ public class Article {
 
 	/**
 	 *
-	 * @param id int, serial primary key of the database entry
-	 * @param image String, url of the image
-	 * @param header String, header of the article
-	 * @param articleGroup String, list of groups the article belongs to, int in the database
-	 * @param authorid int, id value from the users table, corresponds to the creator of the article
+	 * @param id
+	 *            int, serial primary key of the database entry
+	 * @param image
+	 *            String, url of the image
+	 * @param header
+	 *            String, header of the article
+	 * @param articleGroup
+	 *            String, list of groups the article belongs to, int in the
+	 *            database
+	 * @param authorid
+	 *            int, id value from the users table, corresponds to the creator
+	 *            of the article
 	 */
-	public Article(int id, String image, String header, String articleGroup, int authorid) {
+	public Article(int id, String image, String header, String articleGroup,
+			int authorid) {
 		this(id, image, header, null, articleGroup, authorid);
 	}
 
