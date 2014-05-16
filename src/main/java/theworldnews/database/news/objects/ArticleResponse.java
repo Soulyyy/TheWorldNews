@@ -1,8 +1,5 @@
 package theworldnews.database.news.objects;
 
-import java.util.TreeMap;
-import java.util.Map.Entry;
-
 import theworldnews.database.users.objects.UserInfo;
 
 public class ArticleResponse {
@@ -22,7 +19,6 @@ public class ArticleResponse {
 		String img = article.image;
 		String header = article.header;
 		Integer id = article.id;
-		Integer authorID = article.authorid;
 		String firstname = userinfo.firstname;
 		String surname = userinfo.surname;
 
