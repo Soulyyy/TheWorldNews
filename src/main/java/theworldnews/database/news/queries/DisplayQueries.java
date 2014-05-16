@@ -74,7 +74,7 @@ public class DisplayQueries {
 			String header = rs.getString("header");
 			String content = rs.getString("content");
 			String articlegroup = rs.getString("articlegroup");
-			int authorid = rs.getInt("author");
+			int authorid = rs.getInt("userid");
 			String firstname = rs.getString("firstname");
 			String surname = rs.getString("surname");
 
