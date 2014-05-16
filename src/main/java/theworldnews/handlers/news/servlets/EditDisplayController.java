@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import theworldnews.database.connection.DatabaseConnection;
 import theworldnews.database.news.objects.Article;
+import theworldnews.database.news.objects.ArticleResponse;
 import theworldnews.database.news.queries.DisplayQueries;
 
 @WebServlet(value = "/editArticleDisplay")
@@ -45,14 +46,13 @@ public class EditDisplayController extends HttpServlet {
 			try (Connection con = DatabaseConnection.getConnection()) {
 				PrintWriter out = resp.getWriter();
 				out.println(userId);
+				
 				List<Article> articles;
 
 				articles = DisplayQueries.getEditViewArticlesByAuthor(con,
 						userId);
 
-				while (!articles.isEmpty()) {
-					out.println(articles.remove(0).header);
-				}
+				out.print(ArticleResponse.editDisplayArticle(articles));
 
 			} catch (SQLException | URISyntaxException e) {
 				resp.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR,
