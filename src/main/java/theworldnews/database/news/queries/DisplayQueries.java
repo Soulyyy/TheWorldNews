@@ -88,14 +88,15 @@ public class DisplayQueries {
 			return articleMap;
 			}
 			
-				rs.close();
+			rs.close();
 			pst.close();
 		} catch (SQLException e) {
 
 			Logger.getLogger(DisplayQueries.class.getName()).log(Level.SEVERE,
 					e.getMessage(), e);
-			return null;
+			
 		}
+		return null;
 	}
 
 	/**
