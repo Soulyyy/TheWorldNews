@@ -41,7 +41,7 @@ public class DisplayController extends HttpServlet {
 			Integer articleid = Integer.parseInt(id);
 
 			LinkedHashMap<Article, UserInfo> article = DisplayQueries
-					.getViewarticleById(con, articleid);
+					.getDisplayarticleById(con, articleid);
 			Article key = article.keySet().iterator().next();
 			UserInfo value = article.get(key);
 			key.image = img;
