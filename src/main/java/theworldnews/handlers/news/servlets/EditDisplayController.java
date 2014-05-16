@@ -35,16 +35,17 @@ public class EditDisplayController extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 
-		int userId = (int) req.getSession().getAttribute("LOGIN_USER");
+		int userAuth = (int) req.getSession().getAttribute("LOGIN_USER");
+		int userId = (int) req.getSession().getAttribute("LOGIN_ID");
 
-		if (userId == 0) {
+		if (userAuth == 0) {
 			resp.sendError(HttpServletResponse.SC_UNAUTHORIZED);
 
-		} else if (userId > 0) {
+		} else if (userAuth > 0) {
 
 			try (Connection con = DatabaseConnection.getConnection()) {
 				PrintWriter out = resp.getWriter();
-				out.println(userId);
+				out.println(userAuth);
 				List<Article> articles;
 
 				articles = DisplayQueries.getEditViewArticlesByAuthor(con,
