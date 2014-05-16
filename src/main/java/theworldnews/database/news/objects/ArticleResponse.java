@@ -2,10 +2,13 @@ package theworldnews.database.news.objects;
 
 public class ArticleResponse {
 
-	//TODO: load html from file and replace fields?
+	// TODO: load html from file and replace fields?
 	/**
-	 * @param article : Object of type Article without content
-	 * @param position : int, position of the article in the previews page, top=0, left=1, right=2
+	 * @param article
+	 *            : Object of type Article without content
+	 * @param position
+	 *            : int, position of the article in the previews page, top=0,
+	 *            left=1, right=2
 	 * @return jsp representation of article without content
 	 */
 	public static String previewArticle(Article article, int position) {
@@ -22,7 +25,8 @@ public class ArticleResponse {
 		} else if (position == 2) {
 			sb.append("<div class=\"rightArticle\">");
 		} else {
-			throw new IllegalArgumentException("Article position does not exist");
+			throw new IllegalArgumentException(
+					"Article position does not exist");
 		}
 
 		sb.append("<a href=\"jsp/ArticleView.jsp?id=")
@@ -31,39 +35,36 @@ public class ArticleResponse {
 				.append(img)
 				.append("\" alt=\"pilt\"></a>")
 				.append("<p class=\"mainText\"><a href=\"jsp/ArticleView.jsp?id=")
-				.append(id)
-				.append("\">")
-				.append(header).append("</a></p>")
+				.append(id).append("\">").append(header).append("</a></p>")
 				.append("</div>");
 
 		return sb.toString();
 	}
 
 	/**
-	 * @param article : Object of type Article with content
+	 * @param article
+	 *            : Object of type Article with content
 	 * @return : jsp representation of article with conent
 	 */
 	public static String displayArticle(Article article) {
 		StringBuilder sb = new StringBuilder();
 		Integer id = article.id;
-		String img = "a";
+		String img;
+		try {
+			img = article.image;
+		} catch (Exception e) {
+			img = "a";
+		}
 		String header = article.header;
 		String content = article.content;
 
 		sb.append("<div class=\"mainArticle\">")
-				.append("<a href=\"ArticleView.jsp?id=")
-				.append(id)
-				.append("\"><img class=\"mainImage\" src=\"")
-				.append(img)
+				.append("<a href=\"ArticleView.jsp?id=").append(id)
+				.append("\"><img class=\"mainImage\" src=\"").append(img)
 				.append("\" alt=\"pilt\"></a>")
 				.append("<p class=\"mainText\"><a href=\"ArticleView.jsp?id=")
-				.append(id)
-				.append("\">")
-				.append(header)
-				.append("</a></p>")
-				.append(clearDiv())
-				.append(content)
-				.append("</div>");
+				.append(id).append("\">").append(header).append("</a></p>")
+				.append(clearDiv()).append(content).append("</div>");
 
 		return sb.toString();
 	}
@@ -73,13 +74,10 @@ public class ArticleResponse {
 		String img = article.image;
 		String header = article.header;
 		sb.append("<div class=\"sideNews\">")
-				.append("<a href=\"#\"><img class=\"img\" src=\"")
-				.append(img)
+				.append("<a href=\"#\"><img class=\"img\" src=\"").append(img)
 				.append("\" alt=\"pilt\"></a>")
-				.append("<p class=\"sideText\"><a href=\"#\">")
-				.append(header)
-				.append("</a></p>")
-				.append("</div>");
+				.append("<p class=\"sideText\"><a href=\"#\">").append(header)
+				.append("</a></p>").append("</div>");
 
 		return sb.toString();
 	}

@@ -8,7 +8,7 @@ $(this).ready(function() {
 });
 
 function latestnews() {
-	$.ajax("/latestN", {
+	$.ajax("/latestNews", {
 			type: "GET",
 			dataType:'json',
 			success: function(resp) {

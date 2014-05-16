@@ -29,8 +29,7 @@ public class Article {
 	 *            int, id value from the users table, corresponds to the creator
 	 *            of the article
 	 */
-	public Article(int id, String image, String header, String content,
-			String articlegroup, int authorid) {
+	public Article(int id, String image, String header, String content, String articlegroup, int authorid) {
 		this.id = id;
 		this.image = image;
 		this.header = header;

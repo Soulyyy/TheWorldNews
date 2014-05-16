@@ -109,7 +109,8 @@ public class DisplayQueries {
 			Connection con, int number, String type) {
 		try {
 			int articlegroup = ArticlegroupEncoding.stringToInt(type);
-			String query = "SELECT id,image,header,articlegroup,author,clickcount FROM newsarticles WHERE articlegroup % ? =0 ORDER BY id DESC limit ?";
+			String query = "SELECT id,image,header,articlegroup,author,clickcount FROM newsarticles WHERE"
+					+ " articlegroup % ? =0 ORDER BY id DESC limit ?";
 			PreparedStatement pst = con.prepareStatement(query);
 			pst.setInt(1, articlegroup);
 			pst.setInt(2, number);
@@ -117,13 +118,9 @@ public class DisplayQueries {
 			List<Article> articleArray = new ArrayList<>();
 
 			while (rs.next()) {
-				int id = rs.getInt("id");
-				String image = rs.getString("image");
-				String header = rs.getString("header");
-				String articlegroupString = rs.getString("articlegroup");
-				int author = rs.getInt("author");
-				articleArray.add(new Article(id, image, header,
-						articlegroupString, author));
+				articleArray.add(new Article(rs.getInt("id"), rs
+						.getString("image"), rs.getString("header"), rs
+						.getString("articlegroup"), rs.getInt("author")));
 			}
 			return articleArray;
 		} catch (SQLException e) {
@@ -152,13 +149,9 @@ public class DisplayQueries {
 			List<Article> articleArray = new ArrayList<>();
 
 			while (rs.next()) {
-				int id = rs.getInt("id");
-				String image = rs.getString("image");
-				String header = rs.getString("header");
-				String articlegroupString = rs.getString("articlegroup");
-				int author = rs.getInt("author");
-				articleArray.add(new Article(id, image, header,
-						articlegroupString, author));
+				articleArray.add(new Article(rs.getInt("id"), rs
+						.getString("image"), rs.getString("header"), rs
+						.getString("articlegroup"), rs.getInt("author")));
 			}
 			return articleArray;
 		} catch (SQLException e) {
@@ -178,14 +171,10 @@ public class DisplayQueries {
 			List<Article> articleArray = new ArrayList<>();
 
 			while (rs.next()) {
-				int id = rs.getInt("id");
-				String image = rs.getString("image");
-				String header = rs.getString("header");
-				String content = rs.getString("content");
-				String articlegroup = rs.getString("articlegroup");
-				int authorid = rs.getInt("authorid");
-				articleArray.add(new Article(id, image, header, content,
-						articlegroup, authorid));
+				articleArray.add(new Article(rs.getInt("id"), rs
+						.getString("image"), rs.getString("header"), rs
+						.getString("content"), rs.getString("articlegroup"), rs
+						.getInt("author")));
 			}
 			return articleArray;
 		} catch (SQLException e) {

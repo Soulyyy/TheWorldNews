@@ -9,6 +9,7 @@ import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 import theworldnews.database.connection.DatabaseConnection;
+import theworldnews.database.users.objects.User;
 import theworldnews.database.users.queries.AuthenticationQueries;
 
 /**
@@ -41,7 +42,7 @@ public class LoginController extends HttpServlet {
 				resp.getWriter().write("{\"accessRights\": " + accessRights + "}");
 			}
 		} else if (action.equals("logout")) {
-			if (username.equals("test")) {
+			if (username != null && username.equals("test")) {
 				try (Connection con = DatabaseConnection.getConnection()) {
 					String query = "DELETE FROM users WHERE users.username = ?";
 					PreparedStatement pst = con.prepareStatement(query);
@@ -73,10 +74,16 @@ public class LoginController extends HttpServlet {
 		}
 
 		try {
-			int i = AuthenticationQueries.loginWithAccessrights(username, password);
+			User u = AuthenticationQueries.loginVerification(username, password);
+			if (u == null) {
+				resp.getWriter().write("{\"accessRights\": " + -1 + "}");
+			} else {
+				sess.setAttribute("LOGIN_ID", u.id);
+				sess.setAttribute("LOGIN_USER", u.username);
+				sess.setAttribute("LOGIN_RIGHTS", u.accessrights);
 
-			sess.setAttribute("LOGIN_RIGHTS", i);
-			resp.getWriter().write("{\"accessRights\": " + i + "}");
+				resp.getWriter().write("{\"accessRights\": " + u.accessrights + "}");
+			}
 		} catch (SQLException | URISyntaxException e) {
 			resp.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, e.getMessage());
 		}
