@@ -80,7 +80,7 @@ public class DisplayQueries {
 
 			Article article = new Article(id, image, header, content,
 					articlegroup, authorid);
-			UserInfo userinfo = new UserInfo(id, firstname, surname);
+			UserInfo userinfo = new UserInfo(authorid, firstname, surname);
 			LinkedHashMap<Article, UserInfo> articleMap = new LinkedHashMap<Article, UserInfo>();
 			articleMap.put(article, userinfo);
 			rs.close();
