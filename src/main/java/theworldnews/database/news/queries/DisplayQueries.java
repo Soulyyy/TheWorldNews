@@ -65,7 +65,7 @@ public class DisplayQueries {
 	 *            field value in table newsarticles
 	 * @return Article with content with the given id
 	 */
-	public static LinkedHashMap<Article, UserInfo> getViewarticleById(Connection con, int id) {
+	public static String getViewarticleById(Connection con, int id) {
 
 		try {
 			String query = "SELECT userinfo.userid, userinfo.firstname, userinfo.surname,newsarticles.image,"
@@ -87,7 +87,7 @@ public class DisplayQueries {
 			UserInfo userinfo = new UserInfo(authorid, firstname, surname);
 			LinkedHashMap<Article, UserInfo> articleMap = new LinkedHashMap<Article, UserInfo>();
 			articleMap.put(article, userinfo);
-			return articleMap;
+			return "a";
 			
 			}
 			
@@ -101,13 +101,13 @@ public class DisplayQueries {
 			e.printStackTrace(new PrintWriter(errors));
 
  			Logger.getLogger(DisplayQueries.class.getName()).log(Level.SEVERE, e.getMessage(), e);
-			// return errors.toString();
+			return errors.toString();
 			
 			
 		}
 		LinkedHashMap<Article, UserInfo> articleMap2 = new LinkedHashMap<Article, UserInfo>();
-		articleMap2.put(new Article(1, "a", "Not this", "again","a", 1), new UserInfo(2, "doesnt actually", "work"));
-		return articleMap2;
+		articleMap2.put(new Article(1, "a", "Not this", "again","a", 1), new UserInfo(2, "this doesnt actually", "work"));
+		return "b";
  
 	}
 
