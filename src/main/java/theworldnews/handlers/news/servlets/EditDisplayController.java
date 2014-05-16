@@ -44,7 +44,7 @@ public class EditDisplayController extends HttpServlet {
 		if(userId==0) {
 			resp.sendError(HttpServletResponse.SC_UNAUTHORIZED);
 		}
-		else if(userId==1) {
+		else if(userId > 0) {
 			
 			try (Connection con = DatabaseConnection.getConnection()) {
 				PrintWriter out = resp.getWriter();
