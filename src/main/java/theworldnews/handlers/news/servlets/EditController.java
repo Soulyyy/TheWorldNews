@@ -49,9 +49,9 @@ public class EditController extends HttpServlet {
 					.getViewarticleById(con, articleid);
 			out.print(article);
 			out.print(id);
-			Article key = article.keySet().iterator().next();
-			UserInfo value = article.get(key);
-			out.print(ArticleResponse.editArticle(key));
+//			Article key = article.keySet().iterator().next();
+//			UserInfo value = article.get(key);
+//			out.print(ArticleResponse.editArticle(key));
 
 		} catch (SQLException | URISyntaxException e) {
 			resp.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR,
