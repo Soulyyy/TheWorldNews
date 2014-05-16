@@ -52,9 +52,7 @@ public class EditDisplayController extends HttpServlet {
 				List<Article> articles;
 				articles = DisplayQueries.getEditViewArticlesByAuthor(con, userId);
 				
-				while(!articles.isEmpty()){
-					out.println(articles.remove(0).header);
-				}
+				out.println(ArticleResponse.editDisplayArticle(articles));
 
 			} catch (SQLException | URISyntaxException e) {
 				resp.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR,

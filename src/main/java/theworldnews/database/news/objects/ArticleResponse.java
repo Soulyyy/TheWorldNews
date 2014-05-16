@@ -1,5 +1,6 @@
 package theworldnews.database.news.objects;
 
+import java.util.List;
 import java.util.TreeMap;
 import java.util.Map.Entry;
 
@@ -96,5 +97,24 @@ public class ArticleResponse {
 
 	public static String clearDiv() {
 		return "<div class=\"clear\"></div>";
+	}
+	
+	
+	public static String editDisplayArticle(List<Article> articles){
+		
+		
+		StringBuilder sb = new StringBuilder();
+		while(!articles.isEmpty()){
+			Article article = articles.remove(0);
+			Integer id = article.id;
+			String header = article.header;
+			sb.append("<p class=\"mainText\"><a href=\"EditArticle.jsp?id=")
+			.append(id).append("\">").append(header).append("</a></p>");
+			sb.append(clearDiv());
+		}
+		
+		
+		return sb.toString();
+		
 	}
 }
