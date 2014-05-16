@@ -5,6 +5,7 @@ import java.io.PrintWriter;
 import java.net.URISyntaxException;
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.LinkedHashMap;
 import java.util.TreeMap;
 
 import javax.servlet.ServletException;
@@ -40,10 +41,12 @@ public class DisplayController extends HttpServlet {
 
 			Integer articleid = Integer.parseInt(id);
 
-			TreeMap<Article, UserInfo> article = DisplayQueries
+			LinkedHashMap<Article, UserInfo> article = DisplayQueries
 					.getViewarticleById(con, articleid);
-			article.firstKey().image = img;
-			out.print(ArticleResponse.displayArticle(article));
+			Article key = article.keySet().iterator().next();
+			UserInfo value = article.get(key);
+			key.image = img;
+			out.print(ArticleResponse.displayArticle(key, value));
 
 		} catch (SQLException | URISyntaxException e) {
 			resp.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR,

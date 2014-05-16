@@ -16,11 +16,9 @@ public class ArticleResponse {
 	 *            left=1, right=2
 	 * @return jsp representation of article without content
 	 */
-	public static String previewArticle(Entry<Article, UserInfo> articleEntry,
+	public static String previewArticle(Article article, UserInfo userinfo,
 			int position) {
 		StringBuilder sb = new StringBuilder();
-		Article article = articleEntry.getKey();
-		UserInfo userinfo = articleEntry.getValue();
 		String img = article.image;
 		String header = article.header;
 		Integer id = article.id;
@@ -57,9 +55,7 @@ public class ArticleResponse {
 	 *            : Object of type Article with content
 	 * @return : jsp representation of article with conent
 	 */
-	public static String displayArticle(TreeMap<Article, UserInfo> articleTree) {
-		Article article = articleTree.firstKey();
-		UserInfo userinfo = articleTree.get(article);
+	public static String displayArticle(Article article, UserInfo userinfo) {
 		StringBuilder sb = new StringBuilder();
 		Integer id = article.id;
 		String img;

@@ -5,6 +5,8 @@ import java.io.PrintWriter;
 import java.net.URISyntaxException;
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.LinkedHashMap;
+import java.util.Map;
 import java.util.TreeMap;
 
 import javax.servlet.ServletException;
@@ -41,34 +43,41 @@ public class PreviewController extends HttpServlet {
 			Integer size = Integer.parseInt(sizeStr);
 
 			// Treemap has overhead but it gives ordering.
-			TreeMap<Article, UserInfo> articles = DisplayQueries
+			LinkedHashMap<Article, UserInfo> articles = DisplayQueries
 					.getDisplayarticlesByNumberAndType(con, size, type);
 			StringBuilder sb = new StringBuilder();
 			int i = 0;
+			Article key;
+			UserInfo value;
 			while (!articles.isEmpty()) {
 				if (articles.size() == 2 && ((i % 3 == 1) || (i % 3 == 0))) {
-					sb.append(ArticleResponse.previewArticle(
-							articles.firstEntry(), 1));
-					articles.pollFirstEntry();
-					sb.append(ArticleResponse.previewArticle(
-							articles.firstEntry(), 2));
-					articles.pollFirstEntry();
+					key = articles.keySet().iterator().next();
+					value = articles.get(key);
+					sb.append(ArticleResponse.previewArticle(key, value, 1));
+					articles.remove(key);
+					key = articles.keySet().iterator().next();
+					value = articles.get(key);
+					sb.append(ArticleResponse.previewArticle(key, value, 2));
+					articles.remove(key);
 					sb.append(ArticleResponse.clearDiv());
 				} else {
 					if (i % 3 == 0) {
-						sb.append(ArticleResponse.previewArticle(
-								articles.firstEntry(), 0));
-						articles.pollFirstEntry();
+						key = articles.keySet().iterator().next();
+						value = articles.get(key);
+						sb.append(ArticleResponse.previewArticle(key, value, 0));
+						articles.remove(key);
 						i++;
 					} else if (i % 3 == 1) {
-						sb.append(ArticleResponse.previewArticle(
-								articles.firstEntry(), 1));
-						articles.pollFirstEntry();
+						key = articles.keySet().iterator().next();
+						value = articles.get(key);
+						sb.append(ArticleResponse.previewArticle(key, value, 1));
+						articles.remove(key);
 						i++;
 					} else if (i % 3 == 2) {
-						sb.append(ArticleResponse.previewArticle(
-								articles.firstEntry(), 2));
-						articles.pollFirstEntry();
+						key = articles.keySet().iterator().next();
+						value = articles.get(key);
+						sb.append(ArticleResponse.previewArticle(key, value, 2));
+						articles.remove(key);
 						i++;
 						sb.append(ArticleResponse.clearDiv());
 					}

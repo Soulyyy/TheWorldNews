@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.TreeMap;
 import java.util.logging.Level;
@@ -22,7 +23,7 @@ public class DisplayQueries {
 	 *            field value in table newsarticles
 	 * @return Article without content
 	 */
-	public static TreeMap<Article, UserInfo> getDisplayarticleById(
+	public static LinkedHashMap<Article, UserInfo> getDisplayarticleById(
 			Connection con, int id) {
 		try {
 			String query = "SELECT userinfo.userid, userinfo.firstname, userinfo.surname,newsarticles.image,"
@@ -44,7 +45,7 @@ public class DisplayQueries {
 			String firstname = rs.getString("firstname");
 			String surname = rs.getString("surname");
 			UserInfo userinfo = new UserInfo(authorid, firstname, surname);
-			TreeMap<Article, UserInfo> articleMap = new TreeMap<Article, UserInfo>();
+			LinkedHashMap<Article, UserInfo> articleMap = new LinkedHashMap<Article, UserInfo>();
 			articleMap.put(article, userinfo);
 			rs.close();
 			pst.close();
@@ -64,8 +65,8 @@ public class DisplayQueries {
 	 *            field value in table newsarticles
 	 * @return Article with content with the given id
 	 */
-	public static TreeMap<Article, UserInfo> getViewarticleById(Connection con,
-			int id) {
+	public static LinkedHashMap<Article, UserInfo> getViewarticleById(
+			Connection con, int id) {
 
 		try {
 			String query = "SELECT userinfo.userid, userinfo.firstname, userinfo.surname,newsarticles.image,"
@@ -86,7 +87,7 @@ public class DisplayQueries {
 				Article article = new Article(id, image, header, content,
 						articlegroup, authorid);
 				UserInfo userinfo = new UserInfo(id, firstname, surname);
-				TreeMap<Article, UserInfo> articleMap = new TreeMap<Article, UserInfo>();
+				LinkedHashMap<Article, UserInfo> articleMap = new LinkedHashMap<Article, UserInfo>();
 				articleMap.put(article, userinfo);
 				rs.close();
 				pst.close();
@@ -113,7 +114,7 @@ public class DisplayQueries {
 	 * @return List of n Article objects which belong to the groups defined by
 	 *         type
 	 */
-	public static TreeMap<Article, UserInfo> getDisplayarticlesByNumberAndType(
+	public static LinkedHashMap<Article, UserInfo> getDisplayarticlesByNumberAndType(
 			Connection con, int number, String type) {
 		try {
 			int articlegroup = ArticlegroupEncoding.stringToInt(type);
@@ -124,7 +125,7 @@ public class DisplayQueries {
 			pst.setInt(1, articlegroup);
 			pst.setInt(2, number);
 			ResultSet rs = pst.executeQuery();
-			TreeMap<Article, UserInfo> articleMap = new TreeMap<Article, UserInfo>();
+			LinkedHashMap<Article, UserInfo> articleMap = new LinkedHashMap<Article, UserInfo>();
 			System.out.println("Bangarang BAMBABMA");
 			while (rs.next()) {
 				System.out.println("Booyajka");
@@ -141,7 +142,7 @@ public class DisplayQueries {
 		} catch (SQLException e) {
 			Logger lgr = Logger.getLogger(DisplayQueries.class.getName());
 			lgr.log(Level.SEVERE, e.getMessage(), e);
-			return new TreeMap<Article, UserInfo>();
+			return new LinkedHashMap<Article, UserInfo>();
 		}
 	}
 
