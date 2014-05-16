@@ -22,46 +22,40 @@ import theworldnews.database.news.queries.DisplayQueries;
 public class EditDisplayController extends HttpServlet {
 
 	/**
-	 * 
+	 *
 	 */
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * Gets all the articles the user has a right to edit If the user has
-	 * accessrights 0, return 401- Unauthorized If the user has accessrights 1,
-	 * return a jsp with articles he created If the user has accessrights 2,
-	 * return all articles
+	 * Gets all the articles the user has a right to edit If the user has accessrights 0, return 401- Unauthorized If
+	 * the user has accessrights 1, return a jsp with articles he created If the user has accessrights 2, return all
+	 * articles
 	 */
 	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
-			throws ServletException, IOException {
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-		int userAuth = (int) req.getSession().getAttribute("LOGIN_RIGHTS");
-		int userId = (int) req.getSession().getAttribute("LOGIN_ID");
+		Integer userAuth = (Integer) req.getSession().getAttribute("LOGIN_RIGHTS");
+		Integer userId = (Integer) req.getSession().getAttribute("LOGIN_ID");
 
-
-		if (userAuth == 0) {
+		if (userAuth == null || userId == null) {
 			resp.sendError(HttpServletResponse.SC_UNAUTHORIZED);
+			return;
+		}
 
-		} else if (userAuth > 0) {
-
+		if (userAuth > 0) {
 			try (Connection con = DatabaseConnection.getConnection()) {
 				PrintWriter out = resp.getWriter();
 				out.println(userAuth);
 
 				List<Article> articles;
 
-				articles = DisplayQueries.getEditViewArticlesByAuthor(con,
-						userId);
+				articles = DisplayQueries.getEditViewArticlesByAuthor(con, userId);
 
 				out.print(ArticleResponse.editDisplayArticle(articles));
 
 			} catch (SQLException | URISyntaxException e) {
-				resp.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR,
-						e.getMessage());
+				resp.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, e.getMessage());
 			}
-
 		}
 	}
-
 }
