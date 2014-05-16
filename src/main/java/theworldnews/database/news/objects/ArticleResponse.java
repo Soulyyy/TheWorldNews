@@ -114,8 +114,8 @@ public class ArticleResponse {
 	}
 	
 	public static String editArticle(LinkedHashMap<Article, UserInfo> article){
-		
 		Article a = article.keySet().iterator().next();
+
 		
 		StringBuilder sb = new StringBuilder();
 		sb.append("<fieldset id=\"editingFieldset\" name=\"edit\">")
