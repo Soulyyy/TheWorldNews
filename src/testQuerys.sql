@@ -1,8 +1,8 @@
 
 
-SELECT userinfo.userid, userinfo.firstname, userinfo.surname,newsarticles.image,newsarticles.header,newsarticles.articlegroup,clickcount FROM userinfo
-					INNER JOIN newsarticles ON userinfo.userid=newsarticles.author WHERE
-					articlegroup % 2 =0 ORDER BY id DESC limit 18;
+SELECT userinfo.userid, userinfo.firstname, userinfo.surname,newsarticles.image,
+					newsarticles.header, newsarticles.content, newsarticles.articlegroup FROM userinfo
+					INNER JOIN newsarticles ON userinfo.userid=newsarticles.author WHERE newsarticles.id=42;
 
 SELECT * from userinfo;
 SELECT * FROM users;

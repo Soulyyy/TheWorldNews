@@ -70,7 +70,7 @@ public class DisplayQueries {
 		try {
 			String query = "SELECT userinfo.userid, userinfo.firstname, userinfo.surname,newsarticles.image,"
 					+ "newsarticles.header, newsarticles.content, newsarticles.articlegroup FROM userinfo"
-					+ "INNER JOIN newsarticles ON userinfo.userid=newsarticles.author WHERE userinfo.userid=?";
+					+ "INNER JOIN newsarticles ON userinfo.userid=newsarticles.author WHERE newsarticles.id=?";
 			PreparedStatement pst = con.prepareStatement(query);
 			pst.setInt(1, id);
 			ResultSet rs = pst.executeQuery();
