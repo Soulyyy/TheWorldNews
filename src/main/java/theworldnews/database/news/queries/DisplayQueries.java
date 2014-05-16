@@ -27,11 +27,7 @@ public class DisplayQueries {
 		try {
 			String query = "SELECT userinfo.userid, userinfo.firstname, userinfo.surname,newsarticles.image,"
 					+ "newsarticles.header, newsarticles.articlegroup FROM userinfo"
-					+ "INNER JOIN newsarticles ON userinfo.userid=newsarticles.author WHERE userinfo.userid=?";
-			// String query =
-			// "SELECT newsarticles.image, newsarticles.header, newsarticles.content, newsarticles.articlegroup, newsarticles.author,"
-			// +
-			// "newsarticles.authorid, users.firstname , users.lastname FROM newsarticles WHERE id = ?";
+					+ "INNER JOIN newsarticles ON userinfo.userid=newsarticles.author WHERE newsarticle.id=?";
 			PreparedStatement pst = con.prepareStatement(query);
 			pst.setInt(1, id);
 			ResultSet rs = pst.executeQuery();
