@@ -140,8 +140,8 @@ public class DisplayQueries {
 		} catch (SQLException e) {
 			Logger lgr = Logger.getLogger(DisplayQueries.class.getName());
 			lgr.log(Level.SEVERE, e.getMessage(), e);
+			return null;
 		}
-		return null;
 	}
 
 	/**
