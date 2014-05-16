@@ -130,7 +130,7 @@ public class DisplayQueries {
 				System.out.println("Booyajka");
 				Article article = new Article(rs.getInt("userid"),
 						rs.getString("image"), rs.getString("header"),
-						rs.getString("articlegroup"), rs.getInt("author"));
+						rs.getString("articlegroup"), rs.getInt("userid"));
 				UserInfo userinfo = new UserInfo(rs.getInt("userid"),
 						rs.getString("firstname"), rs.getString("surname"));
 				articleMap.put(article, userinfo);
