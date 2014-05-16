@@ -226,5 +226,29 @@ public class DisplayQueries {
 		return null;
 
 	}
+	
+	public static List<Article> getLatestNews(Connection con) {
+		String query = "SELECT id, header, articlegroup, author FROM newsarticles order by id DESC limit 5";
+		try {
+			PreparedStatement pst = con.prepareStatement(query);
+			ResultSet rs = pst.executeQuery();
+			List<Article> articleArray = new ArrayList<>();
+
+			while (rs.next()) {
+				int id = rs.getInt("id");
+				String header = rs.getString("header");
+				String articlegroupString = rs.getString("articlegroup");
+				int author = rs.getInt("author");
+				articleArray.add(new Article(id, header, articlegroupString,
+						author));
+			}
+			return articleArray;
+		} catch (SQLException e) {
+			Logger lgr = Logger.getLogger(DisplayQueries.class.getName());
+			lgr.log(Level.SEVERE, e.getMessage(), e);
+			return null;
+		}
+
+	}
 
 }
