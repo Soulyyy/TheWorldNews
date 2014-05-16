@@ -45,13 +45,13 @@ public class EditController extends HttpServlet {
 
 			Integer articleid = Integer.parseInt(id);
 			
-			LinkedHashMap<Article, UserInfo> article = new LinkedHashMap<Article, UserInfo>();
-			article = DisplayQueries.getDisplayarticleById(con, articleid);
+			LinkedHashMap<Article, UserInfo> article = DisplayQueries.getDisplayarticleById(con, articleid);
+			
 			out.print(article);
 			out.print(id);
-//			Article key = article.keySet().iterator().next();
-//			UserInfo value = article.get(key);
-//			out.print(ArticleResponse.editArticle(key));
+			Article key = article.keySet().iterator().next();
+			UserInfo value = article.get(key);
+			out.print(ArticleResponse.editArticle(key));
 
 		} catch (SQLException | URISyntaxException e) {
 			resp.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR,
