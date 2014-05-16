@@ -48,7 +48,7 @@ public class EditDisplayController extends HttpServlet {
 			
 			try (Connection con = DatabaseConnection.getConnection()) {
 				PrintWriter out = resp.getWriter();
-
+				out.println(userId);
 				List<Article> articles;
 				articles = DisplayQueries.getEditViewArticlesByAuthor(con, userId);
 				
