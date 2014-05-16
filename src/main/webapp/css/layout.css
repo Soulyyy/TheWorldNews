@@ -51,6 +51,23 @@ html,body
     cursor:pointer;
 }
 
+
+
+#toggleLogin{
+    text-decoration: none;
+    color:#999;
+    font: 1.3vw/1 Helvetica, Verdana, sans-serif;
+    text-transform: uppercase;
+    background-color:#FFF;
+    border:none;
+    transition: all 0.5s ease;
+    float: right;
+    margin-right: 0px;
+    padding: 0 1.0vw;
+    visibility:hidden;
+    cursor:pointer;
+}
+
 #authorize-button {
     text-decoration: none;
     color:#999;

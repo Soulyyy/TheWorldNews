@@ -10,8 +10,10 @@ import org.eclipse.jetty.websocket.api.UpgradeResponse;
 import org.eclipse.jetty.websocket.servlet.*;
 
 @WebServlet(value = "/feed")
-public class LatestNewsSocketController extends WebSocketServlet implements WebSocketCreator {
+public class LatestNewsSocketController extends WebSocketServlet implements
+		WebSocketCreator {
 
+	private static final long serialVersionUID = 1L;
 	private List<LatestNewsSocket> sockets;
 	private ServletContext context;
 
@@ -53,13 +55,16 @@ public class LatestNewsSocketController extends WebSocketServlet implements WebS
 		factory.setCreator(this);
 	}
 
-	private static void publish(LatestNewsSocketController controller, ServletContext context) {
+	private static void publish(LatestNewsSocketController controller,
+			ServletContext context) {
 		// see @WebListener and @WebFilter for details about servlet init
-		context.setAttribute(LatestNewsSocketController.class.getName(), controller);
+		context.setAttribute(LatestNewsSocketController.class.getName(),
+				controller);
 	}
 
 	public static LatestNewsSocketController find(ServletContext context) {
-		return (LatestNewsSocketController) context.getAttribute(LatestNewsSocketController.class.getName());
+		return (LatestNewsSocketController) context
+				.getAttribute(LatestNewsSocketController.class.getName());
 	}
 
 }

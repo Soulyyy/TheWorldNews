@@ -42,7 +42,7 @@ public class EditQueries {
 
 	public static int editArticle(Connection con, Article article) {
 		try {
-			String query = "UPDATE newsarticles SET image=?, header= ?, content=?, articlegroup=? WHERE authorid=?";
+			String query = "UPDATE newsarticles SET image=?, header= ?, content=?, articlegroup=? WHERE authorid=? RETURNING ID";
 			PreparedStatement pst = con.prepareStatement(query);
 
 			pst.setString(1, article.image);
