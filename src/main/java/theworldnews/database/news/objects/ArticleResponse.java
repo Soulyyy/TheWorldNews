@@ -42,7 +42,7 @@ public class ArticleResponse {
 				.append("\"><img class=\"mainImage\" src=\"")
 				.append(img)
 				.append("\" alt=\"pilt\"></a>")
-				.append("By" + firstname + " " + surname)
+				.append("By " + firstname + " " + surname)
 				.append("<p class=\"mainText\"><a href=\"jsp/ArticleView.jsp?id=")
 				.append(id).append("\">").append(header).append("</a></p>")
 				.append("</div>");
@@ -73,7 +73,7 @@ public class ArticleResponse {
 				.append("<a href=\"ArticleView.jsp?id=").append(id)
 				.append("\"><img class=\"mainImage\" src=\"").append(img)
 				.append("\" alt=\"pilt\"></a>")
-				.append("By" + firstname + " " + surname)
+				.append("By " + firstname + " " + surname)
 				.append("<p class=\"mainText\"><a href=\"ArticleView.jsp?id=")
 				.append(id).append("\">").append(header).append("</a></p>")
 				.append(clearDiv()).append(content).append("</div>");

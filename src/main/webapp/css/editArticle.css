@@ -1,34 +1,91 @@
 @charset "UTF-8";
 html,body
 {
-	margin-left:auto;
-	margin-right:auto;
-	width:80%;
-	overflow-x:hidden;
+    margin-left:auto;
+    margin-right:auto;
+    width:80%;
+    overflow-x:hidden;
 
 }
+
 #logReg {
-	position: fixed;
-	left:80%;
-	margin-top:-30px;
+    position: fixed;
+    left:80%;
+    margin-top:-30px;
+}
+
+#header {
+    z-index:1;
 }
 
 .Head {
-	text-decoration: none;
-	color:#000;
-	font: 1.3vw/1 Helvetica, Verdana, sans-serif;
-	text-transform: uppercase;
-	background-color:#FFF;
-	border:none;
-	transition: all 0.5s ease;
-	float: left;
-	margin-right: 0px;
-	padding: 0 1.0vw;
+    text-decoration: none;
+    color:#000;
+    font: 1.3vw/1 Helvetica, Verdana, sans-serif;
+    text-transform: uppercase;
+    background-color:#FFF;
+    border:none;
+    transition: all 0.5s ease;
+    float: left;
+    margin-right: 0px;
+    padding: 0 1.0vw;
 }
-	
+
 #logoButtons {
-	
+
 }
+
+
+#toggleLogin{
+    text-decoration: none;
+    color:#999;
+    font: 1.3vw/1 Helvetica, Verdana, sans-serif;
+    text-transform: uppercase;
+    background-color:#FFF;
+    border:none;
+    transition: all 0.5s ease;
+    float: right;
+    margin-right: 0px;
+    padding: 0 1.0vw;
+    visibility:hidden;
+    cursor:pointer;
+}
+
+
+
+
+#toggleLogin{
+    text-decoration: none;
+    color:#999;
+    font: 1.3vw/1 Helvetica, Verdana, sans-serif;
+    text-transform: uppercase;
+    background-color:#FFF;
+    border:none;
+    transition: all 0.5s ease;
+    float: right;
+    margin-right: 0px;
+    padding: 0 1.0vw;
+    visibility:hidden;
+    cursor:pointer;
+}
+
+
+
+#toggleLogin{
+    text-decoration: none;
+    color:#999;
+    font: 1.3vw/1 Helvetica, Verdana, sans-serif;
+    text-transform: uppercase;
+    background-color:#FFF;
+    border:none;
+    transition: all 0.5s ease;
+    float: right;
+    margin-right: 0px;
+    padding: 0 1.0vw;
+    visibility:hidden;
+    cursor:pointer;
+}
+
 
 
 #authorize-button {
@@ -47,6 +104,59 @@ html,body
  
 	
 	}
+	
+	#regi {
+    text-decoration: none;
+    color:#999;
+    font: 0.8vw/1 Helvetica, Verdana, sans-serif;
+    text-transform: uppercase;
+    background-color:#FFF;
+    border:none;
+    transition: all 0.5s ease;
+    display: table;
+    margin: 0 auto;
+    text-align: center; 
+    padding: 0 1.0vw;
+    cursor:pointer;
+    visibility: inherit;
+}
+
+#login {
+    text-decoration: none;
+    color:#999;
+    font: 0.8vw/1 Helvetica, Verdana, sans-serif;
+    text-transform: uppercase;
+    background-color:#FFF;
+    border:none;
+    transition: all 0.5s ease;
+    display: table;
+    margin: 0 auto;
+    text-align: center; 
+    padding: 0 1.0vw;
+    cursor: pointer;
+    visibility: inherit;
+}
+
+#loginbutton {
+    text-decoration: none;
+    color:#999;
+    font: 0.8vw/1 Helvetica, Verdana, sans-serif;
+    text-transform: uppercase;
+    background-color:#FFF;
+    border:none;
+    transition: all 0.5s ease;
+    display: table;
+    margin: 0 auto;
+    text-align: center; 
+    padding: 0 1.0vw;
+    cursor:pointer;
+
+}
+
+#login:hover {
+    color: #666;
+}
+	
 
 #logoutButton{
 	text-decoration: none;
@@ -89,75 +199,157 @@ img.mainImage {
 	
 }
 
-
-
-	
-#logoButtons {
-	margin-top:2.0vw;
-	
-}
-	
 #searchBox {
-	display: table;
+    display: table;
     margin: 0 auto;
-	width:30%;
-	height:1.0vw;
+    width:30%;
+    height:1.0vw;
 
 }
 
-::-webkit-input-placeholder {
-	text-decoration: none;
-	color:#999;
-	font: 1.0vw Helvetica, Verdana, sans-serif;
-	text-transform: uppercase;
-	background-color:#FFF;
-	letter-spacing:1.6vw;
-	display: table;
-    margin: 0 auto;
-	text-align: center; 
-}
+
 
 	
-::-moz-placeholder {
-	text-decoration: none;
-	color:#999;
-	font: 1.0vw/1 Helvetica, Verdana, sans-serif;
-	text-transform: uppercase;
-	background-color:#FFF;
-	border: 1px solid #666;
-	letter-spacing:1.6vw;
-	display: table;
-    margin: 0 auto;
-	text-align: center;
+#loginContainer {
+    position:absolute;
+    float:right;
+    left:70%;
+    width:10.0vw;
+    background-color:#FFF;
+    padding:1.0vw;
+    border:1px solid #666;
+    height:10.0vw;
+    visibility:hidden;
 }
-	
-	
-:-ms-input-placeholder {
-	text-decoration: none;
-	color:#999;
-	font: 1.0vw Helvetica, Verdana, sans-serif;
-	text-transform: uppercase;
-	background-color:#FFF;
-	border: 1px solid #666;
-	letter-spacing:1.6vw;
-	display: table;
-    margin: 0 auto;
-	text-align: center;
+#userName {
+    width:100%;
+    height:1.0vw;
 }
-	
-	
-input:-moz-placeholder {
-	text-decoration: none;
-	color:#999;
-	font: 1.0vw Helvetica, Verdana, sans-serif;
-	text-transform: uppercase;
-	background-color:#FFF;
-	border: 1px solid #666;
-	letter-spacing:1.6vw;
-	display: table;
-    margin: 0 auto;
-	text-align: center;
+
+#password {
+    width:100%;
+    height:1.0vw;
 }
+
+#userName::-webkit-input-placeholder {
+    text-decoration: none;
+    color:#999;
+    font: 0.7vw Helvetica, Verdana, sans-serif;
+    background-color:#FFF;
+    color:#333;
+
+}
+#userName::-moz-placeholder {
+    text-decoration: none;
+    color:#999;
+    font: 0.7vw Helvetica, Verdana, sans-serif;
+    background-color:#FFF;
+    color:#333;
+}
+
+
+#userName:-ms-input-placeholder {
+    text-decoration: none;
+    color:#999;
+    font: 0.7vw Helvetica, Verdana, sans-serif;
+    background-color:#FFF;
+    color:#333;
+}
+
+#userName input:-moz-placeholder {
+    text-decoration: none;
+    color:#999;
+    font: 0.7vw Helvetica, Verdana, sans-serif;
+    background-color:#FFF;
+    color:#333;
+}
+
+#password::-webkit-input-placeholder {
+    text-decoration: none;
+    color:#999;
+    font: 0.7vw Helvetica, Verdana, sans-serif;
+    background-color:#FFF;
+    color:#333;
+
+}
+#password::-moz-placeholder {
+    text-decoration: none;
+    color:#999;
+    font: 0.7vw Helvetica, Verdana, sans-serif;
+    background-color:#FFF;
+    color:#333;
+}
+
+
+#password:-ms-input-placeholder {
+    text-decoration: none;
+    color:#999;
+    font: 0.7vw Helvetica, Verdana, sans-serif;
+    background-color:#FFF;
+    color:#333;
+}
+
+#password input:-moz-placeholder {
+    text-decoration: none;
+    color:#999;
+    font: 0.7vw Helvetica, Verdana, sans-serif;
+    background-color:#FFF;
+    color:#333;
+}
+#searchBox::-webkit-input-placeholder {
+    text-decoration: none;
+    color:#999;
+    font: 1.0vw Helvetica, Verdana, sans-serif;
+    text-transform: uppercase;
+    background-color:#FFF;
+    letter-spacing:1.6vw;
+    display: table;
+    margin: 0 auto;
+    text-align: center; 
+}
+
+
+#searchBox::-moz-placeholder {
+    text-decoration: none;
+    color:#999;
+    font: 1.0vw/1 Helvetica, Verdana, sans-serif;
+    text-transform: uppercase;
+    background-color:#FFF;
+    border: 1px solid #666;
+    letter-spacing:1.6vw;
+    display: table;
+    margin: 0 auto;
+    text-align: center;
+}
+
+
+#searchBox:-ms-input-placeholder {
+    text-decoration: none;
+    color:#999;
+    font: 1.0vw Helvetica, Verdana, sans-serif;
+    text-transform: uppercase;
+    background-color:#FFF;
+    border: 1px solid #666;
+    letter-spacing:1.6vw;
+    display: table;
+    margin: 0 auto;
+    text-align: center;
+}
+
+
+#searchBox input:-moz-placeholder {
+    text-decoration: none;
+    color:#999;
+    font: 1.0vw Helvetica, Verdana, sans-serif;
+    text-transform: uppercase;
+    background-color:#FFF;
+    border: 1px solid #666;
+    letter-spacing:1.6vw;
+    display: table;
+    margin: 0 auto;
+    text-align: center;
+}
+
 
 
 #navigation {
