@@ -1,5 +1,7 @@
 package theworldnews.database.news.objects;
 
+import theworldnews.database.users.objects.UserInfo;
+
 public class ArticleResponse {
 
 	// TODO: load html from file and replace fields?
@@ -11,13 +13,16 @@ public class ArticleResponse {
 	 *            left=1, right=2
 	 * @return jsp representation of article without content
 	 */
-	public static String previewArticle(Article article, int position) {
+	public static String previewArticle(Article article, UserInfo userinfo,
+			int position) {
 		StringBuilder sb = new StringBuilder();
 
 		String img = article.image;
 		String header = article.header;
 		Integer id = article.id;
 		Integer authorID = article.authorid;
+		String firstname = userinfo.firstname;
+		String surname = userinfo.surname;
 
 		if (position == 0) {
 			sb.append("<div class=\"mainArticle\">");

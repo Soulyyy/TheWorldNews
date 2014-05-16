@@ -5,8 +5,8 @@ import java.io.PrintWriter;
 import java.net.URISyntaxException;
 import java.sql.Connection;
 import java.sql.SQLException;
-import java.util.List;
-import java.util.Map;
+import java.util.Map.Entry;
+import java.util.TreeMap;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -26,7 +26,8 @@ public class PreviewController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
+			throws ServletException, IOException {
 		String type = req.getParameter("type");
 		String sizeStr = req.getParameter("size");
 
@@ -40,23 +41,41 @@ public class PreviewController extends HttpServlet {
 			PrintWriter out = resp.getWriter();
 			Integer size = Integer.parseInt(sizeStr);
 
-			Map<Article, UserInfo> articles = DisplayQueries.getDisplayarticlesByNumberAndType(con, size, type);
+			// Treemap has overhead but it gives ordering.
+			TreeMap<Article, UserInfo> articles = DisplayQueries
+					.getDisplayarticlesByNumberAndType(con, size, type);
 			StringBuilder sb = new StringBuilder();
 			int i = 0;
 			while (!articles.isEmpty()) {
+				Entry<Article, UserInfo> entry;
 				if (articles.size() == 2 && ((i % 3 == 1) || (i % 3 == 0))) {
-					sb.append(ArticleResponse.previewArticle(articles.remove(0), 1));
-					sb.append(ArticleResponse.previewArticle(articles.remove(0), 2));
+					entry = articles.firstEntry();
+					sb.append(ArticleResponse.previewArticle(entry.getKey(),
+							entry.getValue(), 1));
+					articles.pollFirstEntry();
+					entry = articles.firstEntry();
+					sb.append(ArticleResponse.previewArticle(entry.getKey(),
+							entry.getValue(), 2));
+					articles.pollFirstEntry();
 					sb.append(ArticleResponse.clearDiv());
 				} else {
 					if (i % 3 == 0) {
-						sb.append(ArticleResponse.previewArticle(articles.remove(0), 0));
+						entry = articles.firstEntry();
+						sb.append(ArticleResponse.previewArticle(
+								entry.getKey(), entry.getValue(), 0));
+						articles.pollFirstEntry();
 						i++;
 					} else if (i % 3 == 1) {
-						sb.append(ArticleResponse.previewArticle(articles.remove(0), 1));
+						entry = articles.firstEntry();
+						sb.append(ArticleResponse.previewArticle(
+								entry.getKey(), entry.getValue(), 1));
+						articles.pollFirstEntry();
 						i++;
 					} else if (i % 3 == 2) {
-						sb.append(ArticleResponse.previewArticle(articles.remove(0), 2));
+						entry = articles.firstEntry();
+						sb.append(ArticleResponse.previewArticle(
+								entry.getKey(), entry.getValue(), 2));
+						articles.pollFirstEntry();
 						i++;
 						sb.append(ArticleResponse.clearDiv());
 					}
@@ -69,7 +88,8 @@ public class PreviewController extends HttpServlet {
 			out.println(news);
 
 		} catch (SQLException | URISyntaxException e) {
-			resp.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, e.getMessage());
+			resp.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR,
+					e.getMessage());
 		}
 	}
 }

@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.TreeMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -105,7 +106,7 @@ public class DisplayQueries {
 	 * @return List of n Article objects which belong to the groups defined by
 	 *         type
 	 */
-	public static Map<Article, UserInfo> getDisplayarticlesByNumberAndType(
+	public static TreeMap<Article, UserInfo> getDisplayarticlesByNumberAndType(
 			Connection con, int number, String type) {
 		try {
 			int articlegroup = ArticlegroupEncoding.stringToInt(type);
@@ -116,7 +117,7 @@ public class DisplayQueries {
 			pst.setInt(1, articlegroup);
 			pst.setInt(2, number);
 			ResultSet rs = pst.executeQuery();
-			Map<Article, UserInfo> articleMap = new HashMap<Article, UserInfo>();
+			TreeMap<Article, UserInfo> articleMap = new TreeMap<Article, UserInfo>();
 
 			while (rs.next()) {
 				Article article = new Article(rs.getInt("userid"),
