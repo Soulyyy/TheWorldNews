@@ -74,21 +74,20 @@ public class DisplayQueries {
 			PreparedStatement pst = con.prepareStatement(query);
 			pst.setInt(1, id);
 			ResultSet rs = pst.executeQuery();
-			if(rs.first()){
-			String image = rs.getString("image");
-			String header = rs.getString("header");
-			String content = rs.getString("content");
-			String articlegroup = rs.getString("articlegroup");
-			int authorid = rs.getInt("userid");
-			String firstname = rs.getString("firstname");
-			String surname = rs.getString("surname");
+			if(rs.next()){
+				String image = rs.getString("image");
+				String header = rs.getString("header");
+				String content = rs.getString("content");
+				String articlegroup = rs.getString("articlegroup");
+				int authorid = rs.getInt("userid");
+				String firstname = rs.getString("firstname");
+				String surname = rs.getString("surname");
 
-			Article article = new Article(id, image, header, content,articlegroup, authorid);
-			UserInfo userinfo = new UserInfo(authorid, firstname, surname);
-			LinkedHashMap<Article, UserInfo> articleMap = new LinkedHashMap<Article, UserInfo>();
-			articleMap.put(article, userinfo);
-			return articleMap;
-			
+				Article article = new Article(id, image, header, content,articlegroup, authorid);
+				UserInfo userinfo = new UserInfo(authorid, firstname, surname);
+				LinkedHashMap<Article, UserInfo> articleMap = new LinkedHashMap<Article, UserInfo>();
+				articleMap.put(article, userinfo);
+				return articleMap;
 			}
 			
 			pst.close();

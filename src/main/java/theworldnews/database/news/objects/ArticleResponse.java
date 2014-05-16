@@ -63,15 +63,15 @@ public class ArticleResponse {
 		String header = article.header;
 		String content = article.content;
 
-		sb.append("<a href=\"jsp/ArticleView.jsp?id=")
+		sb.append("<a href=\"ArticleView.jsp?id=")
 				.append(id + "&image=" + img)
 				.append("\"><img class=\"mainImage\" src=\"")
 				.append(img)
 				.append("\" alt=\"pilt\"></a>")
 				.append("By " + firstname + " " + surname)
-				.append("<p class=\"mainText\"><a href=\"jsp/ArticleView.jsp?id=")
+				.append("<p class=\"mainText\"><a href=\"ArticleView.jsp?id=")
 				.append(id).append("\">").append(header).append("</a></p>")
-				.append("</div>");
+				.append(clearDiv()).append(content).append("</div>");
 
 		return sb.toString();
 	}
