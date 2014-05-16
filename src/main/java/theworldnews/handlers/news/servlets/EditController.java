@@ -40,7 +40,7 @@ public class EditController extends HttpServlet {
 		}
 
 		try (Connection con = DatabaseConnection.getConnection()) {
-			
+
 			PrintWriter out = resp.getWriter();
 
 			Integer articleid = Integer.parseInt(id);
@@ -51,7 +51,6 @@ public class EditController extends HttpServlet {
 			Article key = article.keySet().iterator().next();
 			UserInfo value = article.get(key);
 			out.print(ArticleResponse.editArticle(article));
-
 
 		} catch (SQLException | URISyntaxException e) {
 			resp.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR,
