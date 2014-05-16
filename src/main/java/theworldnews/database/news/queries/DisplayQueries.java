@@ -105,24 +105,28 @@ public class DisplayQueries {
 	 * @return List of n Article objects which belong to the groups defined by
 	 *         type
 	 */
-	public static List<Article> getDisplayarticlesByNumberAndType(
+	public static Map<Article, UserInfo> getDisplayarticlesByNumberAndType(
 			Connection con, int number, String type) {
 		try {
 			int articlegroup = ArticlegroupEncoding.stringToInt(type);
-			String query = "SELECT id,image,header,articlegroup,author,clickcount FROM newsarticles WHERE"
+			String query = "SELECT userinfo.userid, userinfo.firstname, userinfo.surname,newsarticles.image,newsarticles.header,newsarticles.articlegroup,clickcount FROM userinfo"
+					+ "INNER JOIN newsarticles ON userinfo.userid=newsarticles.author WHERE"
 					+ " articlegroup % ? =0 ORDER BY id DESC limit ?";
 			PreparedStatement pst = con.prepareStatement(query);
 			pst.setInt(1, articlegroup);
 			pst.setInt(2, number);
 			ResultSet rs = pst.executeQuery();
-			List<Article> articleArray = new ArrayList<>();
+			Map<Article, UserInfo> articleMap = new HashMap<Article, UserInfo>();
 
 			while (rs.next()) {
-				articleArray.add(new Article(rs.getInt("id"), rs
-						.getString("image"), rs.getString("header"), rs
-						.getString("articlegroup"), rs.getInt("author")));
+				Article article = new Article(rs.getInt("userid"),
+						rs.getString("image"), rs.getString("header"),
+						rs.getString("articlegroup"), rs.getInt("author"));
+				UserInfo userinfo = new UserInfo(rs.getInt("userid"),
+						rs.getString("firstname"), rs.getString("surname"));
+				articleMap.put(article, userinfo);
 			}
-			return articleArray;
+			return articleMap;
 		} catch (SQLException e) {
 			Logger lgr = Logger.getLogger(DisplayQueries.class.getName());
 			lgr.log(Level.SEVERE, e.getMessage(), e);
