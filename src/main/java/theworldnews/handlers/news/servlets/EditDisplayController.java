@@ -39,7 +39,7 @@ public class EditDisplayController extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		
-		int userId = (int)req.getSession().getAttribute("LOGIN_ID");
+		int userId = (int)req.getSession().getAttribute("LOGIN_USER");
 	
 		if(userId==0) {
 			resp.sendError(HttpServletResponse.SC_UNAUTHORIZED);

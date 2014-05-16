@@ -42,7 +42,47 @@
 			</div>
 
 			<div class="profileOptions">
-			<jsp:include page="/editArticleDisplay"></jsp:include>
+			
+			
+			<div id="createarticle">
+
+                        
+            	<fieldset id="editingFieldset" name="edit">
+                	
+                    <legend>Article</legend>
+                
+
+    				<label class="titleText">Article Title</label>
+                    
+    				<input id="titleInput" class="input-block" type="text" value="">
+                    
+                    
+                    <label class="titleText">Image URL</label>
+                    
+    				<input id="Image" class="input-block" type="text" value="">
+
+
+    				<label class="titleText">Article Text</label>
+                     
+
+                    <textarea id="textArea"></textarea>
+                    
+ 
+                </fieldset>
+				<div class="clear"></div>
+                <input checked type="checkbox" name="type" id="News" value="News">News
+				<input type="checkbox" name="type" id="Business" value="Business">Business
+				<input type="checkbox" name="type" id="Sports" value="Sports">Sports
+				<input type="checkbox" name="type" id="Science" value="Science">Science
+				<input type="checkbox" name="type" id="Arts" value="Arts">Arts
+				<input type="checkbox" name="type" id="Fashion" value="Fashion & Style">Fashion & Style
+ 				<br />
+ 				<br />
+                <button  id="articlesubmit">Submit</button>
+                <button  id="Cancel">Cancel</button>
+                                   
+
+ 		</div>
 			
 
 
