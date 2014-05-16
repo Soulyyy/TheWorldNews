@@ -125,8 +125,9 @@ public class DisplayQueries {
 			pst.setInt(2, number);
 			ResultSet rs = pst.executeQuery();
 			TreeMap<Article, UserInfo> articleMap = new TreeMap<Article, UserInfo>();
-
+			System.out.println("Bangarang BAMBABMA");
 			while (rs.next()) {
+				System.out.println("Booyajka");
 				Article article = new Article(rs.getInt("userid"),
 						rs.getString("image"), rs.getString("header"),
 						rs.getString("articlegroup"), rs.getInt("author"));
