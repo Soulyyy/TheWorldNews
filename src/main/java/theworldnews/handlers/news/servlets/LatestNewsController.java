@@ -22,17 +22,19 @@ public class LatestNewsController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
- 
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
+			throws ServletException, IOException {
+
 		try (Connection con = DatabaseConnection.getConnection()) {
 			Gson gson = new Gson();
 
 			String[] test = latest.getlatest(con);
 			String test2 = gson.toJson(test);
-			
+
 			resp.getWriter().write(test2);
 		} catch (SQLException | URISyntaxException e) {
-			resp.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, e.getMessage());
+			resp.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR,
+					e.getMessage());
 		}
 	}
 }

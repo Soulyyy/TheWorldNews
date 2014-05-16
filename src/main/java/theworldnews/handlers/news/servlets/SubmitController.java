@@ -41,6 +41,7 @@ public class SubmitController extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		try (Connection con = DatabaseConnection.getConnection()) {
 			Article article = gson.fromJson(req.getReader(), Article.class);
+			article.authorid=(Integer)req.getSession().getAttribute("LOGIN_ID");
 			System.out.println(article.articlegroup);
 
 			EditQueries.addArticle(con, article);

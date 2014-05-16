@@ -5,11 +5,14 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import theworldnews.database.news.objects.*;
+import theworldnews.database.users.objects.UserInfo;
 
 public class DisplayQueries {
 
@@ -20,9 +23,16 @@ public class DisplayQueries {
 	 *            field value in table newsarticles
 	 * @return Article without content
 	 */
-	public static Article getDisplayarticleById(Connection con, int id) {
+	public static Map<Article, UserInfo> getDisplayarticleById(Connection con,
+			int id) {
 		try {
-			String query = "SELECT image, header, content, articlegroup, author FROM newsarticles WHERE id = ?";
+			String query = "SELECT userinfo.userid, userinfo.firstname, userinfo.surname,newsarticles.image,"
+					+ "newsarticles.header, newsarticles.content, newsarticles.articlegroup FROM userinfo"
+					+ "INNER JOIN newsarticles ON userinfo.userid=newsarticles.author WHERE userinfo.userid=?";
+			// String query =
+			// "SELECT newsarticles.image, newsarticles.header, newsarticles.content, newsarticles.articlegroup, newsarticles.author,"
+			// +
+			// "newsarticles.authorid, users.firstname , users.lastname FROM newsarticles WHERE id = ?";
 			PreparedStatement pst = con.prepareStatement(query);
 			pst.setInt(1, id);
 			ResultSet rs = pst.executeQuery();
@@ -33,7 +43,12 @@ public class DisplayQueries {
 			int authorid = rs.getInt("author");
 			Article article = new Article(id, image, content, header,
 					articlegroup, authorid);
-			return article;
+			String firstname = rs.getString("firstname");
+			String surname = rs.getString("surname");
+			UserInfo userinfo = new UserInfo(authorid, firstname, surname);
+			Map<Article, UserInfo> articleMap = new HashMap<Article, UserInfo>();
+			articleMap.put(article, userinfo);
+			return articleMap;
 
 		} catch (SQLException e) {
 			Logger.getLogger(DisplayQueries.class.getName()).log(Level.SEVERE,
@@ -226,7 +241,7 @@ public class DisplayQueries {
 		return null;
 
 	}
-	
+
 	public static List<Article> getLatestNews(Connection con) {
 		String query = "SELECT id, header, articlegroup, author FROM newsarticles order by id DESC limit 5";
 		try {
@@ -250,5 +265,11 @@ public class DisplayQueries {
 		}
 
 	}
+
+	// public static boolean editPageAuthorization(Connection con, int userid,
+	// int articleid) {
+	//
+	//
+	// }
 
 }
