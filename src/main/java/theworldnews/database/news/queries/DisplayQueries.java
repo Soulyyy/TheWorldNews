@@ -74,26 +74,22 @@ public class DisplayQueries {
 			PreparedStatement pst = con.prepareStatement(query);
 			pst.setInt(1, id);
 			ResultSet rs = pst.executeQuery();
-			if (rs.next()) {
-				String image = rs.getString("image");
-				String header = rs.getString("header");
-				String content = rs.getString("content");
-				String articlegroup = rs.getString("articlegroup");
-				int authorid = rs.getInt("author");
-				String firstname = rs.getString("firstname");
-				String surname = rs.getString("surname");
+			String image = rs.getString("image");
+			String header = rs.getString("header");
+			String content = rs.getString("content");
+			String articlegroup = rs.getString("articlegroup");
+			int authorid = rs.getInt("author");
+			String firstname = rs.getString("firstname");
+			String surname = rs.getString("surname");
 
-				Article article = new Article(id, image, header, content,
-						articlegroup, authorid);
-				UserInfo userinfo = new UserInfo(id, firstname, surname);
-				LinkedHashMap<Article, UserInfo> articleMap = new LinkedHashMap<Article, UserInfo>();
-				articleMap.put(article, userinfo);
-				rs.close();
-				pst.close();
-				return articleMap;
-			} else {
-				return null;
-			}
+			Article article = new Article(id, image, header, content,
+					articlegroup, authorid);
+			UserInfo userinfo = new UserInfo(id, firstname, surname);
+			LinkedHashMap<Article, UserInfo> articleMap = new LinkedHashMap<Article, UserInfo>();
+			articleMap.put(article, userinfo);
+			rs.close();
+			pst.close();
+			return articleMap;
 		} catch (SQLException e) {
 
 			Logger.getLogger(DisplayQueries.class.getName()).log(Level.SEVERE,
