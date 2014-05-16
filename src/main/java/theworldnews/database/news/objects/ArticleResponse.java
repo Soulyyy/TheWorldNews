@@ -57,14 +57,9 @@ public class ArticleResponse {
 	public static String displayArticle(Article article, UserInfo userinfo) {
 		StringBuilder sb = new StringBuilder();
 		Integer id = article.id;
-		String img;
+		String img = article.image;
 		String firstname = userinfo.firstname;
 		String surname = userinfo.surname;
-		try {
-			img = article.image;
-		} catch (Exception e) {
-			img = "a";
-		}
 		String header = article.header;
 		String content = article.content;
 

@@ -79,8 +79,7 @@ public class DisplayQueries {
 			String firstname = rs.getString("firstname");
 			String surname = rs.getString("surname");
 
-			Article article = new Article(id, image, header, content,
-					articlegroup, authorid);
+			Article article = new Article(id, image, header, content,articlegroup, authorid);
 			UserInfo userinfo = new UserInfo(authorid, firstname, surname);
 			LinkedHashMap<Article, UserInfo> articleMap = new LinkedHashMap<Article, UserInfo>();
 			articleMap.put(article, userinfo);
