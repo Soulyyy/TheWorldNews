@@ -277,4 +277,19 @@ public class DisplayQueries {
 	//
 	// }
 
+	// I think this is plain stupid, because we don't NEED any aggregated data
+	// gets. I had this written down in "etapp 2".
+	public static int articlesSubmittedByUser(Connection con, int userid) {
+		String query = "SELECT users.id, COUNT(newsarticles.id) AS NumberOfArticles FROM newsarticles LEFT JOIN users ON users.id=newsarticles.author"
+				+ " WHERE users.id=? GROUP BY users.id";
+		try {
+			PreparedStatement pst = con.prepareStatement(query);
+			ResultSet rs = pst.executeQuery();
+			return rs.getInt("NumberOfArticles");
+		} catch (SQLException e) {
+			Logger lgr = Logger.getLogger(DisplayQueries.class.getName());
+			lgr.log(Level.SEVERE, e.getMessage(), e);
+			return 0;
+		}
+	}
 }
