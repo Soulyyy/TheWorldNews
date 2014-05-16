@@ -276,7 +276,7 @@ public class DisplayQueries {
 		try {
 			PreparedStatement pst = con.prepareStatement(query);
 			ResultSet rs = pst.executeQuery();
-			return rs.getInt("NumberOfArticles");
+			return rs.getInt("numberofarticles");
 		} catch (SQLException e) {
 			Logger lgr = Logger.getLogger(DisplayQueries.class.getName());
 			lgr.log(Level.SEVERE, e.getMessage(), e);
