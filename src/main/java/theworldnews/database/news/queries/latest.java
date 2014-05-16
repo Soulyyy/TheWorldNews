@@ -14,13 +14,12 @@ public class latest {
 		String[] la;
 		try (PreparedStatement pst = con.prepareStatement(query)) {
 			ResultSet rs = pst.executeQuery();
-			la = new String[6];
+			la = new String[10];
 			int i = 0;
 			while (rs.next()) {
-				if (i==0){
-				la[0] = rs.getString(1);
-				}
-				la[i+1] = rs.getString(2);
+				la[i] = rs.getString(1);
+
+				la[i+5] = rs.getString(2);
 			
 				i += 1;
 			}
