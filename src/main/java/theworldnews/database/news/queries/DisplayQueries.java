@@ -28,34 +28,33 @@ public class DisplayQueries {
 		try {
 			String query = "SELECT userinfo.userid, userinfo.firstname, userinfo.surname,newsarticles.image,"
 					+ "newsarticles.header, newsarticles.articlegroup FROM userinfo"
-					+ "INNER JOIN newsarticles ON userinfo.userid=newsarticles.author WHERE newsarticles.id=?";
+					+ "INNER JOIN newsarticles ON userinfo.userid=newsarticles.author WHERE newsarticle.id=?";
 			PreparedStatement pst = con.prepareStatement(query);
 			pst.setInt(1, id);
 			ResultSet rs = pst.executeQuery();
-			if(rs.next()){
-			String image = rs.getString("image");
-			String header = rs.getString("header");
-			String articlegroup = rs.getString("articlegroup");
-			int authorid = rs.getInt("author");
-			Article article = new Article(id, image, header, articlegroup,
-					authorid);
-			String firstname = rs.getString("firstname");
-			String surname = rs.getString("surname");
-			UserInfo userinfo = new UserInfo(authorid, firstname, surname);
-			LinkedHashMap<Article, UserInfo> articleMap = new LinkedHashMap<Article, UserInfo>();
-			articleMap.put(article, userinfo);
-						return articleMap;
-						}
+			if (rs.next()) {
+				String image = rs.getString("image");
+				String header = rs.getString("header");
+				String articlegroup = rs.getString("articlegroup");
+				int authorid = rs.getInt("author");
+				Article article = new Article(id, image, header, articlegroup,
+						authorid);
+				String firstname = rs.getString("firstname");
+				String surname = rs.getString("surname");
+				UserInfo userinfo = new UserInfo(authorid, firstname, surname);
+				LinkedHashMap<Article, UserInfo> articleMap = new LinkedHashMap<Article, UserInfo>();
+				articleMap.put(article, userinfo);
+				return articleMap;
+			}
 			rs.close();
 			pst.close();
-
 
 		} catch (SQLException e) {
 			Logger.getLogger(DisplayQueries.class.getName()).log(Level.SEVERE,
 					e.getMessage(), e);
-	
+
 		}
-				return null;
+		return null;
 	}
 
 	/**
@@ -65,7 +64,8 @@ public class DisplayQueries {
 	 *            field value in table newsarticles
 	 * @return Article with content with the given id
 	 */
-	public static LinkedHashMap<Article, UserInfo> getViewarticleById(Connection con, int id) {
+	public static LinkedHashMap<Article, UserInfo> getViewarticleById(
+			Connection con, int id) {
 
 		try {
 			String query = "SELECT userinfo.userid, userinfo.firstname, userinfo.surname,newsarticles.image,"
@@ -74,7 +74,7 @@ public class DisplayQueries {
 			PreparedStatement pst = con.prepareStatement(query);
 			pst.setInt(1, id);
 			ResultSet rs = pst.executeQuery();
-			if(rs.next()){
+			if (rs.next()) {
 				String image = rs.getString("image");
 				String header = rs.getString("header");
 				String content = rs.getString("content");
@@ -83,29 +83,29 @@ public class DisplayQueries {
 				String firstname = rs.getString("firstname");
 				String surname = rs.getString("surname");
 
-				Article article = new Article(id, image, header, content,articlegroup, authorid);
+				Article article = new Article(id, image, header, content,
+						articlegroup, authorid);
 				UserInfo userinfo = new UserInfo(authorid, firstname, surname);
 				LinkedHashMap<Article, UserInfo> articleMap = new LinkedHashMap<Article, UserInfo>();
 				articleMap.put(article, userinfo);
 				return articleMap;
 			}
-			
+
 			pst.close();
-		
-		
+
 		} catch (SQLException e) {
 
 			StringWriter errors = new StringWriter();
 
 			e.printStackTrace(new PrintWriter(errors));
 
- 			Logger.getLogger(DisplayQueries.class.getName()).log(Level.SEVERE, e.getMessage(), e);
+			Logger.getLogger(DisplayQueries.class.getName()).log(Level.SEVERE,
+					e.getMessage(), e);
 			// return errors.toString();
-			
-			
+
 		}
 		return null;
- 
+
 	}
 
 	/**
