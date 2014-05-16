@@ -14,6 +14,7 @@ public class ArticleResponse {
 		String img = article.image;
 		String header = article.header;
 		Integer id = article.id;
+		Integer authorID = article.
 
 		if (position == 0) {
 			sb.append("<div class=\"mainArticle\">");
@@ -46,7 +47,12 @@ public class ArticleResponse {
 	public static String displayArticle(Article article) {
 		StringBuilder sb = new StringBuilder();
 		Integer id = article.id;
-		String img = "a";
+		String img;
+		try{
+			img = article.image;
+		} catch (Exception e){
+			img = "a";
+		}
 		String header = article.header;
 		String content = article.content;
 
