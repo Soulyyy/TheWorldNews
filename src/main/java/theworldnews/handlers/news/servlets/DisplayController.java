@@ -38,7 +38,6 @@ public class DisplayController extends HttpServlet {
 
 			Article article = DisplayQueries.getViewarticleById(con, articleid);
 			article.image = img;
-			out.println(article.image);
 			out.print(ArticleResponse.displayArticle(article));
  
 		} catch (SQLException | URISyntaxException e) {
