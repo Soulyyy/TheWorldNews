@@ -17,6 +17,7 @@ public class ArticleResponse {
 		String img = article.image;
 		String header = article.header;
 		Integer id = article.id;
+		Integer authorID = article.authorid;
 
 		if (position == 0) {
 			sb.append("<div class=\"mainArticle\">");

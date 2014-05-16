@@ -6,15 +6,19 @@ import java.net.URISyntaxException;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Map;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 import theworldnews.database.connection.DatabaseConnection;
 import theworldnews.database.news.objects.Article;
 import theworldnews.database.news.objects.ArticleResponse;
 import theworldnews.database.news.queries.DisplayQueries;
+import theworldnews.database.users.objects.UserInfo;
 
 @WebServlet(value = "/previewArticle")
 public class PreviewController extends HttpServlet {
@@ -36,8 +40,7 @@ public class PreviewController extends HttpServlet {
 			PrintWriter out = resp.getWriter();
 			Integer size = Integer.parseInt(sizeStr);
 
-			List<Article> articles = DisplayQueries.getDisplayarticlesByNumberAndType(con, size, type);
-
+			Map<Article, UserInfo> articles = DisplayQueries.getDisplayarticlesByNumberAndType(con, size, type);
 			StringBuilder sb = new StringBuilder();
 			int i = 0;
 			while (!articles.isEmpty()) {
