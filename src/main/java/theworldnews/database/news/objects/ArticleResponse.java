@@ -52,7 +52,7 @@ public class ArticleResponse {
 	/**
 	 * @param article
 	 *            : Object of type Article with content
-	 * @return : jsp representation of article with conent
+	 * @return : jsp representation of article with content
 	 */
 	public static String displayArticle(Article article, UserInfo userinfo) {
 		StringBuilder sb = new StringBuilder();

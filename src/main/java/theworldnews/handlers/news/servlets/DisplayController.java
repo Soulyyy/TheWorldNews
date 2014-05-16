@@ -48,7 +48,7 @@ public class DisplayController extends HttpServlet {
 
 		} catch (SQLException | URISyntaxException e) {
 			resp.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR,
-					e.getMessage());
+			e.getMessage());
 		}
 	}
 }
