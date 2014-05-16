@@ -20,10 +20,8 @@ public class latest {
 				if (i==0){
 				la[0] = rs.getString(1);
 				}
-				else{
-				la[i] = rs.getString(2);
+				la[i+1] = rs.getString(2);
 			
-				}
 				i += 1;
 			}
 			return la;
