@@ -32,6 +32,7 @@ public class DisplayQueries {
 			PreparedStatement pst = con.prepareStatement(query);
 			pst.setInt(1, id);
 			ResultSet rs = pst.executeQuery();
+			if(rs.next()){
 			String image = rs.getString("image");
 			String header = rs.getString("header");
 			String articlegroup = rs.getString("articlegroup");
@@ -43,15 +44,18 @@ public class DisplayQueries {
 			UserInfo userinfo = new UserInfo(authorid, firstname, surname);
 			LinkedHashMap<Article, UserInfo> articleMap = new LinkedHashMap<Article, UserInfo>();
 			articleMap.put(article, userinfo);
+						return articleMap;
+						}
 			rs.close();
 			pst.close();
-			return articleMap;
+
 
 		} catch (SQLException e) {
 			Logger.getLogger(DisplayQueries.class.getName()).log(Level.SEVERE,
 					e.getMessage(), e);
-			return null;
+	
 		}
+				return null;
 	}
 
 	/**
