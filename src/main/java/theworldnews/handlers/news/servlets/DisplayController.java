@@ -44,7 +44,7 @@ public class DisplayController extends HttpServlet {
 			Article key = article.keySet().iterator().next();
 			UserInfo value = article.get(key);
 			key.image = img;
-			out.print(ArticleResponse.previewArticle(key, value));
+			out.print(ArticleResponse.displayArticle(key, value));
 
 		} catch (SQLException | URISyntaxException e) {
 			resp.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR,
