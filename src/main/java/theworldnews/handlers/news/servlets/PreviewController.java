@@ -45,7 +45,7 @@ public class PreviewController extends HttpServlet {
 					.getDisplayarticlesByNumberAndType(con, size, type);
 			StringBuilder sb = new StringBuilder();
 			int i = 0;
-			while (!(articles == null) && !articles.isEmpty()) {
+			while (!articles.isEmpty()) {
 				if (articles.size() == 2 && ((i % 3 == 1) || (i % 3 == 0))) {
 					sb.append(ArticleResponse.previewArticle(
 							articles.firstEntry(), 1));
