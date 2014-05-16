@@ -47,6 +47,7 @@ public class EditController extends HttpServlet {
 
 			LinkedHashMap<Article, UserInfo> article = DisplayQueries
 					.getViewarticleById(con, articleid);
+			out.print(article);
 			out.print(id);
 			Article key = article.keySet().iterator().next();
 			UserInfo value = article.get(key);
