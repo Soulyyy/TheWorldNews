@@ -30,7 +30,7 @@ public class ArticleResponse {
 		}
 
 		sb.append("<a href=\"jsp/ArticleView.jsp?id=")
-				.append(id)
+				.append(id + "&image=" + img)
 				.append("\"><img class=\"mainImage\" src=\"")
 				.append(img)
 				.append("\" alt=\"pilt\"></a>")

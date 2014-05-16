@@ -24,6 +24,7 @@
 	<ex:Navigation/>
 	<jsp:include page="/displayArticle">
 	<jsp:param value="<%= request.getParameter("id")%>" name="id"/>
+	<jsp:param value="<%= request.getParameter("image") %>" name="image"/>
 	</jsp:include>
 </body>
 </html>

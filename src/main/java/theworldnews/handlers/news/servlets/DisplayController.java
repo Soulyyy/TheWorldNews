@@ -24,6 +24,7 @@ public class DisplayController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String id = req.getParameter("id");
+		String img = req.getParameter("image");
 		
 		if (id == null) {
 			resp.sendError(HttpServletResponse.SC_BAD_REQUEST);
@@ -36,6 +37,7 @@ public class DisplayController extends HttpServlet {
 			Integer articleid = Integer.parseInt(id);
 
 			Article article = DisplayQueries.getViewarticleById(con, articleid);
+			article.image = img;
 			out.println(article.image);
 			out.print(ArticleResponse.displayArticle(article));
  
