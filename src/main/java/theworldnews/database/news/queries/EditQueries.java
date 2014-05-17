@@ -56,9 +56,8 @@ public class EditQueries {
 			return result;
 		} catch (SQLException e) {
 			Logger.getLogger(EditQueries.class.getName()).log(Level.SEVERE,e.getMessage(), e);
-			return 100;
+			return -1;
 		}
-		return -1;
 	}
 
 }

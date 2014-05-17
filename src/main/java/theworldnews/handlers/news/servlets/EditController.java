@@ -84,7 +84,7 @@ public class EditController extends HttpServlet {
 			article.id = Integer.parseInt(id);
 			int x = EditQueries.editArticle(con, article);
 			resp.setHeader("Content-Type", "application/json");
-			if (x==100){
+			if (x==-1){
 			resp.getWriter().write("asdf");
 			}
 			else{
