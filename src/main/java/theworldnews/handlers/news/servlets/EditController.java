@@ -83,7 +83,6 @@ public class EditController extends HttpServlet {
 			Article article = gson.fromJson(req.getReader(), Article.class);
 			article.id = Integer.parseInt(id);
 			int x = EditQueries.editArticle(con, article);
-			resp.setHeader("Content-Type", "application/json");
 			if (x==-1){
 			resp.getWriter().write("asdf");
 			}
