@@ -42,6 +42,7 @@ public class PreviewController extends HttpServlet {
 
 			// Treemap has overhead but it gives ordering.
 			LinkedHashMap<Article, UserInfo> articles = DisplayQueries.getDisplayarticlesByNumberAndType(con, size, type);
+			LinkedHashMap<Article, UserInfo> test1;
 			StringBuilder sb = new StringBuilder();
 			int i = 0;
 			Article key;
@@ -85,6 +86,7 @@ public class PreviewController extends HttpServlet {
 			req.setAttribute("news", news);
 			req.setAttribute("articles", articles);
 			out.println(news);
+			out.println(test1);
 
 		} catch (SQLException | URISyntaxException e) {
 			resp.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR,
