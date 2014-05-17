@@ -95,12 +95,12 @@
 
 
 <div id="articleGroup" >
-<!-- töötab!! infinite dispatch loop here we go!!! -->
+<!-- tï¿½ï¿½tab!! infinite dispatch loop here we go!!! -->
 <jsp:include page="/previewArticle">
     <jsp:param name="type" value="News"/>
     <jsp:param name="size" value="18"/>
 </jsp:include>
-
+<%out.print(request.getParameter("size")); %>
 </div>
 
 

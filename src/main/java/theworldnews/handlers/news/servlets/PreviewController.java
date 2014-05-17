@@ -28,8 +28,10 @@ public class PreviewController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
+		PrintWriter gg = resp.getWriter();
 		String type = req.getParameter("type");
 		String sizeStr = req.getParameter("size");
+		gg.print(sizeStr);
 
 		if (type == null || sizeStr == null) {
 			resp.sendError(HttpServletResponse.SC_BAD_REQUEST);
@@ -42,11 +44,12 @@ public class PreviewController extends HttpServlet {
 			Integer size = Integer.parseInt(sizeStr);
 
 			// LinkedHashMap is bad as well
-			LinkedHashMap<Article, UserInfo> articles = DisplayQueries.getDisplayarticlesByNumberAndType(con, size, type);
+			LinkedHashMap<Article, UserInfo> articles = DisplayQueries
+					.getDisplayarticlesByNumberAndType(con, size, type);
 			LinkedHashMap<Article, UserInfo> test1 = articles;
-			Set keySet = test1.keySet();
-			Object[] gg = keySet.toArray();
-			out.println(gg.length);
+			out.println(sizeStr);
+			out.println(size);
+
 			StringBuilder sb = new StringBuilder();
 			int i = 0;
 			Article key;
@@ -90,7 +93,6 @@ public class PreviewController extends HttpServlet {
 			req.setAttribute("news", news);
 			req.setAttribute("articles", articles);
 			out.println(news);
-			
 
 		} catch (SQLException | URISyntaxException e) {
 			resp.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR,
