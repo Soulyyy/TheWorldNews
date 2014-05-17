@@ -47,7 +47,7 @@ public class PreviewController extends HttpServlet {
 			Set keySet = test1.keySet();
 			Object[] gg = keySet.toArray();
 			for(Object x: gg){
-				System.out.println(x);
+				out.println(x);
 			}
 			StringBuilder sb = new StringBuilder();
 			int i = 0;
