@@ -31,7 +31,6 @@ public class PreviewController extends HttpServlet {
 		PrintWriter gg = resp.getWriter();
 		String type = req.getParameter("type");
 		String sizeStr = req.getParameter("size");
-		gg.print(sizeStr);
 
 		if (type == null || sizeStr == null) {
 			resp.sendError(HttpServletResponse.SC_BAD_REQUEST);
@@ -46,9 +45,6 @@ public class PreviewController extends HttpServlet {
 			// LinkedHashMap is bad as well
 			LinkedHashMap<Article, UserInfo> articles = DisplayQueries
 					.getDisplayarticlesByNumberAndType(con, size, type);
-			LinkedHashMap<Article, UserInfo> test1 = articles;
-			out.println(sizeStr);
-			out.println(size);
 
 			StringBuilder sb = new StringBuilder();
 			int i = 0;

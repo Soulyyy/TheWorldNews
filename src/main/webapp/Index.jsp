@@ -100,7 +100,6 @@
     <jsp:param name="type" value="News"/>
     <jsp:param name="size" value="18"/>
 </jsp:include>
-<%out.print(request.getParameter("size")); %>
 </div>
 
 
