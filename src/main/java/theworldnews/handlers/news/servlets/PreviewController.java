@@ -46,9 +46,7 @@ public class PreviewController extends HttpServlet {
 			LinkedHashMap<Article, UserInfo> test1 = articles;
 			Set keySet = test1.keySet();
 			Object[] gg = keySet.toArray();
-			for(Object x: gg){
-				out.println(x);
-			}
+			out.println(gg.length);
 			StringBuilder sb = new StringBuilder();
 			int i = 0;
 			Article key;
