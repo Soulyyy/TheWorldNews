@@ -58,7 +58,7 @@ public class EditController extends HttpServlet {
 			LinkedHashMap<Article, UserInfo> article = DisplayQueries.getViewarticleById(con, articleid);
 			
 			// out.print(article);
-			out.print(id);
+			// out.print(id);
 			Article key = article.keySet().iterator().next();
 			UserInfo value = article.get(key);
 			out.print(ArticleResponse.editArticle(key));
@@ -84,7 +84,7 @@ public class EditController extends HttpServlet {
 			article.id = Integer.parseInt(id);
 			EditQueries.editArticle(con, article);
 			resp.setHeader("Content-Type", "application/json");
-			resp.getWriter().write("{\"response\":\"newsarticle edited \"}");
+			resp.getWriter().write(article.id);
 
 		} catch (JsonParseException ex) {
 			resp.sendError(HttpServletResponse.SC_BAD_REQUEST, ex.getMessage());

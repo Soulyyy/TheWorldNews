@@ -35,11 +35,11 @@ $(this).ready(function() {
 					success: function(articledata){   
 						window.location.href = "http://gold-experience.herokuapp.com/Index.jsp";
 					},
-					error:function(req, text) {
+					error:function(resp) {
 						alert("edit fail");
-						console.debug("%o", JSON.stringify(articledata));  
-						console.log(req);
-						console.log(text);
+						// console.debug("%o", JSON.stringify(articledata));  
+						// console.log(req);
+						console.log(resp);
 					}
 
 				});
