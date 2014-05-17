@@ -81,6 +81,7 @@ public class EditController extends HttpServlet {
 
 		try (Connection con = DatabaseConnection.getConnection()) {
 			Article article = gson.fromJson(req.getReader(), Article.class);
+			article.id = Integer.parseInt(id);
 			EditQueries.editArticle(con, article);
 			resp.setHeader("Content-Type", "application/json");
 			resp.getWriter().write("{\"response\":\"newsarticle edited \"}");
