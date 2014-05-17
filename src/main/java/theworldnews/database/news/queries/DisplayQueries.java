@@ -139,6 +139,7 @@ public class DisplayQueries {
 						rs.getString("firstname"), rs.getString("surname"));
 				articleMap.put(article, userinfo);
 			}
+			System.out.println(articleMap.size());
 			rs.close();
 			pst.close();
 			return articleMap;
