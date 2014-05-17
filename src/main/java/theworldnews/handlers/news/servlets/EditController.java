@@ -18,6 +18,10 @@ import theworldnews.database.news.objects.Article;
 import theworldnews.database.news.objects.ArticleResponse;
 import theworldnews.database.news.queries.DisplayQueries;
 import theworldnews.database.users.objects.UserInfo;
+ 
+import com.google.gson.Gson;
+import com.google.gson.JsonParseException;
+import theworldnews.database.news.queries.EditQueries;
 
 @WebServlet(value = "/editArticle")
 public class EditController extends HttpServlet {
@@ -26,13 +30,19 @@ public class EditController extends HttpServlet {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	private Gson gson;
+
+	@Override
+	public void init() throws ServletException {
+		super.init();
+		gson = new Gson();
+	}
 
 	/**
 	 * Get the object to be edited
 	 */
 	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
-			throws ServletException, IOException {
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String id = req.getParameter("id");
 		if (id == null) {
 			resp.sendError(HttpServletResponse.SC_BAD_REQUEST);
@@ -47,15 +57,14 @@ public class EditController extends HttpServlet {
 			
 			LinkedHashMap<Article, UserInfo> article = DisplayQueries.getViewarticleById(con, articleid);
 			
-			out.print(article);
+			// out.print(article);
 			out.print(id);
 			Article key = article.keySet().iterator().next();
 			UserInfo value = article.get(key);
 			out.print(ArticleResponse.editArticle(key));
 
 		} catch (SQLException | URISyntaxException e) {
-			resp.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR,
-					e.getMessage());
+			resp.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR,e.getMessage());
 		}
 
 	}
@@ -63,8 +72,23 @@ public class EditController extends HttpServlet {
 	/**
 	 * Submit edit
 	 */
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
-			throws ServletException, IOException {
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp)throws ServletException, IOException {
+		String id = req.getParameter("id");
+		if (id == null) {
+			resp.sendError(HttpServletResponse.SC_BAD_REQUEST);
+			return;
+		}
 
+		try (Connection con = DatabaseConnection.getConnection()) {
+			Article article = gson.fromJson(req.getReader(), Article.class);
+			EditQueries.editArticle(con, article);
+			resp.setHeader("Content-Type", "application/json");
+			resp.getWriter().write("{\"response\":\"newsarticle edited \"}");
+
+		} catch (JsonParseException ex) {
+			resp.sendError(HttpServletResponse.SC_BAD_REQUEST, ex.getMessage());
+		} catch (SQLException | URISyntaxException e) {
+			resp.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, e.getMessage());
+		}
 	}
 }

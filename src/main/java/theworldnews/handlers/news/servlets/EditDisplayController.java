@@ -45,7 +45,7 @@ public class EditDisplayController extends HttpServlet {
 		if (userAuth > 0) {
 			try (Connection con = DatabaseConnection.getConnection()) {
 				PrintWriter out = resp.getWriter();
-				out.println(userAuth);
+				// out.println(userAuth);
 
 				List<Article> articles;
 

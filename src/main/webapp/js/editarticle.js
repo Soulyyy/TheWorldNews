@@ -1,33 +1,48 @@
 $(this).ready(function() {
- 
-     
-    $('#articleedit').click(function() {
+
+    $('#edit').click(function() {
+    	
         var articledata = new Object();
-        articledata.Title = $("#titleInput").val();
-        articledata.imgURL = $("#Image").val();
-		articledata.text = $("#textArea").val();
-		articledata.articleGroup = $("#articleGroup").val();
+        articledata.image = $("#Image").val();
+        articledata.header = $("#titleInput").val();
+		articledata.content = $("#textArea").val();
+		articledata.articlegroup = "News;";
+		if(document.getElementById('Business').checked) {
+			articledata.articlegroup += "Business;";
+		} if(document.getElementById('Sports').checked) {
+			articledata.articlegroup += "Sports;";
+		} if(document.getElementById('Science').checked) {
+			articledata.articlegroup += "Science;";
+		} if(document.getElementById('Arts').checked) {
+			articledata.articlegroup += "Arts;";
+		} if(document.getElementById('Fashion').checked) {
+			articledata.articlegroup += "Fashion;";
+		}	
+	
  
- 
-        if (!articledata.Title || !articledata.imgURL  || !articledata.text || !articledata.articleGroup) {
+        if (!articledata.image || !articledata.header  || !articledata.content ) {
             alert("Fill all forms.");
 		}
-		else {
-			$.ajax("/editnews",{
-				type:"POST",
-				dataType:'json',
-				data: JSON.stringify(articledata),
-				contentType: 'application/json',
- 
-				success: function(articledata){  
-					console.log("gg");
-				},
-				error:function(req, text) {
-					console.log(req);
-					console.log(text);
-				}
 
-			});
+		else {
+			console.log(articledata.articlegroup);
+			$.ajax("/editArticle",{
+					type:"POST",
+					dataType:'json',
+					data: JSON.stringify(articledata),
+					contentType: 'application/json',
+	 
+					success: function(articledata){   
+						window.location.href = "http://gold-experience.herokuapp.com/Index.jsp";
+					},
+					error:function(req, text) {
+						alert("edit fail");
+						console.debug("%o", JSON.stringify(articledata));  
+						console.log(req);
+						console.log(text);
+					}
+
+				});
 		}
  
 

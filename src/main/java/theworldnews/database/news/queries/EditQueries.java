@@ -42,7 +42,7 @@ public class EditQueries {
 
 	public static int editArticle(Connection con, Article article) {
 		try {
-			String query = "UPDATE newsarticles SET image=?, header= ?, content=?, articlegroup=? WHERE authorid=? RETURNING ID";
+			String query = "UPDATE newsarticles SET image=?, header= ?, content=?, articlegroup=? WHERE id=?";
 			PreparedStatement pst = con.prepareStatement(query);
 
 			pst.setString(1, article.image);
@@ -50,7 +50,7 @@ public class EditQueries {
 			pst.setString(3, article.content);
 			int val = ArticlegroupEncoding.stringToInt(article.articlegroup);
 			pst.setInt(4, val);
-			pst.setInt(5, article.authorid);
+			pst.setInt(5, article.id);
 
 			int result = pst.executeUpdate();
 			return result;
