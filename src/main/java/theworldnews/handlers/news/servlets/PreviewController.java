@@ -6,6 +6,7 @@ import java.net.URISyntaxException;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.LinkedHashMap;
+import java.util.Set;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -40,10 +41,14 @@ public class PreviewController extends HttpServlet {
 			PrintWriter out = resp.getWriter();
 			Integer size = Integer.parseInt(sizeStr);
 
-			// Treemap has overhead but it gives ordering.
+			// LinkedHashMap is bad as well
 			LinkedHashMap<Article, UserInfo> articles = DisplayQueries.getDisplayarticlesByNumberAndType(con, size, type);
 			LinkedHashMap<Article, UserInfo> test1 = articles;
-			out.println(test1);
+			Set keySet = test1.keySet();
+			Object[] gg = keySet.toArray();
+			for(Object x: gg){
+				System.out.println(x);
+			}
 			StringBuilder sb = new StringBuilder();
 			int i = 0;
 			Article key;
