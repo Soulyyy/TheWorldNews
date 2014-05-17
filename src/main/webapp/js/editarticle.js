@@ -25,15 +25,15 @@ $(this).ready(function() {
 		}
 
 		else {
-			console.log(articledata.articlegroup);
 			$.ajax("/editArticle",{
 					type:"POST",
 					dataType:'json',
 					data: JSON.stringify(articledata),
 					contentType: 'application/json',
 	 
-					success: function(articledata){   
-						window.location.href = "http://gold-experience.herokuapp.com/Index.jsp";
+					success: function(resp){   
+						// window.location.href = "http://gold-experience.herokuapp.com/Index.jsp";
+							console.log(resp);
 					},
 					error:function(resp) {
 						alert("edit fail");
