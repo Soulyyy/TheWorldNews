@@ -43,6 +43,7 @@ public class PreviewController extends HttpServlet {
 			// Treemap has overhead but it gives ordering.
 			LinkedHashMap<Article, UserInfo> articles = DisplayQueries.getDisplayarticlesByNumberAndType(con, size, type);
 			LinkedHashMap<Article, UserInfo> test1 = articles;
+			out.println(sizeStr);
 			out.println(size);
 			StringBuilder sb = new StringBuilder();
 			int i = 0;
