@@ -27,8 +27,10 @@ public class PreviewController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
+		PrintWriter gg = resp.getWriter();
 		String type = req.getParameter("type");
 		String sizeStr = req.getParameter("size");
+		gg.print(sizeStr);
 
 		if (type == null || sizeStr == null) {
 			resp.sendError(HttpServletResponse.SC_BAD_REQUEST);
