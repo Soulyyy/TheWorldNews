@@ -42,7 +42,7 @@ public class EditQueries {
 
 	public static int editArticle(Connection con, Article article) {
 		try {
-			String query = "UPDATE newsarticles SET image=?, header= ?, content=?, articlegroup=? WHERE header=?";
+			String query = "UPDATE newsarticles SET image=?, header= ?, content=?, articlegroup=? WHERE id=? RETURNING ID";
 			PreparedStatement pst = con.prepareStatement(query);
 
 			pst.setString(1, article.image);
@@ -50,12 +50,13 @@ public class EditQueries {
 			pst.setString(3, article.content);
 			int val = ArticlegroupEncoding.stringToInt(article.articlegroup);
 			pst.setInt(4, val);
-			pst.setString(5, article.header);
+			pst.setInt(5, article.id);
 
 			int result = pst.executeUpdate();
 			return result;
 		} catch (SQLException e) {
-			Logger.getLogger(EditQueries.class.getName()).log(Level.SEVERE,e.getMessage(), e);
+			Logger.getLogger(EditQueries.class.getName()).log(Level.SEVERE,
+					e.getMessage(), e);
 		}
 		return -1;
 	}
