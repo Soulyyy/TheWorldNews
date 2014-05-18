@@ -38,7 +38,7 @@ public class DisplayController extends HttpServlet {
 		try (Connection con = DatabaseConnection.getConnection()) {
 			PrintWriter out = resp.getWriter();
 
-			Integer articleid = Integer.parseInt(id);
+			int articleid = Integer.parseInt(req.getParameter("id"));
 
 			LinkedHashMap<Article, UserInfo> article = DisplayQueries.getViewarticleById(con, articleid);
 			Article key = article.keySet().iterator().next();
