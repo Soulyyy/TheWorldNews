@@ -19,6 +19,7 @@ public class ArticleResponse {
 	public static String previewArticle(Article article, UserInfo userinfo,
 			int position) {
 		StringBuilder sb = new StringBuilder();
+		sb.append(clearDiv());
 		String img = article.image;
 		String header = article.header;
 		Integer id = article.id;
