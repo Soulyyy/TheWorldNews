@@ -170,8 +170,14 @@ html,body
 }
 
 img.mainImage {
-    width:100%;
-    float:left;
+    left: -100%;
+    right: -100%;
+    top: -100%;
+    bottom: -100%;
+    height:100%;
+    width: auto;
+	margin: auto;
+}
     padding-bottom:1.3vw;
 
 
@@ -447,15 +453,7 @@ p.sideText a{
     overflow: hidden;
 }
 
-img {
-    left: -100%;
-    right: -100%;
-    top: -100%;
-    bottom: -100%;
-    height:100%;
-    width: auto;
 
-}
 
 
 div.itemodd {
