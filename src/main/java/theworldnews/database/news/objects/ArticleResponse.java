@@ -20,6 +20,7 @@ public class ArticleResponse {
 			int position) {
 		StringBuilder sb = new StringBuilder();
 		sb.append(clearDiv());
+		sb.append(clearDiv());
 		String img = article.image;
 		String header = article.header;
 		Integer id = article.id;
