@@ -74,25 +74,25 @@ public class EditController extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)throws ServletException, IOException {
 		String id = req.getParameter("id");
-		if (id == null) {
-			resp.sendError(HttpServletResponse.SC_BAD_REQUEST);
-			return;
-		}
+		// if (id == null) {
+			// resp.sendError(HttpServletResponse.SC_BAD_REQUEST);
+			// return;
+		// }
 
-		try (Connection con = DatabaseConnection.getConnection()) {
-			Article article = gson.fromJson(req.getReader(), Article.class);
-			article.id = Integer.parseInt(id);
-			int x = EditQueries.editArticle(con, article);
-			if (x==-1){
-			resp.getWriter().write("asdf");
-			}
-			else{
-			resp.getWriter().write(article.id);}
+			PrintWriter out = resp.getWriter();
 
-		} catch (JsonParseException ex) {
-			resp.sendError(HttpServletResponse.SC_BAD_REQUEST, ex.getMessage());
-		} catch (SQLException | URISyntaxException e) {
-			resp.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, e.getMessage());
-		}
+
+		// try (Connection con = DatabaseConnection.getConnection()) {
+			// Article article = gson.fromJson(req.getReader(), Article.class);
+			// article.id = Integer.parseInt(id);
+			// int x = EditQueries.editArticle(con, article);
+			 out.print(id);
+			resp.getWriter().write(id);
+
+		// } catch (JsonParseException ex) {
+			// resp.sendError(HttpServletResponse.SC_BAD_REQUEST, ex.getMessage());
+		// } catch (SQLException | URISyntaxException e) {
+			// resp.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, e.getMessage());
+		// }
 	}
 }
