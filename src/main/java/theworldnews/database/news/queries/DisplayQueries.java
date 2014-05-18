@@ -122,7 +122,7 @@ public class DisplayQueries {
 			Connection con, int number, String type) {
 		try {
 			int articlegroup = ArticlegroupEncoding.stringToInt(type);
-			String query = "SELECT neswarticles.id,userinfo.userid, userinfo.firstname, userinfo.surname,newsarticles.image,newsarticles.header,newsarticles.articlegroup,clickcount FROM userinfo "
+			String query = "SELECT neswarticles.id,userinfo.userid, userinfo.firstname, userinfo.surname,newsarticles.image,newsarticles.header,newsarticles.articlegroup FROM userinfo "
 					+ "INNER JOIN newsarticles ON userinfo.userid=newsarticles.author WHERE"
 					+ " articlegroup % ? =0 ORDER BY id DESC limit ?";
 			PreparedStatement pst = con.prepareStatement(query);
@@ -133,8 +133,8 @@ public class DisplayQueries {
 			while (rs.next()) {
 				Article article = new Article(rs.getInt("id"),
 						rs.getString("image"), rs.getString("header"),
-						rs.getString("articlegroup"), rs.getInt("id"));
-				UserInfo userinfo = new UserInfo(rs.getInt("id"),
+						rs.getString("articlegroup"), rs.getInt("author"));
+				UserInfo userinfo = new UserInfo(rs.getInt("author"),
 						rs.getString("firstname"), rs.getString("surname"));
 				articleMap.put(article, userinfo);
 			}
