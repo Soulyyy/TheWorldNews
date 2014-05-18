@@ -122,7 +122,7 @@ public class DisplayQueries {
 			Connection con, int number, String type) {
 		try {
 			int articlegroup = ArticlegroupEncoding.stringToInt(type);
-			String query = "SELECT neswarticles.id,userinfo.userid, userinfo.firstname, userinfo.surname,newsarticles.image,newsarticles.header,newsarticles.articlegroup FROM userinfo "
+			String query = "SELECT newsarticles.id,userinfo.userid, userinfo.firstname, userinfo.surname,newsarticles.image,newsarticles.header,newsarticles.articlegroup FROM userinfo "
 					+ "INNER JOIN newsarticles ON userinfo.userid=newsarticles.author WHERE"
 					+ " articlegroup % ? =0 ORDER BY id DESC limit ?";
 			PreparedStatement pst = con.prepareStatement(query);
