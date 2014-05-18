@@ -50,8 +50,8 @@ public class EditQueries {
 			pst.setString(3, article.content);
 			int val = ArticlegroupEncoding.stringToInt(article.articlegroup);
 			pst.setInt(4, val);
-			pst.setString(5 article.header);
-
+			pst.setString(5, article.header);
+		
 			int result = pst.executeUpdate();
 			return result;
 		} catch (SQLException e) {
