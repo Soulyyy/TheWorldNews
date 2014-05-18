@@ -442,7 +442,7 @@ p.sideText a{
     width:100%;
 }
 
-#mainCropped {
+div.mainCropped {
 	width: auto;
     height: 20vw;
     overflow: hidden;

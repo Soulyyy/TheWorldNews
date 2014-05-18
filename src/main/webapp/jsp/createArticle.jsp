@@ -90,6 +90,20 @@
  				<br />
  				<br />
                 <button  id="articlesubmit">Submit</button>
+                
+                <noscript>
+                <jsp:include page="/submitArticle">
+                
+                <form action="test1.html" method="post" target="_blank">
+					<input type="text" name="bob" />
+					<input type="submit" value="Hello"/>
+			    </form>
+                
+                
+                </jsp:include>
+                <!-- Siia tuleb midagi kirjutada -->
+                </noscript>
+                
                 <button  id="Cancel">Cancel</button>
                                    
 
