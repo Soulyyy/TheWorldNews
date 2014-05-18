@@ -437,7 +437,6 @@ p.sideText a{
     display: table;
     margin-left: auto;
     margin-right: auto;
-    margin-top:1.5vw;
     text-align: center;
     width:100%;
 }

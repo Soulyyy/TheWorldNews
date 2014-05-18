@@ -105,7 +105,7 @@
 
 	</div>
 
-	<div>
+
 	<div id="articleGroup">
 		<!-- t��tab!! infinite dispatch loop here we go!!! -->
 		<jsp:include page="/previewArticle">
@@ -140,7 +140,7 @@
 
 
 	</div>
-	</div>
+
 	<div class="footer">
 		<p>&nbsp;</p>
 	</div>
