@@ -68,7 +68,7 @@ public class DisplayQueries {
 			Connection con, int id) {
 
 		try {
-			String query = "SELECT userinfo.userid, userinfo.firstname, userinfo.surname,newsarticles.image,"
+			String query = "SELECT newsarticles.id, userinfo.userid, userinfo.firstname, userinfo.surname,newsarticles.image,"
 					+ "newsarticles.header, newsarticles.content, newsarticles.articlegroup FROM userinfo "
 					+ "INNER JOIN newsarticles ON userinfo.userid=newsarticles.author WHERE newsarticles.id=?";
 			PreparedStatement pst = con.prepareStatement(query);
@@ -122,7 +122,7 @@ public class DisplayQueries {
 			Connection con, int number, String type) {
 		try {
 			int articlegroup = ArticlegroupEncoding.stringToInt(type);
-			String query = "SELECT userinfo.userid, userinfo.firstname, userinfo.surname,newsarticles.image,newsarticles.header,newsarticles.articlegroup,clickcount FROM userinfo "
+			String query = "SELECT neswarticles.id,userinfo.userid, userinfo.firstname, userinfo.surname,newsarticles.image,newsarticles.header,newsarticles.articlegroup,clickcount FROM userinfo "
 					+ "INNER JOIN newsarticles ON userinfo.userid=newsarticles.author WHERE"
 					+ " articlegroup % ? =0 ORDER BY id DESC limit ?";
 			PreparedStatement pst = con.prepareStatement(query);
@@ -131,9 +131,9 @@ public class DisplayQueries {
 			ResultSet rs = pst.executeQuery();
 			LinkedHashMap<Article, UserInfo> articleMap = new LinkedHashMap<Article, UserInfo>();
 			while (rs.next()) {
-				Article article = new Article(rs.getInt("userid"),
+				Article article = new Article(rs.getInt("id"),
 						rs.getString("image"), rs.getString("header"),
-						rs.getString("articlegroup"), rs.getInt("id"));
+						rs.getString("articlegroup"), rs.getInt("userid"));
 				UserInfo userinfo = new UserInfo(rs.getInt("userid"),
 						rs.getString("firstname"), rs.getString("surname"));
 				articleMap.put(article, userinfo);
