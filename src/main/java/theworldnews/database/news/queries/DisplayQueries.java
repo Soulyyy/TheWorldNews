@@ -131,7 +131,7 @@ public class DisplayQueries {
 			ResultSet rs = pst.executeQuery();
 			LinkedHashMap<Article, UserInfo> articleMap = new LinkedHashMap<Article, UserInfo>();
 			while (rs.next()) {
-				Article article = new Article(rs.getInt("userid"),
+				Article article = new Article(rs.getInt("id"),
 						rs.getString("image"), rs.getString("header"),
 						rs.getString("articlegroup"), rs.getInt("userid"));
 				UserInfo userinfo = new UserInfo(rs.getInt("userid"),
