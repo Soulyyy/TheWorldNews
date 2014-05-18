@@ -27,10 +27,10 @@ public class DisplayController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
-		String id = req.getParameter("authorid");
+		int id = Integer.parseInt(req.getParameter("id"));
 		String img = req.getParameter("image");
 
-		if (id == null) {
+		if (id == 0) {
 			resp.sendError(HttpServletResponse.SC_BAD_REQUEST);
 			return;
 		}
@@ -38,9 +38,8 @@ public class DisplayController extends HttpServlet {
 		try (Connection con = DatabaseConnection.getConnection()) {
 			PrintWriter out = resp.getWriter();
 
-			int articleid = Integer.parseInt(req.getParameter("id"));
-
-			LinkedHashMap<Article, UserInfo> article = DisplayQueries.getViewarticleById(con, articleid);
+			LinkedHashMap<Article, UserInfo> article = DisplayQueries
+					.getViewarticleById(con, id);
 			Article key = article.keySet().iterator().next();
 			UserInfo value = article.get(key);
 			key.image = img;
@@ -48,7 +47,7 @@ public class DisplayController extends HttpServlet {
 
 		} catch (SQLException | URISyntaxException e) {
 			resp.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR,
-			e.getMessage());
+					e.getMessage());
 		}
 	}
 }
