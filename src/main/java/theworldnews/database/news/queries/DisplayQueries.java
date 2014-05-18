@@ -102,7 +102,6 @@ public class DisplayQueries {
 			Logger.getLogger(DisplayQueries.class.getName()).log(Level.SEVERE,
 					e.getMessage(), e);
 
-
 		}
 		return null;
 
@@ -139,7 +138,6 @@ public class DisplayQueries {
 						rs.getString("firstname"), rs.getString("surname"));
 				articleMap.put(article, userinfo);
 			}
-			System.out.println(articleMap.size());
 			rs.close();
 			pst.close();
 			return articleMap;
