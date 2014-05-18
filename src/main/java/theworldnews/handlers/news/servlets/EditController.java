@@ -82,17 +82,17 @@ public class EditController extends HttpServlet {
 			// PrintWriter out = resp.getWriter();
 
 
-		// try (Connection con = DatabaseConnection.getConnection()) {
-			// Article article = gson.fromJson(req.getReader(), Article.class);
+		try (Connection con = DatabaseConnection.getConnection()) {
+			Article article = gson.fromJson(req.getReader(), Article.class);
 			// article.id = Integer.parseInt(id);
-			// int x = EditQueries.editArticle(con, article);
+			int x = EditQueries.editArticle(con, article);
 			 // out.print(id);
 			resp.getWriter().write("asd");
 
-		// } catch (JsonParseException ex) {
-			// resp.sendError(HttpServletResponse.SC_BAD_REQUEST, ex.getMessage());
-		// } catch (SQLException | URISyntaxException e) {
-			// resp.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, e.getMessage());
-		// }
+		} catch (JsonParseException ex) {
+			resp.sendError(HttpServletResponse.SC_BAD_REQUEST, ex.getMessage());
+		} catch (SQLException | URISyntaxException e) {
+			resp.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, e.getMessage());
+		}
 	}
 }
