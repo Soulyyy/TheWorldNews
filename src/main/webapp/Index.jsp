@@ -78,8 +78,8 @@
 		</div>
 					<noscript>
 		
-			<form id="login" action="/whatevaServlet"  method="post">
-				<input type="text" id="userName" name="login" value=""
+			<form id="login" action="/noscriptAccountLogin"  method="post">
+				<input type="text" id="userName" name="username" value=""
 						placeholder="Username or Email">
 				<input type="password" id="password" name="password" value=""
 						placeholder="Password">
