@@ -16,7 +16,7 @@ public class Sha256 {
 			byte[] hash = digest.digest(input.getBytes("UTF-8"));
 			StringBuffer asString = new StringBuffer();
 			for (byte i : hash) {
-				String hex = Integer.toHexString(0xff & hash[i]);
+				String hex = Integer.toHexString(0xff & i);
 				if (hex.length() == 1)
 					asString.append('0');
 				asString.append(hex);
