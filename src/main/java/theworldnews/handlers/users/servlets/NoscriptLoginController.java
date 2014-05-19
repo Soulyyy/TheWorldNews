@@ -13,6 +13,7 @@ import javax.servlet.http.HttpSession;
 
 import theworldnews.database.users.objects.User;
 import theworldnews.database.users.queries.AuthenticationQueries;
+import theworldnews.utilities.hashing.Sha256;
 
 @WebServlet(value = "/noscriptAccountLogin")
 public class NoscriptLoginController extends HttpServlet {
@@ -38,7 +39,7 @@ public class NoscriptLoginController extends HttpServlet {
 			throws IOException {
 		String username = req.getParameter("username");
 		String password = req.getParameter("password");
-
+		String pw = Sha256.hashSha256(password);
 		HttpSession sess = req.getSession();
 
 		if (username == null || password == null) {
@@ -47,7 +48,7 @@ public class NoscriptLoginController extends HttpServlet {
 		}
 		try {
 			User u = AuthenticationQueries
-					.loginVerification(username, password);
+					.loginVerification(username, pw);
 			if (u == null) {
 				resp.getWriter().write("{\"accessRights\": " + -1 + "}");
 			} else {

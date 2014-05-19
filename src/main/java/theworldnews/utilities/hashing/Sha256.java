@@ -10,7 +10,7 @@ import theworldnews.database.news.queries.DisplayQueries;
 
 public class Sha256 {
 
-	public String hashSha256(String input) {
+	public static String hashSha256(String input) {
 		try {
 			MessageDigest digest = MessageDigest.getInstance("SHA-256");
 			byte[] hash = digest.digest(input.getBytes("UTF-8"));
