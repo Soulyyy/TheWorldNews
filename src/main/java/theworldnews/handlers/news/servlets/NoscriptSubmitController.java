@@ -11,12 +11,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.google.gson.JsonParseException;
+
 import theworldnews.database.connection.DatabaseConnection;
 import theworldnews.database.news.objects.Article;
 import theworldnews.database.news.queries.EditQueries;
 
-
-import com.google.gson.JsonParseException;
 
 @WebServlet(value = "/noscriptSubmitArticle")
 public class NoscriptSubmitController extends HttpServlet {
@@ -55,6 +55,7 @@ public class NoscriptSubmitController extends HttpServlet {
 			resp.sendError(HttpServletResponse.SC_BAD_REQUEST, ex.getMessage());
 		} catch (SQLException | URISyntaxException e) {
 			resp.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, e.getMessage());
+
 		}
 	}
 }
