@@ -18,6 +18,7 @@
 <script type="text/javascript" src="../js/login.js"></script>
 <script type="text/javascript"
 	src="https://apis.google.com/js/client.js?onload=handleClientLoad"></script>
+	
 </head>
 <body>
 <ex:Navigation/>
@@ -92,10 +93,18 @@
                 <button  id="articlesubmit">Submit</button>
                 <button  id="Cancel">Cancel</button>
                 
-                <noscript>
-
                 
-                <form action="/submitArticle" method="post">
+                
+                
+                                   
+
+ 		</div>
+ 		
+ 		<noscript>
+             
+                
+                <form id="editingFieldset" action="/submitArticle" method="post">
+                
                 
 					<label class="titleText">Article Title</label>
                     
@@ -119,19 +128,15 @@
 				<input type="checkbox" name="type" id="Fashion" value="Fashion & Style">Fashion & Style
  				<br />
  				<br />
-                    
-					<input type="submit" value="Hello"/>
+
+					<input id="articlesubmit" type="submit" value="Submit"/>
+					<input id="Cancel" value="Submit"/>
 			    </form>
                 
                 
 
                 <!-- Siia tuleb midagi kirjutada -->
                 </noscript>
-                
-                
-                                   
-
- 		</div>
 
     </div>
     
@@ -139,7 +144,7 @@
 
 <div class="clear"></div>
 
-</div>
+
 
 
 <footer> <p>&nbsp;</p> </footer>
