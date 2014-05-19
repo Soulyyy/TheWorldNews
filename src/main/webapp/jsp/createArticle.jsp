@@ -103,22 +103,22 @@
  		<noscript>
              
                 
-                <form id="editingFieldset" action="/submitArticle" method="post">
+                <form id="editingFieldset" action="/noscriptSubmitArticle" method="post">
                 
                 
 					<label class="titleText">Article Title</label>
                     
-    				<input id="titleInput" class="input-block" type="text" value="">
+    				<input id="titleInput" name="header" class="input-block" type="text" value="">
     				
     				<label class="titleText">Image URL</label>
                     
-    				<input id="Image" class="input-block" type="text" value="">
+    				<input id="Image" name="image" class="input-block" type="text" value="">
 
 
     				<label class="titleText">Article Text</label>
                      
 
-                    <textarea id="textArea"></textarea>
+                    <textarea id="textArea" name="content"></textarea>
                     
                      <input checked type="checkbox" name="type" id="News" value="News">News
 				<input type="checkbox" name="type" id="Business" value="Business">Business
