@@ -139,7 +139,6 @@
 
 <div class="clear"></div>
 
-</div>
 
 
 <footer> <p>&nbsp;</p> </footer>
