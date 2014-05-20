@@ -1,5 +1,8 @@
 $(this).ready(function() {
-
+	var url = window.location.href;
+	var params = url.split('?id=');
+	console.log(params)
+		console.log(params[1])
     $('#edit').click(function() {
     	
         var articledata = new Object();

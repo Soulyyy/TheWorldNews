@@ -32,6 +32,8 @@ public class LatestNewsController extends HttpServlet {
 			String[] temp =  null;
 			if (temp == null) {
 				temp = test.clone();
+				String test2 = gson.toJson(test);
+				resp.getWriter().write(test2);
 			}
 	
 			if ( test[0] != temp[0]) {
