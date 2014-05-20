@@ -80,10 +80,10 @@ public class EditController extends HttpServlet {
 
 		// try (Connection con = DatabaseConnection.getConnection()) {
 			Article article = gson.fromJson(req.getReader(), Article.class);
- 
+			
 			// int x = EditQueries.editArticle(con, article);
 			 // out.print(id);
-			resp.getWriter().write(article.id);
+			resp.getWriter().write(article.header);
 
 		// } catch (JsonParseException ex) {
 			// resp.sendError(HttpServletResponse.SC_BAD_REQUEST, ex.getMessage());

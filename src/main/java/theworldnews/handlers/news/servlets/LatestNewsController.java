@@ -29,17 +29,12 @@ public class LatestNewsController extends HttpServlet {
 			Gson gson = new Gson();
 
 			String[] test = latest.getlatest(con);
-			String[] temp =  null;
-			if (temp == null) {
-				temp = test.clone();
-				// String test2 = gson.toJson(test);
-				// resp.getWriter().write(test2);
-			}
+			String[] temp = test.clone();
 	
 			while ( test[0] == temp[0]) {
 				test = latest.getlatest(con);
 				try {
-					Thread.sleep(1000);
+					Thread.sleep(5000);
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}
@@ -47,7 +42,6 @@ public class LatestNewsController extends HttpServlet {
 				
 			}
 			String test2 = gson.toJson(test);
-			temp = test.clone();
 			resp.getWriter().write(test2);
 
 		} catch (SQLException | URISyntaxException e) {
