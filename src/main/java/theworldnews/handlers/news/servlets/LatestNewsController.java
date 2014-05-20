@@ -39,7 +39,7 @@ public class LatestNewsController extends HttpServlet {
 			while ( test[0] == temp[0]) {
 				test = latest.getlatest(con);
 				try {
-					Thread.sleep(3000);
+					Thread.sleep(1000);
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}

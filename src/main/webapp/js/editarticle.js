@@ -42,7 +42,7 @@ $(this).ready(function() {
 						alert("edit fail");
 						// console.debug("%o", JSON.stringify(articledata));  
  
-						// console.log(resp);
+						console.log(resp);
 					}
 
 				});
