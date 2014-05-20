@@ -74,7 +74,7 @@ public class EditController extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)throws ServletException, IOException {
  
-			resp.getWriter().write(id);
+			// resp.getWriter().write(id);
 			// PrintWriter out = resp.getWriter();
 
 
