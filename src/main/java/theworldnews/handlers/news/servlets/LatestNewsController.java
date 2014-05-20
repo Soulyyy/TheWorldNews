@@ -44,7 +44,8 @@ public class LatestNewsController extends HttpServlet {
 				}
 				else {
 					String test2 = gson.toJson(test);
-					resp.getWriter().write(test2);
+					String df = gson.toJson(temp);
+					resp.getWriter().write(test2+df);
 					break;
 				}
 			
