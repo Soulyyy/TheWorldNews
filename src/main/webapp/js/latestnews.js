@@ -1,5 +1,5 @@
 $(this).ready(function() {
-	// firstlatestnews();
+	firstlatestnews();
 	latestnews();
  	// setInterval(latestnews, 10000); 
  
@@ -25,7 +25,7 @@ function latestnews() {
 				setTimeout(latestnews, 5000);
 			},
 			error: function(resp){
-               console.log("latestnews fail");
+               // console.log("latestnews fail");
 			   setTimeout(latestnews,15000);
 			}
 	});
@@ -33,7 +33,7 @@ function latestnews() {
  
 
 function firstlatestnews() {
-	$.ajax("/latestNews", {
+	$.ajax("/FlatestNews", {
 			type: "GET",
 			dataType:'json',
 			success: function(resp) {
