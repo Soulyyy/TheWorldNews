@@ -41,6 +41,9 @@ public class LatestNewsController extends HttpServlet {
 				resp.getWriter().write(test2);
 				
 			}
+			else {
+			    response.sendError(HttpServletResponse.SC_NOT_FOUND);
+			}
 		} catch (SQLException | URISyntaxException e) {
 			resp.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR,e.getMessage());
 		}
