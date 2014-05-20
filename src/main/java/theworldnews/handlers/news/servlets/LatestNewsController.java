@@ -41,13 +41,14 @@ public class LatestNewsController extends HttpServlet {
 					}
 				}
 				else {
+					String test2 = gson.toJson(test);
+			resp.getWriter().write(test2);
 					break;
 				}
 			
 				
 			}
-			String test2 = gson.toJson(test);
-			resp.getWriter().write(test2);
+		
 
 		} catch (SQLException | URISyntaxException e) {
 			resp.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR,e.getMessage());

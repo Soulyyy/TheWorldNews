@@ -31,7 +31,7 @@ function latestnews() {
                     15000);
 			}
 	});
-};
+}
  
 
 function firstlatestnews() {

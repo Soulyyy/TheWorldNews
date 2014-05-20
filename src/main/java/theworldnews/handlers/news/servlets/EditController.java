@@ -75,10 +75,10 @@ public class EditController extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)throws ServletException, IOException {
 	 String id = req.getParameter("id");
 		if (id == null) {
-			resp.getWriter().write("a");
+			resp.getWriter().write("{\"a\":\"asd\"}");
 			return;
 		}
-			resp.getWriter().write(id);
+			resp.getWriter().write("{\"a\":"+id+"}");
 			// PrintWriter out = resp.getWriter();
 
 
