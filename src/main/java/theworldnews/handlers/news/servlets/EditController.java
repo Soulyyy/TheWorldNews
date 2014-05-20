@@ -87,6 +87,7 @@ public class EditController extends HttpServlet {
 			
 			// int x = EditQueries.editArticle(con, article);
 			 // out.print(id);
+			 	resp.setHeader("Content-Type", "application/json");
 	resp.getWriter().write("{\"a\":"+article.header+"}");
 
 		// } catch (JsonParseException ex) {
