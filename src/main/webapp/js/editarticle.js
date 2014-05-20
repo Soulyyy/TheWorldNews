@@ -40,9 +40,9 @@ $(this).ready(function() {
 					},
 					error:function(resp) {
 						alert("edit fail");
-						console.debug("%o", JSON.stringify(articledata));  
+						// console.debug("%o", JSON.stringify(articledata));  
  
-						console.log(resp);
+						// console.log(resp);
 					}
 
 				});

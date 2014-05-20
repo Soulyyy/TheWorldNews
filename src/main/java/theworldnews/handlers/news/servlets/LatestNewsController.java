@@ -32,16 +32,23 @@ public class LatestNewsController extends HttpServlet {
 			String[] temp =  null;
 			if (temp == null) {
 				temp = test.clone();
-				String test2 = gson.toJson(test);
-				resp.getWriter().write(test2);
+				// String test2 = gson.toJson(test);
+				// resp.getWriter().write(test2);
 			}
 	
-			if ( test[0] != temp[0]) {
-				String test2 = gson.toJson(test);
-				temp = test.clone();
-				resp.getWriter().write(test2);
+			while ( test[0] == temp[0]) {
+				test = latest.getlatest(con);
+				try {
+					Thread.sleep(3000);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+			
 				
 			}
+			String test2 = gson.toJson(test);
+			temp = test.clone();
+			resp.getWriter().write(test2);
 
 		} catch (SQLException | URISyntaxException e) {
 			resp.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR,e.getMessage());

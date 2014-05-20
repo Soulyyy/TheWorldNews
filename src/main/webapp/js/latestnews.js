@@ -1,5 +1,5 @@
 $(this).ready(function() {
-	firstlatestnews();
+	// firstlatestnews();
 	latestnews();
  	// setInterval(latestnews, 10000); 
  
