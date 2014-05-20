@@ -68,7 +68,9 @@ public class ArticleResponse {
 				.append("\"><img class=\"mainImage\" src=\"")
 				.append(img)
 				.append("\" alt=\"pilt\"></a>")
+				.append("<p class=\"authorText\">")
 				.append("By " + firstname + " " + surname)
+				.append("</p>")
 				.append("<p class=\"mainText\"><a href=\"ArticleView.jsp?id=")
 				.append(id).append("\">").append(header).append("</a></p>")
 				.append(clearDiv()).append(content);

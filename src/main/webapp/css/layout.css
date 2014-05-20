@@ -415,6 +415,12 @@ p.mainText {
     font: 1.5vw/1 Helvetica, Verdana, sans-serif;
 }
 
+p.authorText {
+	color:#000;
+    text-decoration: none;
+    font: 1 vw/1 Helvetica, Verdana, sans-serif;
+}
+
 p.mainText a{
     color:#000;
     text-decoration: none;
