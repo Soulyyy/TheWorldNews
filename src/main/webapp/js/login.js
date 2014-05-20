@@ -4,6 +4,8 @@ $(this).ready(function() {
 	var loginPopupButton = $("#toggleLogin");
 	var loginContainer = $("#loginContainer");
 	var authorizeButton = $("#authorize-button");
+	var createArticle = $("#createarticle");
+	createArticle.show();
 
 	/**
 	 * Sisselogimise kasti kuvamise/peitmise abifunktsioon

@@ -65,4 +65,5 @@ public class Article {
 		this(id, null, header, null, articleGroup, authorid);
 	}
 
+
 }

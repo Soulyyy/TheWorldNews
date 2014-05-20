@@ -38,7 +38,7 @@ public class ArticleResponse {
 
 		sb.append("<a href=\"jsp/ArticleView.jsp?id=")
 				.append(id + "&image=" + img)
-				.append("\"><div id=mainCropped><img class=\"mainImage\" src=\"")
+				.append("\"><div class=mainCropped><img class=\"mainImage\" src=\"")
 				.append(img)
 				.append("\" alt=\"pilt\"></div></a>")
 				.append("By " + firstname + " " + surname)
@@ -71,7 +71,7 @@ public class ArticleResponse {
 				.append("By " + firstname + " " + surname)
 				.append("<p class=\"mainText\"><a href=\"ArticleView.jsp?id=")
 				.append(id).append("\">").append(header).append("</a></p>")
-				.append(clearDiv()).append(content).append("</div>");
+				.append(clearDiv()).append(content);
 
 		return sb.toString();
 	}
