@@ -33,7 +33,7 @@
 			</header>
 
 
-			<button id="settings"></button>
+			<a id="add" href="jsp/createArticle.jsp">Add article</a>
 
 
 			<button id="toggleLogin">Log In</button>

@@ -50,7 +50,9 @@ html,body
     visibility:hidden;
     cursor:pointer;
 }
-
+#add{
+	visibility:hidden;
+}
 
 
 #toggleLogin{

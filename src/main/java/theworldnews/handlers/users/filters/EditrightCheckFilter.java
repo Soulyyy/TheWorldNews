@@ -20,8 +20,7 @@ public class EditrightCheckFilter implements Filter {
 		HttpServletRequest req = (HttpServletRequest) request;
 		HttpServletResponse res = (HttpServletResponse) response;
 
-		Logger.getLogger(this.getClass().getName())
-				.log(Level.INFO, "Passing login check filter for page: " + req.getRequestURI());
+		Logger.getLogger(this.getClass().getName()).log(Level.INFO, "Passing login check filter for page: " + req.getRequestURI());
 
 		Integer loginRights = (Integer) req.getSession().getAttribute("LOGIN_RIGHTS");
 

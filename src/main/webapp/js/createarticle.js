@@ -1,4 +1,6 @@
 $(this).ready(function() {
+	var createArticle = $("#createarticle");
+	createArticle.show();
 
     $('#articlesubmit').click(function() {
     	

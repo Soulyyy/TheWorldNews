@@ -56,9 +56,7 @@ public class EditController extends HttpServlet {
 			Integer articleid = Integer.parseInt(id);
 			
 			LinkedHashMap<Article, UserInfo> article = DisplayQueries.getViewarticleById(con, articleid);
-			
-			// out.print(article);
-			// out.print(id);
+ 
 			Article key = article.keySet().iterator().next();
 			UserInfo value = article.get(key);
 			out.print(ArticleResponse.editArticle(key));
@@ -76,10 +74,9 @@ public class EditController extends HttpServlet {
 		try (Connection con = DatabaseConnection.getConnection()) {
 			Article article = gson.fromJson(req.getReader(), Article.class);
  
-
 			int result = EditQueries.editArticle(con, article);
+			
 			resp.setHeader("Content-Type", "application/json");
-
 			resp.getWriter().write("{\"response\":\"edit success\"}");
 
 		} catch (JsonParseException e) {

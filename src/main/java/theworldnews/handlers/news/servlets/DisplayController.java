@@ -38,8 +38,7 @@ public class DisplayController extends HttpServlet {
 		try (Connection con = DatabaseConnection.getConnection()) {
 			PrintWriter out = resp.getWriter();
 
-			LinkedHashMap<Article, UserInfo> article = DisplayQueries
-					.getViewarticleById(con, id);
+			LinkedHashMap<Article, UserInfo> article = DisplayQueries.getViewarticleById(con, id);
 			Article key = article.keySet().iterator().next();
 			UserInfo value = article.get(key);
 			key.image = img;

@@ -1,7 +1,7 @@
 $(this).ready(function() {
 	firstlatestnews();
-	latestnews();
- 	// setInterval(latestnews, 10000); 
+	// latestnews(); 
+ 
  
 });
 
@@ -26,7 +26,7 @@ function latestnews() {
 			},
 			error: function(resp){
                console.log("the best");
-			   setTimeout(latestnews,5000);
+			   setTimeout(latestnews,15000);
 			}
 	});
 }

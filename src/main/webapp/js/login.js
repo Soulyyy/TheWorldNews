@@ -4,8 +4,8 @@ $(this).ready(function() {
 	var loginPopupButton = $("#toggleLogin");
 	var loginContainer = $("#loginContainer");
 	var authorizeButton = $("#authorize-button");
-	var createArticle = $("#createarticle");
-	createArticle.show();
+	var adda = $("#add");
+
 
 	/**
 	 * Sisselogimise kasti kuvamise/peitmise abifunktsioon
@@ -45,6 +45,9 @@ $(this).ready(function() {
 			if(resp.accessRights >= 0) {
 				console.log("Logged in with accessrights: " + resp.accessRights);
 				toggleLoginButtons(true);
+				if(resp.accessRights >= 1) {
+								add.css('visibility', 'visible');
+				}
 			} else {
 				console.log("Not logged in");
 				toggleLoginButtons(false);
@@ -109,6 +112,7 @@ $(this).ready(function() {
 			success: function(resp) {
 				if(resp.response === "success") {
 					toggleLoginButtons(false);
+								add.css('visibility', 'hidden');
 				}
 			}
 		});
