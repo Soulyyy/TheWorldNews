@@ -10,7 +10,7 @@ function latestnews() {
 			dataType:'json',
             async: true, 
             cache: false,
-            timeout:50000
+            timeout:50000,
 			success: function(resp) {
 
 				var id = parseInt(resp[0]);
@@ -27,4 +27,4 @@ function latestnews() {
                console.log(resp);
 			}
 	});
-}
+};
