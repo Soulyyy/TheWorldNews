@@ -33,18 +33,17 @@ public class LatestNewsController extends HttpServlet {
 				   temp[i]=test[i];
 			}
 	
-			while ( true) {
+			while (true) {
 				if (test[5].equals(temp[5])) {
 					test = latest.getlatest(con);
 					try {
-						Thread.sleep(10000);
+						Thread.sleep(5000);
 					} catch (InterruptedException e) {
 						e.printStackTrace();
 					}
 				}
 				else {
 					String test2 = gson.toJson(test);
-					String df = gson.toJson(temp);
 					resp.getWriter().write(test2);
 					break;
 				}

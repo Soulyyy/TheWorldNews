@@ -80,7 +80,7 @@ public class EditController extends HttpServlet {
 			int result = EditQueries.editArticle(con, article);
 			resp.setHeader("Content-Type", "application/json");
 
-				resp.getWriter().write("{\"response\":\"success\"}");
+			resp.getWriter().write("{\"response\":\"edit success\"}");
 
 		} catch (JsonParseException e) {
 			resp.sendError(HttpServletResponse.SC_BAD_REQUEST, e.getMessage());
