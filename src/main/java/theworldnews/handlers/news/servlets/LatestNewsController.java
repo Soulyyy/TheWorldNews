@@ -31,12 +31,17 @@ public class LatestNewsController extends HttpServlet {
 			String[] test = latest.getlatest(con);
 			String[] temp = test.clone();
 	
-			while ( test[0] == temp[0]) {
-				test = latest.getlatest(con);
-				try {
-					Thread.sleep(5000);
-				} catch (InterruptedException e) {
-					e.printStackTrace();
+			while ( true) {
+				if (test[0] == temp[0]) {
+					test = latest.getlatest(con);
+					try {
+						Thread.sleep(5000);
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
+				}
+				else {
+					break;
 				}
 			
 				

@@ -73,17 +73,21 @@ public class EditController extends HttpServlet {
 	 * Submit edit
 	 */
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)throws ServletException, IOException {
- 
-			// resp.getWriter().write(id);
+	 String id = req.getParameter("id");
+		if (id == null) {
+			resp.getWriter().write("a");
+			return;
+		}
+			resp.getWriter().write(id);
 			// PrintWriter out = resp.getWriter();
 
 
 		// try (Connection con = DatabaseConnection.getConnection()) {
-			Article article = gson.fromJson(req.getReader(), Article.class);
+			// Article article = gson.fromJson(req.getReader(), Article.class);
 			
 			// int x = EditQueries.editArticle(con, article);
 			 // out.print(id);
-			resp.getWriter().write(article.header);
+			// resp.getWriter().write(article.header);
 
 		// } catch (JsonParseException ex) {
 			// resp.sendError(HttpServletResponse.SC_BAD_REQUEST, ex.getMessage());
