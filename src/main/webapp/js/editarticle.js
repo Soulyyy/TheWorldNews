@@ -27,9 +27,9 @@ $(this).ready(function() {
 		else {
 			$.ajax("/editArticle",{
 					type:"POST",
-					dataType:'json',
-					data: JSON.stringify(articledata),
-					contentType: 'application/json',
+					// dataType:'json',
+					// data: JSON.stringify(articledata),
+					// contentType: 'application/json',
 	 
 					success: function(resp){   
 						// window.location.href = "http://gold-experience.herokuapp.com/Index.jsp";

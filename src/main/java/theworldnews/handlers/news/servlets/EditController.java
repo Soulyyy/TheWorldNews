@@ -73,26 +73,26 @@ public class EditController extends HttpServlet {
 	 * Submit edit
 	 */
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)throws ServletException, IOException {
-		String id = req.getParameter("id");
-		if (id == null) {
-			resp.getWriter().write("asd");
-			return;
-		}
-
+		// String id = req.getParameter("id");
+		// if (id == null) {
+			// resp.getWriter().write("asd");
+			// return;
+		// }
+			resp.getWriter().write("g");
 			// PrintWriter out = resp.getWriter();
 
 
-		try (Connection con = DatabaseConnection.getConnection()) {
-			Article article = gson.fromJson(req.getReader(), Article.class);
-			article.id = Integer.parseInt(id);
-			int x = EditQueries.editArticle(con, article);
+		// try (Connection con = DatabaseConnection.getConnection()) {
+			// Article article = gson.fromJson(req.getReader(), Article.class);
+			// article.id = Integer.parseInt(id);
+			// int x = EditQueries.editArticle(con, article);
 			 // out.print(id);
-			resp.getWriter().write("g");
+			// resp.getWriter().write("g");
 
-		} catch (JsonParseException ex) {
-			resp.sendError(HttpServletResponse.SC_BAD_REQUEST, ex.getMessage());
-		} catch (SQLException | URISyntaxException e) {
-			resp.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, e.getMessage());
-		}
+		// } catch (JsonParseException ex) {
+			// resp.sendError(HttpServletResponse.SC_BAD_REQUEST, ex.getMessage());
+		// } catch (SQLException | URISyntaxException e) {
+			// resp.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, e.getMessage());
+		// }
 	}
 }
