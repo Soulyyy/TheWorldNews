@@ -11,7 +11,7 @@ function latestnews() {
 			dataType:'json',
             async: true, 
             cache: false,
-            timeout:50000,
+            timeout:60000,
 			success: function(resp) {
 
 				var id = parseInt(resp[0]);
@@ -22,7 +22,7 @@ function latestnews() {
  
 				$(".latestNewsDisplay").html("<div class=\"itemeven\"><a href=\"http://gold-experience.herokuapp.com/jsp/ArticleView.jsp?id="+id+"\">"+resp[5]+"</a></div><div class=\"itemodd\"><a href=\"http://gold-experience.herokuapp.com/jsp/ArticleView.jsp?id="+id2+"\">"+resp[6]+"<div class=\"itemeven\"><a href=\"http://gold-experience.herokuapp.com/jsp/ArticleView.jsp?id="+id3+"\">"+resp[7]+"</div><div class=\"itemodd\"><a href=\"http://gold-experience.herokuapp.com/jsp/ArticleView.jsp?id="+id4+"\">"+resp[8]+"</div><div class=\"itemeven\"><a href=\"http://gold-experience.herokuapp.com/jsp/ArticleView.jsp?id="+id5+"\">"+resp[9]+"</div>");
 				
-				setTimeout(latestnews, 1000);
+				setTimeout(latestnews, 5000);
 			},
 			error: function(resp){
                console.log(resp);
