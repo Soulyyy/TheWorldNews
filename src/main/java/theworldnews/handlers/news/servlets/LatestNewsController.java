@@ -34,7 +34,7 @@ public class LatestNewsController extends HttpServlet {
 			}
 	
 			while ( true) {
-				if (test[5] == temp[5]) {
+				if (test[5].equals(temp[5])) {
 					test = latest.getlatest(con);
 					try {
 						Thread.sleep(5000);
@@ -45,7 +45,7 @@ public class LatestNewsController extends HttpServlet {
 				else {
 					String test2 = gson.toJson(test);
 					String df = gson.toJson(temp);
-					resp.getWriter().write(test2+df);
+					resp.getWriter().write(test2);
 					break;
 				}
 			

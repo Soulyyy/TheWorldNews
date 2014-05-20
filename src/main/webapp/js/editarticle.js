@@ -25,13 +25,13 @@ $(this).ready(function() {
  
         if (!articledata.image || !articledata.header  || !articledata.content ) {
             alert("Fill all forms.");
-		}	
+		}
 
 		else {
 			$.ajax("/editArticle",{
 					type:"POST",
 					dataType:'json',
-					data: articledata,
+					data: JSON.stringify(articledata),
 					contentType: 'application/json',
 	 
 					success: function(resp){   
