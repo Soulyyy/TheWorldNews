@@ -37,7 +37,7 @@ public class LatestNewsController extends HttpServlet {
 				if (test[5].equals(temp[5])) {
 					test = latest.getlatest(con);
 					try {
-						Thread.sleep(5000);
+						Thread.sleep(10000);
 					} catch (InterruptedException e) {
 						e.printStackTrace();
 					}
