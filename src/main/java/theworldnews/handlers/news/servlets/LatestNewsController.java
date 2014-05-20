@@ -28,7 +28,10 @@ public class LatestNewsController extends HttpServlet {
 			Gson gson = new Gson();
 
 			String[] test = latest.getlatest(con);
-			String[] temp = test.clone();
+			String[] temp = new String[10]
+			for(int i=0; i<10; i++){
+				   temp[i]=test[i]
+			}
 	
 			while ( true) {
 				if (test[5] == temp[5]) {

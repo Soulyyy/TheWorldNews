@@ -22,13 +22,11 @@ function latestnews() {
  
 				$(".latestNewsDisplay").html("<div class=\"itemeven\"><a href=\"http://gold-experience.herokuapp.com/jsp/ArticleView.jsp?id="+id+"\">"+resp[5]+"</a></div><div class=\"itemodd\"><a href=\"http://gold-experience.herokuapp.com/jsp/ArticleView.jsp?id="+id2+"\">"+resp[6]+"<div class=\"itemeven\"><a href=\"http://gold-experience.herokuapp.com/jsp/ArticleView.jsp?id="+id3+"\">"+resp[7]+"</div><div class=\"itemodd\"><a href=\"http://gold-experience.herokuapp.com/jsp/ArticleView.jsp?id="+id4+"\">"+resp[8]+"</div><div class=\"itemeven\"><a href=\"http://gold-experience.herokuapp.com/jsp/ArticleView.jsp?id="+id5+"\">"+resp[9]+"</div>");
 				
-				setTimeout(latestnews, 1000  );
+				setTimeout(latestnews, 1000);
 			},
 			error: function(resp){
                console.log(resp);
-			   setTimeout(
-                    latestnews,  
-                    15000);
+			   setTimeout(latestnews,15000);
 			}
 	});
 }
