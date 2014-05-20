@@ -34,8 +34,7 @@ public class EditQueries {
 			int result = pst.executeUpdate();
 			return result;
 		} catch (SQLException e) {
-			Logger.getLogger(EditQueries.class.getName()).log(Level.SEVERE,
-					e.getMessage(), e);
+			Logger.getLogger(EditQueries.class.getName()).log(Level.SEVERE,e.getMessage(), e);
 		}
 		return -1;
 	}
