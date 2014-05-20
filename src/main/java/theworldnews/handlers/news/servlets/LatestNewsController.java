@@ -31,7 +31,7 @@ public class LatestNewsController extends HttpServlet {
 			String[] temp = test.clone();
 	
 			while ( true) {
-				if (test[0] == temp[0]) {
+				if (test[5] == temp[5]) {
 					test = latest.getlatest(con);
 					try {
 						Thread.sleep(5000);
