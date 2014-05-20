@@ -38,12 +38,11 @@ public class LatestNewsController extends HttpServlet {
 	
 			if ( test[0] != temp[0]) {
 				String test2 = gson.toJson(test);
+				temp = test.clone();
 				resp.getWriter().write(test2);
 				
 			}
-			else {
-			    response.sendError(HttpServletResponse.SC_NOT_FOUND);
-			}
+
 		} catch (SQLException | URISyntaxException e) {
 			resp.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR,e.getMessage());
 		}
