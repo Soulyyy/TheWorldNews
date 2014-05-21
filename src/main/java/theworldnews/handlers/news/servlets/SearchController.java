@@ -30,8 +30,7 @@ public class SearchController extends HttpServlet {
 						Gson gson = new Gson();
 			String rl = "";
 			int c = 0;
-			System.out.println(asd);
-			System.out.println("BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB");
+ 
 
 			for(int i=0;i<asd.length();i++){
 				System.out.println(asd.charAt(i));
@@ -46,16 +45,15 @@ public class SearchController extends HttpServlet {
 						}
 					}
 				}
-				i+=1;
 			}
-			// ArrayList<String> result = Search.getsearch(con,asd);
-			System.out.println(rl);
+			ArrayList<String> result = Search.getsearch(con,rl);
+ 
 		 
-			resp.getWriter().write("{\"response\":"+asd+"}");
+			// resp.getWriter().write("{\"response\":"+asd+"}");
 
 
-			// String test2 = gson.toJson(result);
-			// resp.getWriter().write(test2);
+			String test2 = gson.toJson(result);
+			resp.getWriter().write(test2);
 			 
 		} catch (SQLException | URISyntaxException e) {
 			resp.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR,e.getMessage());
