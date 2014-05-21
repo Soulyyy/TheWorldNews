@@ -4,15 +4,15 @@ $(this).ready(function() {
 			$("#searchbtn").click();
 		}
 	});
-
+ 
 	$('#searchbtn').click(function() {	
 		var term =   $('#searchBox').val();
 		console.log(term);
 		 $.ajax("/searchText", {
 			type: "POST",
-			data:term,
+			data:{fragment:term},
 			success: function(result) {
-				console.log("suc");
+				// console.log("suc");
 				console.log(result);
 				},
 			error: function(result) {
