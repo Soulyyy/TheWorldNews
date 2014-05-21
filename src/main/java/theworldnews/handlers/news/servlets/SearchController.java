@@ -27,10 +27,12 @@ public class SearchController extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		try (Connection con = DatabaseConnection.getConnection()) {
 			String asd =req.getParameter("searchBox");
-			// ArrayList<String> result = Search.getsearch(con,asd);
-			
-			resp.setHeader("Content-Type", "application/json");
-			resp.getWriter().write("{\"response\":"+asd+"}");
+			ArrayList<String> result = Search.getsearch(con,asd);
+			Gson gson = new Gson();
+
+			String test2 = gson.toJson(result);
+			resp.getWriter().write(test2);
+			 
 		} catch (SQLException | URISyntaxException e) {
 			resp.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR,e.getMessage());
 		}
