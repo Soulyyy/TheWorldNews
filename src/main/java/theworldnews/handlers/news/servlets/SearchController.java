@@ -26,22 +26,28 @@ public class SearchController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		try (Connection con = DatabaseConnection.getConnection()) {
-			// String asd =req.getParameter("searchBox");
-			// ArrayList<String> result = Search.getsearch(con,asd);
-			// System.out.println(asd);
-			JSONObject jObj = new JSONObject(request.getParameter("searchBox"));  
-			Iterator it = jObj.keys();
-			String rl =null;
-			while(it.hasNext())
-			{
-				String key = it.next();  
-				 
-                rl = (String)jObj.get(key);
-				
+			String asd =req.getParameter("searchBox");
+						Gson gson = new Gson();
+			String rl = null;
+			int c = 0;
+			for(int i=0;i<asd.length();i++){
+				if (asd.charAt(i) =='"') {
+					c+=1;
+					if (c == 3) {
+						i+=1;
+						while(asd.charAt(i) !='"') {
+							rl+=asd.charAt(i);
+							i+=1;
+						}
+					}
+				}
+				i+=1;
 			}
+			// ArrayList<String> result = Search.getsearch(con,asd);
+			System.out.println(rl);
+		 
 			resp.getWriter().write("{\"response\":"+rl+"}");
-			
-			Gson gson = new Gson();
+
 
 			// String test2 = gson.toJson(result);
 			// resp.getWriter().write(test2);
