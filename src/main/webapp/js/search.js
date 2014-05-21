@@ -10,7 +10,8 @@ $(this).ready(function() {
 		console.log(term);
 		 $.ajax("/searchText", {
 			type: "POST",
-			contentType: "application/json; charset=utf-8",
+			dataType:'json',
+			contentType: 'application/json',
 			data:{'term':term},
 			success: function(result) {
 
