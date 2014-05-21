@@ -1,6 +1,5 @@
 <%@ page import="theworldnews.handlers.news.servlets.PreviewController"%>
-<%@ page language="java" contentType="text/html; charset=utf-8"
-	pageEncoding="utf-8"%>
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <%@ page import="java.sql.ResultSet"%>
 <%@ page import="java.sql.*"%>
 <%@ page import="java.util.ArrayList"%>

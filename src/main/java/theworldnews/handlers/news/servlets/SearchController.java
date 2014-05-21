@@ -28,6 +28,9 @@ public class SearchController extends HttpServlet {
 		Gson gson = new Gson();
 		try (Connection con = DatabaseConnection.getConnection()) {
 			String asd = gson.toJson(req.getParameter("term"));
+			System.out.println(req.getParameter("term"));
+			System.out.println(req.getParameter("searchBox"));
+			System.out.println("END OF TRANSMISSION!");
  
 			// ArrayList<String> result = Search.getsearch(con,asd);
 			
