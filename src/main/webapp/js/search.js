@@ -1,22 +1,22 @@
 $(this).ready(function() {
 	var term = getUrlParameter('searchBox');	
 	console.log(term);
-	$('#searchbtn').click(function() {	
+ 
 
-		 $.ajax("/searchText", {
-			type: "GET",
-			dataType:'json',
-			data: JSON.stringify({ "term": term}),
-			contentType: 'application/json',
-			success: function(result) {
-				console.log("Suc");
-				console.log(result);
-			},
-			error: function(result) {
-				console.log("fail search");
-			}
-		});
-	});
+	 $.ajax("/searchText", {
+		type: "GET",
+		dataType:'json',
+		data: JSON.stringify({ "term": term}),
+		contentType: 'application/json',
+		success: function(result) {
+			console.log("Suc");
+			console.log(result);
+		},
+		error: function(result) {
+			console.log("fail search");
+		}
+	}
+ 
 });
 function getUrlParameter(sParam)
 {
