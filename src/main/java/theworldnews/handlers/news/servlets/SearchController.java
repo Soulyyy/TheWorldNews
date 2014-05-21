@@ -25,17 +25,12 @@ public class SearchController extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		Gson gson = new Gson();
 		try (Connection con = DatabaseConnection.getConnection()) {
-			String asd = gson.toJson(req.getParameter("term"));
-			System.out.println(req.getParameter("term"));
-			System.out.println(req.getParameter("searchBox"));
-			System.out.println("END OF TRANSMISSION!");
- 
+			String asd =req.getParameter("searchBox");
 			// ArrayList<String> result = Search.getsearch(con,asd);
 			
 			resp.setHeader("Content-Type", "application/json");
-			resp.getWriter().write(asd);
+			resp.getWriter().write("{\"response\":"+asd+"}");
 		} catch (SQLException | URISyntaxException e) {
 			resp.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR,e.getMessage());
 		}
