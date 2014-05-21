@@ -28,14 +28,9 @@ public class FLatestNewsController extends HttpServlet {
 			Gson gson = new Gson();
 
 			String[] test = latest.getlatest(con);
- 
-	
-	 
-					String test2 = gson.toJson(test);
-					resp.getWriter().write(test2);
-		 
-		
-
+			String test2 = gson.toJson(test);
+			resp.getWriter().write(test2);
+			
 		} catch (SQLException | URISyntaxException e) {
 			resp.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR,e.getMessage());
 		}

@@ -6,13 +6,13 @@ $(this).ready(function() {
 	});
  
 	$('#searchbtn').click(function() {	
-		var term = $('#searchBox').val();
-		console.log(term);
+		var jsondata = {"a":$('#searchBox').val()};
+		console.log(jsondata);
 		 $.ajax("/searchText", {
 			type: "POST",
 			dataType:'json',
+			data: { jsondata : JSON.stringify(jsondata)},
 			contentType: 'application/json',
-			data:{dtest:term},
 			success: function(result) {
 
 				console.log(result);
