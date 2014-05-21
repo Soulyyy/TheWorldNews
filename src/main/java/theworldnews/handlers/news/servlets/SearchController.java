@@ -31,7 +31,7 @@ public class SearchController extends HttpServlet {
 			
 			
 			resp.setHeader("Content-Type", "application/json");
-			resp.getWriter().write("{\"response\":"+asd+"}");
+			resp.getWriter().write(asd);
 			
 		}
 		catch (SQLException | URISyntaxException e) {
