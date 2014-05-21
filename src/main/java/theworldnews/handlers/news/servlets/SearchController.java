@@ -29,7 +29,7 @@ public class SearchController extends HttpServlet {
 		try (Connection con = DatabaseConnection.getConnection()) {
 			String asd = req.getParameter("term");
  
-			
+			ArrayList<String> result = Search.getsearch(con,asd);
 			
 			resp.setHeader("Content-Type", "application/json");
 			resp.getWriter().write("{\"response\":"+asd+"}");

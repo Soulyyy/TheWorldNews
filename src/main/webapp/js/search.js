@@ -9,7 +9,7 @@ $(this).ready(function() {
 			data: JSON.stringify({ "term": term}),
 			contentType: 'application/json',
 			success: function(result) {
-
+				console.log("Suc");
 				console.log(result);
 			},
 			error: function(result) {
