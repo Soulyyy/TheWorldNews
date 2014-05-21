@@ -27,7 +27,7 @@ public class SearchController extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		Gson gson = new Gson();
 		try (Connection con = DatabaseConnection.getConnection()) {
-			String asd = gson.toJson(req.getParameter("term"));
+			String asd = gson.toJson(req.getParameter("searchBox"));
 			System.out.println(req.getParameter("term"));
 			System.out.println(req.getParameter("searchBox"));
 			System.out.println("END OF TRANSMISSION!");
