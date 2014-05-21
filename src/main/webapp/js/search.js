@@ -1,17 +1,17 @@
 $(this).ready(function() {
-	$("#searchBox").keyup(function(event){
-		if(event.keyCode == 13){
-			$("#searchbtn").click();
-		}
-	});
+	// $("#searchBox").keyup(function(event){
+		// if(event.keyCode == 13){
+			// $("#searchbtn").click();
+		// }
+	// });
  
 	$('#searchbtn').click(function() {	
-		var jsondata = {jsondata:$('#searchBox').val()};
+		var jsondata = $('#searchBox').val();
 		console.log(jsondata);
 		 $.ajax("/searchText", {
 			type: "POST",
 			dataType:'json',
-			data: JSON.stringify(jsondata),
+			data: '{ jsondata:'+ jsondata+'}',
 			contentType: 'application/json',
 			success: function(result) {
 

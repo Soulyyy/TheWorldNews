@@ -53,11 +53,12 @@ $(this).ready(function() {
 				toggleLoginButtons(true);
 				
 			}
-			if(resp.accessRights >= 1) {
+			else if(resp.accessRights >= 1) {
+							console.log("here");
 				console.log("Logged in with accessrights: " + resp.accessRights);
 				toggleLoginButtons(true);
 				adda.css('visibility', 'visible');
-				console.log("here");
+
 				// adda.style.visibility = 'visible';
 			}			else {
 				console.log("Not logged in");
