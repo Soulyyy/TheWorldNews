@@ -11,7 +11,7 @@ $(this).ready(function() {
 		 $.ajax("/searchText", {
 			type: "POST",
 			dataType:'json',
-			data: '{ jsondata:'+ jsondata+'}',
+			data: JSON.stringify({ "jsondata": jsondata})
 			contentType: 'application/json',
 			success: function(result) {
 
