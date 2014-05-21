@@ -18,8 +18,7 @@
 <script type="text/javascript" src="js/mainPage.js"></script>
 <script type="text/javascript" src="js/latestnews.js"></script>
 <script type="text/javascript" src="js/login.js"></script>
-<script type="text/javascript"
-	src="https://apis.google.com/js/client.js?onload=handleClientLoad"></script>
+<script type="text/javascript" src="https://apis.google.com/js/client.js?onload=handleClientLoad"></script>
 </head>
 <body>
 	<div id="header">
@@ -40,17 +39,16 @@
 			<button id="logoutButton">Log Out</button>
 
 		</div>
-		<!-- 
+ 
     <div id="search">
         
         
-        <form action="search" class="form-wrapper">
+        <form class="form-wrapper">
     	<p><input type="text" id="searchBox" placeholder="Search"></p>
 		</form>
+		<button id="searchbtn">Search</button>
         
-	 </div>
-     		-->
-
+	 </div> 
 
 		<div id="loginContainer">
 			<div id="login">

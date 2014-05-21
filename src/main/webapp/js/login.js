@@ -46,7 +46,8 @@ $(this).ready(function() {
 				console.log("Logged in with accessrights: " + resp.accessRights);
 				toggleLoginButtons(true);
 				if(resp.accessRights >= 1) {
-								adda.css('visibility', 'visible');
+					// adda.css('visibility', 'visible');
+					adda.style.visibility = 'visible';
 				}
 			} else {
 				console.log("Not logged in");
@@ -112,7 +113,8 @@ $(this).ready(function() {
 			success: function(resp) {
 				if(resp.response === "success") {
 					toggleLoginButtons(false);
-								adda.css('visibility', 'hidden');
+								// adda.css('visibility', 'hidden');
+									adda.style.visibility = 'hidden';
 				}
 			}
 		});
