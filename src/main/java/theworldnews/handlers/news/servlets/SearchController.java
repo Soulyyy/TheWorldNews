@@ -28,8 +28,10 @@ public class SearchController extends HttpServlet {
 		try (Connection con = DatabaseConnection.getConnection()) {
 			String asd =req.getParameter("searchBox");
 						Gson gson = new Gson();
-			String rl = null;
+			String rl = "a";
 			int c = 0;
+			System.out.println("BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB");
+
 			for(int i=0;i<asd.length();i++){
 				if (asd.charAt(i) =='"') {
 					c+=1;
