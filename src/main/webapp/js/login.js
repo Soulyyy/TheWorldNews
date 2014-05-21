@@ -48,15 +48,18 @@ $(this).ready(function() {
 		type: "GET",
 		dataType: 'json',
 		success: function(resp) {
-			if(resp.accessRights >= 0) {
+			if(resp.accessRights == 0) {
 				console.log("Logged in with accessrights: " + resp.accessRights);
 				toggleLoginButtons(true);
-				if(resp.accessRights >= 1) {
-					adda.css('visibility', 'visible');
-					console.log("here");
-					// adda.style.visibility = 'visible';
-				}
-			} else {
+				
+			}
+			if(resp.accessRights >= 1) {
+				console.log("Logged in with accessrights: " + resp.accessRights);
+				toggleLoginButtons(true);
+				adda.css('visibility', 'visible');
+				console.log("here");
+				// adda.style.visibility = 'visible';
+			}			else {
 				console.log("Not logged in");
 				toggleLoginButtons(false);
 			}
