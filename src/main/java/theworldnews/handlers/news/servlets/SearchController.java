@@ -32,7 +32,7 @@ public class SearchController extends HttpServlet {
 			// ArrayList<String> result = Search.getsearch(con,asd);
 			
 			resp.setHeader("Content-Type", "application/json");
-			resp.getWriter().write("{\"response\":"+asd+"}");
+			resp.getWriter().write(asd);
 		} catch (SQLException | URISyntaxException e) {
 			resp.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR,e.getMessage());
 		}
