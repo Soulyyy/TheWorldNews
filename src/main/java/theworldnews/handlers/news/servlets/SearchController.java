@@ -25,17 +25,24 @@ public class SearchController extends HttpServlet {
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		try (Connection con = DatabaseConnection.getConnection()) {
-			String asd = req.getParameter("jsondata");
+	
+		String searchString = req.getParameter("searchBox").trim();
+
+		String s = "searchBox=" + searchString;
+
+		resp.sendRedirect("/search.html?" + s);
+
+		// try (Connection con = DatabaseConnection.getConnection()) {
+			// String asd = req.getParameter("jsondata");
 			// ArrayList<String> result = Search.getsearch(con,asd);
 			
 			
-			resp.setHeader("Content-Type", "application/json");
-			resp.getWriter().write("{\"response\":"+asd+"}");
+			// resp.setHeader("Content-Type", "application/json");
+			// resp.getWriter().write("{\"response\":"+asd+"}");
 			
-		}
-		catch (SQLException | URISyntaxException e) {
-			resp.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, e.getMessage());
-		}
+		// }
+		// catch (SQLException | URISyntaxException e) {
+			// resp.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, e.getMessage());
+		// }
 	}
 }

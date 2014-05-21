@@ -18,7 +18,6 @@
 <script type="text/javascript" src="js/mainPage.js"></script>
 <script type="text/javascript" src="js/latestnews.js"></script>
 <script type="text/javascript" src="js/login.js"></script>
-<script type="text/javascript" src="js/search.js"></script>
 <script type="text/javascript" src="https://apis.google.com/js/client.js?onload=handleClientLoad"></script>
 </head>
 <body>
@@ -44,12 +43,12 @@
     <div id="search">
         
         
-        <form class="form-wrapper">
-    	<p><input type="text" id="searchBox" placeholder="Search"></p>
+       	<form method="post" class="form-wrapper" action="/searchText">
+		<p><input type="text" class="search" name="searchBox" placeholder="Search" /></p>
 		</form>
-		<button id="searchbtn">Search</button>
         
 	 </div> 
+ 
 
 		<div id="loginContainer">
 			<div id="login">
