@@ -52,8 +52,9 @@ $(this).ready(function() {
 				console.log("Logged in with accessrights: " + resp.accessRights);
 				toggleLoginButtons(true);
 				if(resp.accessRights >= 1) {
-					// adda.css('visibility', 'visible');
-					adda.style.visibility = 'visible';
+					adda.css('visibility', 'visible');
+					console.log("here");
+					// adda.style.visibility = 'visible';
 				}
 			} else {
 				console.log("Not logged in");

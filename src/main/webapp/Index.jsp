@@ -62,8 +62,7 @@
 						placeholder="Password">
 				</p>
 
-				<a href="html/registerUser.html" id="regi">Not a User? Click
-					here to register</a>
+				<a href="html/registerUser.html" id="regi">Not a User? Click here to register</a>
 				<p class="submit">
 					<button id="loginbutton">Log In</button>
 				</p>
@@ -84,8 +83,7 @@
 						placeholder="Password">
 						
 				<input id="loginbutton" type="submit" value="Log In"/>
-				<a href="html/registerUser.html" id="regi">Not a User? Click
-					here to register</a>
+				<a href="html/registerUser.html" id="regi">Not a User? Click here to register</a>
 			
 			
 			</form>
@@ -127,7 +125,7 @@
 
 
 	<div id="articleGroup">
-		<!-- t��tab!! infinite dispatch loop here we go!!! -->
+ 
 		<jsp:include page="/previewArticle">
 			<jsp:param name="type" value="News" />
 			<jsp:param name="size" value="18" />
