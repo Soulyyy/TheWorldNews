@@ -26,7 +26,7 @@ public class SearchController extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		try (Connection con = DatabaseConnection.getConnection()) {
-			String asd = req.getAttribute("term");
+			String asd = req.getParameter("term");
 			// ArrayList<String> result = Search.getsearch(con,asd);
 			
 			
