@@ -20,14 +20,14 @@ import java.util.ArrayList;
 
 @WebServlet(value = "/searchText")
 public class SearchController extends HttpServlet {
-
+	
 	private static final long serialVersionUID = 1L;
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
+		Gson gson = new Gson();
 		try (Connection con = DatabaseConnection.getConnection()) {
-			String asd = req.getParameter("searchBox");
+			String asd = gson.toJson(req.getParameter("searchBox"));
  
 			// ArrayList<String> result = Search.getsearch(con,asd);
 			
