@@ -6,7 +6,7 @@ $(this).ready(function() {
 	});
  
 	$('#searchbtn').click(function() {	
-		var jsondata = {"a":$('#searchBox').val()};
+		var jsondata = {"jsondata":$('#searchBox').val()};
 		console.log(jsondata);
 		 $.ajax("/searchText", {
 			type: "POST",

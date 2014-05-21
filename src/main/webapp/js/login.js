@@ -6,6 +6,11 @@ $(this).ready(function() {
 	var authorizeButton = $("#authorize-button");
 	var adda = $("#add");
 
+	$("#password").keyup(function(event){
+		if(event.keyCode == 13){
+			$("#loginbutton").click();
+		}	
+	});
 
 	/**
 	 * Sisselogimise kasti kuvamise/peitmise abifunktsioon
@@ -39,6 +44,7 @@ $(this).ready(function() {
 	 * NoScript puhul ei ole sisselogimine toetatud.
 	 */
 	$.ajax("/accountLogin", {
+	
 		type: "GET",
 		dataType: 'json',
 		success: function(resp) {
@@ -79,6 +85,7 @@ $(this).ready(function() {
 
 			//Räsime parooli siin, et POST päringus paintexti ei edastataks
 			userdata.password = Sha256.hash($("#password").val());
+
 
 			if(!userdata.username || !userdata.password) {
 				alert("Fill all forms.");
