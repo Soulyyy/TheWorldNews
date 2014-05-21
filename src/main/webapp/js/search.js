@@ -10,7 +10,7 @@ $(this).ready(function() {
 		console.log(term);
 		 $.ajax("/searchText", {
 			type: "POST",
-			data:{fragment:term},
+			data:{'fragment':term},
 			success: function(result) {
 				// console.log("suc");
 				console.log(result);
