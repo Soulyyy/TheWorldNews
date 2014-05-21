@@ -30,4 +30,4 @@ function getUrlParameter(sParam)
             return sParameterName[1];
         }
     }
-}?
+}
