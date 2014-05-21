@@ -1,17 +1,12 @@
 $(this).ready(function() {
-	// $("#searchBox").keyup(function(event){
-		// if(event.keyCode == 13){
-			// $("#searchbtn").click();
-		// }
-	// });
- 
+	var term = getUrlParameter('searchBox');	
+	console.log(term);
 	$('#searchbtn').click(function() {	
-		var jsondata = $('#searchBox').val();
-		console.log(jsondata);
+
 		 $.ajax("/searchText", {
-			type: "POST",
+			type: "GET",
 			dataType:'json',
-			data: JSON.stringify({ "jsondata": jsondata}),
+			data: JSON.stringify({ "term": term}),
 			contentType: 'application/json',
 			success: function(result) {
 
@@ -23,3 +18,16 @@ $(this).ready(function() {
 		});
 	});
 });
+function getUrlParameter(sParam)
+{
+    var sPageURL = window.location.search.substring(1);
+    var sURLVariables = sPageURL.split('&');
+    for (var i = 0; i < sURLVariables.length; i++) 
+    {
+        var sParameterName = sURLVariables[i].split('=');
+        if (sParameterName[0] == sParam) 
+        {
+            return sParameterName[1];
+        }
+    }
+}?

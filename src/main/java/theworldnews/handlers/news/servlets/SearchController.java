@@ -24,13 +24,28 @@ public class SearchController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+		try (Connection con = DatabaseConnection.getConnection()) {
+			String asd = req.getParameter("term");
+ 
+			
+			
+			resp.setHeader("Content-Type", "application/json");
+			resp.getWriter().write("{\"response\":"+asd+"}");
+		} catch (SQLException | URISyntaxException e) {
+			resp.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR,e.getMessage());
+		}
+	}
+	
+	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 	
 		String searchString = req.getParameter("searchBox").trim();
 
 		String s = "searchBox=" + searchString;
 
-		resp.sendRedirect("/search.html?" + s);
+		resp.sendRedirect("/html/search.html?" + s);
 
 		// try (Connection con = DatabaseConnection.getConnection()) {
 			// String asd = req.getParameter("jsondata");
@@ -45,4 +60,5 @@ public class SearchController extends HttpServlet {
 			// resp.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, e.getMessage());
 		// }
 	}
+
 }
