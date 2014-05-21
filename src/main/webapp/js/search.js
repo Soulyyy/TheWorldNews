@@ -6,8 +6,8 @@ $(this).ready(function() {
 	 $.ajax("/searchText", {
 		type: "GET",
 		dataType:'json',
-		data: JSON.stringify({ "term": term}),
-		contentType: 'application/json',
+		data:{searchBox : JSON.stringify({ "term": term})},
+		contentType: 'application/json; charset=utf-8',
 		success: function(result) {
 			console.log("Suc");
 			console.log(result);
