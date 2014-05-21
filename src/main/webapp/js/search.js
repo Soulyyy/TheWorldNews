@@ -15,7 +15,7 @@ $(this).ready(function() {
 		error: function(result) {
 			console.log("fail search");
 		}
-	}
+	});
  
 });
 function getUrlParameter(sParam)
