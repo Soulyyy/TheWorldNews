@@ -12,7 +12,7 @@ $(this).ready(function() {
 			type: "POST",
 			dataType:'json',
 			contentType: 'application/json',
-			data:{'term':term},
+			data:{dtest:term},
 			success: function(result) {
 
 				console.log(result);
