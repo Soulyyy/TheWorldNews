@@ -12,6 +12,7 @@
 <html>
 <head>
 <title>The World</title>
+<meta charset="utf-8">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link rel="stylesheet" type="text/css" href="../css/layout.css">
 <script src="../lib/jquery-1.11.0.js" type="text/javascript"></script>

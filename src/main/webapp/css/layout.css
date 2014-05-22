@@ -347,11 +347,7 @@ a {
 	text-decoration: none;
 }
 
-a:hover {
-	cursor: pointer;
-	font: 1vw/2 Arial, Helvetica, sans-serif;
-	color: black;	
-}
+
 
 li:last-child {
 	border-right: none;
