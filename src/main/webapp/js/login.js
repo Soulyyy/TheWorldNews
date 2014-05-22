@@ -105,12 +105,12 @@ $(this).ready(function() {
 						} 
 						else {
 							if(userdata.accessRights >= 1) {
-								console.log("Logged in with accessrights: " + resp.accessRights);
+								console.log("Logged in with accessrights: " + userdata.accessRights);
 								toggleLoginButtons(true);
 								adda.css('visibility', 'visible');
 							}
 							else if(userdata.accessRights == 0) {
-								console.log("Logged in with accessrights: " + resp.accessRights);
+								console.log("Logged in with accessrights: " + userdata.accessRights);
 								toggleLoginButtons(true);
 								
 							}

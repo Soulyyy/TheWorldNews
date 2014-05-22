@@ -12,9 +12,17 @@ $(this).ready(function() {
 		contentType: 'application/json; charset=utf-8',
 		success: function(r) {
 			console.log(r);
-			console.log(r.length);
+
 			if (r.length == 0) {
 				$(".sresults").html("No results found");
+			}
+			else {
+				var i = 0;
+				while (i < r.length) {
+					$(".sresults").append("<a href=\"http://gold-experience.herokuapp.com/jsp/ArticleView.jsp?id="+r[i]+"&image="+r[i+3]+"\">"+resp[i+1]+"</a><br/>"+r[i+2]+"<br/>");
+		
+					i+=4;
+				}
 			}
 		},
 		error: function(r) {
