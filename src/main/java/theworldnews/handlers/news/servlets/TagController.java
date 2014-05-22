@@ -34,8 +34,8 @@ public class TagController extends HttpServlet {
 			String asd = req.getParameter("term");
 			int articleid = Integer.parseInt(asd);
 			// We display five tags
-			// System.out.println("BBBBBBBBBBBBBBBBBBBBBB");
-			// System.out.println(articleid);
+			System.out.println("BBBBBBBBBBBBBBBBBBBBBB");
+			System.out.println(articleid);
 			// Gson gson = new Gson();
 			// ArrayList<Tag> taglist = HashTagQueries.topHashTagsOnArticle(con,articleid, 5);
 
