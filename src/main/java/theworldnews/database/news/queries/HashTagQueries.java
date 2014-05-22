@@ -12,8 +12,7 @@ import theworldnews.database.news.objects.Tag;
 
 public class HashTagQueries {
 
-	public static int addHashTag(Connection con, int userid, int articleid,
-			String tagname) {
+	public static int addHashTag(Connection con, int userid, int articleid,String tagname) {
 		try {
 			String query = "INSERT INTO tags (userid, articleid, tagname)"
 					+ " VALUES (? ,? ,?) RETURNING ID";
@@ -31,8 +30,7 @@ public class HashTagQueries {
 		return -1;
 	}
 
-	public static int hashTagCountByUserOnArticle(Connection con, int userid,
-			int articleid) {
+	public static int hashTagCountByUserOnArticle(Connection con, int userid,int articleid) {
 		try {
 			// Unverified
 			String query = "SELECT COUNT(tags.id) FROM tags WHERE tags.userid=? AND tags.articleid=?";
@@ -47,8 +45,7 @@ public class HashTagQueries {
 		return -1;
 	}
 
-	public static ArrayList<Tag> topHashTagsOnArticle(Connection con,
-			int articleid, int count) {
+	public static ArrayList<Tag> topHashTagsOnArticle(Connection con,int articleid, int count) {
 		try {
 			// Unverified
 			String query = "SELECT tags.tagname, count(tags.articleid) AS tagcount FROM tags WHERE tags.articleid=? GROUP BY tags.tagname ORDER BY tagcount DESC limit ?";
@@ -58,7 +55,7 @@ public class HashTagQueries {
 			ResultSet rs = pst.executeQuery();
 			ArrayList<Tag> tags = new ArrayList<Tag>();
 			while (rs.next()) {
-				Tag temp = new Tag(articleid,rs.getString("tagname"), rs.getInt("count"));
+				Tag temp = new Tag(articleid,rs.getString("tagname"), rs.getInt("tagcount"));
 				tags.add(temp);
 			}
 			return tags;

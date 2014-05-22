@@ -61,15 +61,15 @@ public class TagController extends HttpServlet {
 	public void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 		// Tag submission
 		try (Connection con = DatabaseConnection.getConnection()) {
-			// String hashtag = req.getParameter("tag");
-			String hashtag = "testhash";
-			// int userid = (Integer) req.getSession().getAttribute("LOGIN_ID");
-			int userid = 42;
-			// String asd = req.getParameter("term");
+			String hashtag = req.getParameter("tag");
+			// String hashtag = "testhash";
+			int userid = (Integer) req.getSession().getAttribute("LOGIN_ID");
+			// int userid = 42;
+			String asd = req.getParameter("term");
 			int articleid = 5;
   
-			 // if(asd !=null && !asd.isEmpty())
-				 // articleid=Integer.parseInt(asd.trim());
+			 if(asd !=null && !asd.isEmpty())
+				 articleid=Integer.parseInt(asd.trim());
 			int userTagCount = HashTagQueries.hashTagCountByUserOnArticle(con,userid, articleid);
 			if (userTagCount < 5) {
 				hashtag = hashtag.toLowerCase();
