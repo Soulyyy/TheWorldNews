@@ -388,6 +388,10 @@ li {
 
 a {
 	cursor: pointer;
+	font: 1vw/1 Arial, Helvetica, sans-serif;
+	color: #000;
+	text-decoration: none;
+	margin-left: 1vw;
 }
  
 li:last-child {
