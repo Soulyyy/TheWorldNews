@@ -40,7 +40,7 @@
         
         <li class="profileList"><a href="#">Profile Settings</a></li>
         <li class="profileList"><a href="createArticle.jsp">Create Article</a></li>
-        <li class="profileList"><a href="EditArticle.jsp">Edit Articles</a></li>
+        <li class="profileList"><a href="EditArticleDisplay.jsp">Edit Articles</a></li>
                 
         </ul>
     </nav>
