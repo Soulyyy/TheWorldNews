@@ -60,8 +60,7 @@ public class HashTagQueries {
 			ResultSet rs = pst.executeQuery();
 			ArrayList<Tag> tags = new ArrayList<Tag>();
 			while (rs.next()) {
-				Tag temp = new Tag(rs.getInt("articleid"),
-						rs.getString("tagname"), rs.getInt("count"));
+				Tag temp = new Tag(articleid,rs.getString("tagname"), rs.getInt("count"));
 				tags.add(temp);
 			}
 			return tags;
