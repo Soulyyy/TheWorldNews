@@ -17,9 +17,8 @@ $(this).ready(function() {
 
 				var i = 0;
 				while (i < r.length) {
-					$(".hashtags").append(r[i]+"\t");
-
-					
+					$(".hashtags").append(r[i]+"\t");	
+				}
 			}
 	
 		},
