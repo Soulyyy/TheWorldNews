@@ -25,7 +25,7 @@ function latestnews() {
 				setTimeout(latestnews, 1000);
 			},
 			error: function(resp){
-               console.log("the best");
+               console.log("latestnews fail");
 			   setTimeout(latestnews,15000);
 			}
 	});

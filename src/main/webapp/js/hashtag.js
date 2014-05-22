@@ -12,14 +12,15 @@ $(this).ready(function() {
 		success: function(r) {
 			console.log(r);
 
-			if (r.length > 0) {
+			// if (r.length > 0) {
 			
 
-				var i = 0;
-				while (i < r.length) {
-					$(".hashtags").append(r[i]+"\t");	
-				}
-			}
+				// var i = 0;
+				// while (i < r.length) {
+					// $(".hashtags").append(r[i]+"\t");	
+					// i+=1;
+				// }
+			// }
 	
 		},
 		error: function(r) {

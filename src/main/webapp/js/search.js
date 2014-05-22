@@ -1,8 +1,5 @@
 $(this).ready(function() {
 	var term = getUrlParameter('searchBox');	
-	console.log(term);
- 
-
 	 $.ajax("/searchText", {
 		type: "GET",
 		dataType:'json',
@@ -10,8 +7,6 @@ $(this).ready(function() {
 		data:{searchBox : JSON.stringify({ "term": term})},
 		contentType: 'application/json; charset=utf-8',
 		success: function(r) {
-			console.log(r);
-
 			if (r.length == 0) {
 				$(".sresults").html("No results found");
 			}
