@@ -50,8 +50,16 @@ html,body
     visibility:hidden;
     cursor:pointer;
 }
+
 #add{
-	visibility:hidden;
+    float:right;	
+    background:url(../Metadata/settings.png) no-repeat;
+    background-size:1.3vw;
+    cursor:pointer;
+    width: 32px;
+    height: 32px;
+    border: none; 
+    visibility:hidden;
 }
 
 
@@ -160,16 +168,7 @@ html,body
     color: #666;
 }
 
-#add{
-    float:right;	
-    background:url(../Metadata/settings.png) no-repeat;
-    background-size:1.3vw;
 
-    cursor:pointer;
-    width: 32px;
-    height: 32px;
-    border: none; 
-}
 
 img.mainImage {
 	position:absolute;
