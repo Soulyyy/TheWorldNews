@@ -31,7 +31,8 @@ public class TagController extends HttpServlet {
 	public void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 		// Get tags for article
 		try (Connection con = DatabaseConnection.getConnection()) {
-			Integer articleid = (Integer) Integer.parseInt(req.getParameter("term"));
+			String asd = req.getParameter("term");
+			int articleid = Integer.parseInt(asd);
 			// We display five tags
 			System.out.println("BBBBBBBBBBBBBBBBBBBBBB");
 			System.out.println(articleid);
@@ -44,22 +45,20 @@ public class TagController extends HttpServlet {
 			// JsonArray response = gson.toJsonTree(taglist).getAsJsonArray();
 			resp.setHeader("Content-Type", "application/json");
 			// resp.getWriter().write(response.getAsString());
-			 resp.getWriter().write("{\"response\":"+Integer.toString(articleid)+"}");
+			 resp.getWriter().write("{\"response\":"+asd+"}");
 		} catch (SQLException | URISyntaxException | IOException e) {
-			resp.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR,
-					e.getMessage());
+			resp.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR,e.getMessage());
 		}
 
 	}
 
 	@Override
-	public void doPost(HttpServletRequest req, HttpServletResponse resp)
-			throws IOException {
+	public void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 		// Tag submission
 		try (Connection con = DatabaseConnection.getConnection()) {
-			String hashtag = req.getParameter("ht").trim();
+			String hashtag =req.getParameter("tag");
 			int userid = (Integer) req.getSession().getAttribute("LOGIN_ID");
-			int articleid = (Integer) Integer.parseInt(req.getParameter("id"));
+			int articleid =  Integer.parseInt(req.getParameter("id"));
 			int userTagCount = HashTagQueries.hashTagCountByUserOnArticle(con,userid, articleid);
 			if (userTagCount < 5) {
 				hashtag = hashtag.toLowerCase();
@@ -72,8 +71,7 @@ public class TagController extends HttpServlet {
 				resp.setHeader("Content-Type", "application/json");
 				resp.getWriter().write("{\"response\":\"hashtag added\"}");
 			} else {
-				resp.sendError(HttpServletResponse.SC_FORBIDDEN,
-						"You have reached the limit of tags");
+				resp.sendError(HttpServletResponse.SC_FORBIDDEN,"You have reached the limit of tags");
 			}
 		} catch (SQLException | URISyntaxException e) {
 			resp.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR,
