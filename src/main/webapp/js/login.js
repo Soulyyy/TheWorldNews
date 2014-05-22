@@ -57,14 +57,14 @@ $(this).ready(function() {
 				toggleLoginButtons(true);
 				adda.css('visibility', 'visible');
 				if ($("#ht").length > 0){
-					adda.css('visibility', 'visible');
+					ht.css('visibility', 'visible');
 				}	
 			}
 			else if(resp.accessRights == 0) {
 				console.log("Logged in with accessrights: " + resp.accessRights);
 				toggleLoginButtons(true);
 				if ($("#ht").length > 0){
-					adda.css('visibility', 'visible');
+					ht.css('visibility', 'visible');
 				}	
 			}
 			else {

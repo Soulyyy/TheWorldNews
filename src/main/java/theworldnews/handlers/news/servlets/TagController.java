@@ -31,13 +31,11 @@ public class TagController extends HttpServlet {
 	public void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 		// Get tags for article
 		try (Connection con = DatabaseConnection.getConnection()) {
-			Integer articleid = Integer.parseInt(req.getParameter("term"));
+			Integer articleid = (Integer) Integer.parseInt(req.getParameter("term"));
 			// We display five tags
 			System.out.println("BBBBBBBBBBBBBBBBBBBBBB");
 			System.out.println(articleid);
 			// Gson gson = new Gson();
-			ArrayList<Tag> taglist = HashTagQueries.topHashTagsOnArticle(con,
-					articleid, 5);
 			// ArrayList<Tag> taglist = HashTagQueries.topHashTagsOnArticle(con,articleid, 5);
 
 			// String test2 = gson.toJson(taglist);
@@ -61,7 +59,7 @@ public class TagController extends HttpServlet {
 		try (Connection con = DatabaseConnection.getConnection()) {
 			String hashtag = req.getParameter("ht").trim();
 			int userid = (Integer) req.getSession().getAttribute("LOGIN_ID");
-			int articleid = Integer.parseInt(req.getParameter("id"));
+			int articleid = (Integer) Integer.parseInt(req.getParameter("id"));
 			int userTagCount = HashTagQueries.hashTagCountByUserOnArticle(con,userid, articleid);
 			if (userTagCount < 5) {
 				hashtag = hashtag.toLowerCase();
