@@ -49,7 +49,6 @@ $(this).ready(function() {
 		dataType: 'json',
 		success: function(resp) {
 			if(resp.accessRights >= 1) {
-							console.log("here");
 				console.log("Logged in with accessrights: " + resp.accessRights);
 				toggleLoginButtons(true);
 				adda.css('visibility', 'visible');
@@ -61,7 +60,7 @@ $(this).ready(function() {
 				toggleLoginButtons(true);
 				
 			}
-						else {
+			else {
 				console.log("Not logged in");
 				toggleLoginButtons(false);
 			}
@@ -103,10 +102,18 @@ $(this).ready(function() {
 					success: function(userdata) {
 						if(userdata.accessRights === -1) {
 							alert("Vale parool/kasutaja.");
-						} else {
-							console.log("logged in with accessrights: " + userdata.accessRights);
-							toggleLoginButtons(true);
-							toggleLoginContainer(false);
+						} 
+						else {
+							if(userdata.accessRights >= 1) {
+								console.log("Logged in with accessrights: " + resp.accessRights);
+								toggleLoginButtons(true);
+								adda.css('visibility', 'visible');
+							}
+							else if(userdata.accessRights == 0) {
+								console.log("Logged in with accessrights: " + resp.accessRights);
+								toggleLoginButtons(true);
+								
+							}
 						}
 					}
 				});

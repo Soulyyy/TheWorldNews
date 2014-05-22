@@ -14,7 +14,6 @@ $(this).ready(function() {
 			console.log(r);
 			console.log(r.length);
 			if (r.length == 0) {
-			console.log("pls");
 				$(".sresults").html("No results found");
 			}
 		},
