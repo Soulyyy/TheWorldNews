@@ -5,7 +5,11 @@ import java.net.URISyntaxException;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ArrayList;
+<<<<<<< HEAD
 
+=======
+import javax.servlet.ServletException;
+>>>>>>> branch 'master' of https://github.com/Soulyyy/TheWorldNews.git
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -28,24 +32,26 @@ public class TagController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	@Override
-	public void doGet(HttpServletRequest req, HttpServletResponse resp)
-			throws IOException {
+	public void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 		// Get tags for article
 		try (Connection con = DatabaseConnection.getConnection()) {
-			Integer articleid = Integer.parseInt(req.getParameter("term"));
+			// Integer articleid = Integer.parseInt(req.getParameter("term"));
+			String asd = req.getParameter("term");
 			// We display five tags
 			System.out.println("BBBBBBBBBBBBBBBBBBBBBB");
-			System.out.println(articleid);
+			// System.out.println(articleid);
 			// Gson gson = new Gson();
-
 			ArrayList<Tag> taglist = HashTagQueries.topHashTagsOnArticle(con,
 					articleid, 5);
+			// ArrayList<Tag> taglist = HashTagQueries.topHashTagsOnArticle(con,articleid, 5);
+
 			// String test2 = gson.toJson(taglist);
 			// resp.getWriter().write(test2);
-			Gson gson = new GsonBuilder().create();
-			JsonArray response = gson.toJsonTree(taglist).getAsJsonArray();
+			// Gson gson = new GsonBuilder().create();
+			// JsonArray response = gson.toJsonTree(taglist).getAsJsonArray();
 			resp.setHeader("Content-Type", "application/json");
-			resp.getWriter().write(response.getAsString());
+			// resp.getWriter().write(response.getAsString());
+			 resp.getWriter().write("{\"response\":"+asd+"}");
 		} catch (SQLException | URISyntaxException | IOException e) {
 			resp.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR,
 					e.getMessage());
@@ -82,6 +88,5 @@ public class TagController extends HttpServlet {
 			resp.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR,
 					e.getMessage());
 		}
-
 	}
 }
