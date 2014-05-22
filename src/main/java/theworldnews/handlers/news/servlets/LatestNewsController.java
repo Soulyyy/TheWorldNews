@@ -5,6 +5,8 @@
 // import java.net.URISyntaxException;
 // import java.sql.Connection;
 // import java.sql.SQLException;
+// import java.util.ArrayList;
+// import java.util.List;
 
 // import javax.servlet.ServletException;
 // import javax.servlet.annotation.WebServlet;
@@ -26,29 +28,25 @@
 	// private static final long serialVersionUID = 1L;
 
 	// @Override
-	// protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	// protected void doGet(HttpServletRequest req, HttpServletResponse resp)
+			// throws ServletException, IOException {
 
 		// try (Connection con = DatabaseConnection.getConnection()) {
 			// Gson gson = new Gson();
 
-			// String[] test = latest.getlatest(con);
-			// String[] temp = new String[15];
-			// for(int i=0; i<10; i++){
-				   // temp[i]=test[i];
-			// }
-	
+			// List<Article> test = DisplayQueries.getLatestNews(con);
+			// String test2 = gson.toJson(test);
+			// resp.setHeader("Content-Type", "application/json");
+			// resp.getWriter().write(test2);
+
 			// try {
 				// LatestNewsSocketController.find(req.getServletContext())
-						// .loadMostRecent();
+						// .sendMessage();
 			// } catch (NullPointerException e) {
 				// System.out
 						// .println("Tartu, we have a problem. Actually no twats are looking at our websockets.");
 			// }
 		// }
-		
 
-		// } catch (SQLException | URISyntaxException e) {
-			// resp.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR,e.getMessage());
-		// }
 	// }
 // }

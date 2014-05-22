@@ -36,8 +36,10 @@ public class TagController extends HttpServlet {
 			System.out.println("BBBBBBBBBBBBBBBBBBBBBB");
 			System.out.println(articleid);
 			// Gson gson = new Gson();
-
+			ArrayList<Tag> taglist = HashTagQueries.topHashTagsOnArticle(con,
+					articleid, 5);
 			// ArrayList<Tag> taglist = HashTagQueries.topHashTagsOnArticle(con,articleid, 5);
+
 			// String test2 = gson.toJson(taglist);
 			// resp.getWriter().write(test2);
 			// Gson gson = new GsonBuilder().create();
@@ -46,13 +48,16 @@ public class TagController extends HttpServlet {
 			// resp.getWriter().write(response.getAsString());
 			 resp.getWriter().write("{\"response\":"+Integer.toString(articleid)+"}");
 		} catch (SQLException | URISyntaxException | IOException e) {
-			resp.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR,e.getMessage());
+			resp.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR,
+					e.getMessage());
 		}
 
 	}
 
 	@Override
-	public void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+	public void doPost(HttpServletRequest req, HttpServletResponse resp)
+			throws IOException {
+		// Tag submission
 		try (Connection con = DatabaseConnection.getConnection()) {
 			String hashtag = req.getParameter("ht").trim();
 			int userid = (Integer) req.getSession().getAttribute("LOGIN_ID");
@@ -63,6 +68,7 @@ public class TagController extends HttpServlet {
 				if (!(hashtag.substring(0, 1).matches("#"))) {
 					hashtag = "#" + hashtag;
 				}
+				@SuppressWarnings("unused")
 				int response = HashTagQueries.addHashTag(con, userid,
 						articleid, hashtag);
 				resp.setHeader("Content-Type", "application/json");
