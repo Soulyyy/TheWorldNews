@@ -15,7 +15,7 @@ public class NavigationTag extends SimpleTagSupport {
 		htmlText.append("<div id=\"logoButtons\">");
 
 		htmlText.append("<header class=\"Head\"><a class=\"Head\" href=\"../Index.jsp\">THE WORLD</a></header>");
-		htmlText.append("<a id=\"add\" href=\"http://gold-experience.herokuapp.com/jsp/createArticle.jsp\"></a>");
+		htmlText.append("<a id=\"add\" href=\"http://gold-experience.herokuapp.com/jsp/settings.jsp\"></a>");
 
 		htmlText.append("<button id=\"toggleLogin\">Log In</button>");
 		htmlText.append("<button id=\"logoutButton\">Log Out</button>");
