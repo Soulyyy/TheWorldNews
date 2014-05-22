@@ -32,7 +32,7 @@ public class TagController extends HttpServlet {
 		// Get tags for article
 		try (Connection con = DatabaseConnection.getConnection()) {
 			String asd = req.getParameter("term");
-			int articleid = Integer.parseInt(asd);
+			int articleid = Integer.parseInt(asd.trim());
 			// We display five tags
 			System.out.println("BBBBBBBBBBBBBBBBBBBBBB");
 			System.out.println(articleid);
@@ -59,7 +59,7 @@ public class TagController extends HttpServlet {
 			String hashtag = req.getParameter("tag");
 			int userid = (Integer) req.getSession().getAttribute("LOGIN_ID");
 			String asd = req.getParameter("term");
-			int articleid = Integer.parseInt(asd);
+			int articleid = Integer.parseInt(asd.trim());
 			int userTagCount = HashTagQueries.hashTagCountByUserOnArticle(con,userid, articleid);
 			if (userTagCount < 5) {
 				hashtag = hashtag.toLowerCase();
