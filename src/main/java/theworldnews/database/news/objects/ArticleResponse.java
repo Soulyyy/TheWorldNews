@@ -65,18 +65,16 @@ public class ArticleResponse {
 		String header = article.header;
 		String content = article.content;
 
-		sb.append("<a href=\"ArticleView.jsp?id=")
-				.append(id + "&image=" + img)
-				.append("\"><img class=\"mainImage\" src=\"")
-				.append(img)
-				.append("\" alt=\"pilt\"></a>")
-				.append("<p class=\"authorText\">")
-				.append("By " + firstname + " " + surname)
-				.append("</p>")
-				.append("<p class=\"mainText\"><a href=\"ArticleView.jsp?id=")
-				.append(id).append("\">").append(header).append("</a></p>")
-				.append(clearDiv()).append(content);
-
+		sb.append("<div class=\"articleView\">")
+			.append("<div class=\"mainCropped\">)")
+			.append("<a href=\"../jsp/ArticleView.jsp?id=" + id + "&image=" + img + "\">")
+			.append("<img class=\"mainImagev src=\"" + img + "\" alt=\"pilt\">")
+			.append("</a></div>")
+			.append("<p class=\"authorText\">" + "By " + firstname + " " + surname + "</p>)")
+			.append("<p class=\"mainText\">")
+			.append("<a href=\"../jsp/ArticleView.jsp?id=" + id + "&image=" + img + "\">" + header + "</a>")
+			.append("</p><p class=\"content\">" + content + "</p></div>");
+	
 		return sb.toString();
 	}
 

@@ -1,11 +1,11 @@
 <%@ page import="theworldnews.handlers.news.servlets.PreviewController"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
-         pageEncoding="utf-8"%>
-<%@ page import="java.sql.ResultSet" %>
-<%@ page import="java.sql.*" %>
-<%@ page import="java.util.ArrayList" %>
-<%@ page import="theworldnews.database.news.objects.Article" %>
-<%@ page import="theworldnews.database.news.queries.DisplayQueries" %>
+	pageEncoding="utf-8"%>
+<%@ page import="java.sql.ResultSet"%>
+<%@ page import="java.sql.*"%>
+<%@ page import="java.util.ArrayList"%>
+<%@ page import="theworldnews.database.news.objects.Article"%>
+<%@ page import="theworldnews.database.news.queries.DisplayQueries"%>
 <%@ taglib prefix="ex" uri="../WEB-INF/custom.tld"%>
 
 <!DOCTYPE html>
@@ -21,10 +21,22 @@
 	src="https://apis.google.com/js/client.js?onload=handleClientLoad"></script>
 </head>
 <body>
-	<ex:Navigation/>
-	<jsp:include page="/displayArticle">
-	<jsp:param value="<%= request.getParameter("id")%>" name="id"/>
-	<jsp:param value="<%= request.getParameter("image") %>" name="image"/>
-	</jsp:include>
+	<ex:Navigation />
+
+	<div id="articleGroup">
+		<jsp:include page="/displayArticle">
+			<jsp:param value="<%=request.getParameter("id")%>" name="id" />
+			<jsp:param value="<%=request.getParameter("image")%>" name="image" />
+
+		</jsp:include>
+	</div>
+
+
+
+
+
+
+
+
 </body>
 </html>
