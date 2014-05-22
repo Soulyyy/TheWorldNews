@@ -40,6 +40,9 @@ $(this).ready(function() {
 			success: function(resp) {
 				console.log("added tag");
 
+			},
+			error: function(r) {
+			console.log("failed add");
 			}
 		});
 	});

@@ -32,10 +32,10 @@ public class TagController extends HttpServlet {
 		// Get tags for article
 		try (Connection con = DatabaseConnection.getConnection()) {
 			String asd = req.getParameter("term");
-			int articleid = Integer.parseInt(asd);
+			// int articleid = Integer.parseInt(asd);
 			// We display five tags
 			System.out.println("BBBBBBBBBBBBBBBBBBBBBB");
-			System.out.println(articleid);
+			// System.out.println(articleid);
 			// Gson gson = new Gson();
 			// ArrayList<Tag> taglist = HashTagQueries.topHashTagsOnArticle(con,articleid, 5);
 
@@ -56,7 +56,7 @@ public class TagController extends HttpServlet {
 	public void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 		// Tag submission
 		try (Connection con = DatabaseConnection.getConnection()) {
-			String hashtag =req.getParameter("tag");
+			String hashtag = req.getParameter("tag");
 			int userid = (Integer) req.getSession().getAttribute("LOGIN_ID");
 			int articleid =  Integer.parseInt(req.getParameter("id"));
 			int userTagCount = HashTagQueries.hashTagCountByUserOnArticle(con,userid, articleid);
@@ -66,8 +66,7 @@ public class TagController extends HttpServlet {
 					hashtag = "#" + hashtag;
 				}
 				@SuppressWarnings("unused")
-				int response = HashTagQueries.addHashTag(con, userid,
-						articleid, hashtag);
+				int response = HashTagQueries.addHashTag(con, userid,articleid, hashtag);
 				resp.setHeader("Content-Type", "application/json");
 				resp.getWriter().write("{\"response\":\"hashtag added\"}");
 			} else {
