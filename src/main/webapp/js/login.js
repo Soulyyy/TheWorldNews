@@ -75,7 +75,9 @@ $(this).ready(function() {
 	 */
 	$.getScript("js/Sha256.js", function() {
 		loginButton.click(function() {
-			$("#userName").focus();
+			console.log("a");
+			document.getElementById("userName").focus();
+
 			var hash = window.location.hash;
 			if(hash) {
 				hash = hash.substr(1);
