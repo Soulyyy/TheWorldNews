@@ -18,6 +18,7 @@ import theworldnews.database.connection.DatabaseConnection;
 import theworldnews.database.news.objects.Tag;
 import theworldnews.database.news.queries.HashTagQueries;
 
+@WebServlet(value = "/tagsC")
 public class TagController extends HttpServlet {
 
 	/**
@@ -30,10 +31,9 @@ public class TagController extends HttpServlet {
 			throws IOException {
 		// Get tags for article
 		try (Connection con = DatabaseConnection.getConnection()) {
-			Integer articleid = Integer.parseInt(req.getParameter("articleid"));
+			Integer articleid = Integer.parseInt(req.getParameter("term"));
 			// We display five tags
-			ArrayList<Tag> taglist = HashTagQueries.topHashTagsOnArticle(con,
-					articleid, 5);
+			ArrayList<Tag> taglist = HashTagQueries.topHashTagsOnArticle(con,articleid, 5);
 			Gson gson = new GsonBuilder().create();
 			JsonArray response = gson.toJsonTree(taglist).getAsJsonArray();
 			resp.setHeader("Content-Type", "application/json");

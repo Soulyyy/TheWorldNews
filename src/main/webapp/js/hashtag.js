@@ -1,31 +1,30 @@
 $(this).ready(function() {
-	var term = getUrlParameter('searchBox');	
+	var term = getUrlParameter('id');	
 	console.log(term);
  
 
-	 $.ajax("/searchText", {
+	$.ajax("/tagsC", {
 		type: "GET",
 		dataType:'json',
 		contentType: 'application/json',
-		data:{searchBox : JSON.stringify({ "term": term})},
+		data:{term : JSON.stringify({ "term": term})},
 		contentType: 'application/json; charset=utf-8',
 		success: function(r) {
 			console.log(r);
 
-			if (r.length == 0) {
-				$(".sresults").html("No results found");
-			}
-			else {
+			if (r.length > 0) {
+			
+
 				var i = 0;
 				while (i < r.length) {
-					$(".sresults").append("<a href=\"http://gold-experience.herokuapp.com/jsp/ArticleView.jsp?id="+r[i]+"&image="+r[i+3]+"\">"+r[i+1]+"</a><br/>"+r[i+2]+"<br/>");
-		
-					i+=4;
-				}
+					$(".hashtags").append(r[i]+"\t");
+
+					
 			}
+	
 		},
 		error: function(r) {
-			console.log("fail search");
+			console.log("failed getting tags");
 		}
 	});
  

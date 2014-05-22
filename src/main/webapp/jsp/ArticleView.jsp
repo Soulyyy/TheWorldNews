@@ -18,6 +18,7 @@
 <script type="text/javascript" src="../js/mainPage.js"></script>
 <script type="text/javascript" src="../js/login.js"></script>
 <script type="text/javascript" src="../js/latestnews.js"></script>
+<script type="text/javascript" src="../js/hashtag.js"></script>
 <script type="text/javascript"
 	src="https://apis.google.com/js/client.js?onload=handleClientLoad"></script>
 </head>
@@ -28,10 +29,15 @@
 		<jsp:include page="/displayArticle">
 			<jsp:param value="<%=request.getParameter("id")%>" name="id" />
 			<jsp:param value="<%=request.getParameter("image")%>" name="image" />
-
 		</jsp:include>
 	</div>
-		<!-- Latest News -->
+	
+	<div id="hashtags">
+	
+	
+	</div>
+	
+	<!-- Latest News -->
 	<div id="sideBar">
 
 		<div id="latest">
