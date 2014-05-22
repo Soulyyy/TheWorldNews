@@ -31,7 +31,7 @@
 
 
 <div class="profile">
-
+<!--
     <div class="profileSettings" >
     
     <nav>
@@ -48,7 +48,7 @@
     </nav>
   
     </div>
-    
+    -->
     <div class="profileOptions">
     
     	<!--Siia div-i võiks muudetud teks ilmuda vms-->
@@ -96,7 +96,6 @@
                 
                 
                 
-                                   
 
  		</div>
  		

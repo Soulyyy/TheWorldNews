@@ -54,7 +54,7 @@
 		
 			<div id="login">
 				<p>
-					<input type="text" id="userName" name="login" value="" placeholder="Username or Email">
+					<input type="text" id="userName" name="login" value="" placeholder="Username">
 				</p>
 				<p>
 					<input type="password" id="password" name="password" value="" placeholder="Password">

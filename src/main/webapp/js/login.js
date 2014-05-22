@@ -69,8 +69,9 @@ $(this).ready(function() {
 	 */
  
 	loginPopupButton.click(function() {
+		$("#userName").focus();
 		toggleLoginContainer();
-		$("#userName").focus();	
+		
 	});
 
 	/*
