@@ -68,7 +68,7 @@ public class ArticleResponse {
 		sb.append("<div class=\"articleView\">")
 			.append("<div class=\"mainCropped\">)")
 			.append("<a href=\"../jsp/ArticleView.jsp?id=" + id + "&image=" + img + "\">")
-			.append("<img class=\"mainImagev src=\"" + img + "\" alt=\"pilt\">")
+			.append("<img class=\"mainImage\" src=\"" + img + "\" alt=\"pilt\">")
 			.append("</a></div>")
 			.append("<p class=\"authorText\">" + "By " + firstname + " " + surname + "</p>)")
 			.append("<p class=\"mainText\">")
