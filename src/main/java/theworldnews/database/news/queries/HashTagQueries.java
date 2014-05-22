@@ -12,7 +12,7 @@ import theworldnews.database.news.objects.Tag;
 
 public class HashTagQueries {
 
-	public int addHashTag(Connection con, int userid, int articleid,
+	public static int addHashTag(Connection con, int userid, int articleid,
 			String tagname) {
 		try {
 			String query = "INSERT INTO tags (userid, articleid, tagname)"
@@ -32,7 +32,7 @@ public class HashTagQueries {
 		return -1;
 	}
 
-	public int hashTagCountByUserOnArticle(Connection con, int userid,
+	public static int hashTagCountByUserOnArticle(Connection con, int userid,
 			int articleid) {
 		try {
 			// Unverified
@@ -49,8 +49,8 @@ public class HashTagQueries {
 		return -1;
 	}
 
-	public ArrayList<Tag> topHashTagsOnArticle(Connection con, int articleid,
-			int count) {
+	public static ArrayList<Tag> topHashTagsOnArticle(Connection con,
+			int articleid, int count) {
 		try {
 			// Unverified
 			String query = "SELECT tags.tagname, count(tags.articleid) AS tagcount FROM tags WHERE tags.articleid=? GROUP BY tags.tagname ORDER BY tagcount DESC limit ?";
