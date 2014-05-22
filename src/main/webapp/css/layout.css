@@ -178,8 +178,8 @@ img.mainImage {
     top: -100%;
     bottom: -100%;
     margin: auto;
-    height: 100%;
-    width:auto;
+    height: auto;
+    width:100%;
 }
 
 

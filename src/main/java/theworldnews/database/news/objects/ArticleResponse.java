@@ -36,7 +36,7 @@ public class ArticleResponse {
 					"Article position does not exist");
 		}
 
-		sb.append("<a href=\"jsp/ArticleView.jsp?id=")
+		sb.append("<a href=\"../jsp/ArticleView.jsp?id=")
 				.append(id + "&image=" + img)
 				.append("\"><div class=mainCropped><img class=\"mainImage\" src=\"")
 				.append(img)
@@ -44,7 +44,7 @@ public class ArticleResponse {
 				.append("<p class=\"authorText\">")
 				.append("By " + firstname + " " + surname)
 				.append("</p>")
-				.append("<p class=\"mainText\"><a href=\"<%=request.getContextPath()%>/jsp/ArticleView.jsp?id=")
+				.append("<p class=\"mainText\"><a href=\"../jsp/ArticleView.jsp?id=")
 				.append(id).append("\">").append(header).append("</a></p>")
 				.append("</div>");
 
