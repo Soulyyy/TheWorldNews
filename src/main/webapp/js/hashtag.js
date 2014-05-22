@@ -35,14 +35,17 @@ $(this).ready(function() {
 			type: "POST",
 			dataType:'json',
 			contentType: 'application/json',
-			data:{tag : JSON.stringify({ "tag": tag})},
+			data:{tag : JSON.stringify({ "tag": tag}),
+			term : JSON.stringify({ "term": term})
+			
+			},
 			contentType: 'application/json; charset=utf-8',
 			success: function(resp) {
 				console.log("added tag");
 
 			},
 			error: function(r) {
-			console.log("failed add");
+				alert("failed add");
 			}
 		});
 	});
