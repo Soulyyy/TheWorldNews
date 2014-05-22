@@ -26,8 +26,7 @@ public class HashTagQueries {
 			int result = pst.executeUpdate();
 			return result;
 		} catch (SQLException e) {
-			Logger.getLogger(EditQueries.class.getName()).log(Level.SEVERE,
-					e.getMessage(), e);
+			Logger.getLogger(EditQueries.class.getName()).log(Level.SEVERE,e.getMessage(), e);
 		}
 		return -1;
 	}
@@ -43,8 +42,7 @@ public class HashTagQueries {
 			int rs = pst.executeUpdate();
 			return rs;
 		} catch (SQLException e) {
-			Logger.getLogger(EditQueries.class.getName()).log(Level.SEVERE,
-					e.getMessage(), e);
+			Logger.getLogger(EditQueries.class.getName()).log(Level.SEVERE,e.getMessage(), e);
 		}
 		return -1;
 	}
@@ -65,8 +63,7 @@ public class HashTagQueries {
 			}
 			return tags;
 		} catch (SQLException e) {
-			Logger.getLogger(EditQueries.class.getName()).log(Level.SEVERE,
-					e.getMessage(), e);
+			Logger.getLogger(EditQueries.class.getName()).log(Level.SEVERE,e.getMessage(), e);
 		}
 		return null;
 	}
