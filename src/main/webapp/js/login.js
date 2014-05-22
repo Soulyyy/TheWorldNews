@@ -52,13 +52,10 @@ $(this).ready(function() {
 				console.log("Logged in with accessrights: " + resp.accessRights);
 				toggleLoginButtons(true);
 				adda.css('visibility', 'visible');
-
-				// adda.style.visibility = 'visible';
 			}
 			else if(resp.accessRights == 0) {
 				console.log("Logged in with accessrights: " + resp.accessRights);
 				toggleLoginButtons(true);
-				
 			}
 			else {
 				console.log("Not logged in");
@@ -78,6 +75,7 @@ $(this).ready(function() {
 	 */
 	$.getScript("js/Sha256.js", function() {
 		loginButton.click(function() {
+			$("#userName").focus();
 			var hash = window.location.hash;
 			if(hash) {
 				hash = hash.substr(1);
@@ -104,14 +102,15 @@ $(this).ready(function() {
 							alert("Vale parool/kasutaja.");
 						} 
 						else {
+							toggleLoginButtons(true);
+							toggleLoginContainer(false);
 							if(userdata.accessRights >= 1) {
 								console.log("Logged in with accessrights: " + userdata.accessRights);
-								toggleLoginButtons(true);
+						
 								adda.css('visibility', 'visible');
 							}
 							else if(userdata.accessRights == 0) {
 								console.log("Logged in with accessrights: " + userdata.accessRights);
-								toggleLoginButtons(true);
 								
 							}
 						}
@@ -133,8 +132,8 @@ $(this).ready(function() {
 			success: function(resp) {
 				if(resp.response === "success") {
 					toggleLoginButtons(false);
-								// adda.css('visibility', 'hidden');
-									adda.style.visibility = 'hidden';
+					adda.css('visibility', 'hidden');
+							 
 				}
 			}
 		});

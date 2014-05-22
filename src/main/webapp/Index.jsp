@@ -23,7 +23,7 @@
 	<div id="header">
 
 
-		<!-- The World Log In & Settings -->
+		<!-- The World Log In  -->
 		<div id="logoButtons">
 
 			<header class="Head">
@@ -38,29 +38,28 @@
 			<button id="logoutButton">Log Out</button>
 
 		</div>
+		<!-- Search -->
+		<div id="search">
+			
+			
+			<form method="post" class="form-wrapper" action="/searchText">
+			<p><input type="text" class="search" id="searchBox" name="searchBox" placeholder="Search" /></p>
+			</form>
+			
+		 </div> 
  
-    <div id="search">
-        
-        
-       	<form method="post" class="form-wrapper" action="/searchText">
-		<p><input type="text" class="search" id="searchBox" name="searchBox" placeholder="Search" /></p>
-		</form>
-        
-	 </div> 
- 
-
+		<!-- Login -->
 		<div id="loginContainer">
+		
 			<div id="login">
 				<p>
-					<input type="text" id="userName" name="login" value=""
-						placeholder="Username or Email">
+					<input type="text" id="userName" name="login" value="" placeholder="Username or Email">
 				</p>
 				<p>
-					<input type="password" id="password" name="password" value=""
-						placeholder="Password">
+					<input type="password" id="password" name="password" value="" placeholder="Password">
 				</p>
 
-				<a href="html/registerUser.html" id="regi">Not a User? Click here to register</a>
+				<a href="jsp/registerUser.jsp" id="regi">Not a User? Click here to register</a>
 				<p class="submit">
 					<button id="loginbutton">Log In</button>
 				</p>
@@ -68,11 +67,10 @@
 			<div>
 				<button id="authorize-button">Log In With Google</button>
 			</div>
-			
-			
 
 		</div>
-					<noscript>
+		
+		<noscript>
 		
 			<form id="login" action="/noscriptAccountLogin"  method="post">
 				<input type="text" id="userName" name="username" value=""
@@ -123,7 +121,6 @@
 
 
 	<div id="articleGroup">
- 
 		<jsp:include page="/previewArticle">
 			<jsp:param name="type" value="News" />
 			<jsp:param name="size" value="18" />
@@ -134,26 +131,21 @@
 
 
 
+	<!-- Latest News -->
 	<div id="sideBar">
 
 		<div id="latest">
 
 			<header>
-				<a id="latestNews" href="#"> Latest News </a>
+				<a id="latestNews"> Latest News </a>
 			</header>
 
 			<div class="latestNewsDisplay">
-
-				<div class="itemeven"></div>
-
-
-
 
 			</div>
 
 
 		</div>
-
 
 	</div>
 
@@ -161,6 +153,7 @@
 		<p>&nbsp;</p>
 	</div>
 
+	<!-- Google Logout -->
 	<iframe name='myIFrame' id="myIFrame" style='display: none'></iframe>
 
 </body>

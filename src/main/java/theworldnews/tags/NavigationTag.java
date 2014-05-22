@@ -16,7 +16,6 @@ public class NavigationTag extends SimpleTagSupport {
 
 		htmlText.append("<header class=\"Head\"><a class=\"Head\" href=\"../Index.jsp\">THE WORLD</a></header>");
 
-		htmlText.append("<button id=\"settings\"></button>");
 
 		htmlText.append("<button id=\"toggleLogin\">Log In</button>");
 		htmlText.append("<button id=\"logoutButton\">Log Out</button>");
