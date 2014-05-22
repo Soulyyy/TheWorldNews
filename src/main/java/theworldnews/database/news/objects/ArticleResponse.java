@@ -70,7 +70,7 @@ public class ArticleResponse {
 			.append("<a href=\"../jsp/ArticleView.jsp?id=" + id + "&image=" + img + "\">")
 			.append("<img class=\"mainImage\" src=\"" + img + "\" alt=\"pilt\">")
 			.append("</a></div>")
-			.append("<p class=\"authorText\">" + "By " + firstname + " " + surname + "</p>)"
+			.append("<p class=\"authorText\">" + "By " + firstname + " " + surname + "</p>)")
 			.append("<p class=\"mainText\">")
 			.append("<a href=\"../jsp/ArticleView.jsp?id=" + id + "&image=" + img + "\">" + header + "</a>")
 			.append("</p><p class=\"content\">" + content + "</p></div>");
