@@ -16,6 +16,7 @@ public class LatestNewsSocketController extends WebSocketServlet implements
 	private static final long serialVersionUID = 1L;
 	private List<LatestNewsSocket> sockets;
 	private ServletContext context;
+	private Pinger pinger;
 
 	public void broadcast(String message) {
 		for (LatestNewsSocket socket : sockets) {
@@ -42,6 +43,9 @@ public class LatestNewsSocketController extends WebSocketServlet implements
 		sockets = new CopyOnWriteArrayList<>(); // thread-safe impl
 		context = config.getServletContext(); // shared between ALL servlets
 		publish(this, context); // so that other servlets could find us
+		gson = new GsonBuilder().registerTypeAdapter(RecentItem.class,
+				new RecentItemSerializer()).create();
+
 	}
 
 	@Override
@@ -67,4 +71,43 @@ public class LatestNewsSocketController extends WebSocketServlet implements
 				.getAttribute(LatestNewsSocketController.class.getName());
 	}
 
+}
+
+private class Pinger extends Thread {
+
+	public Pinger() {
+		this.start();
+	}
+
+	@Override
+	public synchronized void run() {
+		while (true) {
+			sendMessage("");
+			try {
+				Thread.sleep(30000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+
+	//What Tõnis took from Jaan, Hans took from Tõnis. Win! Keeping 'em connections alive.
+	private class Pinger extends Thread {
+
+		public Pinger() {
+			this.start();
+		}
+
+		@Override
+		public synchronized void run() {
+			while (true) {
+				sendMessage("");
+				try {
+					Thread.sleep(30000);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+	}
 }
