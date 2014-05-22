@@ -34,11 +34,15 @@ public class TagController extends HttpServlet {
 		try (Connection con = DatabaseConnection.getConnection()) {
 			Integer articleid = Integer.parseInt(req.getParameter("term"));
 			// We display five tags
+			Gson gson = new Gson();
+
 			ArrayList<Tag> taglist = HashTagQueries.topHashTagsOnArticle(con,articleid, 5);
-			Gson gson = new GsonBuilder().create();
-			JsonArray response = gson.toJsonTree(taglist).getAsJsonArray();
-			resp.setHeader("Content-Type", "application/json");
-			resp.getWriter().write(response.getAsString());
+			String test2 = gson.toJson(taglist);
+			resp.getWriter().write(test2);
+			// Gson gson = new GsonBuilder().create();
+			// JsonArray response = gson.toJsonTree(taglist).getAsJsonArray();
+			// resp.setHeader("Content-Type", "application/json");
+			// resp.getWriter().write(response.getAsString());
 		} catch (SQLException | URISyntaxException | IOException e) {
 			resp.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR,
 					e.getMessage());

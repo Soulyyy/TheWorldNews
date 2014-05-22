@@ -27,7 +27,7 @@ public class SearchController extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		try (Connection con = DatabaseConnection.getConnection()) {
 			String asd =req.getParameter("searchBox");
-						Gson gson = new Gson();
+			Gson gson = new Gson();
 			String rl = "";
 			int c = 0;
  
