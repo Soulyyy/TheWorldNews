@@ -5,16 +5,20 @@ import java.io.PrintWriter;
 import java.net.URISyntaxException;
 import java.sql.Connection;
 import java.sql.SQLException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 import com.google.gson.Gson;
+
 import theworldnews.database.connection.DatabaseConnection;
 import theworldnews.database.news.objects.Article;
 import theworldnews.database.news.objects.ArticleResponse;
 import theworldnews.database.news.queries.*;
+import theworldnews.handlers.news.sockets.LatestNewsSocketController;
 
 @WebServlet(value = "/latestNews")
 public class LatestNewsController extends HttpServlet {
@@ -33,21 +37,14 @@ public class LatestNewsController extends HttpServlet {
 				   temp[i]=test[i];
 			}
 	
-			while (true) {
-				if (test[5].equals(temp[5])) {
-					test = latest.getlatest(con);
-					try {
-						Thread.sleep(30000);
-					} catch (InterruptedException e) {
-						e.printStackTrace();
-					}
-				}
-				else {
-					String test2 = gson.toJson(test);
-					resp.getWriter().write(test2);
-					break;
-				}
+			try {
+				LatestNewsSocketController.find(req.getServletContext())
+						.loadMostRecent();
+			} catch (NullPointerException e) {
+				System.out
+						.println("Tartu, we have a problem. Actually no twats are looking at our websockets.");
 			}
+		}
 		
 
 		} catch (SQLException | URISyntaxException e) {

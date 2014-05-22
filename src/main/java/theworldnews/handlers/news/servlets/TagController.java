@@ -6,6 +6,7 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -18,7 +19,7 @@ import theworldnews.database.connection.DatabaseConnection;
 import theworldnews.database.news.objects.Tag;
 import theworldnews.database.news.queries.HashTagQueries;
 
-@WebServlet(value = "/tagsC")
+@WebServlet(value = "/tagController")
 public class TagController extends HttpServlet {
 
 	/**
@@ -33,7 +34,8 @@ public class TagController extends HttpServlet {
 		try (Connection con = DatabaseConnection.getConnection()) {
 			Integer articleid = Integer.parseInt(req.getParameter("term"));
 			// We display five tags
-			ArrayList<Tag> taglist = HashTagQueries.topHashTagsOnArticle(con,articleid, 5);
+			ArrayList<Tag> taglist = HashTagQueries.topHashTagsOnArticle(con,
+					articleid, 5);
 			Gson gson = new GsonBuilder().create();
 			JsonArray response = gson.toJsonTree(taglist).getAsJsonArray();
 			resp.setHeader("Content-Type", "application/json");

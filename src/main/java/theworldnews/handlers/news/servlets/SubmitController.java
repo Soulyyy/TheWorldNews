@@ -33,26 +33,29 @@ public class SubmitController extends HttpServlet {
 	}
 
 	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
+			throws ServletException, IOException {
 		resp.setHeader("Content-Type", "application/json");
 	}
 
 	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
+			throws ServletException, IOException {
 		try (Connection con = DatabaseConnection.getConnection()) {
 			Article article = gson.fromJson(req.getReader(), Article.class);
-			article.authorid=(Integer)req.getSession().getAttribute("LOGIN_ID");
+			article.authorid = (Integer) req.getSession().getAttribute(
+					"LOGIN_ID");
 			System.out.println(article.articlegroup);
 
 			EditQueries.addArticle(con, article);
 			resp.setHeader("Content-Type", "application/json");
 			resp.getWriter().write("{\"response\":\"newsarticle created \"}");
- 
 
 		} catch (JsonParseException ex) {
 			resp.sendError(HttpServletResponse.SC_BAD_REQUEST, ex.getMessage());
 		} catch (SQLException | URISyntaxException e) {
-			resp.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, e.getMessage());
+			resp.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR,
+					e.getMessage());
 		}
 	}
 }
