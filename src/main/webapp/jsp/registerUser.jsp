@@ -16,12 +16,11 @@
 <script src="../lib/jquery-1.11.0.js" type="text/javascript"></script>
 <script type="text/javascript" src="../js/mainPage.js"></script>
 <script type="text/javascript" src="../js/login.js"></script>
-<script type="text/javascript"
-	src="https://apis.google.com/js/client.js?onload=handleClientLoad"></script>
-<script type="text/javascript" src="../lib/jquery-1.11.0.js"></script>
+<script type="text/javascript" src="https://apis.google.com/js/client.js?onload=handleClientLoad"></script>
 <script type="text/javascript" src="../js/registerUser.js"></script>
 </head>
 <body>
+<ex:Navigation/>
         <div class="registerUser">
             <div class="registration">
                 <p><label for="username">Choose your Username</label></p>

@@ -38,12 +38,13 @@
 			<button id="logoutButton">Log Out</button>
 
 		</div>
+		
 		<!-- Search -->
 		<div id="search">
 			
 			
 			<form method="post" class="form-wrapper" action="/searchText">
-			<p><input type="text" class="search" id="searchBox" name="searchBox" placeholder="Search" /></p>
+			<p><input type="text" id="searchBox" name="searchBox" placeholder="Search" /></p>
 			</form>
 			
 		 </div> 

@@ -63,7 +63,7 @@ public class SearchController extends HttpServlet {
 
 		String s = "searchBox=" + searchString;
 
-		resp.sendRedirect("/html/search.html?" + s);
+		resp.sendRedirect("/jsp/Search.jsp?" + s);
 
 		// try (Connection con = DatabaseConnection.getConnection()) {
 			// String asd = req.getParameter("jsondata");

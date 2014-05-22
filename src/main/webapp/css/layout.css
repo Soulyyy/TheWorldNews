@@ -449,6 +449,7 @@ p.sideText a{
     border-top:1px solid #666;
     display: table;
     margin-left: auto;
+	cursor: text;
     margin-right: auto;
     text-align: center;
     width:100%;
