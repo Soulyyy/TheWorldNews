@@ -5,11 +5,7 @@ import java.net.URISyntaxException;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ArrayList;
-<<<<<<< HEAD
-
-=======
 import javax.servlet.ServletException;
->>>>>>> branch 'master' of https://github.com/Soulyyy/TheWorldNews.git
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;

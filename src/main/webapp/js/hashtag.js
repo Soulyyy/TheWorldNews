@@ -3,7 +3,7 @@ $(this).ready(function() {
 	console.log(term);
  
 
-	$.ajax("/tagsC", {
+	$.ajax("/tagController", {
 		type: "GET",
 		dataType:'json',
 		contentType: 'application/json',
