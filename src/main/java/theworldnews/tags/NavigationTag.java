@@ -36,7 +36,7 @@ public class NavigationTag extends SimpleTagSupport {
 		htmlText.append("<p><input type=\"text\" id=\"userName\" name=\"login\" value=\"\" placeholder=\"Username or Email\"></p>");
 		htmlText.append("<p><input type=\"password\" id=\"password\" name=\"password\" value=\"\" placeholder=\"Password\"></p>");
 
-		htmlText.append("<a href=\"../html/registerUser.html\" id=\"regi\">Not a User? Click here to register</a>");
+		htmlText.append("<a href=\"../jsp/registerUser.html\" id=\"regi\">Not a User? Click here to register</a>");
 		htmlText.append("<p class=\"submit\"><button id=\"loginbutton\">Log In</button></p>");
 		htmlText.append("</div>");
 		htmlText.append("<div>");
