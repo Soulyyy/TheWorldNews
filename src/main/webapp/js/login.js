@@ -67,7 +67,11 @@ $(this).ready(function() {
 	/**
 	 * Kuvame/peidame sisselogimise/regamise/google-auth kasti
 	 */
-	loginPopupButton.click(toggleLoginContainer);
+ 
+	loginPopupButton.click(function() {
+		toggleLoginContainer();
+		$("#userName").focus();	
+	});
 
 	/*
 	 * Saadab servletile päringu sisselogimiseks. Servlet seab sessioni parameetri
@@ -75,9 +79,8 @@ $(this).ready(function() {
 	 */
 	$.getScript("js/Sha256.js", function() {
 		loginButton.click(function() {
-			console.log("a");
-			document.getElementById("userName").focus();
 
+		
 			var hash = window.location.hash;
 			if(hash) {
 				hash = hash.substr(1);

@@ -15,7 +15,7 @@ public class NavigationTag extends SimpleTagSupport {
 		htmlText.append("<div id=\"logoButtons\">");
 
 		htmlText.append("<header class=\"Head\"><a class=\"Head\" href=\"../Index.jsp\">THE WORLD</a></header>");
-		htmlText.append("<a id=\"add\" href=\"jsp/createArticle.jsp\">Add article</a>");
+		htmlText.append("<a id=\"add\" href=\"http://gold-experience.herokuapp.com/jsp/createArticle.jsp\">Add article</a>");
 
 		htmlText.append("<button id=\"toggleLogin\">Log In</button>");
 		htmlText.append("<button id=\"logoutButton\">Log Out</button>");
@@ -35,7 +35,7 @@ public class NavigationTag extends SimpleTagSupport {
 		htmlText.append("<p><input type=\"text\" id=\"userName\" name=\"login\" value=\"\" placeholder=\"Username or Email\"></p>");
 		htmlText.append("<p><input type=\"password\" id=\"password\" name=\"password\" value=\"\" placeholder=\"Password\"></p>");
 
-		htmlText.append("<a href=\"../jsp/registerUser.html\" id=\"regi\">Not a User? Click here to register</a>");
+		htmlText.append("<a href=\"http://gold-experience.herokuapp.com/jsp/registerUser.jsp\" id=\"regi\">Not a User? Click here to register</a>");
 		htmlText.append("<p class=\"submit\"><button id=\"loginbutton\">Log In</button></p>");
 		htmlText.append("</div>");
 		htmlText.append("<div>");
