@@ -48,7 +48,9 @@ html,body {
 	visibility: hidden;
 	cursor: pointer;
 }
-
+#ht {
+	visibility: hidden;
+}
 #add {
 	float: right;
 	background: url(../Metadata/settings.png) no-repeat;

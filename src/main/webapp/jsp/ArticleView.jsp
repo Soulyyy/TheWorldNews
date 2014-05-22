@@ -20,8 +20,7 @@
 <script type="text/javascript" src="../js/login.js"></script>
 <script type="text/javascript" src="../js/latestnews.js"></script>
 <script type="text/javascript" src="../js/hashtag.js"></script>
-<script type="text/javascript"
-	src="https://apis.google.com/js/client.js?onload=handleClientLoad"></script>
+<script type="text/javascript" src="https://apis.google.com/js/client.js?onload=handleClientLoad"></script>
 </head>
 <body>
 	<ex:Navigation />
@@ -37,6 +36,9 @@
 	
 	
 	</div>
+	<form method="post" class="form-wrapper" action="/tagController">
+			<p><input type="text" id="ht" name="ht" placeholder="Add hashtag" /></p>
+	</form>
 	
 	<!-- Latest News -->
 	<div id="sideBar">

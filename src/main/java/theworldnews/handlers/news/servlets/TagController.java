@@ -51,32 +51,30 @@ public class TagController extends HttpServlet {
 
 	}
 
-	// @Override
-	// public void doPost(HttpServletRequest req, HttpServletResponse resp)
-			// throws IOException {
-		// try (Connection con = DatabaseConnection.getConnection()) {
-			// int userid = (Integer) req.getSession().getAttribute("LOGIN_ID");
-			// int articleid = Integer.parseInt(req.getParameter("id"));
-			// int userTagCount = HashTagQueries.hashTagCountByUserOnArticle(con,
-					// userid, articleid);
-			// if (userTagCount < 5) {
-				// String hashtag = req.getParameter("hashtag");
-				// hashtag = hashtag.toLowerCase();
-				// if (!(hashtag.substring(0, 1).matches("#"))) {
-					// hashtag = "#" + hashtag;
-				// }
-				// int response = HashTagQueries.addHashTag(con, userid,
-						// articleid, hashtag);
-				// resp.setHeader("Content-Type", "application/json");
-				// resp.getWriter().write("{\"response\":\"hashtag added\"}");
-			// } else {
-				// resp.sendError(HttpServletResponse.SC_FORBIDDEN,
-						// "You have reached the limit of tags");
-			// }
-		// } catch (SQLException | URISyntaxException e) {
-			// resp.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR,
-					// e.getMessage());
-		// }
+	@Override
+	public void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+		try (Connection con = DatabaseConnection.getConnection()) {
+			String hashtag = req.getParameter("ht").trim();
+			int userid = (Integer) req.getSession().getAttribute("LOGIN_ID");
+			int articleid = Integer.parseInt(req.getParameter("id"));
+			int userTagCount = HashTagQueries.hashTagCountByUserOnArticle(con,userid, articleid);
+			if (userTagCount < 5) {
+				hashtag = hashtag.toLowerCase();
+				if (!(hashtag.substring(0, 1).matches("#"))) {
+					hashtag = "#" + hashtag;
+				}
+				int response = HashTagQueries.addHashTag(con, userid,
+						articleid, hashtag);
+				resp.setHeader("Content-Type", "application/json");
+				resp.getWriter().write("{\"response\":\"hashtag added\"}");
+			} else {
+				resp.sendError(HttpServletResponse.SC_FORBIDDEN,
+						"You have reached the limit of tags");
+			}
+		} catch (SQLException | URISyntaxException e) {
+			resp.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR,
+					e.getMessage());
+		}
 
-	// }
+	}
 }

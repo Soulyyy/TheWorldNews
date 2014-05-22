@@ -5,6 +5,10 @@ $(this).ready(function() {
 	var loginContainer = $("#loginContainer");
 	var authorizeButton = $("#authorize-button");
 	var adda = $("#add");
+	
+	if ($("#ht").length > 0){
+		var ht = $("#ht");
+	}	
 
 	$("#password").keyup(function(event){
 		if(event.keyCode == 13){
@@ -52,10 +56,16 @@ $(this).ready(function() {
 				console.log("Logged in with accessrights: " + resp.accessRights);
 				toggleLoginButtons(true);
 				adda.css('visibility', 'visible');
+				if ($("#ht").length > 0){
+					adda.css('visibility', 'visible');
+				}	
 			}
 			else if(resp.accessRights == 0) {
 				console.log("Logged in with accessrights: " + resp.accessRights);
 				toggleLoginButtons(true);
+				if ($("#ht").length > 0){
+					adda.css('visibility', 'visible');
+				}	
 			}
 			else {
 				console.log("Not logged in");
