@@ -30,6 +30,25 @@
 
 		</jsp:include>
 	</div>
+		<!-- Latest News -->
+	<div id="sideBar">
+
+		<div id="latest">
+
+			<header>
+				<a id="latestNews"> Latest News </a>
+			</header>
+
+			<div class="latestNewsDisplay">
+
+			</div>
+
+
+		</div>
+
+	</div>
+	
+	
 
 
 
