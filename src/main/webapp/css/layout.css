@@ -160,7 +160,7 @@ html,body
     color: #666;
 }
 
-#settings{
+#add{
     float:right;	
     background:url(../Metadata/settings.png) no-repeat;
     background-size:1.3vw;

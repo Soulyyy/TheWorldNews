@@ -30,8 +30,7 @@
 				<a class="Head" href="Index.jsp">THE WORLD</a>
 			</header>
 
-
-			<a id="add" href="jsp/createArticle.jsp">Add article</a>
+			<a id="add" href="jsp/settings.jsp">Add article</a>
 
 
 			<button id="toggleLogin">Log In</button>
