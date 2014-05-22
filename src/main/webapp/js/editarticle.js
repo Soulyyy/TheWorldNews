@@ -1,6 +1,8 @@
 $(this).ready(function() {
 	var url = window.location.href;
 	var params = url.split('?id=');
+	var createArticle = $("#createarticle");
+	createArticle.show();
  
     $('#edit').click(function() {
     	

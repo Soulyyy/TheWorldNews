@@ -14,6 +14,18 @@ html,body
     margin-top:-30px;
 }
 
+
+#add{
+    float:right;	
+    background:url(../Metadata/settings.png) no-repeat;
+    background-size:1.3vw;
+    cursor:pointer;
+    width: 32px;
+    height: 32px;
+    border: none; 
+    visibility:hidden;
+}
+
 #header {
     z-index:1;
 }
