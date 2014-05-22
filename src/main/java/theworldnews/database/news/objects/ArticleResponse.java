@@ -36,7 +36,7 @@ public class ArticleResponse {
 					"Article position does not exist");
 		}
 
-		sb.append("<a href=\"jsp/ArticleView.jsp?id=")
+		sb.append("<a href=\"../jsp/ArticleView.jsp?id=")
 				.append(id + "&image=" + img)
 				.append("\"><div class=mainCropped><img class=\"mainImage\" src=\"")
 				.append(img)
