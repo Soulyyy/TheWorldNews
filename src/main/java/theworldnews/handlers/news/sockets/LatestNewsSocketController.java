@@ -3,11 +3,19 @@ package theworldnews.handlers.news.sockets;
 import java.io.IOException;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
+
 import javax.servlet.*;
 import javax.servlet.annotation.WebServlet;
+
 import org.eclipse.jetty.websocket.api.UpgradeRequest;
 import org.eclipse.jetty.websocket.api.UpgradeResponse;
 import org.eclipse.jetty.websocket.servlet.*;
+
+import theworldnews.database.news.objects.Article;
+import theworldnews.database.news.serializers.LatestArticleSerializer;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 @WebServlet(value = "/feed")
 public class LatestNewsSocketController extends WebSocketServlet implements
@@ -16,6 +24,8 @@ public class LatestNewsSocketController extends WebSocketServlet implements
 	private static final long serialVersionUID = 1L;
 	private List<LatestNewsSocket> sockets;
 	private ServletContext context;
+	private Pinger pinger;
+	private Gson gson;
 
 	public void broadcast(String message) {
 		for (LatestNewsSocket socket : sockets) {
@@ -42,6 +52,10 @@ public class LatestNewsSocketController extends WebSocketServlet implements
 		sockets = new CopyOnWriteArrayList<>(); // thread-safe impl
 		context = config.getServletContext(); // shared between ALL servlets
 		publish(this, context); // so that other servlets could find us
+		gson = new GsonBuilder().registerTypeAdapter(Article.class,
+				new LatestArticleSerializer()).create();
+		pinger = new Pinger();
+
 	}
 
 	@Override
@@ -67,4 +81,34 @@ public class LatestNewsSocketController extends WebSocketServlet implements
 				.getAttribute(LatestNewsSocketController.class.getName());
 	}
 
+	public void sendMessage(String text) {
+		for (LatestNewsSocket socket : sockets) {
+			try {
+				socket.send(text);
+			} catch (IOException e) {
+				System.out.println("failed to broadcast to " + socket);
+			}
+		}
+	}
+
+	// What Tõnis took from Jaan, Hans took from Tõnis. Win! Keeping 'em
+	// connections alive.
+	private class Pinger extends Thread {
+
+		public Pinger() {
+			this.start();
+		}
+
+		@Override
+		public synchronized void run() {
+			while (true) {
+				sendMessage("");
+				try {
+					Thread.sleep(30000);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+	}
 }

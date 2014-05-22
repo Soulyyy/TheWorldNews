@@ -5,7 +5,11 @@ import java.net.URISyntaxException;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ArrayList;
+<<<<<<< HEAD
+
+=======
 import javax.servlet.ServletException;
+>>>>>>> branch 'master' of https://github.com/Soulyyy/TheWorldNews.git
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -19,7 +23,7 @@ import theworldnews.database.connection.DatabaseConnection;
 import theworldnews.database.news.objects.Tag;
 import theworldnews.database.news.queries.HashTagQueries;
 
-@WebServlet(value = "/tagsC")
+@WebServlet(value = "/tagController")
 public class TagController extends HttpServlet {
 
 	/**
