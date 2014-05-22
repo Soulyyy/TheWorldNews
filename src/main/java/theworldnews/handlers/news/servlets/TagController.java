@@ -39,16 +39,21 @@ public class TagController extends HttpServlet {
 			// We display five tags
 			// System.out.println("BBBBBBBBBBBBBBBBBBBBBB");
 			// System.out.println(articleid);
-			// Gson gson = new Gson();
-			ArrayList<Tag> taglist = HashTagQueries.topHashTagsOnArticle(con,articleid, 5);
 
-			// String test2 = gson.toJson(taglist);
-			// resp.getWriter().write(test2);
+			ArrayList<Tag> taglist = HashTagQueries.topHashTagsOnArticle(con,articleid, 5);
 			
-			Gson gson = new GsonBuilder().create();
-			JsonArray response = gson.toJsonTree(taglist).getAsJsonArray();
 			resp.setHeader("Content-Type", "application/json");
-			resp.getWriter().write(response.getAsString());
+			
+			
+			Gson gson = new Gson();
+			String test2 = gson.toJson(taglist);
+			resp.getWriter().write(test2);
+			
+			
+			// Gson gson = new GsonBuilder().create();
+			// JsonArray response = gson.toJsonTree(taglist).getAsJsonArray();
+		
+			// resp.getWriter().write(response.getAsString());
 			
 			 // resp.getWriter().write("{\"response\":"+articleid+"}");
 		} catch (SQLException | URISyntaxException | IOException e) {
@@ -62,14 +67,16 @@ public class TagController extends HttpServlet {
 		// Tag submission
 		try (Connection con = DatabaseConnection.getConnection()) {
 			String hashtag = req.getParameter("tag");
+			if (hashtag == null)
+				hashtag = "nullhash";
 			// String hashtag = "testhash";
 			int userid = (Integer) req.getSession().getAttribute("LOGIN_ID");
 			// int userid = 42;
 			String asd = req.getParameter("term");
 			int articleid = 5;
   
-			 if(asd !=null && !asd.isEmpty())
-				 articleid=Integer.parseInt(asd.trim());
+			 // if(asd !=null && !asd.isEmpty())
+				 // articleid=Integer.parseInt(asd.trim());
 			int userTagCount = HashTagQueries.hashTagCountByUserOnArticle(con,userid, articleid);
 			if (userTagCount < 5) {
 				hashtag = hashtag.toLowerCase();

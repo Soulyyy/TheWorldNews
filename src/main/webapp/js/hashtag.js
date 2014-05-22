@@ -25,7 +25,7 @@ $(this).ready(function() {
 	
 		},
 		error: function(r) {
-			console.log(r);
+			// console.log(r);
 			console.log("failed getting tags");
 		}
 	});
@@ -47,7 +47,7 @@ $(this).ready(function() {
 
 			},
 			error: function(r) {
-				console.log(r);
+				// console.log(r);
 				alert("failed add");
 			}
 		});
