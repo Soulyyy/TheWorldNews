@@ -1,11 +1,11 @@
 <%@ page import="theworldnews.handlers.news.servlets.PreviewController"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
-         pageEncoding="utf-8"%>
-<%@ page import="java.sql.ResultSet" %>
-<%@ page import="java.sql.*" %>
-<%@ page import="java.util.ArrayList" %>
-<%@ page import="theworldnews.database.news.objects.Article" %>
-<%@ page import="theworldnews.database.news.queries.DisplayQueries" %>
+	pageEncoding="utf-8"%>
+<%@ page import="java.sql.ResultSet"%>
+<%@ page import="java.sql.*"%>
+<%@ page import="java.util.ArrayList"%>
+<%@ page import="theworldnews.database.news.objects.Article"%>
+<%@ page import="theworldnews.database.news.queries.DisplayQueries"%>
 <%@ taglib prefix="ex" uri="../WEB-INF/custom.tld"%>
 <!DOCTYPE html>
 <html>
@@ -17,135 +17,125 @@
 <script type="text/javascript" src="../js/mainPage.js"></script>
 <script type="text/javascript" src="../js/login.js"></script>
 <script type="text/javascript" src="../js/createarticle.js"></script>
-<script type="text/javascript" src="https://apis.google.com/js/client.js?onload=handleClientLoad"></script>
-	
+<script type="text/javascript"
+	src="https://apis.google.com/js/client.js?onload=handleClientLoad"></script>
+
 </head>
 <body>
-<ex:Navigation/>
+	<ex:Navigation />
 
 
-<div class="clear">
-
-</div>
+	<div class="clear"></div>
 
 
 
-<div class="profile">
+	<div class="profile">
 
-    <div class="profileSettings" >
-    
-    <nav>
-    
-    	<ul id="profileNav">
-        
-        <li class="profileList"><a href="#">Profile Settings</a></li>
-        <li class="profileList"><a href="#">Privacy Settings</a></li>
-        <li class="profileList"><a href="#">Article Settings</a></li>
-        <li class="profileList"><a href="#">Connected Accounts</a></li>
-        <li class="profileList"><a href="#">Help</a></li>
-                
-        </ul>
-    </nav>
-  
-    </div>
-    
-    <div class="profileOptions">
-    
-    	<!--Siia div-i võiks muudetud teks ilmuda vms-->
-    	<div id="appearingText">
-        
-        </div>
-    	
-        <div id="createarticle">
+		<div class="profileSettings">
 
-                        
-            	<fieldset id="editingFieldset" name="edit">
-                	
-                    <legend>Article</legend>
-                
+			<nav>
 
-    				<label class="titleText">Article Title</label>
-                    
-    				<input id="titleInput" class="input-block" type="text" value="">
-                    
-                    
-                    <label class="titleText">Image URL</label>
-                    
-    				<input id="Image" class="input-block" type="text" value="">
+				<ul id="profileNav">
+
+					<li class="profileList"><a href="#">Profile Settings</a></li>
+					<li class="profileList"><a href="createArticle.jsp">Create
+							Article</a></li>
+					<li class="profileList"><a href="EditArticle.jsp">Edit
+							Articles</a></li>
+
+				</ul>
+			</nav>
+
+		</div>
+
+		<div class="profileOptions">
+
+			<!--Siia div-i võiks muudetud teks ilmuda vms-->
+			<div id="appearingText"></div>
+
+			<div id="createarticle">
 
 
-    				<label class="titleText">Article Text</label>
-                     
+				<fieldset id="editingFieldset" name="edit">
 
-                    <textarea id="textArea"></textarea>
-                    
- 
-                </fieldset>
+					<legend>Article</legend>
+
+
+					<label class="titleText">Article Title</label> <input
+						id="titleInput" class="input-block" type="text" value="">
+
+
+					<label class="titleText">Image URL</label> <input id="Image"
+						class="input-block" type="text" value=""> <label
+						class="titleText">Article Text</label>
+
+
+					<textarea id="textArea"></textarea>
+
+
+				</fieldset>
 				<div class="clear"></div>
-                <input checked type="checkbox" name="type" id="News" value="News">News
+				<input checked type="checkbox" name="type" id="News" value="News">News
 				<input type="checkbox" name="type" id="Business" value="Business">Business
 				<input type="checkbox" name="type" id="Sports" value="Sports">Sports
 				<input type="checkbox" name="type" id="Science" value="Science">Science
 				<input type="checkbox" name="type" id="Arts" value="Arts">Arts
-				<input type="checkbox" name="type" id="Fashion" value="Fashion & Style">Fashion & Style
- 				<br />
- 				<br />
-                <button  id="articlesubmit">Submit</button>
-                <button  id="Cancel">Cancel</button>
-                
-                
-                
-                
-                                   
-
- 		</div>
- 		
- 		<noscript>
-             
-                
-                <form id="editingFieldset" action="/noscriptSubmitArticle" method="post">
-                
-                
-					<label class="titleText">Article Title</label>
-                    
-    				<input id="titleInput" name="header" class="input-block" type="text" value="">
-    				
-    				<label class="titleText">Image URL</label>
-                    
-    				<input id="Image" name="image" class="input-block" type="text" value="">
+				<input type="checkbox" name="type" id="Fashion"
+					value="Fashion & Style">Fashion & Style <br /> <br />
+				<button id="articlesubmit">Submit</button>
+				<button id="Cancel">Cancel</button>
 
 
-    				<label class="titleText">Article Text</label>
-                     
-
-                    <textarea id="textArea" name="content"></textarea>
-                    
-                     <input checked type="checkbox" name="type" id="News" value="News">News
-				<input type="checkbox" name="type" id="Business" value="Business">Business
-				<input type="checkbox" name="type" id="Sports" value="Sports">Sports
-				<input type="checkbox" name="type" id="Science" value="Science">Science
-				<input type="checkbox" name="type" id="Arts" value="Arts">Arts
-				<input type="checkbox" name="type" id="Fashion" value="Fashion & Style">Fashion & Style
- 				<br />
- 				<br />
-
-					<input id="articlesubmit" type="submit" value="Submit"/>
-					<input id="Cancel" value="Submit"/>
-			    </form>
-                
-                
-
-                <!-- Siia tuleb midagi kirjutada -->
-                </noscript>
-
-    </div>
-    
-</div>
-
-<div class="clear"></div>
 
 
-<footer> <p>&nbsp;</p> </footer>
-    
+
+
+			</div>
+
+			<noscript>
+
+
+				<form id="editingFieldset" action="/noscriptSubmitArticle"
+					method="post">
+
+
+					<label class="titleText">Article Title</label> <input
+						id="titleInput" name="header" class="input-block" type="text"
+						value=""> <label class="titleText">Image URL</label> <input
+						id="Image" name="image" class="input-block" type="text" value="">
+
+
+					<label class="titleText">Article Text</label>
+
+
+					<textarea id="textArea" name="content"></textarea>
+
+					<input checked type="checkbox" name="type" id="News" value="News">News
+					<input type="checkbox" name="type" id="Business" value="Business">Business
+					<input type="checkbox" name="type" id="Sports" value="Sports">Sports
+					<input type="checkbox" name="type" id="Science" value="Science">Science
+					<input type="checkbox" name="type" id="Arts" value="Arts">Arts
+					<input type="checkbox" name="type" id="Fashion"
+						value="Fashion & Style">Fashion & Style <br /> <br /> <input
+						id="articlesubmit" type="submit" value="Submit" /> <input
+						id="Cancel" value="Submit" />
+				</form>
+
+
+
+				<!-- Siia tuleb midagi kirjutada -->
+			</noscript>
+
+		</div>
+
+	</div>
+
+	<div class="clear"></div>
+
+
+	<footer>
+		<p>&nbsp;</p>
+	</footer>
+
 </body>
 </html>
