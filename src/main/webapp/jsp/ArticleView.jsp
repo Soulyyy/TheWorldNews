@@ -17,7 +17,7 @@
 <script src="../lib/jquery-1.11.0.js" type="text/javascript"></script>
 <script type="text/javascript" src="../js/mainPage.js"></script>
 <script type="text/javascript" src="../js/login.js"></script>
-<script type="text/javascript" src="js/latestnews.js"></script>
+<script type="text/javascript" src="../js/latestnews.js"></script>
 <script type="text/javascript"
 	src="https://apis.google.com/js/client.js?onload=handleClientLoad"></script>
 </head>
