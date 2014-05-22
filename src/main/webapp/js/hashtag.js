@@ -1,7 +1,7 @@
 $(this).ready(function() {
 	var term = getUrlParameter('id');	
 	var btn =  $("#addht");
-	console.log(term);
+	// console.log(term);
  
 
 	$.ajax("/tagController", {

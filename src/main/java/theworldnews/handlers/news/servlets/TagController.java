@@ -31,26 +31,26 @@ public class TagController extends HttpServlet {
 	public void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 		// Get tags for article
 		try (Connection con = DatabaseConnection.getConnection()) {
-			String asd = req.getParameter("term");
+			// String asd = req.getParameter("term").toString();
 			int articleid = 5;
   
-			 if(asd !=null && !asd.isEmpty())
-				 articleid=Integer.parseInt(asd.trim());
+			 // if(asd !=null && !asd.isEmpty())
+				 // articleid=Integer.parseInt(asd.trim());
 			// We display five tags
-			System.out.println("BBBBBBBBBBBBBBBBBBBBBB");
-			System.out.println(articleid);
+			// System.out.println("BBBBBBBBBBBBBBBBBBBBBB");
+			// System.out.println(articleid);
 			// Gson gson = new Gson();
-			// ArrayList<Tag> taglist = HashTagQueries.topHashTagsOnArticle(con,articleid, 5);
+			ArrayList<Tag> taglist = HashTagQueries.topHashTagsOnArticle(con,articleid, 5);
 
 			// String test2 = gson.toJson(taglist);
 			// resp.getWriter().write(test2);
 			
-			// Gson gson = new GsonBuilder().create();
-			// JsonArray response = gson.toJsonTree(taglist).getAsJsonArray();
+			Gson gson = new GsonBuilder().create();
+			JsonArray response = gson.toJsonTree(taglist).getAsJsonArray();
 			resp.setHeader("Content-Type", "application/json");
-			// resp.getWriter().write(response.getAsString());
+			resp.getWriter().write(response.getAsString());
 			
-			 resp.getWriter().write("{\"response\":"+articleid+"}");
+			 // resp.getWriter().write("{\"response\":"+articleid+"}");
 		} catch (SQLException | URISyntaxException | IOException e) {
 			resp.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR,e.getMessage());
 		}
@@ -61,13 +61,15 @@ public class TagController extends HttpServlet {
 	public void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 		// Tag submission
 		try (Connection con = DatabaseConnection.getConnection()) {
-			String hashtag = req.getParameter("tag");
-			int userid = (Integer) req.getSession().getAttribute("LOGIN_ID");
-			String asd = req.getParameter("term");
+			// String hashtag = req.getParameter("tag");
+			String hashtag = "testhash";
+			// int userid = (Integer) req.getSession().getAttribute("LOGIN_ID");
+			int userid = 42;
+			// String asd = req.getParameter("term");
 			int articleid = 5;
   
-			 if(asd !=null && !asd.isEmpty())
-				 articleid=Integer.parseInt(asd.trim());
+			 // if(asd !=null && !asd.isEmpty())
+				 // articleid=Integer.parseInt(asd.trim());
 			int userTagCount = HashTagQueries.hashTagCountByUserOnArticle(con,userid, articleid);
 			if (userTagCount < 5) {
 				hashtag = hashtag.toLowerCase();
@@ -82,8 +84,7 @@ public class TagController extends HttpServlet {
 				resp.sendError(HttpServletResponse.SC_FORBIDDEN,"You have reached the limit of tags");
 			}
 		} catch (SQLException | URISyntaxException e) {
-			resp.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR,
-					e.getMessage());
+			resp.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR,e.getMessage());
 		}
 
 	}
