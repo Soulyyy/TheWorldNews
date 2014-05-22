@@ -11,6 +11,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.io.StringWriter;
 import java.io.PrintWriter;
+
 import theworldnews.database.news.objects.*;
 import theworldnews.database.users.objects.UserInfo;
 
@@ -251,8 +252,7 @@ public class DisplayQueries {
 
 	public static List<Article> getLatestNews(Connection con) {
 		String query = "SELECT id, header, articlegroup, author FROM newsarticles order by id DESC limit 5";
-		try {
-			PreparedStatement pst = con.prepareStatement(query);
+		try (PreparedStatement pst = con.prepareStatement(query)) {
 			ResultSet rs = pst.executeQuery();
 			List<Article> articleArray = new ArrayList<>();
 
@@ -294,4 +294,5 @@ public class DisplayQueries {
 			return 0;
 		}
 	}
+
 }

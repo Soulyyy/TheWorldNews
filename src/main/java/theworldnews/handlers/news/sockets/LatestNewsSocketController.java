@@ -37,6 +37,19 @@ public class LatestNewsSocketController extends WebSocketServlet implements
 		}
 	}
 
+	public void loadMostRecent() {
+		if (sockets.size() > 0) {
+			List<Article> list =DisplayQueries.getAr;
+			for (LatestNewsSocket socket : sockets) {
+				try {
+					socket.send(gson.toJson(list));
+				} catch (IOException e) {
+					System.out.println("failed to broadcast to " + socket);
+				}
+			}
+		}
+	}
+
 	public List<LatestNewsSocket> getSockets() {
 		return sockets;
 	}
