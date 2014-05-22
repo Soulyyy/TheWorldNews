@@ -32,12 +32,9 @@
 					<li class="profileList"><a href="#">Profile Settings</a></li>
 					<li class="profileList"><a href="createArticle.jsp">Create
 							Article</a></li>
-<<<<<<< HEAD
 					<li class="profileList"><a href="EditArticleDisplay.jsp">Edit Articles</a></li>
-=======
-					<li class="profileList"><a href="EditArticleDisplay.jsp">Edit
-							Articles</a></li>
->>>>>>> c30f61ac1c74aeee33c2ce4d98e96b8983f24901
+
+
 
 				</ul>
 			</nav>
