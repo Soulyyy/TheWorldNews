@@ -1,54 +1,54 @@
-package theworldnews.handlers.news.servlets;
+// package theworldnews.handlers.news.servlets;
 
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.net.URISyntaxException;
-import java.sql.Connection;
-import java.sql.SQLException;
+// import java.io.IOException;
+// import java.io.PrintWriter;
+// import java.net.URISyntaxException;
+// import java.sql.Connection;
+// import java.sql.SQLException;
 
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+// import javax.servlet.ServletException;
+// import javax.servlet.annotation.WebServlet;
+// import javax.servlet.http.HttpServlet;
+// import javax.servlet.http.HttpServletRequest;
+// import javax.servlet.http.HttpServletResponse;
 
-import com.google.gson.Gson;
+// import com.google.gson.Gson;
 
-import theworldnews.database.connection.DatabaseConnection;
-import theworldnews.database.news.objects.Article;
-import theworldnews.database.news.objects.ArticleResponse;
-import theworldnews.database.news.queries.*;
-import theworldnews.handlers.news.sockets.LatestNewsSocketController;
+// import theworldnews.database.connection.DatabaseConnection;
+// import theworldnews.database.news.objects.Article;
+// import theworldnews.database.news.objects.ArticleResponse;
+// import theworldnews.database.news.queries.*;
+// import theworldnews.handlers.news.sockets.LatestNewsSocketController;
 
-@WebServlet(value = "/latestNews")
-public class LatestNewsController extends HttpServlet {
+// @WebServlet(value = "/latestNews")
+// public class LatestNewsController extends HttpServlet {
 
-	private static final long serialVersionUID = 1L;
+	// private static final long serialVersionUID = 1L;
 
-	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	// @Override
+	// protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-		try (Connection con = DatabaseConnection.getConnection()) {
-			Gson gson = new Gson();
+		// try (Connection con = DatabaseConnection.getConnection()) {
+			// Gson gson = new Gson();
 
-			String[] test = latest.getlatest(con);
-			String[] temp = new String[10];
-			for(int i=0; i<10; i++){
-				   temp[i]=test[i];
-			}
+			// String[] test = latest.getlatest(con);
+			// String[] temp = new String[15];
+			// for(int i=0; i<10; i++){
+				   // temp[i]=test[i];
+			// }
 	
-			try {
-				LatestNewsSocketController.find(req.getServletContext())
-						.loadMostRecent();
-			} catch (NullPointerException e) {
-				System.out
-						.println("Tartu, we have a problem. Actually no twats are looking at our websockets.");
-			}
-		}
+			// try {
+				// LatestNewsSocketController.find(req.getServletContext())
+						// .loadMostRecent();
+			// } catch (NullPointerException e) {
+				// System.out
+						// .println("Tartu, we have a problem. Actually no twats are looking at our websockets.");
+			// }
+		// }
 		
 
-		} catch (SQLException | URISyntaxException e) {
-			resp.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR,e.getMessage());
-		}
-	}
-}
+		// } catch (SQLException | URISyntaxException e) {
+			// resp.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR,e.getMessage());
+		// }
+	// }
+// }
