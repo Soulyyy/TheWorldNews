@@ -19,7 +19,7 @@ $(this).ready(function() {
 			else {
 				var i = 0;
 				while (i < r.length) {
-					$(".sresults").append("<a href=\"http://gold-experience.herokuapp.com/jsp/ArticleView.jsp?id="+r[i]+"&image="+r[i+3]+"\">"+resp[i+1]+"</a><br/>"+r[i+2]+"<br/>");
+					$(".sresults").append("<a href=\"http://gold-experience.herokuapp.com/jsp/ArticleView.jsp?id="+r[i]+"&image="+r[i+3]+"\">"+r[i+1]+"</a><br/>"+r[i+2]+"<br/>");
 		
 					i+=4;
 				}
