@@ -31,7 +31,8 @@ public class TagController extends HttpServlet {
 	public void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 		// Get tags for article
 		try (Connection con = DatabaseConnection.getConnection()) {
-			Integer articleid = Integer.parseInt(req.getParameter("term"));
+			// Integer articleid = Integer.parseInt(req.getParameter("term"));
+			String asd = req.getParameter("term");
 			// We display five tags
 			System.out.println("BBBBBBBBBBBBBBBBBBBBBB");
 			System.out.println(articleid);
@@ -40,11 +41,11 @@ public class TagController extends HttpServlet {
 			// ArrayList<Tag> taglist = HashTagQueries.topHashTagsOnArticle(con,articleid, 5);
 			// String test2 = gson.toJson(taglist);
 			// resp.getWriter().write(test2);
-			Gson gson = new GsonBuilder().create();
+			// Gson gson = new GsonBuilder().create();
 			// JsonArray response = gson.toJsonTree(taglist).getAsJsonArray();
 			resp.setHeader("Content-Type", "application/json");
 			// resp.getWriter().write(response.getAsString());
-			 resp.getWriter().write("{\"response\":"+articleid+"}");
+			 resp.getWriter().write("{\"response\":"+asd+"}");
 		} catch (SQLException | URISyntaxException | IOException e) {
 			resp.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR,e.getMessage());
 		}
