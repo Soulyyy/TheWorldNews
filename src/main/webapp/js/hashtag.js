@@ -1,6 +1,6 @@
 $(this).ready(function() {
 	var term = getUrlParameter('id');	
-	var btn = getUrlParameter('addht');	
+	var btn =  $("#addht");
 	console.log(term);
  
 
