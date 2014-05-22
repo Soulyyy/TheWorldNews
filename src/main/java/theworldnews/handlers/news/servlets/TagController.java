@@ -44,7 +44,8 @@ public class TagController extends HttpServlet {
 			Gson gson = new GsonBuilder().create();
 			JsonArray response = gson.toJsonTree(taglist).getAsJsonArray();
 			resp.setHeader("Content-Type", "application/json");
-			resp.getWriter().write(response.getAsString());
+			// resp.getWriter().write(response.getAsString());
+			 resp.getWriter().write("{\"response\":"+articleid+"}");
 		} catch (SQLException | URISyntaxException | IOException e) {
 			resp.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR,e.getMessage());
 		}
