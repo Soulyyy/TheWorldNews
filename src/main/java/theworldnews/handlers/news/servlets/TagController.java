@@ -38,11 +38,11 @@ public class TagController extends HttpServlet {
 			System.out.println(articleid);
 			// Gson gson = new Gson();
 
-			ArrayList<Tag> taglist = HashTagQueries.topHashTagsOnArticle(con,articleid, 5);
+			// ArrayList<Tag> taglist = HashTagQueries.topHashTagsOnArticle(con,articleid, 5);
 			// String test2 = gson.toJson(taglist);
 			// resp.getWriter().write(test2);
 			Gson gson = new GsonBuilder().create();
-			JsonArray response = gson.toJsonTree(taglist).getAsJsonArray();
+			// JsonArray response = gson.toJsonTree(taglist).getAsJsonArray();
 			resp.setHeader("Content-Type", "application/json");
 			// resp.getWriter().write(response.getAsString());
 			 resp.getWriter().write("{\"response\":"+articleid+"}");
