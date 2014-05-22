@@ -66,7 +66,7 @@ public class ArticleResponse {
 		String content = article.content;
 
 		sb.append("<div class=\"articleView\">")
-			.append("<div class=\"mainCropped\">)")
+			.append("<div class=\"mainCropped\">")
 			.append("<a href=\"../jsp/ArticleView.jsp?id=" + id + "&image=" + img + "\">")
 			.append("<img class=\"mainImage\" src=\"" + img + "\" alt=\"pilt\">")
 			.append("</a></div>")
