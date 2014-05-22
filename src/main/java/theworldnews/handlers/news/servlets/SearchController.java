@@ -48,10 +48,6 @@ public class SearchController extends HttpServlet {
 			}
 			ArrayList<String> result = Search.getsearch(con,rl);
  
-		 
-			// resp.getWriter().write("{\"response\":"+asd+"}");
-
-
 			String test2 = gson.toJson(result);
 			resp.getWriter().write(test2);
 			 

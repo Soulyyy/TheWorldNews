@@ -10,10 +10,13 @@ $(this).ready(function() {
 		contentType: 'application/json',
 		data:{searchBox : JSON.stringify({ "term": term})},
 		contentType: 'application/json; charset=utf-8',
-		success: function(result) {
-			console.log(result);
+		success: function(r) {
+			console.log(r);
+			if (r.length == 0) {
+				$(".sresults").html("No results found");
+			}
 		},
-		error: function(result) {
+		error: function(r) {
 			console.log("fail search");
 		}
 	});
