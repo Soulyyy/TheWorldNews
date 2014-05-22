@@ -13,21 +13,37 @@
 <html>
 <head>
 <title>The World - Arts</title>
-<base
-	href="${fn:substring(url, 0, fn:length(url) - fn:length(uri))}${req.contextPath}/" />
+
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link rel="stylesheet" type="text/css" href="../css/layout.css">
 <script src="../lib/jquery-1.11.0.js" type="text/javascript"></script>
 <script type="text/javascript" src="../js/mainPage.js"></script>
 <script type="text/javascript" src="../js/login.js"></script>
+<script type="text/javascript" src="../js/latestnews.js"></script>
 <script type="text/javascript"
 	src="https://apis.google.com/js/client.js?onload=handleClientLoad"></script>
 </head>
 <body>
 	<ex:Navigation />
-	<jsp:include page="/previewArticle">
-		<jsp:param name="type" value="Arts" />
-		<jsp:param name="size" value="6" />
-	</jsp:include>
+	<div id="articleGroup">
+		<jsp:include page="/previewArticle">
+			<jsp:param name="type" value="Arts" />
+			<jsp:param name="size" value="6" />
+		</jsp:include>
+	</div>
+	<div id="sideBar">
+
+		<div id="latest">
+
+			<header>
+				<a id="latestNews"> Latest News </a>
+			</header>
+
+			<div class="latestNewsDisplay"></div>
+
+
+		</div>
+
+	</div>
 </body>
 </html>
