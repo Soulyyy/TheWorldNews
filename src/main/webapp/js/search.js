@@ -12,7 +12,9 @@ $(this).ready(function() {
 		contentType: 'application/json; charset=utf-8',
 		success: function(r) {
 			console.log(r);
+			console.log(r.length);
 			if (r.length == 0) {
+			console.log("pls");
 				$(".sresults").html("No results found");
 			}
 		},

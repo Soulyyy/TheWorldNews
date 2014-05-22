@@ -10,7 +10,7 @@ import java.util.logging.Logger;
 public class latest {
 
 	public static String[] getlatest(Connection con) {
-		String query = "SELECT id,header FROM newsarticles ORDER BY id DESC LIMIT 5";
+		String query = "SELECT id,header,image FROM newsarticles ORDER BY id DESC LIMIT 5";
 		String[] la;
 		try (PreparedStatement pst = con.prepareStatement(query)) {
 			ResultSet rs = pst.executeQuery();
