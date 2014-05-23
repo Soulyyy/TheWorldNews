@@ -33,8 +33,7 @@ public class TagController extends HttpServlet {
 		// Get tags for article
 		try (Connection con = DatabaseConnection.getConnection()) {
 			String asd = req.getParameter("searchBox");
-			// int articleid = 5;
-			String rl = "";
+ 			String rl = "";
 			int c = 0;
  
 
@@ -62,16 +61,7 @@ public class TagController extends HttpServlet {
 			
 			Gson gson = new Gson();
 			String test2 = gson.toJson(taglist);
-			resp.getWriter().write(test2);
-			
-			
-			// Gson gson = new GsonBuilder().create();
-			// JsonArray response = gson.toJsonTree(taglist).getAsJsonArray();
-		
-			// resp.getWriter().write(response.getAsString());
-			
-			 // resp.getWriter().write("{\"response\":"+asd+"}");
-			 
+			resp.getWriter().write(test2); 
 		} catch (SQLException | URISyntaxException | IOException e) {
 			resp.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR,e.getMessage());
 		}
@@ -84,7 +74,8 @@ public class TagController extends HttpServlet {
 		try (Connection con = DatabaseConnection.getConnection()) {
 
 			String hashtag = req.getParameter("tag");
-			Integer  articleid = Integer.parseInt(req.getParameter("id"));
+			String image = req.getParameter("image");
+			Integer articleid = Integer.parseInt(req.getParameter("id"));
 
 			Integer userid = (Integer) req.getSession().getAttribute("LOGIN_ID");
 
@@ -98,7 +89,7 @@ public class TagController extends HttpServlet {
 				}
 				@SuppressWarnings("unused")
 				int response = HashTagQueries.addHashTag(con, userid,articleid, hashtag);
-				resp.sendRedirect("http://gold-experience.herokuapp.com/Index.jsp");
+				resp.sendRedirect("http://gold-experience.herokuapp.com/jsp/ArticleView.jsp?id="+articleid+"&image="+image);
 			} else {
 				resp.sendError(HttpServletResponse.SC_FORBIDDEN,"You have reached the limit of tags");
 			}

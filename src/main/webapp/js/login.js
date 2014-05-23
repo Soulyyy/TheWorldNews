@@ -8,6 +8,7 @@ $(this).ready(function() {
 	
 	if ($("#ht").length > 0){
 		var ht = $("#ht");
+		var ht2 = $("#ht2");
 	}	
 
 	$("#password").keyup(function(event){
@@ -58,6 +59,7 @@ $(this).ready(function() {
 				adda.css('visibility', 'visible');
 				if ($("#ht").length > 0){
 					ht.css('visibility', 'visible');
+					ht2.css('visibility', 'visible');
 				}	
 			}
 			else if(resp.accessRights == 0) {
@@ -65,6 +67,7 @@ $(this).ready(function() {
 				toggleLoginButtons(true);
 				if ($("#ht").length > 0){
 					ht.css('visibility', 'visible');
+					ht2.css('visibility', 'visible');
 				}	
 			}
 			else {
@@ -88,7 +91,7 @@ $(this).ready(function() {
 	 * Saadab servletile päringu sisselogimiseks. Servlet seab sessioni parameetri
 	 * LOGIN_RIGHTS väärtuseks accessRights või -1, kui kasutajat ei leita.
 	 */
-	$.getScript("js/Sha256.js", function() {
+	$.getScript("http://gold-experience.herokuapp.com/js/Sha256.js", function() {
 		loginButton.click(function() {
 
 		
@@ -149,6 +152,11 @@ $(this).ready(function() {
 				if(resp.response === "success") {
 					toggleLoginButtons(false);
 					adda.css('visibility', 'hidden');
+					if ($("#ht").length > 0){
+						ht.css('visibility', 'hidden');
+						ht2.css('visibility', 'hidden');
+				}	
+
 							 
 				}
 			}
