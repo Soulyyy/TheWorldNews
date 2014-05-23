@@ -37,8 +37,6 @@ $(this).ready(function() {
 			dataType:'json',
 			contentType: 'application/json',
 			data:{searchBox : JSON.stringify({ "tag": tag})},
-			
-			},
 			contentType: 'application/json; charset=utf-8',
 			success: function(r) {
 				console.log("added tag");
