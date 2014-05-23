@@ -33,7 +33,7 @@
 
 		<form action="/tagController" method="post">
 			Tag: <input type="text" name="tag"><br>
-			<jsp:param value="<%=request.getParameter("id")%>" name="id" />
+			<input name="id" value="<%=request.getParameter("id")%>">
 			<input type="submit" value="Submit">
 		</form>
 		
