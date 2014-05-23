@@ -1,6 +1,5 @@
 $(this).ready(function() {
 	var term = getUrlParameter('id');	
-	var btn =  $("#addht");
 	// console.log(term);
  
 
@@ -25,23 +24,7 @@ $(this).ready(function() {
 			console.log("failed getting tags");
 		}
 	});
-	btn.click(function() {
-		var tag = $("#ht").val();
-		$.ajax("/tagController", {
-			type: "POST",
-			dataType: 'json',
 
-			data: 'searchBox2='+tag+'&term='+term,
-			contentType: 'application/json; charset=utf-8',
-			success: function(r) {
-				console.log("added tag");
-
-			},
-			error: function(r) {
-				alert("failed add");
-			}
-		});
-	});
  
 });
 function getUrlParameter(sParam)
