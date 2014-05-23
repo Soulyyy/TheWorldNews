@@ -6,9 +6,7 @@ $(this).ready(function() {
 	var authorizeButton = $("#authorize-button");
 	var adda = $("#add");
 	
-	if ($("#ht").length > 0){
-		var ht = $("#ht");
-		var ht2 = $("#ht2");
+	if ($("#htcont").length > 0){
 		var ht3 = $("#htcont");
 	}	
 
@@ -58,9 +56,7 @@ $(this).ready(function() {
 				console.log("Logged in with accessrights: " + resp.accessRights);
 				toggleLoginButtons(true);
 				adda.css('visibility', 'visible');
-				if ($("#ht").length > 0){
-					ht.css('visibility', 'visible');
-					ht2.css('visibility', 'visible');
+				if ($("#ht3").length > 0){
 					ht3.css('visibility', 'visible');
 					
 				}	
@@ -68,9 +64,7 @@ $(this).ready(function() {
 			else if(resp.accessRights == 0) {
 				console.log("Logged in with accessrights: " + resp.accessRights);
 				toggleLoginButtons(true);
-				if ($("#ht").length > 0){
-					ht.css('visibility', 'visible');
-					ht2.css('visibility', 'visible');
+				if ($("#ht3").length > 0){
 					ht3.css('visibility', 'visible');
 				}	
 			}
@@ -125,9 +119,7 @@ $(this).ready(function() {
 							alert("Vale parool/kasutaja.");
 						} 
 						else {
-							if ($("#ht").length > 0){
-								ht.css('visibility', 'visible');
-								ht2.css('visibility', 'visible');
+							if ($("#ht3").length > 0){
 								ht3.css('visibility', 'visible');
 							}	
 
