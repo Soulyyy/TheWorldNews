@@ -30,7 +30,7 @@
 			<jsp:param value="<%=request.getParameter("id")%>" name="id" />
 			<jsp:param value="<%=request.getParameter("image")%>" name="image" />
 		</jsp:include>
-
+		<div id="hashtags"></div>
 		<form action="/tagController" method="post">
 			Tag: <input type="text" name="tag"><br>
 			<input type="hidden" name="id" value="<%=request.getParameter("id")%>">
@@ -39,7 +39,7 @@
 		
 	</div>
 
-	<div id="hashtags"></div>
+	
 
 
 	<!-- Latest News -->
