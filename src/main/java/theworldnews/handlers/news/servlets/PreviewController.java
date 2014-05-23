@@ -63,19 +63,22 @@ public class PreviewController extends HttpServlet {
 					sb.append(ArticleResponse.clearDiv());
 				} else {
 					if (i % 3 == 0) {
-						key = articles.remove(0);
-						sb.append(ArticleResponse.previewArticle(key.article,
-								key.userinfo, 0));
+						ArticleUserTuple main = articles.remove(0);
+//						key = articles.remove(0);
+						sb.append(ArticleResponse.previewArticle(main.article,
+								main.userinfo, 0));
 						i++;
 					} else if (i % 3 == 1) {
-						key = articles.remove(0);
-						sb.append(ArticleResponse.previewArticle(key.article,
-								key.userinfo, 1));
+						ArticleUserTuple left = articles.remove(0);
+//						key = articles.remove(0);
+						sb.append(ArticleResponse.previewArticle(left.article,
+								left.userinfo, 1));
 						i++;
 					} else if (i % 3 == 2) {
-						key = articles.remove(0);
-						sb.append(ArticleResponse.previewArticle(key.article,
-								key.userinfo, 2));
+						ArticleUserTuple right = articles.remove(0);
+//						key = articles.remove(0);
+						sb.append(ArticleResponse.previewArticle(right.article,
+								right.userinfo, 2));
 						i++;
 						sb.append(ArticleResponse.clearDiv());
 					}
