@@ -88,6 +88,7 @@ public class TagController extends HttpServlet {
 			
 			int userID = (int)req.getSession().getAttribute("LOGIN_ID");
 			String tag = req.getParameter("tag");
+			Integer  articleID = (int)Integer.parseInt(req.getParameter("id"));
 			
 			String hashtag = req.getParameter("searchBox2");
 			System.out.println("CCCCCCCCCCCCCCCCCCCCCCCCCC");
@@ -95,8 +96,7 @@ public class TagController extends HttpServlet {
 			// if (hashtag == null)
 				// hashtag = "nullhash";
 			Integer userid = (Integer) req.getSession().getAttribute("LOGIN_ID");
-			String asd = req.getParameter("term");
-						System.out.println(asd);
+			String asd = tag;
 
 			String rl = "";
 			int c = 0;
