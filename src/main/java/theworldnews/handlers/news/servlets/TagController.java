@@ -100,7 +100,7 @@ public class TagController extends HttpServlet {
 			Integer userid = (Integer) req.getSession().getAttribute("LOGIN_ID");
 			// String asd = req.getParameter("term");
 						// System.out.println(asd);
-			String asd = tag;
+			// String asd = tag;
 
 			String rl = "";
 			int c = 0;
