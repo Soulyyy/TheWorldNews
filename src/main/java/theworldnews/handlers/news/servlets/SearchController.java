@@ -33,9 +33,7 @@ public class SearchController extends HttpServlet {
  
 
 			for(int i=0;i<asd.length();i++){
-				System.out.println(asd.charAt(i));
 				if (asd.charAt(i) =='"') {
-					System.out.println("gh");
 					c+=1;
 					if (c == 3) {
 						i+=1;

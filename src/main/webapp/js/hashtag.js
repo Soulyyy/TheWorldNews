@@ -29,6 +29,8 @@ $(this).ready(function() {
 		var tag = $("#ht").val();
 		$.ajax("/tagController", {
 			type: "POST",
+			dataType: 'json',
+
 			data: 'searchBox2='+tag+'&term='+term,
 			contentType: 'application/json; charset=utf-8',
 			success: function(r) {
