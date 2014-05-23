@@ -49,7 +49,7 @@ public class PreviewController extends HttpServlet {
 			int i = 0;
 			Article key;
 			UserInfo value;
-			sb.append(articles);
+//			sb.append(articles);
 			while (!articles.isEmpty()) {
 				if (articles.size() == 2 && ((i % 3 == 1) || (i % 3 == 0))) {
 					key = articles.keySet().iterator().next();
