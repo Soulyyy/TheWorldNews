@@ -55,11 +55,9 @@ public class PreviewController extends HttpServlet {
 					key = articles.remove(0);
 					sb.append(ArticleResponse.previewArticle(key.article,
 							key.userinfo, 1));
-
 					key = articles.remove(0);
 					sb.append(ArticleResponse.previewArticle(key.article,
 							key.userinfo, 2));
-
 					sb.append(ArticleResponse.clearDiv());
 				} else {
 					if (i % 3 == 0) {

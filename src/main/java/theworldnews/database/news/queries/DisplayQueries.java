@@ -119,7 +119,7 @@ public class DisplayQueries {
 	 * @return List of n Article objects which belong to the groups defined by
 	 *         type
 	 */
-	public static ArrayList<ArticleUserTuple> getDisplayarticlesByNumberAndType(
+	public synchronized static ArrayList<ArticleUserTuple> getDisplayarticlesByNumberAndType(
 			Connection con, int number, String type) {
 		try {
 			int articlegroup = ArticlegroupEncoding.stringToInt(type);
