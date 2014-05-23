@@ -5,8 +5,7 @@ import java.io.PrintWriter;
 import java.net.URISyntaxException;
 import java.sql.Connection;
 import java.sql.SQLException;
-import java.util.LinkedHashMap;
-import java.util.Set;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -17,6 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 import theworldnews.database.connection.DatabaseConnection;
 import theworldnews.database.news.objects.Article;
 import theworldnews.database.news.objects.ArticleResponse;
+import theworldnews.database.news.objects.ArticleUserTuple;
 import theworldnews.database.news.queries.DisplayQueries;
 import theworldnews.database.users.objects.UserInfo;
 
@@ -42,45 +42,40 @@ public class PreviewController extends HttpServlet {
 			Integer size = Integer.parseInt(sizeStr);
 
 			// LinkedHashMap is bad as well
-			LinkedHashMap<Article, UserInfo> articles = DisplayQueries
+			ArrayList<ArticleUserTuple> articles = DisplayQueries
 					.getDisplayarticlesByNumberAndType(con, size, type);
 
 			StringBuilder sb = new StringBuilder();
 			int i = 0;
-			Article key;
+			ArticleUserTuple key;
 			UserInfo value;
-//			sb.append(articles);
+			// sb.append(articles);
 			while (!articles.isEmpty()) {
 				if (articles.size() == 2 && ((i % 3 == 1) || (i % 3 == 0))) {
-					key = articles.keySet().iterator().next();
-					value = articles.get(key);
-					sb.append(ArticleResponse.previewArticle(key, value, 1));
-					articles.remove(key);
-					
-					key = articles.keySet().iterator().next();
-					value = articles.get(key);
-					sb.append(ArticleResponse.previewArticle(key, value, 2));
-					articles.remove(key);
-					
+					key = articles.remove(0);
+					sb.append(ArticleResponse.previewArticle(key.article,
+							key.userinfo, 1));
+
+					key = articles.remove(0);
+					sb.append(ArticleResponse.previewArticle(key.article,
+							key.userinfo, 2));
+
 					sb.append(ArticleResponse.clearDiv());
 				} else {
 					if (i % 3 == 0) {
-						key = articles.keySet().iterator().next();
-						value = articles.get(key);
-						sb.append(ArticleResponse.previewArticle(key, value, 0));
-						articles.remove(key);
+						key = articles.remove(0);
+						sb.append(ArticleResponse.previewArticle(key.article,
+								key.userinfo, 0));
 						i++;
 					} else if (i % 3 == 1) {
-						key = articles.keySet().iterator().next();
-						value = articles.get(key);
-						sb.append(ArticleResponse.previewArticle(key, value, 1));
-						articles.remove(key);
+						key = articles.remove(0);
+						sb.append(ArticleResponse.previewArticle(key.article,
+								key.userinfo, 1));
 						i++;
 					} else if (i % 3 == 2) {
-						key = articles.keySet().iterator().next();
-						value = articles.get(key);
-						sb.append(ArticleResponse.previewArticle(key, value, 2));
-						articles.remove(key);
+						key = articles.remove(0);
+						sb.append(ArticleResponse.previewArticle(key.article,
+								key.userinfo, 2));
 						i++;
 						sb.append(ArticleResponse.clearDiv());
 					}

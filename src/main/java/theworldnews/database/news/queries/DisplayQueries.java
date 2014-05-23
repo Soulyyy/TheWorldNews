@@ -119,7 +119,7 @@ public class DisplayQueries {
 	 * @return List of n Article objects which belong to the groups defined by
 	 *         type
 	 */
-	public static LinkedHashMap<Article, UserInfo> getDisplayarticlesByNumberAndType(
+	public static ArrayList<ArticleUserTuple> getDisplayarticlesByNumberAndType(
 			Connection con, int number, String type) {
 		try {
 			int articlegroup = ArticlegroupEncoding.stringToInt(type);
@@ -130,14 +130,14 @@ public class DisplayQueries {
 			pst.setInt(1, articlegroup);
 			pst.setInt(2, number);
 			ResultSet rs = pst.executeQuery();
-			LinkedHashMap<Article, UserInfo> articleMap = new LinkedHashMap<Article, UserInfo>();
+			ArrayList<ArticleUserTuple> articleMap = new ArrayList<ArticleUserTuple>();
 			while (rs.next()) {
 				Article article = new Article(rs.getInt("id"),
 						rs.getString("image"), rs.getString("header"),
 						rs.getString("articlegroup"), rs.getInt("author"));
 				UserInfo userinfo = new UserInfo(rs.getInt("author"),
 						rs.getString("firstname"), rs.getString("surname"));
-				articleMap.put(article, userinfo);
+				articleMap.add(new ArticleUserTuple(article, userinfo));
 			}
 			rs.close();
 			pst.close();
@@ -145,7 +145,7 @@ public class DisplayQueries {
 		} catch (SQLException e) {
 			Logger lgr = Logger.getLogger(DisplayQueries.class.getName());
 			lgr.log(Level.SEVERE, e.getMessage(), e);
-			return new LinkedHashMap<Article, UserInfo>();
+			return new ArrayList<ArticleUserTuple>();
 		}
 	}
 
