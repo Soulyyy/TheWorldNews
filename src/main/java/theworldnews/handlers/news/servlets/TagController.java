@@ -91,7 +91,7 @@ public class TagController extends HttpServlet {
 				int response = HashTagQueries.addHashTag(con, userid,articleid, hashtag);
 				resp.sendRedirect("http://gold-experience.herokuapp.com/jsp/ArticleView.jsp?id="+articleid+"&image="+image);
 			} else {
-				resp.sendError(HttpServletResponse.SC_FORBIDDEN,"You have reached the limit of tags");
+				resp.sendError(HttpServletResponse.SC_FORBIDDEN,"Each user can only submit 5 hashtags per article.");
 			}
 		} catch (SQLException | URISyntaxException e) {
 			resp.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR,e.getMessage());

@@ -101,10 +101,7 @@ $(this).ready(function() {
 			userdata.username = $("#userName").val();
 
 			//Räsime parooli siin, et POST päringus paintexti ei edastataks
-			userdata.password = Sha256.hash($("#password").val());
-			console.log("click");
-			console.log(userdata);
-			
+			userdata.password = Sha256.hash($("#password").val());			
 		
 			// var hash = window.location.hash;
 			// if(hash) {
@@ -128,6 +125,12 @@ $(this).ready(function() {
 							alert("Vale parool/kasutaja.");
 						} 
 						else {
+							if ($("#ht").length > 0){
+								ht.css('visibility', 'visible');
+								ht2.css('visibility', 'visible');
+								ht3.css('visibility', 'visible');
+							}	
+
 							toggleLoginButtons(true);
 							toggleLoginContainer(false);
 							if(userdata.accessRights >= 1) {

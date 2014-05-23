@@ -33,10 +33,10 @@
 		<div id="hashtags"></div>
 		<div id="htcont">
 		<form action="/tagController" method="post">
-			Tag: <input type="text" id="ht" name="tag"><br>
+			Tag: <input type="text" name="tag"><br>
 			<input type="hidden" name="id" value="<%=request.getParameter("id")%>">
 			<input type="hidden" name="image" value="<%=request.getParameter("image")%>">
-			<input type="submit" id="ht2" value="Submit">
+			<input type="submit"  value="Submit">
 		</form>
 		</div>
 		
