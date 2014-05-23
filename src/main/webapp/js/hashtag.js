@@ -25,7 +25,7 @@ $(this).ready(function() {
 	
 		},
 		error: function(r) {
-			console.log(r);
+			// console.log(r);
 			console.log("failed getting tags");
 		}
 	});
@@ -42,12 +42,12 @@ $(this).ready(function() {
 			},
 			contentType: 'application/json; charset=utf-8',
 			success: function(r) {
-				console.log(r);
+				// console.log(r);
 				console.log("added tag");
 
 			},
 			error: function(r) {
-				console.log(r);
+				// console.log(r);
 				alert("failed add");
 			}
 		});
