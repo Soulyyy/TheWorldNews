@@ -34,11 +34,11 @@ public class TagController extends HttpServlet {
 			String asd = req.getParameter("searchBox");
 			int articleid = 5;
   
-			 if(asd !=null)
-				 articleid=Integer.parseInt(asd.trim());
+			 // if(asd !=null)
+				 // articleid=Integer.parseInt(asd.trim());
 			// We display five tags
-			// System.out.println("BBBBBBBBBBBBBBBBBBBBBB");
-			// System.out.println(articleid);
+			System.out.println("BBBBBBBBBBBBBBBBBBBBBB");
+			System.out.println(articleid);
 			
 			
 			resp.setHeader("Content-Type", "application/json");
