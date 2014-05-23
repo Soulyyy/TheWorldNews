@@ -31,11 +31,11 @@ public class TagController extends HttpServlet {
 	public void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 		// Get tags for article
 		try (Connection con = DatabaseConnection.getConnection()) {
-			// String asd = req.getParameter("term").toString();
+			String asd = req.getParameter("term").toString();
 			int articleid = 5;
   
-			 // if(asd !=null && !asd.isEmpty())
-				 // articleid=Integer.parseInt(asd.trim());
+			 if(asd !=null && !asd.isEmpty())
+				 articleid=Integer.parseInt(asd.trim());
 			// We display five tags
 			// System.out.println("BBBBBBBBBBBBBBBBBBBBBB");
 			// System.out.println(articleid);
@@ -71,8 +71,6 @@ public class TagController extends HttpServlet {
 				hashtag = "nullhash";
 			// String hashtag = "testhash";
 			Integer userid = (Integer) req.getSession().getAttribute("LOGIN_ID");
-			if (userid == null)
-				userid = 421;
 			String asd = req.getParameter("term");
 			int articleid = 5;
   
