@@ -29,12 +29,8 @@ $(this).ready(function() {
 		var tag = $("#ht").val();
 		$.ajax("/tagController", {
 			type: "POST",
-			dataType:'json',
-			contentType: 'application/json',
-			data:{searchBox2 : JSON.stringify({ "tag": tag}),
-			term : JSON.stringify({ "term": term})
-			
-			},
+			dataType:'html',
+			data: 'searchBox2='+tag+'&term='+term,
 			contentType: 'application/json; charset=utf-8',
 			success: function(r) {
 				console.log("added tag");
