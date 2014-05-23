@@ -8,7 +8,7 @@ $(this).ready(function() {
 		type: "GET",
 		dataType:'json',
 		contentType: 'application/json',
-		data:{term : JSON.stringify({ "term": term})},
+		data:{searchBox : JSON.stringify({ "term": term})},
 		contentType: 'application/json; charset=utf-8',
 		success: function(r) {
 			console.log(r);
@@ -36,18 +36,13 @@ $(this).ready(function() {
 			type: "POST",
 			dataType:'json',
 			contentType: 'application/json',
-			data:{tag : JSON.stringify({ "tag": tag}),
-			term : JSON.stringify({ "term": term})
-			
-			},
+			data:{searchBox : JSON.stringify({ "tag": tag})},
 			contentType: 'application/json; charset=utf-8',
 			success: function(r) {
-				// console.log(r);
 				console.log("added tag");
 
 			},
 			error: function(r) {
-				// console.log(r);
 				alert("failed add");
 			}
 		});

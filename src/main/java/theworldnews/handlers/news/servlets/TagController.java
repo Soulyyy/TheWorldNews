@@ -31,23 +31,23 @@ public class TagController extends HttpServlet {
 	public void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 		// Get tags for article
 		try (Connection con = DatabaseConnection.getConnection()) {
-			String asd = req.getParameter("term").toString();
+			String asd = req.getParameter("searchBox");
 			int articleid = 5;
   
-			 if(asd !=null && !asd.isEmpty())
-				 articleid=Integer.parseInt(asd.trim());
+			 // if(asd !=null)
+				 // articleid=Integer.parseInt(asd.trim());
 			// We display five tags
-			// System.out.println("BBBBBBBBBBBBBBBBBBBBBB");
-			// System.out.println(articleid);
-
-			ArrayList<Tag> taglist = HashTagQueries.topHashTagsOnArticle(con,articleid, 5);
+			System.out.println("BBBBBBBBBBBBBBBBBBBBBB");
+			System.out.println(articleid);
+			
 			
 			resp.setHeader("Content-Type", "application/json");
 			
+			// ArrayList<Tag> taglist = HashTagQueries.topHashTagsOnArticle(con,articleid, 5);
 			
-			Gson gson = new Gson();
-			String test2 = gson.toJson(taglist);
-			resp.getWriter().write(test2);
+			// Gson gson = new Gson();
+			// String test2 = gson.toJson(taglist);
+			// resp.getWriter().write(test2);
 			
 			
 			// Gson gson = new GsonBuilder().create();
@@ -55,7 +55,8 @@ public class TagController extends HttpServlet {
 		
 			// resp.getWriter().write(response.getAsString());
 			
-			 // resp.getWriter().write("{\"response\":"+articleid+"}");
+			 resp.getWriter().write("{\"response\":"+asd+"}");
+			 
 		} catch (SQLException | URISyntaxException | IOException e) {
 			resp.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR,e.getMessage());
 		}
@@ -66,7 +67,7 @@ public class TagController extends HttpServlet {
 	public void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 		// Tag submission
 		try (Connection con = DatabaseConnection.getConnection()) {
-			String hashtag = req.getParameter("tag");
+			String hashtag = req.getParameter("searchBox");
 			if (hashtag == null)
 				hashtag = "nullhash";
 			// String hashtag = "testhash";
