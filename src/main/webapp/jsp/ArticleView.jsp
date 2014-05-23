@@ -33,7 +33,8 @@
 
 		<form action="/tagController" method="post">
 			Tag: <input type="text" name="tag"><br>
- 			<input type="submit" value="Submit">
+			<input name="id" value="<%=request.getParameter("id")%>">
+			<input type="submit" value="Submit">
 		</form>
 		
 	</div>
