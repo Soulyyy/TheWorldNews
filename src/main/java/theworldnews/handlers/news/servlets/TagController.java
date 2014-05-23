@@ -87,11 +87,11 @@ public class TagController extends HttpServlet {
 		try (Connection con = DatabaseConnection.getConnection()) {
 			
 			// int userID = (int)req.getSession().getAttribute("LOGIN_ID");
-			String tag = req.getParameter("tag");
+			String hashtag = req.getParameter("tag");
 			
 			// String hashtag = req.getParameter("searchBox2");
 			System.out.println("CCCCCCCCCCCCCCCCCCCCCCCCCC");
-			System.out.println(tag);
+			System.out.println(hashtag);
 			// if (hashtag == null)
 				// hashtag = "nullhash";
 			Integer userid = (Integer) req.getSession().getAttribute("LOGIN_ID");
@@ -102,23 +102,23 @@ public class TagController extends HttpServlet {
 			int c = 0;
  
 
-			for(int i=0;i<asd.length();i++){
-				System.out.println(asd.charAt(i));
-				if (asd.charAt(i) =='"') {
-					System.out.println("gh");
-					c+=1;
-					if (c == 3) {
-						i+=1;
-						while(asd.charAt(i) !='"') {
-							rl+=asd.charAt(i);
-							i+=1;
-						}
-					}
-				}
-			}
-   			System.out.println(rl);
+			// for(int i=0;i<asd.length();i++){
+				// System.out.println(asd.charAt(i));
+				// if (asd.charAt(i) =='"') {
+					// System.out.println("gh");
+					// c+=1;
+					// if (c == 3) {
+						// i+=1;
+						// while(asd.charAt(i) !='"') {
+							// rl+=asd.charAt(i);
+							// i+=1;
+						// }
+					// }
+				// }
+			// }
+   			// System.out.println(rl);
 
-			int articleid=Integer.parseInt(rl.trim());
+			int articleid=5;
   
 			int userTagCount = HashTagQueries.hashTagCountByUserOnArticle(con,userid, articleid);
 			if (userTagCount < 5) {
