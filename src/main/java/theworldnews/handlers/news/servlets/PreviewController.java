@@ -49,7 +49,7 @@ public class PreviewController extends HttpServlet {
 			int i = 0;
 			ArticleUserTuple key;
 			UserInfo value;
-			// sb.append(articles);
+			sb.append(articles);
 			while (!articles.isEmpty()) {
 				if (articles.size() == 2 && ((i % 3 == 1) || (i % 3 == 0))) {
 					key = articles.remove(0);
