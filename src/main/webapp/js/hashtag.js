@@ -18,7 +18,7 @@ $(this).ready(function() {
 
 				var i = 0;
 				while (i < r.length) {
-					$(".hashtags").append(r[i][0]+"("+r[i][1]+")\t");	
+					$(".hashtags").append(r[i].tagname+"("+r[i].count+")\t");	
 					i+=1;
 				}
 			}
