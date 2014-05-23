@@ -70,7 +70,7 @@ public class TagController extends HttpServlet {
 			if (hashtag == null)
 				hashtag = "nullhash";
 			// String hashtag = "testhash";
-			int userid = (Integer) req.getSession().getAttribute("LOGIN_ID");
+			Integer userid = (Integer) req.getSession().getAttribute("LOGIN_ID");
 			if (userid == null)
 				userid = 421;
 			String asd = req.getParameter("term");
