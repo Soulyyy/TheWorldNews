@@ -52,11 +52,11 @@ public class TagController extends HttpServlet {
 				}
 			}
    
-			int articleid=Integer.parseInt(asd.trim());
+			int articleid=Integer.parseInt(rl.trim());
 			// We display five tags
 			System.out.println("BBBBBBBBBBBBBBBBBBBBBB");
-			// System.out.println(Integer.parseInt(asd.trim()));
-			
+						System.out.println(rl);
+ 
 			
 			resp.setHeader("Content-Type", "application/json");
 			
@@ -111,7 +111,7 @@ public class TagController extends HttpServlet {
 				}
 			}
    
-			int articleid=Integer.parseInt(asd.trim());
+			int articleid=Integer.parseInt(rl.trim());
   
 			int userTagCount = HashTagQueries.hashTagCountByUserOnArticle(con,userid, articleid);
 			if (userTagCount < 5) {
