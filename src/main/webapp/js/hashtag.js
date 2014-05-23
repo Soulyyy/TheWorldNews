@@ -42,7 +42,7 @@ $(this).ready(function() {
 			},
 			contentType: 'application/json; charset=utf-8',
 			success: function(r) {
-				console.log(r);
+				// console.log(r);
 				console.log("added tag");
 
 			},
