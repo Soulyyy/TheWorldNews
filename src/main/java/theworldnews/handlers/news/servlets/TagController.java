@@ -32,7 +32,7 @@ public class TagController extends HttpServlet {
 		// Get tags for article
 		try (Connection con = DatabaseConnection.getConnection()) {
 			String asd = req.getParameter("searchBox");
-			int articleid = 5;
+			int articleid = Integer.parseInt(asd);
   
 			 // if(asd !=null && !asd.isEmpty())
 				 // articleid=Integer.parseInt(asd.trim());
