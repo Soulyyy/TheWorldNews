@@ -523,7 +523,7 @@ div.latestNewsDisplay {
 
 p {
 	text-decoration: none;
-	font: 1.2vw/1 Arial, Helvetica, sans-serif;
+	font: 1vw/1 Arial, Helvetica, sans-serif;
 }
 
 article {
@@ -532,5 +532,5 @@ article {
 
 #hashtags{
 	margin:1vw;
-	font: 1.2vw/1 Arial, Helvetica, sans-serif;
+	font: 1vw/1 Arial, Helvetica, sans-serif;
 }
