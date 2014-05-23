@@ -86,17 +86,17 @@ public class TagController extends HttpServlet {
 		// Tag submission
 		try (Connection con = DatabaseConnection.getConnection()) {
 			
-			int userID = (int)req.getSession().getAttribute("LOGIN_ID");
+			// int userID = (int)req.getSession().getAttribute("LOGIN_ID");
 			String tag = req.getParameter("tag");
 			
-			String hashtag = req.getParameter("searchBox2");
+			// String hashtag = req.getParameter("searchBox2");
 			System.out.println("CCCCCCCCCCCCCCCCCCCCCCCCCC");
-			System.out.println(hashtag);
+			System.out.println(tag);
 			// if (hashtag == null)
 				// hashtag = "nullhash";
 			Integer userid = (Integer) req.getSession().getAttribute("LOGIN_ID");
-			String asd = req.getParameter("term");
-						System.out.println(asd);
+			// String asd = req.getParameter("term");
+						// System.out.println(asd);
 
 			String rl = "";
 			int c = 0;
