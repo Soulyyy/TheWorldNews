@@ -41,7 +41,7 @@ public class HashTagQueries {
 			ResultSet rs = pst.executeQuery();
 
 			if (rs.next()) {
-				rsd = rs.getString(1);
+				rsd = rs.getInt(1);
 
 			}
 			return rsd;
