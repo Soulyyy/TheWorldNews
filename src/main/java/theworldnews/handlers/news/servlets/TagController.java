@@ -55,9 +55,6 @@ public class TagController extends HttpServlet {
    
 			int articleid=Integer.parseInt(rl.trim());
 			// We display five tags
-			System.out.println("BBBBBBBBBBBBBBBBBBBBBB");
-						System.out.println(rl);
- 
 			
 			resp.setHeader("Content-Type", "application/json");
 			
@@ -101,8 +98,7 @@ public class TagController extends HttpServlet {
 				}
 				@SuppressWarnings("unused")
 				int response = HashTagQueries.addHashTag(con, userid,articleid, hashtag);
-				resp.setHeader("Content-Type", "application/json");
-				resp.getWriter().write("{\"response\":\"hashtag added\"}");
+				resp.sendRedirect("http://gold-experience.herokuapp.com/Index.jsp");
 			} else {
 				resp.sendError(HttpServletResponse.SC_FORBIDDEN,"You have reached the limit of tags");
 			}
