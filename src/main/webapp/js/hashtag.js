@@ -20,7 +20,7 @@ $(this).ready(function() {
 
 				var i = 0;
 				while (i < r.length) {
-					$(".hashtags").append(h);	
+					$(".hashtags").append(r[i].tagname);	
 					i+=1;
 				}
 			}
