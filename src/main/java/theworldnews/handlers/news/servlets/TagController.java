@@ -32,22 +32,39 @@ public class TagController extends HttpServlet {
 		// Get tags for article
 		try (Connection con = DatabaseConnection.getConnection()) {
 			String asd = req.getParameter("searchBox");
-			int articleid = 5;
-  
-			 // if(asd !=null)
-				 // articleid=Integer.parseInt(asd.trim());
+			// int articleid = 5;
+			String rl = "";
+			int c = 0;
+ 
+
+			for(int i=0;i<asd.length();i++){
+				System.out.println(asd.charAt(i));
+				if (asd.charAt(i) =='"') {
+					System.out.println("gh");
+					c+=1;
+					if (c == 3) {
+						i+=1;
+						while(asd.charAt(i) !='"') {
+							rl+=asd.charAt(i);
+							i+=1;
+						}
+					}
+				}
+			}
+   
+			int articleid=Integer.parseInt(asd.trim());
 			// We display five tags
 			System.out.println("BBBBBBBBBBBBBBBBBBBBBB");
-			System.out.println(Integer.parseInt(asd.trim()));
+			// System.out.println(Integer.parseInt(asd.trim()));
 			
 			
 			resp.setHeader("Content-Type", "application/json");
 			
-			// ArrayList<Tag> taglist = HashTagQueries.topHashTagsOnArticle(con,articleid, 5);
+			ArrayList<Tag> taglist = HashTagQueries.topHashTagsOnArticle(con,articleid, 5);
 			
-			// Gson gson = new Gson();
-			// String test2 = gson.toJson(taglist);
-			// resp.getWriter().write(test2);
+			Gson gson = new Gson();
+			String test2 = gson.toJson(taglist);
+			resp.getWriter().write(test2);
 			
 			
 			// Gson gson = new GsonBuilder().create();
@@ -55,7 +72,7 @@ public class TagController extends HttpServlet {
 		
 			// resp.getWriter().write(response.getAsString());
 			
-			 resp.getWriter().write("{\"response\":"+asd+"}");
+			 // resp.getWriter().write("{\"response\":"+asd+"}");
 			 
 		} catch (SQLException | URISyntaxException | IOException e) {
 			resp.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR,e.getMessage());
@@ -67,7 +84,7 @@ public class TagController extends HttpServlet {
 	public void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 		// Tag submission
 		try (Connection con = DatabaseConnection.getConnection()) {
-			String hashtag = req.getParameter("searchBox");
+			String hashtag = req.getParameter("searchBox2");
 			System.out.println("CCCCCCCCCCCCCCCCCCCCCCCCCC");
 			System.out.println(hashtag);
 			if (hashtag == null)
@@ -75,7 +92,26 @@ public class TagController extends HttpServlet {
 			// String hashtag = "testhash";
 			Integer userid = (Integer) req.getSession().getAttribute("LOGIN_ID");
 			String asd = req.getParameter("term");
-			int articleid = 5;
+			String rl = "";
+			int c = 0;
+ 
+
+			for(int i=0;i<asd.length();i++){
+				System.out.println(asd.charAt(i));
+				if (asd.charAt(i) =='"') {
+					System.out.println("gh");
+					c+=1;
+					if (c == 3) {
+						i+=1;
+						while(asd.charAt(i) !='"') {
+							rl+=asd.charAt(i);
+							i+=1;
+						}
+					}
+				}
+			}
+   
+			int articleid=Integer.parseInt(asd.trim());
   
 			int userTagCount = HashTagQueries.hashTagCountByUserOnArticle(con,userid, articleid);
 			if (userTagCount < 5) {
