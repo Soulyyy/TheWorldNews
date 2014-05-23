@@ -32,10 +32,10 @@ public class TagController extends HttpServlet {
 		// Get tags for article
 		try (Connection con = DatabaseConnection.getConnection()) {
 			String asd = req.getParameter("searchBox");
-			int articleid = Integer.parseInt(asd);
+			int articleid = 5;
   
-			 // if(asd !=null && !asd.isEmpty())
-				 // articleid=Integer.parseInt(asd.trim());
+			 if(asd !=null)
+				 articleid=Integer.parseInt(asd.trim());
 			// We display five tags
 			// System.out.println("BBBBBBBBBBBBBBBBBBBBBB");
 			// System.out.println(articleid);
@@ -67,7 +67,7 @@ public class TagController extends HttpServlet {
 	public void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 		// Tag submission
 		try (Connection con = DatabaseConnection.getConnection()) {
-			String hashtag = req.getParameter("searchBox").toString();
+			String hashtag = req.getParameter("searchBox");
 			if (hashtag == null)
 				hashtag = "nullhash";
 			// String hashtag = "testhash";
