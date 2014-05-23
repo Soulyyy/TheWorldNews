@@ -56,7 +56,7 @@ $(this).ready(function() {
 				console.log("Logged in with accessrights: " + resp.accessRights);
 				toggleLoginButtons(true);
 				adda.css('visibility', 'visible');
-				if ($("#ht3").length > 0){
+				if ($("#htcont").length > 0){
 					ht3.css('visibility', 'visible');
 					
 				}	
@@ -64,7 +64,7 @@ $(this).ready(function() {
 			else if(resp.accessRights == 0) {
 				console.log("Logged in with accessrights: " + resp.accessRights);
 				toggleLoginButtons(true);
-				if ($("#ht3").length > 0){
+				if ($("#htcont").length > 0){
 					ht3.css('visibility', 'visible');
 				}	
 			}
@@ -119,7 +119,7 @@ $(this).ready(function() {
 							alert("Vale parool/kasutaja.");
 						} 
 						else {
-							if ($("#ht3").length > 0){
+							if ($("#htcont").length > 0){
 								ht3.css('visibility', 'visible');
 							}	
 
@@ -154,9 +154,7 @@ $(this).ready(function() {
 				if(resp.response === "success") {
 					toggleLoginButtons(false);
 					adda.css('visibility', 'hidden');
-					if ($("#ht").length > 0){
-						ht.css('visibility', 'hidden');
-						ht2.css('visibility', 'hidden');
+					if ($("#htcont").length > 0){
 						ht3.css('visibility', 'hidden');
 				}	
 
