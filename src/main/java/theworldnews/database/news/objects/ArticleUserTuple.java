@@ -1,14 +1,14 @@
 package theworldnews.database.news.objects;
 
-import theworldnews.database.users.objects.User;
+import theworldnews.database.users.objects.UserInfo;
 
 public class ArticleUserTuple {
 
-	Article article;
-	User user;
+	public Article article;
+	public UserInfo userinfo;
 
-	public ArticleUserTuple(Article article, User user) {
-		this.user = user;
+	public ArticleUserTuple(Article article, UserInfo userinfo) {
+		this.userinfo = userinfo;
 		this.article = article;
 	}
 
