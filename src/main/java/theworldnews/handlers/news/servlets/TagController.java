@@ -5,6 +5,7 @@ import java.net.URISyntaxException;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ArrayList;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -84,6 +85,10 @@ public class TagController extends HttpServlet {
 	public void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 		// Tag submission
 		try (Connection con = DatabaseConnection.getConnection()) {
+			
+			int userID = (int)req.getSession().getAttribute("LOGIN_ID");
+			String tag = req.getParameter("tag");
+			
 			String hashtag = req.getParameter("searchBox2");
 			System.out.println("CCCCCCCCCCCCCCCCCCCCCCCCCC");
 			System.out.println(hashtag);

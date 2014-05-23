@@ -12,7 +12,6 @@
 <html>
 <head>
 <title>The World</title>
-<meta charset="utf-8">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link rel="stylesheet" type="text/css" href="../css/layout.css">
 <script src="../lib/jquery-1.11.0.js" type="text/javascript"></script>
@@ -20,7 +19,8 @@
 <script type="text/javascript" src="../js/login.js"></script>
 <script type="text/javascript" src="../js/latestnews.js"></script>
 <script type="text/javascript" src="../js/hashtag.js"></script>
-<script type="text/javascript" src="https://apis.google.com/js/client.js?onload=handleClientLoad"></script>
+<script type="text/javascript"
+	src="https://apis.google.com/js/client.js?onload=handleClientLoad"></script>
 </head>
 <body>
 	<ex:Navigation />
@@ -30,18 +30,23 @@
 			<jsp:param value="<%=request.getParameter("id")%>" name="id" />
 			<jsp:param value="<%=request.getParameter("image")%>" name="image" />
 		</jsp:include>
-	</div>
-	
-	<div id="hashtags">
+
+		<form action="/tagController" method="post">
+			Tag: <input type="text" name="tag"><br>
+			<input type="submit" value="Submit">
+		</form>
 		
-	
 	</div>
-		<!-- Latest News -->
+
+	<div id="hashtags"></div>
+	<!-- Latest News -->
 	<form class="form-wrapper">
-			<p><input type="text" id="ht" name="ht" placeholder="Add hashtag" /></p>
+		<p>
+			<input type="text" id="ht" name="ht" placeholder="Add hashtag" />
+		</p>
 	</form>
 	<button id="addht">Add</button>
-	
+
 	<!-- Latest News -->
 	<div id="sideBar">
 
@@ -51,16 +56,14 @@
 				<a id="latestNews"> Latest News </a>
 			</header>
 
-			<div class="latestNewsDisplay">
-
-			</div>
+			<div class="latestNewsDisplay"></div>
 
 
 		</div>
 
 	</div>
-	
-	
+
+
 
 
 
