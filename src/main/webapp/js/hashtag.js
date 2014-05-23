@@ -13,15 +13,15 @@ $(this).ready(function() {
 		success: function(r) {
 			console.log(r);
 
-			// if (r.length > 0) {
+			if (r.length > 0) {
 			
 
-				// var i = 0;
-				// while (i < r.length) {
-					// $(".hashtags").append(r[i]+"\t");	
-					// i+=1;
-				// }
-			// }
+				var i = 0;
+				while (i < r.length) {
+					$("#hashtags").append(r[i].tagname+"("+r[i].count+")\t");	
+					i+=1;
+				}
+			}
 	
 		},
 		error: function(r) {
@@ -31,12 +31,14 @@ $(this).ready(function() {
 	});
 	btn.click(function() {
 		var tag = $("#ht").val();
-		console.log(tag);
 		$.ajax("/tagController", {
 			type: "POST",
 			dataType:'json',
 			contentType: 'application/json',
-			data:{searchBox : JSON.stringify({ "tag": tag})},
+			data:{searchBox2 : JSON.stringify({ "tag": tag}),
+			term : JSON.stringify({ "term": term})
+			
+			},
 			contentType: 'application/json; charset=utf-8',
 			success: function(r) {
 				console.log("added tag");
