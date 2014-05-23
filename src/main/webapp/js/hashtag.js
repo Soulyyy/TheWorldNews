@@ -12,15 +12,13 @@ $(this).ready(function() {
 		contentType: 'application/json; charset=utf-8',
 		success: function(r) {
 			console.log(r);
-			console.log(r[0])
-				console.log(r[0].tagname)
 
 			if (r.length > 0) {
 			
 
 				var i = 0;
 				while (i < r.length) {
-					$(".hashtags").append(r[i].tagname);	
+					$("#hashtags").append(r[i].tagname+"("+r[i].count+")\t");	
 					i+=1;
 				}
 			}
