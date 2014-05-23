@@ -49,7 +49,7 @@ public class PreviewController extends HttpServlet {
 			int i = 0;
 			Article key;
 			UserInfo value;
-			sb.append(articles);
+//			sb.append(articles);
 			while (!articles.isEmpty()) {
 				if (articles.size() == 2 && ((i % 3 == 1) || (i % 3 == 0))) {
 					key = articles.keySet().iterator().next();
@@ -68,6 +68,7 @@ public class PreviewController extends HttpServlet {
 						key = articles.keySet().iterator().next();
 						value = articles.get(key);
 						sb.append(ArticleResponse.previewArticle(key, value, 0));
+						articles.remove(key);
 						articles.remove(key);
 						i++;
 					} else if (i % 3 == 1) {
