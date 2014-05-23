@@ -31,7 +31,7 @@ $(this).ready(function() {
 	});
 	btn.click(function() {
 		var tag = $("#ht").val();
-		console.log(tag);
+		console.log( JSON.stringify({ "tag": tag}));
 		$.ajax("/tagController", {
 			type: "POST",
 			dataType:'json',

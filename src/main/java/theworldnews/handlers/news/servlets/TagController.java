@@ -38,7 +38,7 @@ public class TagController extends HttpServlet {
 				 // articleid=Integer.parseInt(asd.trim());
 			// We display five tags
 			System.out.println("BBBBBBBBBBBBBBBBBBBBBB");
-			System.out.println(articleid);
+			System.out.println(Integer.parseInt(asd.trim()));
 			
 			
 			resp.setHeader("Content-Type", "application/json");
@@ -68,6 +68,8 @@ public class TagController extends HttpServlet {
 		// Tag submission
 		try (Connection con = DatabaseConnection.getConnection()) {
 			String hashtag = req.getParameter("searchBox");
+			System.out.println("CCCCCCCCCCCCCCCCCCCCCCCCCC");
+			System.out.println(hashtag);
 			if (hashtag == null)
 				hashtag = "nullhash";
 			// String hashtag = "testhash";
@@ -75,8 +77,6 @@ public class TagController extends HttpServlet {
 			String asd = req.getParameter("term");
 			int articleid = 5;
   
-			 // if(asd !=null && !asd.isEmpty())
-				 // articleid=Integer.parseInt(asd.trim());
 			int userTagCount = HashTagQueries.hashTagCountByUserOnArticle(con,userid, articleid);
 			if (userTagCount < 5) {
 				hashtag = hashtag.toLowerCase();
