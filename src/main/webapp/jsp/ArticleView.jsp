@@ -40,13 +40,7 @@
 	</div>
 
 	<div id="hashtags"></div>
-	<!-- Latest News -->
-	<form class="form-wrapper">
-		<p>
-			<input type="text" id="ht" name="ht" placeholder="Add hashtag" />
-		</p>
-	</form>
-	<button id="addht">Add</button>
+
 
 	<!-- Latest News -->
 	<div id="sideBar">
