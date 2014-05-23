@@ -523,9 +523,14 @@ div.latestNewsDisplay {
 
 p {
 	text-decoration: none;
-	font: 0.6vw/1 Arial, Helvetica, sans-serif;
+	font: 1.2vw/1 Arial, Helvetica, sans-serif;
 }
 
 article {
 	width: 80%;
+}
+
+#hashtags{
+	margin:1vw;
+	font: 1.2vw/1 Arial, Helvetica, sans-serif;
 }
