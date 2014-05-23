@@ -92,6 +92,8 @@ public class TagController extends HttpServlet {
 			// String hashtag = "testhash";
 			Integer userid = (Integer) req.getSession().getAttribute("LOGIN_ID");
 			String asd = req.getParameter("term");
+						System.out.println(asd);
+
 			String rl = "";
 			int c = 0;
  
@@ -110,7 +112,8 @@ public class TagController extends HttpServlet {
 					}
 				}
 			}
-   
+   			System.out.println(rl);
+
 			int articleid=Integer.parseInt(rl.trim());
   
 			int userTagCount = HashTagQueries.hashTagCountByUserOnArticle(con,userid, articleid);
