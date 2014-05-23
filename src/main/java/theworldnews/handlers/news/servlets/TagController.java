@@ -88,7 +88,7 @@ public class TagController extends HttpServlet {
 			
 			int userID = (int)req.getSession().getAttribute("LOGIN_ID");
 			String tag = req.getParameter("tag");
-			Integer  articleID = (int)Integer.parseInt(req.getParameter("id"));
+			Integer  articleID = Integer.parseInt(req.getParameter("id"));
 			
 			String hashtag = req.getParameter("searchBox2");
 			System.out.println("CCCCCCCCCCCCCCCCCCCCCCCCCC");
