@@ -9,6 +9,7 @@ $(this).ready(function() {
 	if ($("#ht").length > 0){
 		var ht = $("#ht");
 		var ht2 = $("#ht2");
+		var ht3 = $("#htcont");
 	}	
 
 	$("#password").keyup(function(event){
@@ -60,6 +61,8 @@ $(this).ready(function() {
 				if ($("#ht").length > 0){
 					ht.css('visibility', 'visible');
 					ht2.css('visibility', 'visible');
+					ht3.css('visibility', 'visible');
+					
 				}	
 			}
 			else if(resp.accessRights == 0) {
@@ -68,6 +71,7 @@ $(this).ready(function() {
 				if ($("#ht").length > 0){
 					ht.css('visibility', 'visible');
 					ht2.css('visibility', 'visible');
+					ht3.css('visibility', 'visible');
 				}	
 			}
 			else {
@@ -93,20 +97,23 @@ $(this).ready(function() {
 	 */
 	$.getScript("http://gold-experience.herokuapp.com/js/Sha256.js", function() {
 		loginButton.click(function() {
-
-		
-			var hash = window.location.hash;
-			if(hash) {
-				hash = hash.substr(1);
-			}
-			if(hash === "") {
-				hash = "index";
-			}
 			var userdata = new Object();
 			userdata.username = $("#userName").val();
 
 			//Räsime parooli siin, et POST päringus paintexti ei edastataks
 			userdata.password = Sha256.hash($("#password").val());
+			console.log("click");
+			console.log(userdata);
+			
+		
+			// var hash = window.location.hash;
+			// if(hash) {
+				// hash = hash.substr(1);
+			// }
+			// if(hash === "") {
+				// hash = "index";
+			// }
+
 
 
 			if(!userdata.username || !userdata.password) {
@@ -155,6 +162,7 @@ $(this).ready(function() {
 					if ($("#ht").length > 0){
 						ht.css('visibility', 'hidden');
 						ht2.css('visibility', 'hidden');
+						ht3.css('visibility', 'hidden');
 				}	
 
 							 

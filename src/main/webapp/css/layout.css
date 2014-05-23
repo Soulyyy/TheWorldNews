@@ -33,8 +33,9 @@ html,body {
 #ht2 {
 	visibility: hidden;
 }
-
-
+#htcont {
+	visibility: hidden;
+}
 #toggleLogin {
 	text-decoration: none;
 	color: #999;

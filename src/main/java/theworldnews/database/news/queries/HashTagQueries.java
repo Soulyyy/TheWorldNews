@@ -31,18 +31,24 @@ public class HashTagQueries {
 	}
 
 	public static int hashTagCountByUserOnArticle(Connection con, int userid,int articleid) {
+		int rsd = 0;
 		try {
 			// Unverified
 			String query = "SELECT COUNT(tags.id) FROM tags WHERE tags.userid=? AND tags.articleid=?";
 			PreparedStatement pst = con.prepareStatement(query);
 			pst.setInt(1, userid);
 			pst.setInt(2, articleid);
-			int rs = pst.executeUpdate();
-			return rs;
+			ResultSet rs = pst.executeQuery();
+
+			if (rs.next()) {
+				rsd = rs.getString(1);
+
+			}
+			return rsd;
 		} catch (SQLException e) {
 			Logger.getLogger(EditQueries.class.getName()).log(Level.SEVERE,e.getMessage(), e);
 		}
-		return -1;
+		return rsd;
 	}
 
 	public static ArrayList<Tag> topHashTagsOnArticle(Connection con,int articleid, int count) {
