@@ -176,12 +176,12 @@ img.mainImage {
 #loginContainer {
 	position: absolute;
 	float: right;
-	margin-right: -100px;
-	width: 10.0vw;
+	left:600px;
+	width: 100px;
 	background-color: #FFF;
 	padding: 10px;
 	border: 1px solid #666;
-	height: 120px;
+	height: 160px;
 	visibility: hidden;
 }
 
