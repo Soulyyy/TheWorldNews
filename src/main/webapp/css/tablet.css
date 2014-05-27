@@ -379,7 +379,7 @@ div.clear {
 
 #articleGroup {
 	float: left;
-	width: 450px;
+	width: 445px;
 }
 
 #sideBar {
@@ -435,7 +435,7 @@ p.sideText a {
 
 div.mainCropped {
 	width: auto;
-	height: 150px;
+	height: 175px;
 	overflow: hidden;
 	position: relative;
 }
