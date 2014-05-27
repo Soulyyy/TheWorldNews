@@ -74,14 +74,14 @@
 		
 		<noscript>
 		
-			<form id="login" action="/noscriptAccountLogin"  method="post">
-				<input type="text" id="userName" name="username" value=""
+			<form id="noscriptlogin" action="/noscriptAccountLogin"  method="post">
+				<input type="text" id="noscriptuserName" name="username" value=""
 						placeholder="Username or Email">
-				<input type="password" id="password" name="password" value=""
+				<input type="password" id="noscriptpassword" name="password" value=""
 						placeholder="Password">
 						
-				<input id="loginbutton" type="submit" value="Log In"/>
-				<a href="jsp/registerUser.jsp" id="regi">Not a User? Click here to register</a>
+				<input id="noscriptloginbutton" type="submit" value="Log In"/>
+				<a href="jsp/registerUser.jsp" id="noscriptregi">Not a User? Click here to register</a>
 			
 			
 			</form>

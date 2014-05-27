@@ -111,6 +111,22 @@ html,body {
 	visibility: inherit;
 }
 
+#noscriptregi {
+	text-decoration: none;
+	color: #999;
+	font: 0.8vw/1 Helvetica, Verdana, sans-serif;
+	text-transform: uppercase;
+	background-color: #FFF;
+	border: none;
+	transition: all 0.5s ease;
+	display: table;
+	margin: 0 auto;
+	text-align: center;
+	padding: 0 1.0vw;
+	cursor: pointer;
+	visibility: inherit;
+}
+
 #login {
 	text-decoration: none;
 	color: #999;
@@ -127,7 +143,38 @@ html,body {
 	visibility: inherit;
 }
 
+#noscriptlogin {
+	text-decoration: none;
+	color: #999;
+	font: 0.8vw/1 Helvetica, Verdana, sans-serif;
+	text-transform: uppercase;
+	background-color: #FFF;
+	border: none;
+	transition: all 0.5s ease;
+	display: table;
+	margin: 0 auto;
+	text-align: center;
+	padding: 0 1.0vw;
+	cursor: pointer;
+	visibility: inherit;
+}
+
 #loginbutton {
+	text-decoration: none;
+	color: #999;
+	font: 0.8vw/1 Helvetica, Verdana, sans-serif;
+	text-transform: uppercase;
+	background-color: #FFF;
+	border: none;
+	transition: all 0.5s ease;
+	display: table;
+	margin: 0 auto;
+	text-align: center;
+	padding: 0 1.0vw;
+	cursor: pointer;
+}
+
+#noscriptloginbutton {
 	text-decoration: none;
 	color: #999;
 	font: 0.8vw/1 Helvetica, Verdana, sans-serif;
@@ -193,7 +240,17 @@ img.mainImage {
 	height: 1.0vw;
 }
 
+#noscriptuserName {
+	width: 100%;
+	height: 1.0vw;
+}
+
 #password {
+	width: 100%;
+	height: 1.0vw;
+}
+
+#noscriptpassword {
 	width: 100%;
 	height: 1.0vw;
 }
