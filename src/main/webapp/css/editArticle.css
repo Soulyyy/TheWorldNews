@@ -483,6 +483,11 @@ li.profileList.active a {
     background-color: #eee;
 	width:75%;
 }
+
+#noscripteditingFieldset  {
+    background-color: #eee;
+	width:75%;
+}
 	
 	
 #titleBar {
@@ -505,6 +510,12 @@ label.titleText {
 	height:0.9vw;
 }
 
+#noscripttitleInput {
+	width:99%;
+	height:0.9vw;
+}
+
+
 #previewInput {
 	width:99%;
 	height:0.9vw;
@@ -512,6 +523,11 @@ label.titleText {
 }
 
 #Image {
+	width:99%;
+	height:0.9vw;
+}
+
+#noscriptImage {
 	width:99%;
 	height:0.9vw;
 }
@@ -538,6 +554,12 @@ fieldset {
 	resize:vertical;
 }
 
+#noscripttextArea {
+	height:15.0vw;
+	width:99%;
+	resize:vertical;
+}
+
 #articlesubmit {
 	
 	text-decoration: none;
@@ -556,6 +578,21 @@ fieldset {
 }
 
 #Cancel {
+		
+	text-decoration: none;
+	color:#666;
+	font: 0.8vw/1 Helvetica, Verdana, sans-serif;
+	text-transform: uppercase;
+	background-color:#FFF;
+	border:none;
+	transition: all 0.5s ease;
+	float: left;
+	margin-right: 0px;
+	padding: 0 1.0vw;
+	cursor:pointer;
+}
+
+#noscriptCancel  {
 		
 	text-decoration: none;
 	color:#666;

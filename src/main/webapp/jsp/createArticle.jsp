@@ -95,30 +95,30 @@
 			<noscript>
 
 
-				<form id="editingFieldset" action="/noscriptSubmitArticle"
+				<form id="noscripteditingFieldset" action="/noscriptSubmitArticle"
 					method="post">
 
 
 					<label class="titleText">Article Title</label> <input
-						id="titleInput" name="header" class="input-block" type="text"
+						id="noscripttitleInput" name="header" class="input-block" type="text"
 						value=""> <label class="titleText">Image URL</label> <input
-						id="Image" name="image" class="input-block" type="text" value="">
+						id="noscriptImage" name="image" class="input-block" type="text" value="">
 
 
 					<label class="titleText">Article Text</label>
 
 
-					<textarea id="textArea" name="content"></textarea>
+					<textarea id="noscripttextArea" name="content"></textarea>
 
-					<input checked type="checkbox" name="type" id="News" value="News">News
-					<input type="checkbox" name="type" id="Business" value="Business">Business
-					<input type="checkbox" name="type" id="Sports" value="Sports">Sports
-					<input type="checkbox" name="type" id="Science" value="Science">Science
-					<input type="checkbox" name="type" id="Arts" value="Arts">Arts
-					<input type="checkbox" name="type" id="Fashion"
+					<input checked type="checkbox" name="type" id="noscriptNews" value="News">News
+					<input type="checkbox" name="type" id="noscriptBusiness" value="Business">Business
+					<input type="checkbox" name="type" id="noscriptSports" value="Sports">Sports
+					<input type="checkbox" name="type" id="noscriptScience" value="Science">Science
+					<input type="checkbox" name="type" id="noscriptArts" value="Arts">Arts
+					<input type="checkbox" name="type" id="noscriptFashion"
 						value="Fashion & Style">Fashion & Style <br /> <br /> <input
-						id="articlesubmit" type="submit" value="Submit" /> <input
-						id="Cancel" value="Submit" />
+						id="noscriptarticlesubmit" type="submit" value="Submit" /> <input
+						id="noscriptCancel" value="Submit" />
 				</form>
 
 
