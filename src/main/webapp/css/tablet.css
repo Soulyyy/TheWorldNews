@@ -1,33 +1,29 @@
 @charset "UTF-8";
 
 html,body {
-	margin-left: auto;
-	margin-right: auto;
-	width: 80%;
-	overflow-x: hidden;
+	margin-left: 15px;
+	margin-right: 15px;
+	width: 700px;
+
 }
 
-#logReg {
-	position: fixed;
-	left: 80%;
-	margin-top: -30px;
-}
+
 
 #header {
 	z-index: 1;
+	width: 700px;
 }
 
 .Head {
 	text-decoration: none;
 	color: #000;
-	font: 1.3vw/1 Helvetica, Verdana, sans-serif;
+	font: 12px/1 Helvetica, Verdana, sans-serif;
 	text-transform: uppercase;
 	background-color: #FFF;
 	border: none;
 	transition: all 0.5s ease;
 	float: left;
 	margin-right: 0px;
-
 }
 
 #ht2 {
@@ -39,14 +35,14 @@ html,body {
 #toggleLogin {
 	text-decoration: none;
 	color: #999;
-	font: 1.3vw/1 Helvetica, Verdana, sans-serif;
+	font: 12px/1 Helvetica, Verdana, sans-serif;
 	text-transform: uppercase;
 	background-color: #FFF;
 	border: none;
 	transition: all 0.5s ease;
 	float: right;
 	margin-right: 0px;
-	padding: 0 1.0vw;
+	padding: 0 10px;
 	visibility: hidden;
 	cursor: pointer;
 }
@@ -56,7 +52,7 @@ html,body {
 #add {
 	float: right;
 	background: url(../Metadata/settings.png) no-repeat;
-	background-size: 1.3vw;
+	background-size: 1.3px;
 	cursor: pointer;
 	width: 32px;
 	height: 32px;
@@ -67,14 +63,14 @@ html,body {
 #toggleLogin {
 	text-decoration: none;
 	color: #999;
-	font: 1.3vw/1 Helvetica, Verdana, sans-serif;
+	font: 12px/1 Helvetica, Verdana, sans-serif;
 	text-transform: uppercase;
 	background-color: #FFF;
 	border: none;
 	transition: all 0.5s ease;
 	float: right;
 	margin-right: 0px;
-	padding: 0 1.0vw;
+	padding: 0 10px;
 	visibility: hidden;
 	cursor: pointer;
 }
@@ -82,7 +78,7 @@ html,body {
 #authorize-button {
 	text-decoration: none;
 	color: #999;
-	font: 0.8vw/1 Helvetica, Verdana, sans-serif;
+	font: 9px/1 Helvetica, Verdana, sans-serif;
 	text-transform: uppercase;
 	background-color: #FFF;
 	border: none;
@@ -90,7 +86,7 @@ html,body {
 	display: table;
 	margin: 0 auto;
 	text-align: center;
-	padding: 0 1.0vw;
+	padding: 0 10px;
 	cursor: pointer;
 	visibility: inherit;
 }
@@ -98,7 +94,7 @@ html,body {
 #regi {
 	text-decoration: none;
 	color: #999;
-	font: 0.8vw/1 Helvetica, Verdana, sans-serif;
+	font: 9px/1 Helvetica, Verdana, sans-serif;
 	text-transform: uppercase;
 	background-color: #FFF;
 	border: none;
@@ -106,7 +102,7 @@ html,body {
 	display: table;
 	margin: 0 auto;
 	text-align: center;
-	padding: 0 1.0vw;
+	padding: 0 10px;
 	cursor: pointer;
 	visibility: inherit;
 }
@@ -114,7 +110,7 @@ html,body {
 #login {
 	text-decoration: none;
 	color: #999;
-	font: 0.8vw/1 Helvetica, Verdana, sans-serif;
+	font: 9px/1 Helvetica, Verdana, sans-serif;
 	text-transform: uppercase;
 	background-color: #FFF;
 	border: none;
@@ -122,7 +118,7 @@ html,body {
 	display: table;
 	margin: 0 auto;
 	text-align: center;
-	padding: 0 1.0vw;
+	padding: 0 10px;
 	cursor: pointer;
 	visibility: inherit;
 }
@@ -130,7 +126,7 @@ html,body {
 #loginbutton {
 	text-decoration: none;
 	color: #999;
-	font: 0.8vw/1 Helvetica, Verdana, sans-serif;
+	font: 9px/1 Helvetica, Verdana, sans-serif;
 	text-transform: uppercase;
 	background-color: #FFF;
 	border: none;
@@ -138,7 +134,7 @@ html,body {
 	display: table;
 	margin: 0 auto;
 	text-align: center;
-	padding: 0 1.0vw;
+	padding: 0 10px;
 	cursor: pointer;
 }
 
@@ -149,16 +145,17 @@ html,body {
 #logoutButton {
 	text-decoration: none;
 	color: #999;
-	font: 1.3vw/1 Helvetica, Verdana, sans-serif;
+	font: 12px/1 Helvetica, Verdana, sans-serif;
 	text-transform: uppercase;
 	background-color: transparent;
 	border: none;
 	transition: all 0.5s ease;
 	float: right;
-	margin-right: -10%;
-	padding: 0 1.0vw;
+	margin-right: -100px;
+	padding: 0 10px;
 	visibility: hidden;
 	cursor: pointer;
+	position: absolute;
 }
 
 #authorize-button:hover {
@@ -179,29 +176,29 @@ img.mainImage {
 #loginContainer {
 	position: absolute;
 	float: right;
-	left: 70%;
+	margin-right: -100px;
 	width: 10.0vw;
 	background-color: #FFF;
-	padding: 1.0vw;
+	padding: 10px;
 	border: 1px solid #666;
-	height: 10.0vw;
+	height: 120px;
 	visibility: hidden;
 }
 
 #userName {
 	width: 100%;
-	height: 1.0vw;
+	height: 12px;
 }
 
 #password {
 	width: 100%;
-	height: 1.0vw;
+	height: 12px;
 }
 
 #userName::-webkit-input-placeholder {
 	text-decoration: none;
 	color: #999;
-	font: 0.7vw Helvetica, Verdana, sans-serif;
+	font: 8px Helvetica, Verdana, sans-serif;
 	background-color: #FFF;
 	color: #333;
 }
@@ -209,7 +206,7 @@ img.mainImage {
 #userName::-moz-placeholder {
 	text-decoration: none;
 	color: #999;
-	font: 0.7vw Helvetica, Verdana, sans-serif;
+	font: 8px Helvetica, Verdana, sans-serif;
 	background-color: #FFF;
 	color: #333;
 }
@@ -217,7 +214,7 @@ img.mainImage {
 #userName:-ms-input-placeholder {
 	text-decoration: none;
 	color: #999;
-	font: 0.7vw Helvetica, Verdana, sans-serif;
+	font: 8px Helvetica, Verdana, sans-serif;
 	background-color: #FFF;
 	color: #333;
 }
@@ -225,7 +222,7 @@ img.mainImage {
 #userName input:-moz-placeholder {
 	text-decoration: none;
 	color: #999;
-	font: 0.7vw Helvetica, Verdana, sans-serif;
+	font: 8px Helvetica, Verdana, sans-serif;
 	background-color: #FFF;
 	color: #333;
 }
@@ -233,7 +230,7 @@ img.mainImage {
 #password::-webkit-input-placeholder {
 	text-decoration: none;
 	color: #999;
-	font: 0.7vw Helvetica, Verdana, sans-serif;
+	font: 8px Helvetica, Verdana, sans-serif;
 	background-color: #FFF;
 	color: #333;
 }
@@ -241,7 +238,7 @@ img.mainImage {
 #password::-moz-placeholder {
 	text-decoration: none;
 	color: #999;
-	font: 0.7vw Helvetica, Verdana, sans-serif;
+	font: 8px Helvetica, Verdana, sans-serif;
 	background-color: #FFF;
 	color: #333;
 }
@@ -249,7 +246,7 @@ img.mainImage {
 #password:-ms-input-placeholder {
 	text-decoration: none;
 	color: #999;
-	font: 0.7vw Helvetica, Verdana, sans-serif;
+	font: 8px Helvetica, Verdana, sans-serif;
 	background-color: #FFF;
 	color: #333;
 }
@@ -257,29 +254,29 @@ img.mainImage {
 #password input:-moz-placeholder {
 	text-decoration: none;
 	color: #999;
-	font: 0.7vw Helvetica, Verdana, sans-serif;
+	font: 8px Helvetica, Verdana, sans-serif;
 	background-color: #FFF;
 	color: #333;
 }
 
 #logoButtons {
-	margin-top: 2.0vw;
+	margin-top: 20px;
 }
 
 #searchBox {
 	display: table;
 	margin: 0 auto;
-	width: 30%;
-	height: 1.0vw;
+	width: 150px;
+	height: 10px;
 }
 
 #searchBox::-webkit-input-placeholder {
 	text-decoration: none;
 	color: #999;
-	font: 1.0vw Helvetica, Verdana, sans-serif;
+	font: 10px Helvetica, Verdana, sans-serif;
 	text-transform: uppercase;
 	background-color: #FFF;
-	letter-spacing: 1.6vw;
+	letter-spacing: 10px;
 	display: table;
 	margin: 0 auto;
 	text-align: center;
@@ -288,11 +285,11 @@ img.mainImage {
 #searchBox::-moz-placeholder {
 	text-decoration: none;
 	color: #999;
-	font: 1.0vw/1 Helvetica, Verdana, sans-serif;
+	font: 10px/1 Helvetica, Verdana, sans-serif;
 	text-transform: uppercase;
 	background-color: #FFF;
 	border: 1px solid #666;
-	letter-spacing: 1.6vw;
+	letter-spacing: 10px;
 	display: table;
 	margin: 0 auto;
 	text-align: center;
@@ -301,11 +298,11 @@ img.mainImage {
 #searchBox:-ms-input-placeholder {
 	text-decoration: none;
 	color: #999;
-	font: 1.0vw Helvetica, Verdana, sans-serif;
+	font: 10px Helvetica, Verdana, sans-serif;
 	text-transform: uppercase;
 	background-color: #FFF;
 	border: 1px solid #666;
-	letter-spacing: 1.6vw;
+	letter-spacing: 10px;
 	display: table;
 	margin: 0 auto;
 	text-align: center;
@@ -314,11 +311,11 @@ img.mainImage {
 #searchBox input:-moz-placeholder {
 	text-decoration: none;
 	color: #999;
-	font: 1.0vw Helvetica, Verdana, sans-serif;
+	font: 10px Helvetica, Verdana, sans-serif;
 	text-transform: uppercase;
 	background-color: #FFF;
 	border: 1px solid #666;
-	letter-spacing: 1.6vw;
+	letter-spacing: 10px;
 	display: table;
 	margin: 0 auto;
 	text-align: center;
@@ -341,12 +338,12 @@ li {
 	display: table-cell;
 	float: left;
 	border-right: 1px solid #aaa;
-	padding: 0.1vw 0.8vw;
+	padding: 2px 8px;
 }
 
 a {
 	cursor: pointer;
-	font: 1vw/2 Arial, Helvetica, sans-serif;
+	font: 10px/2 Arial, Helvetica, sans-serif;
 	color: black;
 	text-decoration: none;
 }
@@ -361,7 +358,7 @@ li a {
 	display: block;
 	text-decoration: none;
 	color: #999;
-	font: 1.3vw/1 Helvetica, Verdana, sans-serif;
+	font: 12px/1 Helvetica, Verdana, sans-serif;
 	text-transform: uppercase;
 	transition: all 0.5s ease;
 }
@@ -377,53 +374,53 @@ li.active a {
 
 div.clear {
 	clear: both;
-	height: 1.0vw;
+	height: 10px;
 }
 
 #articleGroup {
 	float: left;
-	width: 69%;
+	width: 500px;
 }
 
 #sideBar {
 	float: right;
-	width: 30%;
+	width: 200px;
 }
 
 p.mainText {
 	color: #000;
 	text-decoration: none;
-	font: 1.5vw/1 Helvetica, Verdana, sans-serif;
+	font: 14px/1 Helvetica, Verdana, sans-serif;
 }
 
 p.authorText {
 	color: #000;
 	text-decoration: none;
-	font: 1vw/1 Helvetica, Verdana, sans-serif;
+	font: 10px/1 Helvetica, Verdana, sans-serif;
 }
 
 p.mainText a {
 	color: #000;
 	text-decoration: none;
-	font: 1.5vw/1 Helvetica, Verdana, sans-serif;
+	font: 14px/1 Helvetica, Verdana, sans-serif;
 }
 
 p.sideText {
 	color: #000;
 	text-decoration: none;
-	font: 1.4vw/1 Helvetica, Verdana, sans-serif;
+	font: 14px/1 Helvetica, Verdana, sans-serif;
 }
 
 p.sideText a {
 	color: #000;
 	text-decoration: none;
-	font: 1.3vw/1 Helvetica, Verdana, sans-serif;
+	font: 12px/1 Helvetica, Verdana, sans-serif;
 }
 
 #latestNews {
 	text-decoration: none;
 	color: #999;
-	font: 1.0vw Helvetica, Verdana, sans-serif;
+	font: 10px Helvetica, Verdana, sans-serif;
 	text-transform: uppercase;
 	background-color: #FFF;
 	border-bottom: 1px solid #666;
@@ -438,7 +435,7 @@ p.sideText a {
 
 div.mainCropped {
 	width: auto;
-	height: 20vw;
+	height: 100px;
 	overflow: hidden;
 	position: relative;
 }
@@ -456,12 +453,12 @@ div.itemeven {
 div.time {
 	color: #000;
 	text-decoration: none;
-	font: 0.6vw/1 Helvetica, Verdana, sans-serif;
+	font: 7px/1 Helvetica, Verdana, sans-serif;
 	display: table;
 	text-align: center;
-	width: 20%;
-	padding-top: 0.5vw;
-	padding-bottom: 0.5vw;
+	width: 50px;
+	padding-top: 5px;
+	padding-bottom: 5px;
 	float: left;
 }
 
@@ -476,8 +473,8 @@ div.latestHeading a {
 	font: 0.8vw/1 Helvetica, Verdana, sans-serif;
 	display: table;
 	text-align: start;
-	padding-top: 0.5vw;
-	padding-bottom: 0.5vw;
+	padding-top:5px;
+	padding-bottom: 5px;
 	float: left;
 }
 
@@ -487,12 +484,12 @@ div.mainArticle {
 
 div.leftArticle {
 	float: left;
-	width: 47%;
+	width: 260px;
 }
 
 div.rightArticle {
 	float: right;
-	width: 47%;
+	width: 260px;
 }
 
 div.sideNews {
@@ -525,7 +522,7 @@ div.latestNewsDisplay {
 
 p {
 	text-decoration: none;
-	font: 1vw/1 Arial, Helvetica, sans-serif;
+	font: 10px/1 Arial, Helvetica, sans-serif;
 }
 
 article {
@@ -533,6 +530,6 @@ article {
 }
 
 #hashtags{
-	margin:1vw;
-	font: 1vw/1 Arial, Helvetica, sans-serif;
+	margin:10px;
+	font: 10px/1 Arial, Helvetica, sans-serif;
 }

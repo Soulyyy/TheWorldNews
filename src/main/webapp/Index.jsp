@@ -13,6 +13,8 @@
 <title>The World</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link rel="stylesheet" type="text/css" href="./css/layout.css">
+<link rel="stylesheet" media="(max-width: 800px)" href="css/tablet.css" />
+<link href="css/tablet.css" media="all and (min-device-width: 481px) and (max-device-width: 760px)" rel="stylesheet" type="text/css" />
 <script src="./lib/jquery-1.11.0.js" type="text/javascript"></script>
 <script type="text/javascript" src="js/mainPage.js"></script>
 <script type="text/javascript" src="js/latestnews.js"></script>
@@ -79,7 +81,7 @@
 						placeholder="Password">
 						
 				<input id="loginbutton" type="submit" value="Log In"/>
-				<a href="html/registerUser.html" id="regi">Not a User? Click here to register</a>
+				<a href="jsp/registerUser.jsp" id="regi">Not a User? Click here to register</a>
 			
 			
 			</form>
