@@ -379,12 +379,12 @@ div.clear {
 
 #articleGroup {
 	float: left;
-	width: 500px;
+	width: 450px;
 }
 
 #sideBar {
 	float: right;
-	width: 200px;
+	width: 250px;
 }
 
 p.mainText {
@@ -435,7 +435,7 @@ p.sideText a {
 
 div.mainCropped {
 	width: auto;
-	height: 100px;
+	height: 150px;
 	overflow: hidden;
 	position: relative;
 }
@@ -484,12 +484,12 @@ div.mainArticle {
 
 div.leftArticle {
 	float: left;
-	width: 260px;
+	width: 220px;
 }
 
 div.rightArticle {
 	float: right;
-	width: 260px;
+	width: 220px;
 }
 
 div.sideNews {
