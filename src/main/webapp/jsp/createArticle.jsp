@@ -117,8 +117,7 @@
 					<input type="checkbox" name="type" id="noscriptArts" value="Arts">Arts
 					<input type="checkbox" name="type" id="noscriptFashion"
 						value="Fashion & Style">Fashion & Style <br /> <br /> <input
-						id="noscriptarticlesubmit" type="submit" value="Submit" /> <input
-						id="noscriptCancel" value="Submit" />
+						id="noscriptarticlesubmit" type="submit" value="Submit" /> 
 				</form>
 
 
