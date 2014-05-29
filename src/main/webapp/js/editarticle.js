@@ -9,7 +9,7 @@ $(this).ready(function() {
         var articledata = new Object();
         articledata.image = $("#Image").val();
         articledata.header = $("#titleInput").val();
-		articledata.content = $("#textArea").val();
+		articledata.content = tinyMCE.activeEditor.getContent();
 		articledata.articlegroup = "News;";
 		articledata.id = params[1];
 		if(document.getElementById('Business').checked) {

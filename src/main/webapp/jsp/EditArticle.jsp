@@ -13,12 +13,14 @@
 <title>The World - News</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link rel="stylesheet" type="text/css" href="../css/editArticle.css">
+<script type="text/javascript" src="../lib/tinymce/tinymce.min.js"></script>
 <script src="../lib/jquery-1.11.0.js" type="text/javascript"></script>
 <script type="text/javascript" src="../js/mainPage.js"></script>
 <script type="text/javascript" src="../js/login.js"></script>
 <script type="text/javascript" src="../js/editarticle.js"></script>
 <script type="text/javascript"
 	src="https://apis.google.com/js/client.js?onload=handleClientLoad"></script>
+	<script type="text/javascript" src="../js/tinymce.js"></script>
 </head>
 <body>
 	<ex:Navigation />
