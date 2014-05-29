@@ -72,22 +72,21 @@ public class LatestNewsController extends HttpServlet {
 			resp.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR,e.getMessage());
 		}
 	}
-	// private class Pinger extends Thread {
+	private class Pinger extends Thread {
 
-	// public Pinger() {
-		// this.start();
-	// }
+	public Pinger() {
+		this.start();
+	}
 
-	// @Override
-	// public synchronized void run() {
-		// while (true) {
-			// sendMessage("");
-			// try {
-				// Thread.sleep(30000);
-			// } catch (InterruptedException e) {
-				// e.printStackTrace();
-			// }
-		// }
-	// }
-}
+	@Override
+	public synchronized void run() {
+		while (true) {
+			sendMessage("");
+			try {
+					resp.getWriter().write("");
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
+	}
 }
