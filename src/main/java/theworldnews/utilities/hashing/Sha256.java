@@ -20,9 +20,10 @@ public class Sha256 {
 				if (hex.length() == 1)
 					asString.append('0');
 				asString.append(hex);
-				return asString.toString();
 			}
 
+			return asString.toString();
+			// CRAP
 		} catch (UnsupportedEncodingException e) {
 			Logger lgr = Logger.getLogger(DisplayQueries.class.getName());
 			lgr.log(Level.SEVERE, e.getMessage(), e);
