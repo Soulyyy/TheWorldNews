@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.URISyntaxException;
 import java.sql.SQLException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -36,7 +37,7 @@ public class NoscriptLoginController extends HttpServlet {
 
 	@Override
 	public void doPost(HttpServletRequest req, HttpServletResponse resp)
-			throws IOException {
+			throws IOException, ServletException {
 		String username = req.getParameter("username");
 		String password = req.getParameter("password");
 		String pw = Sha256.hashSha256(password);
@@ -56,9 +57,11 @@ public class NoscriptLoginController extends HttpServlet {
 				sess.setAttribute("LOGIN_ID", u.id);
 				sess.setAttribute("LOGIN_USER", u.username);
 				sess.setAttribute("LOGIN_RIGHTS", u.accessrights);
+				String uri = req.getRequestURI();
+				String pageName = uri.substring(uri.lastIndexOf("/")+1);
+				RequestDispatcher rd = req.getRequestDispatcher(pageName);
 
-				resp.getWriter().write(
-						"{\"accessRights\": " + u.accessrights + "}");
+				rd.forward(req, resp);
 			}
 		} catch (SQLException | URISyntaxException e) {
 			resp.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR,
