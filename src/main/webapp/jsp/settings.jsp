@@ -60,43 +60,7 @@
 
  		</div>
  		
- 		<noscript>
-             
-                
-                <form id="editingFieldset" action="/noscriptSubmitArticle" method="post">
-                
-                
-					<label class="titleText">Article Title</label>
-                    
-    				<input id="titleInput" name="header" class="input-block" type="text" value="">
-    				
-    				<label class="titleText">Image URL</label>
-                    
-    				<input id="Image" name="image" class="input-block" type="text" value="">
 
-
-    				<label class="titleText">Article Text</label>
-                     
-
-                    <textarea id="textArea" name="content"></textarea>
-                    
-                     <input checked type="checkbox" name="type" id="News" value="News">News
-				<input type="checkbox" name="type" id="Business" value="Business">Business
-				<input type="checkbox" name="type" id="Sports" value="Sports">Sports
-				<input type="checkbox" name="type" id="Science" value="Science">Science
-				<input type="checkbox" name="type" id="Arts" value="Arts">Arts
-				<input type="checkbox" name="type" id="Fashion" value="Fashion & Style">Fashion & Style
- 				<br />
- 				<br />
-
-					<input id="articlesubmit" type="submit" value="Submit"/>
-					<input id="Cancel" value="Submit"/>
-			    </form>
-                
-                
-
-                <!-- Siia tuleb midagi kirjutada -->
-                </noscript>
 
     </div>
     
