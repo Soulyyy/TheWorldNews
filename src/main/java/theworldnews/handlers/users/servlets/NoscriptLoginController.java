@@ -56,12 +56,13 @@ public class NoscriptLoginController extends HttpServlet {
 				sess.setAttribute("LOGIN_ID", u.id);
 				sess.setAttribute("LOGIN_USER", u.username);
 				sess.setAttribute("LOGIN_RIGHTS", u.accessrights);
-				String uri = req.getRequestURI();
+				StringBuffer uri = req.getRequestURL();
+				
 				String pageName = uri.substring(uri.lastIndexOf("/")+1);
-				System.out.println(uri +" "+ pageName);
+				System.out.println(uri.toString() +" "+ pageName);
 				RequestDispatcher rd = req.getRequestDispatcher(pageName);
 //				rd.forward(req, resp);
-				resp.sendRedirect("/Index.jsp");
+				resp.sendRedirect(uri.toString());
 //				resp.sendRedirect(uri);
 			}
 		} catch (SQLException | URISyntaxException e) {
