@@ -1,9 +1,9 @@
 @charset "UTF-8";
 
 html,body {
-	margin-left: 15px;
-	margin-right: 15px;
-	width: 700px;
+	margin-left: 5%;
+	margin-right: 5%;
+	width: auto;
 
 }
 
@@ -11,7 +11,7 @@ html,body {
 
 #header {
 	z-index: 1;
-	width: 700px;
+	width: 600px;
 }
 
 .Head {
@@ -437,12 +437,12 @@ div.clear {
 
 #articleGroup {
 	float: left;
-	width: 445px;
+	width: 400px;
 }
 
 #sideBar {
 	float: right;
-	width: 250px;
+	width: 200px;
 }
 
 p.mainText {
@@ -542,12 +542,12 @@ div.mainArticle {
 
 div.leftArticle {
 	float: left;
-	width: 220px;
+	width: 190px;
 }
 
 div.rightArticle {
 	float: right;
-	width: 220px;
+	width: 190px;
 }
 
 div.sideNews {

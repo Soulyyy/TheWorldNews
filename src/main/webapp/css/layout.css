@@ -1,9 +1,9 @@
 @charset "UTF-8";
 
 html,body {
-	margin-left: 10%;
-	margin-right: auto;
-	width: 80%;
+	margin-left:5%;
+	margin-right:5%;
+	width: auto;
 	overflow-x: hidden;
 }
 
