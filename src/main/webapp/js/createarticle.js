@@ -7,7 +7,7 @@ $(this).ready(function() {
         var articledata = new Object();
         articledata.image = $("#Image").val();
         articledata.header = $("#titleInput").val();
-		articledata.content =tinyMCE.get("#textArea").getContent();
+		articledata.content =tinyMCE.activeEditor.getContent();
 		articledata.articlegroup = "News;";
 		if(document.getElementById('Business').checked) {
 			articledata.articlegroup += "Business;";
