@@ -1,4 +1,3 @@
-
 package theworldnews.handlers.news.servlets;
 
 import java.io.IOException;
@@ -40,7 +39,8 @@ public class LatestNewsController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
+			throws ServletException, IOException {
 		// pinger = new Pinger();
 
 		try (Connection con = DatabaseConnection.getConnection()) {
@@ -48,47 +48,47 @@ public class LatestNewsController extends HttpServlet {
 
 			String[] test = latest.getlatest(con);
 			String[] temp = new String[10];
-			for(int i=0; i<10; i++){
-				   temp[i]=test[i];
+			for (int i = 0; i < 10; i++) {
+				temp[i] = test[i];
 			}
-	
+
 			while (true) {
 				if (test[5].equals(temp[5])) {
 					test = latest.getlatest(con);
+					System.out.println(test);
 					try {
 						resp.getWriter().write("");
 						Thread.sleep(10000);
 					} catch (InterruptedException e) {
 						e.printStackTrace();
 					}
-				}
-				else {
+				} else {
 					String test2 = gson.toJson(test);
 					resp.getWriter().write(test2);
 					break;
 				}
 			}
-		
 
 		} catch (SQLException | URISyntaxException e) {
-			resp.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR,e.getMessage());
+			resp.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR,
+					e.getMessage());
 		}
 	}
 	// private class Pinger extends Thread {
 
-		// public Pinger() {
-			// this.start();
-		// }
+	// public Pinger() {
+	// this.start();
+	// }
 
-		// @Override
-		// public synchronized void run() {
-			// while (true) {
-				// try {
-						// resp.getWriter().write("");
-				// } catch (InterruptedException e) {
-					// e.printStackTrace();
-				// }
-			// }
-		// }
+	// @Override
+	// public synchronized void run() {
+	// while (true) {
+	// try {
+	// resp.getWriter().write("");
+	// } catch (InterruptedException e) {
+	// e.printStackTrace();
+	// }
+	// }
+	// }
 	// }
 }

@@ -51,3 +51,8 @@ $(this).ready(function() {
          
     });
 });
+
+$(function(){
+    tinyMCE.init({ mode: "none", theme: "simple" });
+    tinymce.execCommand("mceAddControl", false, "myTextArea");
+});
