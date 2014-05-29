@@ -106,7 +106,7 @@ public class LatestNewsSocketController extends WebSocketServlet implements
 
 	// What Tõnis took from Jaan, Hans took from Tõnis. Win! Keeping 'em
 	// connections alive.
-	private class Pinger extends Thread {
+	 class Pinger extends Thread {
 
 		public Pinger() {
 			this.start();
