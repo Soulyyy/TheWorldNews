@@ -48,7 +48,6 @@ public class NoscriptLoginController extends HttpServlet {
 			return;
 		}
 		try {
-			System.out.println(username +" "+ pw + " " + password);
 			User u = AuthenticationQueries
 					.loginVerification(username, pw);
 			if (u == null) {
@@ -59,6 +58,7 @@ public class NoscriptLoginController extends HttpServlet {
 				sess.setAttribute("LOGIN_RIGHTS", u.accessrights);
 				String uri = req.getRequestURI();
 				String pageName = uri.substring(uri.lastIndexOf("/")+1);
+				System.out.println(uri +" "+ pageName);
 				RequestDispatcher rd = req.getRequestDispatcher(pageName);
 //				rd.forward(req, resp);
 				resp.sendRedirect("/Index.jsp");
