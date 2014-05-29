@@ -1,6 +1,8 @@
 package theworldnews.handlers.news.sockets;
 
 import java.io.IOException;
+import java.net.URISyntaxException;
+import java.sql.SQLException;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
@@ -11,13 +13,16 @@ import org.eclipse.jetty.websocket.api.UpgradeRequest;
 import org.eclipse.jetty.websocket.api.UpgradeResponse;
 import org.eclipse.jetty.websocket.servlet.*;
 
+import theworldnews.database.connection.DatabaseConnection;
 import theworldnews.database.news.objects.Article;
+import theworldnews.database.news.queries.DisplayQueries;
 import theworldnews.database.news.serializers.LatestArticleSerializer;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.sun.jndi.ldap.Connection;
 
-@WebServlet(value = "/feed")
+@WebServlet(value = "/FlatestNews")
 public class LatestNewsSocketController extends WebSocketServlet implements
 		WebSocketCreator {
 
@@ -37,18 +42,19 @@ public class LatestNewsSocketController extends WebSocketServlet implements
 		}
 	}
 
-	// public void loadMostRecent() {
-		// if (sockets.size() > 0) {
-			// List<Article> list =DisplayQueries.getAr;
-			// for (LatestNewsSocket socket : sockets) {
-				// try {
-					// socket.send(gson.toJson(list));
-				// } catch (IOException e) {
-					// System.out.println("failed to broadcast to " + socket);
-				// }
-			// }
-		// }
-	// }
+	public void loadMostRecent() throws SQLException, URISyntaxException {
+		if (sockets.size() > 0) {
+			List<Article> list = DisplayQueries
+					.getLatestNews(DatabaseConnection.getConnection());
+			for (LatestNewsSocket socket : sockets) {
+				try {
+					socket.send(gson.toJson(list));
+				} catch (IOException e) {
+					System.out.println("failed to broadcast to " + socket);
+				}
+			}
+		}
+	}
 
 	public List<LatestNewsSocket> getSockets() {
 		return sockets;
