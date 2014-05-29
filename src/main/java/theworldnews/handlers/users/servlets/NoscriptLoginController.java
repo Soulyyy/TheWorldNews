@@ -47,7 +47,7 @@ public class NoscriptLoginController extends HttpServlet {
 			return;
 		}
 		try {
-			System.out.println(username +" "+ pw);
+			System.out.println(username +" "+ pw + " " + password);
 			User u = AuthenticationQueries
 					.loginVerification(username, pw);
 			if (u == null) {
