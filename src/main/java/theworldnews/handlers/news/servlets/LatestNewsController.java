@@ -55,6 +55,7 @@ public class LatestNewsController extends HttpServlet {
 				if (test[5].equals(temp[5])) {
 					test = latest.getlatest(con);
 					try {
+						resp.getWriter().write("");
 						Thread.sleep(10000);
 					} catch (InterruptedException e) {
 						e.printStackTrace();
@@ -72,21 +73,21 @@ public class LatestNewsController extends HttpServlet {
 			resp.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR,e.getMessage());
 		}
 	}
-	private class Pinger extends Thread {
+	// private class Pinger extends Thread {
 
-	public Pinger() {
-		this.start();
-	}
+		// public Pinger() {
+			// this.start();
+		// }
 
-	@Override
-	public synchronized void run() {
-		while (true) {
-			sendMessage("");
-			try {
-					resp.getWriter().write("");
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
-		}
-	}
+		// @Override
+		// public synchronized void run() {
+			// while (true) {
+				// try {
+						// resp.getWriter().write("");
+				// } catch (InterruptedException e) {
+					// e.printStackTrace();
+				// }
+			// }
+		// }
+	// }
 }
