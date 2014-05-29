@@ -10,7 +10,7 @@ import java.util.ArrayList;
 public class Search {
 
 	public static ArrayList<String> getsearch(Connection con, String term) {
-		String query = "WITH q AS ( SELECT to_tsquery(?) AS query), ranked AS  ( SELECT id, header, content,image , ts_rank_cd(tsv,query) AS rank FROM newsarticles WITH(INDEX(searchindex)),q WHERE q.query @@ tsv ORDER BY rank DESC LIMIT 10 ) SELECT id,ts_headline(header,q.query), ts_headline(content,q.query)  AS content, image FROM ranked,q ORDER BY ranked ASC";
+		String query = "WITH q AS ( SELECT to_tsquery(?) AS query), ranked AS  ( SELECT id, header, content,image , ts_rank_cd(tsv,query) AS rank FROM newsarticles ,q WHERE q.query @@ tsv ORDER BY rank DESC LIMIT 10 ) SELECT id,ts_headline(header,q.query), ts_headline(content,q.query)  AS content, image FROM ranked,q ORDER BY ranked ASC";
 		try (PreparedStatement pst = con.prepareStatement(query)) {
 			pst.setString(1, term);
 			ResultSet rs = pst.executeQuery();

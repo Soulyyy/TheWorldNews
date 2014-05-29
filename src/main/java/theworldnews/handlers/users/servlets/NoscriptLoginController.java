@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.URISyntaxException;
 import java.sql.SQLException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -36,7 +37,7 @@ public class NoscriptLoginController extends HttpServlet {
 
 	@Override
 	public void doPost(HttpServletRequest req, HttpServletResponse resp)
-			throws IOException {
+			throws IOException, ServletException {
 		String username = req.getParameter("username");
 		String password = req.getParameter("password");
 		String pw = Sha256.hashSha256(password);
@@ -47,7 +48,6 @@ public class NoscriptLoginController extends HttpServlet {
 			return;
 		}
 		try {
-			System.out.println(username +" "+ pw + " " + password);
 			User u = AuthenticationQueries
 					.loginVerification(username, pw);
 			if (u == null) {
@@ -56,9 +56,14 @@ public class NoscriptLoginController extends HttpServlet {
 				sess.setAttribute("LOGIN_ID", u.id);
 				sess.setAttribute("LOGIN_USER", u.username);
 				sess.setAttribute("LOGIN_RIGHTS", u.accessrights);
-
-				resp.getWriter().write(
-						"{\"accessRights\": " + u.accessrights + "}");
+				String uri = req.getContextPath();
+				
+				String pageName = uri.substring(uri.lastIndexOf("/")+1);
+				System.out.println(uri.toString() +" "+ pageName);
+				RequestDispatcher rd = req.getRequestDispatcher(pageName);
+//				rd.forward(req, resp);
+				resp.sendRedirect(uri);
+//				resp.sendRedirect(uri);
 			}
 		} catch (SQLException | URISyntaxException e) {
 			resp.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR,

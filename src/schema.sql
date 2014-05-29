@@ -27,4 +27,4 @@ id SERIAL NOT NULL PRIMARY KEY, userid INTEGER NOT NULL, articleid INTEGER NOT N
 tagname VARCHAR(225) NOT NULL
 );
 
-CREATE INDEX searchindex ON newsarticles;
+CREATE INDEX searchindex ON newsarticles (header, content, author);

@@ -1,9 +1,9 @@
 @charset "UTF-8";
 
 html,body {
-	margin-left: auto;
-	margin-right: auto;
-	width: 80%;
+	margin-left:5%;
+	margin-right:5%;
+	width: auto;
 	overflow-x: hidden;
 }
 
@@ -202,7 +202,7 @@ html,body {
 	border: none;
 	transition: all 0.5s ease;
 	float: right;
-	margin-right: -10%;
+	margin-right: -7%;
 	padding: 0 1.0vw;
 	visibility: hidden;
 	cursor: pointer;
@@ -226,12 +226,12 @@ img.mainImage {
 #loginContainer {
 	position: absolute;
 	float: right;
-	left: 70%;
+	left: 80%;
 	width: 10.0vw;
 	background-color: #FFF;
 	padding: 1.0vw;
 	border: 1px solid #666;
-	height: 10.0vw;
+	height: 14.0vw;
 	visibility: hidden;
 }
 
