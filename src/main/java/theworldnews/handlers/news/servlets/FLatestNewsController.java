@@ -16,7 +16,7 @@ import theworldnews.database.news.objects.Article;
 import theworldnews.database.news.objects.ArticleResponse;
 import theworldnews.database.news.queries.*;
 
-@WebServlet(value = "/FlatestNews")
+@WebServlet(value = "/FlatestNews2")
 public class FLatestNewsController extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
