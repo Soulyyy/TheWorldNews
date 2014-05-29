@@ -218,12 +218,15 @@ img.mainImage {
 
 #loginContainer {
 	position: absolute;
-	float: right;
 	background-color: #FFF;
 	padding: 10px;
 	border: 1px solid #666;
 	height: 160px;
 	visibility: hidden;
+	width: 100px;
+	z-index: 1;
+	left: 20px;
+	top: 40px;
 }
 
 #userName {

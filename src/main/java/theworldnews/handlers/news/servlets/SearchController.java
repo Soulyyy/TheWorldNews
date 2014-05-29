@@ -26,7 +26,7 @@ public class SearchController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		try (Connection con = DatabaseConnection.getConnection()) {
-			String asd =req.getParameter("searchBox");
+			String asd =req.getParameter("q");
 			Gson gson = new Gson();
 			String rl = "";
 			int c = 0;
@@ -57,9 +57,9 @@ public class SearchController extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 	
-		String searchString = req.getParameter("searchBox").trim();
+		String searchString = req.getParameter("q").trim();
 
-		String s = "searchBox=" + searchString;
+		String s = "q=" + searchString;
 
 		resp.sendRedirect("/jsp/Search.jsp?" + s);
 

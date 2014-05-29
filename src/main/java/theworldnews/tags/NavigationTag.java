@@ -25,7 +25,7 @@ public class NavigationTag extends SimpleTagSupport {
 		htmlText.append("<div id=\"search\">");
 
 		htmlText.append("<form method=\"post\" action=\"/searchText\" class=\"form-wrapper\">");
-		htmlText.append("<p><input type=\"text\" id=\"searchBox\" name=\"searchBox\" placeholder=\"Search\"></p>");
+		htmlText.append("<p><input type=\"text\" id=\"searchBox\" name=\"q\" placeholder=\"Search\"></p>");
 		htmlText.append("</form>");
 
 		htmlText.append("</div>");

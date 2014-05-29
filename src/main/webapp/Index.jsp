@@ -45,7 +45,7 @@
 			
 			
 			<form method="post" class="form-wrapper" action="/searchText">
-			<p><input type="text" id="searchBox" name="searchBox" placeholder="Search" /></p>
+			<p><input type="text" id="searchBox" name="q" placeholder="Search" /></p>
 			</form>
 			
 		 </div> 
