@@ -32,7 +32,7 @@ import theworldnews.database.news.serializers.LatestArticleSerializer;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
-@WebServlet(value = "/latestNews")
+@WebServlet(value = "/FlatestNews")
 public class LatestNewsController extends HttpServlet {
 	// private Pinger pinger;
 
