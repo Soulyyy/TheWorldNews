@@ -1,5 +1,5 @@
 $(this).ready(function() {
-	var term = getUrlParameter('searchBox');	
+	var term = getUrlParameter('q');	
 	 $.ajax("/searchText", {
 		type: "GET",
 		dataType:'json',
