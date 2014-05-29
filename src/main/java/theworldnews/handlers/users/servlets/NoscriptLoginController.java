@@ -60,8 +60,9 @@ public class NoscriptLoginController extends HttpServlet {
 				String uri = req.getRequestURI();
 				String pageName = uri.substring(uri.lastIndexOf("/")+1);
 				RequestDispatcher rd = req.getRequestDispatcher(pageName);
-
-				resp.sendRedirect(uri);
+//				rd.forward(req, resp);
+				resp.sendRedirect("/Index.jsp");
+//				resp.sendRedirect(uri);
 			}
 		} catch (SQLException | URISyntaxException e) {
 			resp.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR,
