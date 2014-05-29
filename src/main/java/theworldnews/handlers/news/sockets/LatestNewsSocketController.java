@@ -22,7 +22,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.sun.jndi.ldap.Connection;
 
-@WebServlet(value = "/FlatestNews")
+@WebServlet(value = "/feed")
 public class LatestNewsSocketController extends WebSocketServlet implements
 		WebSocketCreator {
 
