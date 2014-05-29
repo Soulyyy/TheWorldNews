@@ -59,9 +59,9 @@ public class NoscriptLoginController extends HttpServlet {
 				sess.setAttribute("LOGIN_RIGHTS", u.accessrights);
 				String uri = req.getRequestURI();
 				String pageName = uri.substring(uri.lastIndexOf("/")+1);
-				RequestDispatcher rd = getServletContext().getRequestDispatcher(pageName);
+				RequestDispatcher rd = req.getRequestDispatcher(pageName);
 
-				rd.forward(req, resp);
+				resp.sendRedirect(pageName);
 			}
 		} catch (SQLException | URISyntaxException e) {
 			resp.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR,
