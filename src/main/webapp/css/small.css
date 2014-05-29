@@ -536,12 +536,12 @@ div.mainArticle {
 
 div.leftArticle {
 	float: left;
-	width: 190px;
+	width:100%;
 }
 
 div.rightArticle {
 	float: right;
-	width: 190px;
+	width: 100%;
 }
 
 div.sideNews {

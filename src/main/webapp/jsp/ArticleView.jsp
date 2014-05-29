@@ -36,7 +36,7 @@
 		
 		<div id="htcont">
 			<form action="/tagController" method="post">
-				Tag: <input type="text"name="tag"><br>
+				Tag: <input type="text" name="tag"><br>
 				<input type="hidden" name="id" value="<%=request.getParameter("id")%>">
 				<input type="hidden" name="image" value="<%=request.getParameter("image")%>">
 				<input type="submit" value="Submit">

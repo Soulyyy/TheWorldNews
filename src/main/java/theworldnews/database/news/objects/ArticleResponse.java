@@ -36,7 +36,7 @@ public class ArticleResponse {
 					"Article position does not exist");
 		}
 		sb.append("<a href=\"../jsp/ArticleView.jsp?id=")
-				.append(id + "&image=" + img)
+				.append(id + "&amp;image=" + img)
 				.append("\"><div class=mainCropped><img class=\"mainImage\" src=\"")
 				.append(img)
 				.append("\" alt=\"pilt\"></div></a>")
@@ -44,7 +44,7 @@ public class ArticleResponse {
 				.append("By " + firstname + " " + surname)
 				.append("</p>")
 				.append("<p class=\"mainText\"><a href=\"../jsp/ArticleView.jsp?id=")
-				.append(id + "&image=" + img).append("\">").append(header)
+				.append(id + "&amp;image=" + img).append("\">").append(header)
 				.append("</a></p>").append("</div>");
 
 		return sb.toString();
@@ -66,13 +66,13 @@ public class ArticleResponse {
 
 		sb.append("<div class=\"articleView\">")
 				.append("<div class=\"mainCropped\">")
-				.append("<a href=\"../jsp/ArticleView.jsp?id=" + id + "&image="
+				.append("<a href=\"../jsp/ArticleView.jsp?id=" + id + "&amp;image="
 						+ img + "\">")
 				.append("<img class=\"mainImage\" src=\"" + img
 						+ "\" alt=\"pilt\">")
 				.append("</a></div>")
 				.append("<p class=\"mainText\">")
-				.append("<a href=\"../jsp/ArticleView.jsp?id=" + id + "&image="
+				.append("<a href=\"../jsp/ArticleView.jsp?id=" + id + "&amp;image="
 						+ img + "\">" + header + "</a></p>")
 				.append("<p class=\"authorText\">" + "By " + firstname + " "
 						+ surname + "</p>")
