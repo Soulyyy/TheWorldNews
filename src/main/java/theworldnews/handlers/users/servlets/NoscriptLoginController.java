@@ -59,7 +59,7 @@ public class NoscriptLoginController extends HttpServlet {
 				sess.setAttribute("LOGIN_RIGHTS", u.accessrights);
 				String uri = req.getRequestURI();
 				String pageName = uri.substring(uri.lastIndexOf("/")+1);
-				RequestDispatcher rd = req.getRequestDispatcher(pageName);
+				RequestDispatcher rd = getServletContext().getRequestDispatcher(pageName);
 
 				rd.forward(req, resp);
 			}
