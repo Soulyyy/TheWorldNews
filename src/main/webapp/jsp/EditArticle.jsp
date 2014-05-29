@@ -30,7 +30,6 @@
 
 				<ul id="profileNav">
 
-					<li class="profileList"><a href="#">Profile Settings</a></li>
 					<li class="profileList"><a href="createArticle.jsp">Create
 							Article</a></li>
 					<li class="profileList"><a href="EditArticleDisplay.jsp">Edit
