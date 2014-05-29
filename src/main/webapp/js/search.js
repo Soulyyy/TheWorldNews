@@ -4,7 +4,7 @@ $(this).ready(function() {
 		type: "GET",
 		dataType:'json',
 		contentType: 'application/json',
-		data:{searchBox : JSON.stringify({ "term": term})},
+		data:{q : JSON.stringify({ "term": term})},
 		contentType: 'application/json; charset=utf-8',
 		success: function(r) {
 			if (r.length == 0) {
