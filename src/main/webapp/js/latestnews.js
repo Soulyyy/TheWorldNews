@@ -1,6 +1,6 @@
 $(this).ready(function() {
 	firstlatestnews();
-	latestnews(); 
+	// latestnews(); 
  
  
 });
